@@ -4,342 +4,272 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/x-icon" href="pyramid.png">
-  <title>Learn History,Geography & Civic with Samira sir</title>
-  
+  <title>Learn History, Geography & Civic with Samira Sir</title>
   <style>
-        .button-container button {
-    background-color: green;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    margin: 5px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-  .containernxt {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  padding-top: 56.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
-}
-
-/* Then style the iframe to fit in the container div with full height and width */
-.responsive-iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-}
-  .button-container button:hover {
-    color: white;
-    background-color: black;
-    border: 2px solid white;
-  }
-    .subjects {
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', sans-serif;
+      background-image: linear-gradient(130deg, #FFFFFF 0%, #6284FF 33%, #FF0000 66%, #ffffff 100%);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-repeat: no-repeat;
+    }
+    .glass {
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 20px;
+      width: 300px;
+      height: 200px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      width: 100%;
+      height: 100%;
+    }
+    .center {
+      width: 90%;
+      max-width: 400px; /* Adjust maximum width as needed */
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      position: relative;
+    }
+    .center h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .txt_field {
+      position: relative;
+      margin-bottom: 20px;
+    }
+    .txt_field input {
+      width: 100%;
+      padding: 10px 5px;
+      font-size: 16px;
+      border: none;
+      border-bottom: 2px solid #adadad;
+      outline: none;
+    }
+    .txt_field label {
+      position: absolute;
+      top: 50%;
+      left: 5px;
+      transform: translateY(-50%);
+      font-size: 16px;
+      color: #adadad;
+      transition: 0.3s;
+    }
+    .txt_field input:focus ~ label,
+    .txt_field input:valid ~ label {
+      top: -5px;
+      color: #2691d9;
+      font-size: 12px;
+    }
+    .txt_field span::before {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -2px;
+      left: 0;
+      background: #2691d9;
+      transition: 0.3s;
+    }
+    .txt_field input:focus ~ span::before,
+    .txt_field input:valid ~ span::before {
+      width: 100%;
+    }
+    .pass {
+      display: block;
+      margin: -10px 0 20px;
+      color: #a6a6a6;
+      cursor: pointer;
+      text-align: right;
+    }
+    .pass:hover {
+      text-decoration: underline;
+    }
+    input[type="submit"] {
+      width: 100%;
+      padding: 15px;
+      border: none;
+      border-radius: 25px;
+      background: #007bff;
+      color: white;
+      font-size: 18px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    input[type="submit"]:hover {
+      background: #0056b3;
+    }
+    .signup_link {
+      text-align: center;
       margin-top: 20px;
     }
-    .button-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+    .signup_link a {
+      color: #2691d9;
+      text-decoration: none;
     }
-    .button-container button {
+    .signup_link a:hover {
+      text-decoration: underline;
+    }
+    .subjects {
+      display: none;
+      text-align: center;
+      margin-top: 20px;
+    }
+    .subjects button {
       margin: 5px;
       padding: 10px 20px;
-    }
-    /*new contect*/
-    #class-buttons {
-      margin-top: 20px;
-    }
-
-    .button-group {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      margin-bottom: 10px;
-    }
-
-    .button-group button {
-      flex-basis: calc(33.33% - 10px); /* Adjust the width as needed */
-      margin-bottom: 10px;
-      border: none;
-      border-radius: 5px;
-      color: white;
       font-size: 16px;
       cursor: pointer;
-      transition: background-color 0.3s, transform 0.3s;
-    }
-
-    .button-group button:hover {
-      transform: scale(1.05);
-    }
-
-    .history {
-      background-color: brown;
-    }
-
-    .history:hover {
+      background-color: #007bff;
       color: white;
-    background-color: black;
-    border: 2px solid white; /* Darker shade for hover effect */
+      border: none;
+      border-radius: 5px;
+      transition: background 0.3s;
     }
-
-    .geography {
-      background-color: green;
+    .subjects button:hover {
+      background-color: #0056b3;
     }
-
-    .geography:hover {
+    .greeting {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      padding: 10px 20px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid white;
       color: white;
-    background-color: black;
-    border: 2px solid white; /* Darker shade for hover effect */
+      border-radius: 25px;
+      font-size: 16px;
+      cursor: pointer;
     }
-
-    .civic {
-      background-color: blue;
-      color: black; /* Ensure text is readable on yellow background */
-    }
-
-    .civic:hover {
+    .dropdown {
+      display: none;
+      position: absolute;
+      top: 60px;
+      right: 20px;
+      width: 200px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid white;
+      border-radius: 5px;
       color: white;
-    background-color: black;
-    border: 2px solid white; /* Darker shade for hover effect */
+      z-index: 1;
+    }
+    .dropdown.active {
+      display: block;
+    }
+    .dropdown ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 10px;
+    }
+    .dropdown ul li {
+      margin-bottom: 5px;
+    }
+    .logout {
+      display: none;
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      padding: 10px 20px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid white;
+      color: white;
+      border-radius: 25px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    @media (max-width: 600px) {
+      .center {
+        padding: 10px;
+      }
+      .txt_field {
+        margin-bottom: 15px;
+      }
+      .pass {
+        text-align: center;
+        margin-top: 10px;
+      }
+      input[type="submit"] {
+        font-size: 16px;
+      }
+      .signup_link {
+        margin-top: 15px;
+      }
     }
   </style>
-  <link rel="stylesheet" href="images/style.css">
-
-
-   <script src="js/rec.js"></script>
-
+  <script src="js/user.js"></script>
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const username = localStorage.getItem('username');
-      const subjects = JSON.parse(localStorage.getItem('subjects'));
-
-      if (username) {
-        document.getElementById('greeting').textContent = `Hello, ${username}`;
-      }
-
-      if (subjects) {
-        const subjectsContainer = document.getElementById('subjects');
-        subjects.forEach(subject => {
-          const button = document.createElement('button');
-          button.textContent = `${subject.grade} - ${subject.name}`;
-          button.onclick = () => redirectToPage(subject.name, subject.grade);
-          subjectsContainer.appendChild(button);
-        });
-
-        displayGoogleForms(subjects);
-      }
-    });
-
-    function redirectToPage(subject, grade) {
-    
-
-      const key = `${grade}-${subject}`;
-      const url = redirects[key];
-
-      if (url) {
-        window.location.href = url;
-      } else {
-        alert('No redirection link found for this subject and grade.');
-      }
-    }
-
-   
-
-    function displayGoogleForms(subjects) {
-      const formsContainer = document.querySelector('.forms');
-      formsContainer.innerHTML = ''; // Clear previous content
-
-      subjects.forEach(subject => {
-        const subjectDiv = document.createElement('div');
-        subjectDiv.className = 'subject';
-
-        const subjectTitle = document.createElement('h2');
-        subjectTitle.textContent = `Grade ${subject.grade} - ${subject.name.charAt(0).toUpperCase() + subject.name.slice(1)}`;
-        subjectDiv.appendChild(subjectTitle);
-
-        const buttonContainer = document.createElement('div');
-        buttonContainer.className = 'button-container';
-
-        const key = `${subject.grade}-${subject.name}`;
-        const subjectUrls = urls[key];
-
-        if (subjectUrls) {
-          subjectUrls.forEach((url, index) => {
-            const button = document.createElement('button');
-            button.textContent = `Online Test ${index + 1}`;
-            button.onclick = () => window.open(url, '_blank');
-            buttonContainer.appendChild(button);
-          });
-        } else {
-          const noFormsMessage = document.createElement('p');
-          noFormsMessage.textContent = 'No forms available for this subject.';
-          buttonContainer.appendChild(noFormsMessage);
-        }
-
-        subjectDiv.appendChild(buttonContainer);
-        formsContainer.appendChild(subjectDiv);
-      });
-    }
-    
-
-    function displayWallForms(subjects) {
-      const formsContainer = document.querySelector('#class-buttons');
-      formsContainer.innerHTML = ''; // Clear previous buttons
-
-      // Group subjects by their name
-      const groupedSubjects = subjects.reduce((acc, subject) => {
-        acc[subject.name] = acc[subject.name] || [];
-        acc[subject.name].push(subject);
-        return acc;
-      }, {});
-
-      // Create buttons for each group
-      Object.keys(groupedSubjects).forEach(name => {
-        const group = groupedSubjects[name];
-        const groupContainer = document.createElement('div');
-        groupContainer.classList.add('button-group');
-
-        group.forEach((subject, index) => {
-          const gradeSubject = `${subject.grade}-${subject.name}`;
-          const formsUrls = wallFormsUrls[gradeSubject];
-          if (formsUrls) {
-            formsUrls.forEach((url, idx) => {
-              const button = document.createElement('button');
-              button.textContent = `Wordwall ${index * 5 + idx + 1}`; // Calculate unique number for each button
-              button.classList.add(subject.name.toLowerCase()); // Add class for styling
-              button.onclick = () => window.open(url, '_blank');
-              groupContainer.appendChild(button);
-            });
-          }
-        });
-
-        formsContainer.appendChild(groupContainer);
-      });
-    }
-
-    // Fetch the stored subjects and grade from local storage
-    function getStoredSubjects() {
-      const storedData = localStorage.getItem('subjects');
-      return storedData ? JSON.parse(storedData) : [];
-    }
-
-    // Example usage:
-    document.addEventListener('DOMContentLoaded', () => {
-      const subjects = getStoredSubjects();
-      displayWallForms(subjects);
-    
-    });
   
+    function validateForm(event) {
+      event.preventDefault(); // Prevent the form from submitting
+
+      const username = document.querySelector('input[name="text"]').value.toLowerCase();
+      const password = document.querySelector('input[name="password"]').value;
+
+      if (credentials[username] && credentials[username].password === password) {
+        localStorage.setItem('username', username);
+        localStorage.setItem('subjects', JSON.stringify(credentials[username].subjects));
+        
+        // Capture current date and time
+        const now = new Date();
+        const timeString = now.toISOString(); // ISO 8601 format
+
+        // Send data to Google Sheets
+        const formData = new FormData();
+        formData.append('Email', ''); // Add the email field if you have it
+        formData.append('Name', username);
+        formData.append('Time', timeString);
+
+        fetch('https://script.google.com/macros/s/AKfycbyGNqBqdLWTKr-3OM7deo8P8YoeW6iTA5Q-ilI9xDtONklD6G7ESdKKmavHZJFjD9fOQg/exec', {
+          method: 'POST',
+          body: formData
+        }).then(response => {
+          if (response.ok) {
+            window.location.href = 'rec_page.html'; // Redirect to page.html
+          } else {
+            alert('There was an issue with your submission.');
+          }
+        }).catch(error => {
+          console.error('Error:', error);
+          alert('There was an error with your submission.');
+        });
+      } else {
+        alert('Invalid password.');
+      }
+    }
   </script>
 </head>
 <body>
-    <header>
-        <nav>
-          <div class="nav_logo">
-            <a href="#">
-              <img src="images/coffee_logo.png" alt="Coffee Logo" />
-              <h2>Recordings</h2>
-            </a>
-          </div>
-  
-          <input type="checkbox" id="click" />
-          <label for="click">
-            <i class="menu_btn bx bx-menu"></i>
-            <i class="close_btn bx bx-x"></i>
-          </label>
-  
-          <ul>
-            
-            <li><a href="#about">Recordings</a></li>
-           
-            
-            <li><div class="profile"><img src="images/user.png" alt="Profile Picture" class="profile-image"><p>.............</p><div class="greeting" id="greeting">&nbsp&nbsp</div></div></li>
-          </ul>
-        </nav>
-      </header>
-  
-      <!-- Hero Section -->
-      <section class="hero_section">
-        <div class="section_container">
-          <div class="hero_container">
-            <div class="text_section">
-              <h2>Online අධ්‍යාපනයේ Digital නව්‍යකරණය</h2>
-              <h3>සමීර ආරියදාස</h3>
-              <p>
-                6 ශ්‍රේණියේ සිට 11 ශ්‍රේණිය දක්වා ඉතිහාසය,භූගෝල විද්‍යාව සහ පුරවැසි අධ්‍යාපනය
-              </p>
-  
-          
-            </div>
-  
-            <div class="image_section">
-              <img src="images/cofffee_image.png" alt="Coffee" />
-            </div>
-          </div>
+  <div class="glass">
+    <div class="center">
+      <h1>Login</h1>
+      <center><h3>Online Class Portal</h3></center>
+      <form onsubmit="validateForm(event)">
+        <div class="txt_field">
+          <input type="text" name="text" required>
+          <label>Username</label>
+          <span></span>
         </div>
-      </section>
-  
-      <!-- About Us Section -->
-      <section class="about_us" id="about">
-        <div class="section_container">
-          <h2 class="section_title">Recordings</h2>
-          
-          <div class="subjects" id="subjects"></div>
+        <div class="txt_field">
+          <input type="password" name="password" required>
+          <label>Password</label>
+          <span></span>
         </div>
-      </section>
-  
-   
-      <!-- Footer Section -->
-      <footer>
-        <div class="section_container">
-          <div class="footer_section">
-            <div class="footer_logo">
-              <a href="index.html">
-                <img src="images/coffee_logo.png" alt="Coffee Logo" />
-                <h2>Learn History,Geography & Civic <br>with Samira sir</h2>
-              </a>
-            </div>
-  
-            <div class="useful_links">
-              <h3>Useful Links</h3>
-              <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">Recordings</a></li>
-               
-              </ul>
-            </div>
-  
-            <div class="contact_us">
-              <h3>Contact</h3>
-              <ul>
-                <li>
-                  <i class="bx bx-current-location"></i>
-                  <span>Bandarawela, Sri Lanka</span>
-                </li>
-                <li>
-                  <i class="bx bxs-phone-call"></i> <span>+9478 87 666 97</span>
-                </li>
-                <li>
-                  <i class="bx bxs-time-five"></i>
-                  <span>Mon-Sun : 07:00 AM - 7:00 PM</span>
-                </li>
-              </ul>
-            </div>
-  
-            <div class="follow_us">
-              <h3>Follow Us</h3>
-              <a href="https://api.whatsapp.com/send?phone=94788766697&text=Hello%2CI%20am%20interested%20about%20your%20classes.Can%20I%20get%20informations%20about%20them.%F0%9F%99%82" class="fb"><i class="fa fa-whatsapp" aria-hidden="true"></i></i></a>
-              <a href="https://web.facebook.com/people/History-Geography-Civic-With-Samira-Ariyadasa/100083035703991/?_rdc=1&_rdr" class="twitter"><i class="fa fa-facebook"></i></a>
-              <a href="https://www.youtube.com/@samira_sir" class="yt"><i class="fa fa-youtube"></i></a>
-            </div>
-          </div>
-        </div>
-      </footer>
-
+        <input type="submit" value="Login">
+      </form>
+    </div>
+  </div>
 </body>
 </html>
