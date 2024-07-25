@@ -7,32 +7,33 @@
     <title>grade 6 Civic</title>
     <link rel="icon" type="image/x-icon" href="pyramid.png">   
 	<script src="script.js"></script>
-    <style>
-
-body {
+   <style>
+        /* Basic Styles */
+        body {
             margin: 0;
             font-family: Arial, sans-serif;
-            overflow: hidden;
+            overflow: hidden; /* Prevent scrolling */
             background: linear-gradient(to right, #283048, #859398);
-            color: white;
+            color:white;
+
         }
 
         .container {
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
             padding: 20px;
         }
 
         .main-video-container {
-            flex: 2;
-            margin-right: 30px;
+            flex: 1;
+            margin-bottom: 20px;
             position: relative;
         }
 
         .main-video {
             width: 100%;
             height: auto;
-            aspect-ratio: 16 / 9;
+            aspect-ratio: 16 / 9; /* Maintain aspect ratio */
         }
 
         .main-vid-title {
@@ -42,9 +43,6 @@ body {
         }
 
         .video-list-container {
-            flex: 1;
-            overflow-y: auto;
-            height: 80vh;
             display: flex;
             flex-direction: column;
         }
@@ -53,21 +51,19 @@ body {
             margin-bottom: 10px;
             cursor: pointer;
             display: flex;
-            flex-direction: row;
-            align-items: flex-start;
+            flex-direction: column;
+            align-items: center;
         }
 
         .list-video {
-            width: 30%;
-            aspect-ratio: 16 / 9;
-            pointer-events: none;
+            width: 100%;
+            aspect-ratio: 16 / 9; /* Maintain aspect ratio */
+            pointer-events: none; /* Prevent interaction with the iframe */
         }
 
         .list-title {
-            width: 70%;
-            text-align: left;
-            margin-top: 0;
-            margin-left: 10px;
+            text-align: center;
+            margin-top: 5px;
             font-size: 1em;
         }
 
@@ -75,15 +71,42 @@ body {
             font-weight: bold;
         }
 
-        /* Force desktop view on all devices */
-        @media only screen and (max-width: 768px) {
-            html, body {
-                width: 1024px;
-                overflow-x: scroll;
+        /* Responsive Styles */
+        @media (min-width: 768px) {
+            .container {
+                flex-direction: row;
+            }
+
+            .main-video-container {
+                flex: 2;
+                margin-right: 20px;
+            }
+
+            .video-list-container {
+                flex: 1;
+                overflow-y: auto;
+                height: 80vh; /* Adjust height based on the viewport height */
+            }
+
+            .list {
+                flex-direction: row;
+                align-items: flex-start;
+            }
+
+            .list-video {
+                width: 30%; /* Adjust width for larger screens */
+            }
+
+            .list-title {
+                width: 70%;
+                text-align: left;
+                margin-top: 0;
+                margin-left: 10px;
+                font-size: 1em;
             }
         }
 
-        @media only screen and (min-width: 1024px) {
+        @media (min-width: 1024px) {
             .main-video-container {
                 margin-right: 30px;
             }
@@ -92,28 +115,27 @@ body {
                 height: auto;
             }
         }
+		.watermark {
+    position: absolute;
+    left: 3%; top: 3%;
+    color: white;
+    animation: 15s moving-watermark infinite;
+}
 
-        .watermark {
-            position: absolute;
-            left: 3%; top: 3%;
-            color: white;
-            animation: 15s moving-watermark infinite;
-        }
-
-        @keyframes moving-watermark {
-            0%   {left: 3%; top: 3%;}
-            25% {left: 93%; top: 3%;}
-            50% {left: 93%; top: 93%;}
-            75% {left: 3%; top: 93%;}
-            100% {left: 3%; top: 3%;}
-        }
-
-        footer {
-            text-align: center;
-            padding: 3px;
-            background-color: DarkSalmon;
-            color: black;
-        }  </style>
+@keyframes moving-watermark {
+    0%   {left: 3%; top: 3%;}
+    25% {left: 93%; top: 3%;}
+    50% {left: 93%; top: 93%;}
+    75% {left: 3%; top: 93%;}
+    100% {left: 3%; top: 3%;}
+}
+footer {
+  text-align: center;
+  padding: 3px;
+  background-color: DarkSalmon;
+  color: black;
+}
+    </style>
 </head>
 <body>
     <div class="container">
