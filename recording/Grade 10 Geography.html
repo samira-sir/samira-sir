@@ -191,7 +191,8 @@ footer {
       const subjects = JSON.parse(localStorage.getItem('subjects'));
 
       if (username) {
-        document.getElementById('greeting').textContent = `Hello, ${username}`;
+           document.getElementById('greeting').textContent = `${username}`;
+
       }
 
       if (subjects) {
