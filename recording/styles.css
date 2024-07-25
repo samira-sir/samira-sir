@@ -26,3 +26,9 @@
             z-index: 10;
             text-align: center;
         }
+        #video-container:fullscreen #greeting,
+        #video-container:-webkit-full-screen #greeting,
+        #video-container:-moz-full-screen #greeting,
+        #video-container:-ms-fullscreen #greeting {
+            display: block;
+        }
