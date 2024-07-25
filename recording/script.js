@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function() {
         window.location.href = "../index.html";
     }
 });
-document.addEventListener('fullscreenchange', handleFullScreenChange);
+ document.addEventListener('fullscreenchange', handleFullScreenChange);
         document.addEventListener('webkitfullscreenchange', handleFullScreenChange);
         document.addEventListener('mozfullscreenchange', handleFullScreenChange);
         document.addEventListener('MSFullscreenChange', handleFullScreenChange);
@@ -22,3 +22,17 @@ document.addEventListener('fullscreenchange', handleFullScreenChange);
                 greeting.style.display = 'none';
             }
         }
+
+        // Ensure the greeting is displayed when entering full-screen mode
+        function enterFullScreen(element) {
+            if (element.requestFullscreen) {
+                element.requestFullscreen();
+            } else if (element.webkitRequestFullscreen) { /* Safari */
+                element.webkitRequestFullscreen();
+            } else if (element.msRequestFullscreen) { /* IE11 */
+                element.msRequestFullscreen();
+            }
+        }
+
+        const videoContainer = document.getElementById('video-container');
+        videoContainer.addEventListener('dblclick', () => enterFullScreen(videoContainer));
