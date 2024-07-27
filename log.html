@@ -16,24 +16,9 @@
       justify-content: center;
       align-items: center;
       background-repeat: no-repeat;
+      overflow: hidden; /* Prevent scrolling */
     }
-    .glass {
-      background: rgba(255, 255, 255, 0.2);
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      padding: 20px;
-      width: 300px;
-      height: 200px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      width: 100%;
-      height: 100%;
-    }
+    
     .center {
       width: 90%;
       max-width: 400px; /* Adjust maximum width as needed */
@@ -42,6 +27,7 @@
       padding: 20px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       position: relative;
+      z-index: 2; /* Ensure this is above the stars and twinkling, but below the clouds */
     }
     .center h1 {
       text-align: center;
@@ -208,6 +194,114 @@
         margin-top: 15px;
       }
     }
+
+    @keyframes move-background {
+      from {
+        transform: translate3d(0px, 0px, 0px);
+      }
+      to { 
+        transform: translate3d(1000px, 0px, 0px);
+      }
+    }
+    @-webkit-keyframes move-background {
+      from {
+        transform: translate3d(0px, 0px, 0px);
+      }
+      to { 
+        transform: translate3d(1000px, 0px, 0px);
+      }
+    }
+    @-moz-keyframes move-background {    
+      from {
+        transform: translate3d(0px, 0px, 0px);
+      }
+      to { 
+        transform: translate3d(1000px, 0px, 0px);
+      }
+    }
+
+    .background-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      z-index: -1; /* Ensure this is behind the center container */
+    }
+
+    .stars {
+      background: black url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars.png) repeat;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      display: block;
+      z-index: -3;
+    }
+
+    .twinkling {
+      width: 10000px;
+      height: 100%;
+      background: transparent url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/twinkling.png") repeat;
+      background-size: 1000px 1000px;
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      z-index: -2;
+      animation: move-background 70s linear infinite;
+    }
+
+    .clouds {
+      width: 10000px;
+      height: 100%;
+      background: transparent url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/clouds_repeat.png") repeat;
+      background-size: 1000px 1000px;
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      z-index: 1; /* Ensure this is behind the login container */
+      animation: move-background 150s linear infinite;
+    }
+
+    img {
+      height: 70vh;
+      width: 70vh;
+      position: absolute;
+      z-index: 4;
+      right: 20px;
+    }
+    .loading {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  font-size: 18px;
+  color: #007bff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.spinner {
+  border: 8px solid rgba(255, 255, 255, 0.3); /* Light grey */
+  border-radius: 50%;
+  border-top: 8px solid #007bff; /* Blue */
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 10px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
   </style>
   <script src="js/user.js"></script>
   <script>
@@ -249,10 +343,60 @@
         alert('Invalid password.');
       }
     }
+    function validateForm(event) {
+  event.preventDefault(); // Prevent the form from submitting
+
+  const username = document.querySelector('input[name="text"]').value.toLowerCase();
+  const password = document.querySelector('input[name="password"]').value;
+
+  if (credentials[username] && credentials[username].password === password) {
+    localStorage.setItem('username', username);
+    localStorage.setItem('subjects', JSON.stringify(credentials[username].subjects));
+    
+    // Capture current date and time
+    const now = new Date();
+    const timeString = now.toISOString(); // ISO 8601 format
+
+    // Send data to Google Sheets
+    const formData = new FormData();
+    formData.append('Email', ''); // Add the email field if you have it
+    formData.append('Name', username);
+    formData.append('Time', timeString);
+
+    // Show loading animation
+    document.getElementById('loading').style.display = 'block';
+
+    // Clear the form
+    event.target.reset();
+
+    fetch('https://script.google.com/macros/s/AKfycbyGNqBqdLWTKr-3OM7deo8P8YoeW6iTA5Q-ilI9xDtONklD6G7ESdKKmavHZJFjD9fOQg/exec', {
+      method: 'POST',
+      body: formData
+    }).then(response => {
+      if (response.ok) {
+        window.location.href = 'page.html'; // Redirect to page.html
+      } else {
+        alert('There was an issue with your submission.');
+        document.getElementById('loading').style.display = 'none'; // Hide loading animation on error
+      }
+    }).catch(error => {
+      console.error('Error:', error);
+      alert('There was an error with your submission.');
+      document.getElementById('loading').style.display = 'none'; // Hide loading animation on error
+    });
+  } else {
+    alert('Invalid password.');
+  }
+}
+
   </script>
 </head>
 <body>
-  <div class="glass">
+  <div class="background-container"></div>
+
+    <div class="stars"></div>
+    <div class="twinkling"></div>
+    <div class="clouds"></div>
     <div class="center">
       <h1>Login</h1>
       <center><h3>Online Class Portal</h3></center>
@@ -269,6 +413,9 @@
         </div>
         <input type="submit" value="Login">
       </form>
+      <div class="loading" id="loading">
+        <div class="spinner"></div>
+        Loading...</div>
     </div>
   </div>
 </body>
