@@ -6,7 +6,7 @@
   <link rel="icon" type="image/x-icon" href="pyramid.png">
   <title>Learn History, Geography & Civic with Samira Sir</title>
   <style>
-    body {
+       body {
       margin: 0;
       padding: 0;
       font-family: 'Roboto', sans-serif;
@@ -18,48 +18,59 @@
       background-repeat: no-repeat;
       overflow: hidden; /* Prevent scrolling */
     }
-    
-    .center {
-      width: 90%;
-      max-width: 400px; /* Adjust maximum width as needed */
-      background: white;
-      border-radius: 10px;
-      padding: 20px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      position: relative;
-      z-index: 2; /* Ensure this is above the stars and twinkling, but below the clouds */
+
+    .wrapper {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 8px;
+      padding: 30px;
+      text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      background: rgba(255, 255, 255, 0.2);
+      position: relative; /* Ensure it stacks above background layers */
+      z-index: 2; /* Make sure the form appears above the clouds */
     }
+
     .center h1 {
       text-align: center;
       margin-bottom: 20px;
     }
+
     .txt_field {
       position: relative;
       margin-bottom: 20px;
     }
+
     .txt_field input {
       width: 100%;
       padding: 10px 5px;
       font-size: 16px;
       border: none;
-      border-bottom: 2px solid #adadad;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.5); /* Transparent border */
       outline: none;
+      background: transparent; /* Transparent background */
+      color: rgba(255, 255, 255, 0.8); /* Optional: to ensure text is visible */
     }
+
     .txt_field label {
       position: absolute;
       top: 50%;
       left: 5px;
       transform: translateY(-50%);
       font-size: 16px;
-      color: #adadad;
+      color: transparent; /* Transparent color */
       transition: 0.3s;
     }
+
     .txt_field input:focus ~ label,
     .txt_field input:valid ~ label {
       top: -5px;
-      color: #2691d9;
+      color: transparent; /* Keep label transparent when focused */
       font-size: 12px;
     }
+
     .txt_field span::before {
       content: '';
       position: absolute;
@@ -70,10 +81,12 @@
       background: #2691d9;
       transition: 0.3s;
     }
+
     .txt_field input:focus ~ span::before,
     .txt_field input:valid ~ span::before {
       width: 100%;
     }
+
     .pass {
       display: block;
       margin: -10px 0 20px;
@@ -81,9 +94,11 @@
       cursor: pointer;
       text-align: right;
     }
+
     .pass:hover {
       text-decoration: underline;
     }
+
     input[type="submit"] {
       width: 100%;
       padding: 15px;
@@ -95,25 +110,31 @@
       cursor: pointer;
       transition: background 0.3s;
     }
+
     input[type="submit"]:hover {
       background: #0056b3;
     }
+
     .signup_link {
       text-align: center;
       margin-top: 20px;
     }
+
     .signup_link a {
       color: #2691d9;
       text-decoration: none;
     }
+
     .signup_link a:hover {
       text-decoration: underline;
     }
+
     .subjects {
       display: none;
       text-align: center;
       margin-top: 20px;
     }
+
     .subjects button {
       margin: 5px;
       padding: 10px 20px;
@@ -125,9 +146,11 @@
       border-radius: 5px;
       transition: background 0.3s;
     }
+
     .subjects button:hover {
       background-color: #0056b3;
     }
+
     .greeting {
       position: absolute;
       top: 20px;
@@ -140,6 +163,7 @@
       font-size: 16px;
       cursor: pointer;
     }
+
     .dropdown {
       display: none;
       position: absolute;
@@ -150,19 +174,23 @@
       border: 1px solid white;
       border-radius: 5px;
       color: white;
-      z-index: 1;
+      z-index: 3; /* Ensure dropdown is above the clouds */
     }
+
     .dropdown.active {
       display: block;
     }
+
     .dropdown ul {
       list-style-type: none;
       padding: 0;
       margin: 10px;
     }
+
     .dropdown ul li {
       margin-bottom: 5px;
     }
+
     .logout {
       display: none;
       position: absolute;
@@ -176,20 +204,25 @@
       font-size: 16px;
       cursor: pointer;
     }
+
     @media (max-width: 600px) {
       .center {
         padding: 10px;
       }
+
       .txt_field {
         margin-bottom: 15px;
       }
+
       .pass {
         text-align: center;
         margin-top: 10px;
       }
+
       input[type="submit"] {
         font-size: 16px;
       }
+
       .signup_link {
         margin-top: 15px;
       }
@@ -203,6 +236,7 @@
         transform: translate3d(1000px, 0px, 0px);
       }
     }
+
     @-webkit-keyframes move-background {
       from {
         transform: translate3d(0px, 0px, 0px);
@@ -211,6 +245,7 @@
         transform: translate3d(1000px, 0px, 0px);
       }
     }
+
     @-moz-keyframes move-background {    
       from {
         transform: translate3d(0px, 0px, 0px);
@@ -237,7 +272,7 @@
       left: 0;
       right: 0;
       display: block;
-      z-index: -3;
+      z-index: -4; /* Ensure stars are behind the clouds */
     }
 
     .twinkling {
@@ -249,7 +284,7 @@
       right: 0;
       top: 0;
       bottom: 0;
-      z-index: -2;
+      z-index: -3; /* Ensure twinkling is behind the form but above stars */
       animation: move-background 70s linear infinite;
     }
 
@@ -262,52 +297,45 @@
       right: 0;
       top: 0;
       bottom: 0;
-      z-index: 1; /* Ensure this is behind the login container */
-      animation: move-background 150s linear infinite;
+      z-index: 1; /* Ensure clouds are behind the form but above stars and twinkling */
+      animation: move-background 60s linear infinite;
     }
 
-    img {
-      height: 70vh;
-      width: 70vh;
-      position: absolute;
-      z-index: 4;
-      right: 20px;
-    }
     #loading-circle {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 9999;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: white;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
 
-.spinner {
-  border: 16px solid #f3f3f3;
-  border-radius: 50%;
-  border-top: 16px solid #007bff;
-  width: 120px;
-  height: 120px;
-  animation: spin 2s linear infinite;
-}
+    .spinner {
+      border: 16px solid #f3f3f3;
+      border-radius: 50%;
+      border-top: 16px solid #007bff;
+      width: 120px;
+      height: 120px;
+      animation: spin 2s linear infinite;
+    }
 
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
 
-.loading-text {
-  margin-top: 20px;
-  font-size: 18px;
-  color: #007bff;
-}
+    .loading-text {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #007bff;
+    }
   </style>
   <script src="js/user.js"></script>
   <script>
@@ -367,7 +395,7 @@
   <div class="stars"></div>
   <div class="twinkling"></div>
   <div class="clouds"></div>
-    <div class="center">
+    <div class="wrapper">
       <h1>Login</h1>
       <center><h3>Online Class Portal</h3></center>
       <form onsubmit="validateForm(event)">
