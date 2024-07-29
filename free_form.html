@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<!-- Source Codes By CodingNepal - www.codingnepalweb.com -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learn History,Geography & Civic with Samira sir</title>
+    <!-- CSS Link -->
+    <link rel="stylesheet" href="style.css" />
+    <!-- Box Icon Link for Icons -->
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="icon" type="image/x-icon" href="images/coffee_logo.png">
+<style>
+.button-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center the buttons horizontally */
+    gap: 10px; /* Space between the buttons */
+    margin-top: 20px;
+  }
+
+  .button-container a {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    text-decoration: none;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+  }
+
+  .button-container a:hover {
+    background-color: #0056b3;
+  }
+  .notification {
+    position: fixed;
+    bottom: -50px; /* Start hidden */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: red;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease, bottom 0.5s ease;
+    animation: fadeIn 0.5s ease forwards; /* Add fade-in animation */
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      bottom: -50px;
+    }
+    to {
+      opacity: 1;
+      bottom: 20px;
+    }
+  }
+
+  .notification.show {
+    display: block;
+  }
+</style>
+  </head>
+  <body>
+    <!-- Header & Navbar Section -->
+    <header>
+      <nav>
+        <div class="nav_logo">
+          <a href="#">
+            <img src="images/coffee_logo.png" alt="Coffee Logo" />
+            <h2 style="font-size:20px;">Free Online Tests</h2>
+          </a>
+        </div>
+
+        <input type="checkbox" id="click" />
+        <label for="click">
+          <i class="menu_btn bx bx-menu"></i>
+          <i class="close_btn bx bx-x"></i>
+        </label>
+
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#about">Online Tests</a></li>
+          <li><a href="#service">Wordwall</a></li>
+
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero_section">
+      <div class="section_container">
+        <div class="hero_container">
+          <div class="text_section">
+            <h2>Online අධ්‍යාපනයේ Digital නව්‍යකරණය</h2>
+            <h3>සමීර ආරියදාස</h3>
+            <p>
+              6 ශ්‍රේණියේ සිට 11 ශ්‍රේණිය දක්වා ඉතිහාසය,භූගෝල විද්‍යාව සහ පුරවැසි අධ්‍යාපනය
+            </p>
+
+            <div class="hero_section_button">
+            
+            </div>
+          </div>
+
+          <div class="image_section">
+            <img src="images/cofffee_image.png" alt="Coffee" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Us Section -->
+
+
+    <!-- Services Section -->
+    
+    <section class="services" id="service">
+      <h2 class="section_title">Online Tests</h2>
+      <div id="classButtons"></div>
+
+    <!-- Contact Section -->
+
+</section>
+<div id="notification" class="notification">Join with our class to unlock them.</div>
+
+    <footer>
+      <div class="section_container">
+        <div class="footer_section">
+          <div class="footer_logo">
+            <a href="index.html">
+              <img src="images/coffee_logo.png" alt="Coffee Logo" />
+              <h2>Learn History,Geography & Civic <br>with Samira sir</h2>
+            </a>
+          </div>
+
+          <div class="useful_links">
+            <h3>Useful Links</h3>
+            <ul>
+              <li><a href="#about">About</a></li>
+              <li><a href="#service">Lessons</a></li>
+              <li><a href="#why">Online Tests</a></li>
+              <li><a href="#gallery">Student's Ideas</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+
+          <div class="contact_us">
+            <h3>Contact</h3>
+            <ul>
+              <li>
+                <i class="bx bx-current-location"></i>
+                <span>Bandarawela, Sri Lanka</span>
+              </li>
+              <li>
+                <i class="bx bxs-phone-call"></i> <span>+9478 87 666 97</span>
+              </li>
+              <li>
+                <i class="bx bxs-time-five"></i>
+                <span>Mon-Sun : 07:00 AM - 7:00 PM</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="follow_us">
+            <h3>Follow Us</h3>
+            <a href="https://api.whatsapp.com/send?phone=94788766697&text=Hello%2CI%20am%20interested%20about%20your%20classes.Can%20I%20get%20informations%20about%20them.%F0%9F%99%82" class="fb"><i class="fa fa-whatsapp" aria-hidden="true"></i></i></a>
+            <a href="https://web.facebook.com/people/History-Geography-Civic-With-Samira-Ariyadasa/100083035703991/?_rdc=1&_rdr" class="twitter"><i class="fa fa-facebook"></i></a>
+            <a href="https://www.youtube.com/@samira_sir" class="yt"><i class="fa fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+<script>
+  const urls = {
+    '6-history': [
+            'https://forms.gle/dqMfRjuTM96cR79z6',
+            'https://forms.gle/Tz1F22ypczRw37sx5',
+            'https://forms.gle/54aCqySvt59Pj3Ud8',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            
+          ],
+          '6-geography': [
+            'https://forms.gle/Y6wCEybEai1KaZhw9',
+            'https://forms.gle/J2va8KpzonWBE7j69',
+            'https://forms.gle/ieJxFuaeYChvv1RH7',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+          ],
+          '6-civic': [
+            'https://forms.gle/EJEhVcmaaQwuJzjb6',
+            'https://forms.gle/SQ2Z9MwXgTMr6L4V6',
+            'https://forms.gle/FPWMoBiH9ij8kiAW6',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            
+          ],
+          '7-history': [
+            'https://forms.gle/LjZeh7qScjvPczGCA',
+            'https://forms.gle/FCa4zhMdLCr1v1LUA',
+            'https://forms.gle/K5SzoBuZnbeZWoJW9',
+            '',
+            '',
+            '',
+            '',
+            '',            
+            '',
+            '',
+            '',
+            '',
+            '',
+          ],
+          '7-geography': [
+            'https://forms.gle/3SXPSS6kZpcYERtQ7',
+            'https://forms.gle/8Rvo9FD2q82aWMFPA',
+            '',
+            '',
+            '',
+            '',
+            '',           
+             '',
+            '',
+            '',
+            '',
+            '',            
+            '',
+            '',
+            '',
+            '',
+            '',
+            
+          ],
+          '7-civic': [
+            '',
+            '',
+            'https://forms.gle/EWx2M48esoCybbQG7',
+            'https://forms.gle/fE8GqS47qXYQrpy76',
+            'https://forms.gle/KqfEVgajocEUXA4t8',
+            '',
+            '',
+            '',
+            '',
+            '',         
+              '',
+            '',
+            '',
+            '',
+            '',            
+            '',
+            '',
+            '',
+            '',
+            '',
+            
+          ],
+          '8-history': [
+            'https://forms.gle/zeQNetJE7VFsRyV56',
+            'https://forms.gle/5BswrnfSdqna9Rh99',
+            'https://forms.gle/cA9QR3naz83uuREp6',
+            '',
+            '',
+            '',
+            '',
+            '',            
+            '',
+            '',
+            '',
+            '',
+            '',
+          ],
+          '8-geography': [
+            'https://forms.gle/U2yt6QW9ncp6cGRV9',
+            'https://forms.gle/1iYmfG7isELavpUr7',
+            'https://forms.gle/Ak7XXZeiiw7gxCCX7',
+            '',
+            '',
+            '',
+            '',
+            '',
+          ],
+          '8-civic': [
+            'https://forms.gle/ZB23X5kG87CBJPvLA',
+            'https://forms.gle/ipDKJPzotBJMzXyN8',
+            'https://forms.gle/mB7B7fccYKHYS7PD8',
+            '',
+            '',
+            '',
+            '',
+            '',           
+             '',
+            '',
+            '',
+            '',
+            '',
+          ],
+          '9-history': [
+            'https://forms.gle/D2CNSBojBEseVdjA6',
+            '',
+            '',
+            '',
+            '',
+            '',          
+              '',
+            '',
+            '',
+            '',
+            '',
+  
+          ],
+          '9-geography': [
+            'https://forms.gle/MLUqPuMAqffNsK4p6',
+            '',
+            '',
+            '',
+            '',
+            '',            '',
+            '',
+            '',
+            '',
+            '',
+            ''
+          ],
+          '9-civic': [
+            '',
+            '',
+            '',
+            '',
+            '',
+
+            '',            '',
+            '',
+            '',
+            '',
+            '',
+          ],
+          '10-history': [
+            'https://forms.gle/jM551j8wik78g2p69',
+            '',
+            '',
+            '',
+            '',
+            '',            '',
+            '',
+            '',
+            '',
+            '',
+          ],
+          '10-geography': [
+          '',
+            '',
+            '',
+            '',
+            '',            '',
+            '',
+            '',
+            '',
+            '',
+          ],
+          '10-civic': [
+          '',
+            '',
+            '',
+            '',
+            '',
+          ],
+          '11-history': [
+          '',
+            '',
+            '',
+            '',
+            '',            '',
+            '',
+            '',
+            '',
+            '',
+          ],
+          '11-geography': [
+          '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+          ],
+          '11-civic': [
+          '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+
+          ]
+      };
+      const classButtons = document.getElementById('classButtons');
+  const notification = document.getElementById('notification');
+
+  Object.keys(urls).forEach(subject => {
+    const classSection = document.createElement('div');
+    classSection.className = 'class-section';
+    const [grade, subjectName] = subject.split('-');
+    const heading = document.createElement('h2');
+    heading.textContent = `Class ${grade} - ${subjectName.charAt(0).toUpperCase() + subjectName.slice(1)}`;
+    classSection.appendChild(heading);
+
+    const buttonContainer = document.createElement('div');
+    buttonContainer.className = 'button-container';
+
+    urls[subject].forEach((url, index) => {
+      const button = document.createElement('a');
+      button.textContent = `Online Test ${index + 1}`;
+      button.onclick = function(event) {
+        if (url === '') {
+          event.preventDefault();
+          showNotification();
+        } else {
+          window.open(url, '_blank');
+        }
+      };
+      buttonContainer.appendChild(button);
+    });
+
+    classSection.appendChild(buttonContainer);
+    classButtons.appendChild(classSection);
+  });
+
+  function showNotification() {
+    notification.classList.add('show');
+    setTimeout(() => {
+      notification.classList.remove('show');
+    }, 3000);
+  }
+</script>
+  </body>
+</html>
