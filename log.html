@@ -18,7 +18,31 @@
       background-repeat: no-repeat;
       overflow: hidden; /* Prevent scrolling */
     }
+ .alert {
+      padding: 20px;
+      background-color: #f44336;
+      color: white;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 10;
+      text-align: center;
+    }
 
+    .closebtn {
+      margin-left: 15px;
+      color: white;
+      font-weight: bold;
+      float: right;
+      font-size: 22px;
+      line-height: 20px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .closebtn:hover {
+      color: black;
+    }
     .wrapper {
       width: 100%;
       max-width: 500px;
@@ -393,6 +417,10 @@
   </script>
 </head>
 <body>
+    <div class="alert">
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+    <strong>මෙය පංති සඳහා සහභාගී වන සිසුන් සඳහා පමණි.This is only for students attending classes</strong>
+  </div>
   <div class="background-container"></div>
 
   <div class="stars"></div>
