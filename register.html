@@ -242,8 +242,8 @@
 
   <div class="wrapper">
     <h1>Register</h1>
-    <form method="POST" action="https://script.google.com/macros/s/AKfycbyIMewPYtfmcN5yxLjUMA6BheaqvXKS08BSkDI40QKqDFcQHamAbcxRmmsMsq9o1rdW/exec" onsubmit="return redirectToIndex()">
-      <label for="name">Userame:</label>
+    <form method="POST" action="https://script.google.com/macros/s/AKfycbyIMewPYtfmcN5yxLjUMA6BheaqvXKS08BSkDI40QKqDFcQHamAbcxRmmsMsq9o1rdW/exec" onsubmit="return validateForm()">
+      <label for="name">Username:</label>
       <div class="input-field">
         <input name="Name" type="text" id="name" placeholder="ඔයාගේ මුල් නම" required>
       </div>
@@ -251,6 +251,11 @@
       <label for="password">Password:</label>
       <div class="input-field">
         <input name="Password" type="password" id="password" placeholder="ඔබ කැමති ඕනෑම මුරපදයක්" required>
+      </div>
+
+      <label for="confirm_password">Confirm Password:</label>
+      <div class="input-field">
+        <input name="ConfirmPassword" type="password" id="confirm_password" placeholder="මුරපදය තහවුරු කරන්න" required>
       </div>
       
       <label for="class">Class:</label>
@@ -271,11 +276,21 @@
   </div>
 
   <script>
+    function validateForm() {
+      var password = document.getElementById("password").value;
+      var confirmPassword = document.getElementById("confirm_password").value;
+      if (password != confirmPassword) {
+        alert("Passwords do not match");
+        return false; // Prevent form submission
+      }
+      redirectToIndex();
+      return true; // Allow form submission
+    }
+
     function redirectToIndex() {
       setTimeout(function() {
         window.location.href = 'index.html';
       }, 1000); // Redirect after 1 second to allow form submission
-      return true; // Allow form submission
     }
   </script>
 </body>
