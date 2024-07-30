@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/x-icon" href="pyramid.png">
+  <link rel="stylesheet" href="chat bot/styles.css" />
   <title>Learn History, Geography & Civic with Samira Sir</title>
   <style>
        body {
@@ -391,7 +392,17 @@ async function validateForm(event) {
   </script>
 </head>
 <body>
-  
+   <div id="chatbot-icon">💬</div>
+
+<div id="chatbot">
+    <div id="chatbot-header">Chatbot Assistant(say help)</div>
+    <div id="chatbot-messages"></div>
+    <div id="chatbot-input">
+        <input type="text" id="chatbot-input-field" placeholder="Say help to get help....">
+        <button id="chatbot-send">Send</button>
+    </div>
+</div>
+   <script src="js/user.js"></script>
     <div class="wrapper">
       <h1 style="color:white;">Login</h1>
       <center><h3 style="color:white;">Recordings</h3></center>
