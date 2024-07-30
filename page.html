@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/x-icon" href="pyramid.png">
   <title>Learn History,Geography & Civic with Samira sir</title>
+  
+  <link rel="stylesheet" href="chat bot/styles.css">
+
   <style>
         .button-container button {
     background-color: green;
@@ -236,8 +239,11 @@
     });
   
   </script>
+  
 </head>
 <body>
+      <script src="chat bot/script.js"></script>
+
     <header>
         <nav>
           <div class="nav_logo">
@@ -341,7 +347,16 @@
     >Recordings</button></center></a>
       
       </section>
+<div id="chatbot-icon">💬</div>
 
+<div id="chatbot">
+    <div id="chatbot-header">Chatbot Assistant(say help)</div>
+    <div id="chatbot-messages"></div>
+    <div id="chatbot-input">
+        <input type="text" id="chatbot-input-field" placeholder="Say help to get help....">
+        <button id="chatbot-send">Send</button>
+    </div>
+</div>
       <!-- Footer Section -->
       <footer>
         <div class="section_container">
