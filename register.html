@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Register</title>
   <link rel="icon" type="image/x-icon" href="pyramid.png">
+  <link rel="stylesheet" href="chat bot/styles.css">
+
   <style>
     @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@200;300;400;500;600;700&display=swap");
 
@@ -253,7 +255,17 @@
       <p>Already have an account? <a href="log.html">Login here</a></p>
     </div>
   </div>
+    <script src="chat bot/script.js"></script>
+<div id="chatbot-icon">💬</div>
 
+<div id="chatbot">
+    <div id="chatbot-header">Chatbot Assistant(say help)</div>
+    <div id="chatbot-messages"></div>
+    <div id="chatbot-input">
+        <input type="text" id="chatbot-input-field" placeholder="Say help to get help....">
+        <button id="chatbot-send">Send</button>
+    </div>
+</div>
   <script>
     function validateForm() {
       var password = document.getElementById("password").value;
