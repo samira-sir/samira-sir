@@ -1,0 +1,103 @@
+
+
+    #chatbot-icon {
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+        background-color: #007bff;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-size: 24px;
+        cursor: pointer;
+    }
+
+    #chatbot {
+        position: fixed;
+        bottom: 80px;
+        left: 20px;
+        width: 300px;
+        max-height: 400px;
+        background-color: white;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        display: none;
+        flex-direction: column;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    #chatbot-header {
+        background-color: #007bff;
+        color: white;
+        padding: 10px;
+        text-align: center;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+
+    #chatbot-messages {
+        padding: 10px;
+        flex-grow: 1;
+        overflow-y: auto;
+    }
+
+    .message {
+        margin: 5px 0;
+    }
+
+    .user-message {
+        text-align: right;
+        color: #007bff;
+    }
+
+    .bot-message {
+        text-align: left;
+        color: #333;
+    }
+
+    .topic-button {
+        display: block;
+        margin: 5px 0;
+        padding: 5px 10px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        text-align: left;
+    }
+
+    #chatbot-input {
+        display: flex;
+        padding: 10px;
+        border-top: 1px solid #ccc;
+    }
+
+    #chatbot-input input {
+        flex-grow: 1;
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    #chatbot-input button {
+        margin-left: 10px;
+        padding: 5px 10px;
+        border: none;
+        background-color: #007bff;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .link-button {
+        background-color: #28a745;
+    }
+
+    .follow-up-button {
+        background-color: #dc3545;
+    }
