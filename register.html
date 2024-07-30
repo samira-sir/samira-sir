@@ -64,14 +64,6 @@
       z-index: -1; /* Ensure this is behind the center container */
     }
 
-
-
-   
-
-   
-
-
-
     .wrapper {
       width: 90%;
       max-width: 400px;
@@ -200,7 +192,7 @@
 
 
   <div class="wrapper">
-    <h1>Register For Learn History,Geography & Civic with Samira sir</h1>
+    <h1>Register For Learn History, Geography & Civic with Samira sir</h1>
     <form method="POST" action="https://script.google.com/macros/s/AKfycbyIMewPYtfmcN5yxLjUMA6BheaqvXKS08BSkDI40QKqDFcQHamAbcxRmmsMsq9o1rdW/exec" onsubmit="return validateForm()">
       <label for="name">Username:</label>
       <div class="input-field">
@@ -226,6 +218,11 @@
       <div class="input-field">
         <input name="Subjects" type="text" id="subjects" placeholder="ඔබ සම්බන්ධ වී ඇති විෂයයන් " required>
       </div>
+
+      <label for="security_key">Security Key:</label>
+      <div class="input-field">
+        <input type="text" id="security_key" placeholder="Security Key" required>
+      </div>
       
       <button type="submit">Register</button>
     </form>
@@ -238,10 +235,19 @@
     function validateForm() {
       var password = document.getElementById("password").value;
       var confirmPassword = document.getElementById("confirm_password").value;
+      var securityKey = document.getElementById("security_key").value;
+      var validKeys = ['1520', '4521', '7845', '9632', '5621', '7521'];
+
       if (password != confirmPassword) {
         alert("Passwords do not match");
         return false; // Prevent form submission
       }
+
+      if (!validKeys.includes(securityKey)) {
+        alert("Wrong Security Code");
+        return false; // Prevent form submission
+      }
+
       redirectToIndex();
       return true; // Allow form submission
     }
