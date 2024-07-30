@@ -5,9 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/x-icon" href="pyramid.png">
   <title>Learn History,Geography & Civic with Samira sir</title>
-  
-
-
   <style>
         .button-container button {
     background-color: green;
@@ -88,6 +85,21 @@
     background-color: black;
     border: 2px solid white; /* Darker shade for hover effect */
     }
+    .button-container button {
+  background-color: green;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.button-container button:hover {
+  color: white;
+  background-color: black;
+  border: 2px solid white;
+}
 
     .geography {
       background-color: green;
@@ -115,6 +127,7 @@
 
    <script src="js/zoom.js"></script>
    <script src="js/form.js"></script>
+   <script src="js/pdf.js"></script>
    <script src="js/wordwall.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -237,13 +250,59 @@
       displayWallForms(subjects);
     
     });
-  
+
+    document.addEventListener('DOMContentLoaded', () => {
+  const username = localStorage.getItem('username');
+  const subjects = JSON.parse(localStorage.getItem('subjects'));
+
+  if (username) {
+    document.getElementById('greeting').textContent = `Hello, ${username}`;
+  }
+
+  if (subjects) {
+    displayClassButtons(subjects);
+  }
+});
+
+
+
+function displayClassButtons(subjects) {
+  const container = document.getElementById('content-container');
+  container.innerHTML = '';
+
+  subjects.forEach(subject => {
+    const classSubject = `${subject.grade}-${subject.name}`;
+    const urls = pdfUrls[classSubject];
+
+    if (urls) {
+      urls.forEach((url, index) => {
+        const button = document.createElement('button');
+        button.textContent = `${classSubject} - PDF ${index + 1}`;
+        button.onclick = () => openPdfInBlankWindow(url);
+        container.appendChild(button);
+      });
+    }
+  });
+}
+
+function openPdfInBlankWindow(url) {
+  window.open(url, '_blank');
+}
+
+// Function to change button text
+function changeButtonText(oldText, newText) {
+  const buttons = document.querySelectorAll('#content-container button');
+  buttons.forEach(button => {
+    if (button.textContent === oldText) {
+      button.textContent = newText;
+    }
+  });
+}
+
+
   </script>
-  
 </head>
 <body>
-      
-
     <header>
         <nav>
           <div class="nav_logo">
@@ -301,7 +360,7 @@
       <section class="about_us" id="about">
         <div class="section_container">
           <h2 class="section_title">Zoom Links</h2>
-          
+
           <div class="subjects" id="subjects"></div>
         </div>
       </section>
@@ -324,7 +383,7 @@
       <!-- Gallery Section -->
       <section class="gallery" id="gallery">
         <h2 class="section_title" style="color:white;">Tutes</h2>
-        <div id="content-container"></div>
+        <div id="content-container" class="button-container"></div>
       </section>
     
       <!-- Contact Section -->
