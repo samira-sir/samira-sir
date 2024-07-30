@@ -1,37 +1,36 @@
 /*Css Chatbot not finished z-index-4;*/
 
-    #chatbot-icon {
-        position: fixed;
-        bottom: 20px;
-        left: 20px;
-        background-color: #007bff;
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: white;
-        font-size: 24px;
-        cursor: pointer;
-        z-index:4;
-        
-       
-    }
+   #chatbot-icon {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background-color: #007bff;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 1000;
+        }
 
-    #chatbot {
-        position: fixed;
-        bottom: 80px;
-        left: 20px;
-        width: 300px;
-        max-height: 400px;
-        background-color: white;
-        border: 1px solid #ccc;
-        border-radius: 10px;
-        display: none;
-        flex-direction: column;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
+        #chatbot {
+            position: fixed;
+            bottom: 80px;
+            left: 20px;
+            width: 300px;
+            max-height: 400px;
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            display: none;
+            flex-direction: column;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 999; /* Ensure the chatbot is above other elements */
+        }
 
     #chatbot-header {
         background-color: #007bff;
