@@ -13,6 +13,8 @@
       rel="stylesheet"
     />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="chat bot/styles.css">
+
 <link rel="icon" type="image/x-icon" href="images/coffee_logo.png">
   </head>
   <body>
@@ -67,7 +69,16 @@
         </div>
       </div>
     </section>
+<div id="chatbot-icon">💬</div>
 
+<div id="chatbot">
+    <div id="chatbot-header">Chatbot Assistant(say help)</div>
+    <div id="chatbot-messages"></div>
+    <div id="chatbot-input">
+        <input type="text" id="chatbot-input-field" placeholder="Say help to get help....">
+        <button id="chatbot-send">Send</button>
+    </div>
+</div>
     <!-- About Us Section -->
     <section class="about_us" id="about">
       <div class="section_container">
@@ -244,6 +255,8 @@ Paid Lessons
         </div>
       </div>
     </footer>
+        <script src="chat bot/script.js"></script>
+
     <script>
                   const reviewsData = [
             {
