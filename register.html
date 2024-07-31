@@ -16,30 +16,30 @@
       box-sizing: border-box;
       font-family: "Open Sans", sans-serif;
     }
-.floating-btn {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 180px;
-    height: 60px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 50%;
-    font-size: 30px;
-    cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    transition: background-color 0.3s, transform 0.3s;
-}
+    .floating-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 180px;
+      height: 60px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      font-size: 30px;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      transition: background-color 0.3s, transform 0.3s;
+    }
 
-.floating-btn:hover {
-    background-color: #0056b3;
-    transform: scale(1.1);
-}
+    .floating-btn:hover {
+      background-color: #0056b3;
+      transform: scale(1.1);
+    }
 
-.floating-btn:focus {
-    outline: none;
-}
+    .floating-btn:focus {
+      outline: none;
+    }
     .alert {
       padding: 20px;
       background-color: #f44336;
@@ -284,59 +284,50 @@
       <button type="submit">Register</button>
     </form>
     <div class="login-link">
-      <p>Already have an account? <a href="log.html">Login here</a></p>
+      <p>Already have an account? <a href="log.html">Login</a></p>
     </div>
   </div>
-    
-<div id="chatbot-icon">💬</div>
 
-<div id="chatbot">
-    <div id="chatbot-header">Chatbot Assistant(say help)</div>
-    <div id="chatbot-messages"></div>
-    <div id="chatbot-input">
-        <input type="text" id="chatbot-input-field" placeholder="Say help to get help....">
-        <button id="chatbot-send">Send</button>
-    </div>
-</div>
+  <button class="floating-btn" onclick="location.href='../../index.html';">Main Menu</button>
+  <img src="pyramid.png" alt="Pyramid">
+
   <script>
     function validateForm() {
-      var password = document.getElementById("password").value;
-      var confirmPassword = document.getElementById("confirm_password").value;
-      var securityKey = document.getElementById("security_key").value;
-      var validKeys = ['1520', '4521', '7845', '9632', '5621', '7521'];
+      var password = document.getElementById('password').value;
+      var confirmPassword = document.getElementById('confirm_password').value;
+      var securityKey = document.getElementById('security_key').value;
 
-      if (password != confirmPassword) {
-        showAlert("Passwords do not match");
-        return false; // Prevent form submission
+      if (password !== confirmPassword) {
+        showAlert("Passwords do not match.");
+        return false;
       }
 
-      if (!validKeys.includes(securityKey)) {
-        showAlert("Wrong Security Code");
-        return false; // Prevent form submission
+      if (securityKey !== 'SOH2023@STUDENT') {
+        showAlert("Invalid Security Key. Please use the correct one.");
+        return false;
       }
 
-      redirectToIndex();
-      return true; // Allow form submission
-    }
+      // Show the custom alert with "Registration Success" message
+      showAlert("Registration Success");
 
-    function redirectToIndex() {
+      // Redirect to log.html after 2 seconds
       setTimeout(function() {
-       
-        showAlert("Registration Success");
-        2000
-         window.location.href = '';
-      }, 1000); // Redirect after 1 second to allow form submission
+        window.location.href = 'log.html';
+      }, 2000);
+
+      return false;
     }
 
     function showAlert(message) {
-      var alertBox = document.getElementById("customAlert");
+      var customAlert = document.getElementById("customAlert");
       var alertMessage = document.getElementById("alertMessage");
       alertMessage.textContent = message;
-      alertBox.style.display = "block";
+      customAlert.style.display = "block";
     }
 
     function closeCustomAlert() {
-      document.getElementById("customAlert").style.display = "none";
+      var customAlert = document.getElementById("customAlert");
+      customAlert.style.display = "none";
     }
   </script>
 </body>
