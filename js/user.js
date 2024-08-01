@@ -17,7 +17,7 @@ const credentials = {
     pranami: { password: 'Zt4#Fq9&', subjects: [{ name: 'geography', grade: 7 }, { name: 'history', grade: 7 },] },
     vonadi: { password: 'Ns8%Kw3@', subjects: [{ name: 'history', grade: 7 }] },
     januni: { password: 'Hj2&Yx7%', subjects: [{ name: 'history', grade: 7 }] },
-    radheesha: { password: 'Qp9@Gs4&', subjects: [{ name: 'history', grade: 7 }] },
+    radheesha: { password: 'rmr712', subjects: [{ name: 'history', grade: 7 }] },
     chamuditha: { password: 'Xm3&Ju8%', subjects: [{ name: 'geography', grade: 7 },{ name: 'history', grade: 7 },{ name: 'civic', grade: 7 }] },
     sansala: { password: 'Wo6$Ep1@', subjects: [{ name: 'history', grade: 7 },{ name: 'geography', grade: 7 },{ name: 'civic', grade: 7 }] },
     sadew: { password: 'Ft9#Vw2&', subjects: [{ name: 'history', grade: 7 },{ name: 'geography', grade: 7 },{ name: 'civic', grade: 7 }] },    
