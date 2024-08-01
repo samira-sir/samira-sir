@@ -22,7 +22,7 @@ const credentials = {
     sansala: { password: 'Wo6$Ep1@', subjects: [{ name: 'history', grade: 7 },{ name: 'geography', grade: 7 },{ name: 'civic', grade: 7 }] },
     sadew: { password: 'Ft9#Vw2&', subjects: [{ name: 'history', grade: 7 },{ name: 'geography', grade: 7 },{ name: 'civic', grade: 7 }] },    
     samindya: { password: 'samindi', subjects: [{ name: 'geography', grade: 7 },{ name: 'history', grade: 7 }] },
-    kulsum: { password: 'Ts2&Yx8#', subjects: [{ name: 'geography', grade: 7 },{ name: 'history', grade: 7 },{ name: 'civic', grade: 7 }] },
+    kulsum: { password: 'MKM 2812', subjects: [{ name: 'geography', grade: 7 },{ name: 'history', grade: 7 },{ name: 'civic', grade: 7 }] },
     chenul: { password: 'Me7%Pq3@', subjects: [{ name: 'geography', grade: 7 },{ name: 'history', grade: 7 }] },        
     sandeepa: { password: 'Kf5@Hj2&', subjects: [{ name: 'history', grade: 7 },{ name: 'geography', grade: 7 }] },
     anneq: { password: 'Ir1&Lw9%', subjects: [{ name: 'history', grade: 7 },] },
