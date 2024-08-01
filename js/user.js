@@ -52,7 +52,7 @@ const credentials = {
     eeshara: { password: 'Hp6@Qv3&', subjects: [{ name: 'history', grade: 8 }] },
     kithmina: { password: 'Rt3%Fu9@', subjects: [{ name: 'history', grade: 8 }] },
     lahiru: { password: 'Lahiru@2011', subjects: [{ name: 'history', grade: 8 },{ name: 'geography', grade: 8 }] },
-    senulya: { password: 'Zx4@Pi9&', subjects: [{ name: 'history', grade: 8 }] },
+    senulya: { password: '123456', subjects: [{ name: 'history', grade: 8 }] },
     minketh: { password: 'Dq1%Ws6@', subjects: [{ name: 'geography', grade: 8 },{ name: 'civic', grade: 8}] },
     ishan: { password: 'Wo5@Yp2%', subjects: [{ name: 'history', grade: 9 },{ name: 'geography', grade: 9 }] },
     udula: { password: 'Tj7#Vr4&', subjects: [{ name: 'history', grade: 9 },{ name: 'geography', grade: 9 },{ name: 'civic', grade: 9}] },
