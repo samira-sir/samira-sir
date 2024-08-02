@@ -39,7 +39,7 @@ const credentials = {
     kethmin: { password: 'Nw7%Fu4@', subjects: [{ name: 'history', grade: 8 },{ name: 'geography', grade: 8 },{ name: 'civic', grade: 8}] },        
     ruzni: { password: 'Ht6&Ms1%', subjects: [{ name: 'history', grade: 8 },{ name: 'geography', grade: 8 },{ name: 'civic', grade: 8}] },
     senudi: { password: '5555', subjects: [{ name: 'history', grade: 8 },{ name: 'geography', grade: 8 },{ name: 'civic', grade: 8}] },
-    eshini: { password: 'Zx9@Pu4&', subjects: [{ name: 'history', grade: 8 },{ name: 'geography', grade: 8 },{ name: 'civic', grade: 8}] },
+    eshini: { password: '1234', subjects: [{ name: 'history', grade: 8 },{ name: 'geography', grade: 8 },{ name: 'civic', grade: 8}] },
     nishini: { password: 'Gq3%Jw8@', subjects: [{ name: 'history', grade: 8 },{ name: 'geography', grade: 8 },{ name: 'civic', grade: 8}] },
     yahansa: { password: 'Be7&Ns2%', subjects: [{ name: 'history', grade: 8 },{ name: 'geography', grade: 8 }] },
     kavithma: { password: 'Xy4@Ho9&', subjects: [{ name: 'history', grade: 8 },{ name: 'geography', grade: 8 },{ name: 'civic', grade: 8}] },
