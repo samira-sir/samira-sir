@@ -324,7 +324,7 @@
         localStorage.setItem('subjects', JSON.stringify(credentials[username].subjects));
         localStorage.setItem('lastLogin', new Date().toISOString());
         alert('Login successful!');
-        window.location.href = 'https://samira-sir.github.io/samira-sir/index.html'; // Redirect to main page
+        window.location.href = 'page.html'; // Redirect to main page
       } else {
         alert('Invalid username or password');
       }
@@ -366,7 +366,7 @@
 
     function logout() {
       localStorage.clear();
-      window.location.href = '../index.html';
+      window.location.href = 'index.html';
     }
   </script>
 </head>
