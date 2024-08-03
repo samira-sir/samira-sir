@@ -4,7 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/x-icon" href="pyramid.png">
-  <link rel="stylesheet" href="chat bot/styles.css" />
+      <link rel="stylesheet" href="chat bot/styles.css" />
+
+
   <title>Learn History, Geography & Civic with Samira Sir</title>
   <style>
     body {
@@ -19,7 +21,7 @@
       background-repeat: no-repeat;
       overflow: hidden; /* Prevent scrolling */
     }
-    .alert {
+ .alert {
       padding: 20px;
       background-color: #f44336;
       color: white;
@@ -55,6 +57,7 @@
       -webkit-backdrop-filter: blur(8px);
       background: rgba(255, 255, 255, 0.2);
       position: relative; /* Ensure it stacks above background layers */
+       /* Make sure the form appears above the clouds */
     }
 
     .center h1 {
@@ -126,6 +129,7 @@
     input[type="submit"] {
       width: 100%;
       padding: 15px;
+      
       border-radius: 50px;
       background: transparent;
       border-color: white;
@@ -254,6 +258,8 @@
       }
     }
 
+  
+
     #loading-circle {
       position: fixed;
       top: 50%;
@@ -289,7 +295,7 @@
       font-size: 18px;
       color: #007bff;
     }
-    .login-link {
+     .login-link {
       margin-top: 20px;
       color: #fff;
     }
@@ -305,64 +311,7 @@
   </style>
   <script src="js/user.js"></script>
   <script>
-const blacklist = ["bannedUser1", "bannedUser2"]; // Add usernames to blacklist here
-
-async function validateForm(event) {
-  event.preventDefault(); // Prevent the form from submitting
-
-  const username = document.querySelector('input[name="text"]').value.toLowerCase();
-  const password = document.querySelector('input[name="password"]').value;
-
-  if (blacklist.includes(username)) {
-    alert('Your account has been blacklisted.');
-    localStorage.clear(); // Clear local storage
-    return;
-  }
-
-  if (credentials[username] && credentials[username].password === password) {
-    localStorage.setItem('currentUser', username);
-    localStorage.setItem('subjects', JSON.stringify(credentials[username].subjects));
-    localStorage.setItem('lastLogin', new Date().toISOString());
-    alert('Login successful!');
-    window.location.href = '../index.html'; // Redirect to main page
-  } else {
-    alert('Invalid username or password');
-  }
-}
-
-function redirectToMainPage() {
-  // Check if local storage has 'currentUser' and redirect only if empty
-  if (!localStorage.getItem('currentUser')) {
-    window.location.href = '../index.html';
-  }
-}
-
-window.onload = function() {
-  // Check local storage and redirect if needed
-  redirectToMainPage();
-
-  // Display loading screen
-  const loadingCircle = document.getElementById('loading-circle');
-  loadingCircle.style.display = 'flex';
-
-  setTimeout(() => {
-    loadingCircle.style.display = 'none';
-  }, 2000); // Simulate loading time
-
-  // Show form after loading
-  document.querySelector('.wrapper').style.display = 'block';
-};
-
-function toggleDropdown() {
-  document.querySelector('.dropdown').classList.toggle('active');
-}
-
-function logout() {
-  localStorage.clear();
-  window.location.href = '../index.html';
-}
-
-       async function validateForm(event) {
+   async function validateForm(event) {
   event.preventDefault(); // Prevent the form from submitting
 
   const username = document.querySelector('input[name="text"]').value.toLowerCase();
@@ -410,51 +359,44 @@ function logout() {
     alert('Invalid password.');
   }
 }
+
   </script>
 </head>
 <body>
-  <div id="loading-circle" style="display:none;">
-    <div class="spinner"></div>
-    <div class="loading-text">Loading...</div>
+  <div id="chatbot-icon">💬</div>
+
+<div id="chatbot">
+    <div id="chatbot-header">Chatbot Assistant(say help)</div>
+    <div id="chatbot-messages"></div>
+    <div id="chatbot-input">
+        <input type="text" id="chatbot-input-field" placeholder="Say help to get help....">
+        <button id="chatbot-send">Send</button>
+    </div>
+</div>
+    <div class="alert">
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+    <strong>මෙය පංති සඳහා සහභාගී වන සිසුන් සඳහා පමණි.This is only for students attending classes</strong>
   </div>
-  <div class="wrapper" style="display:none;">
-    <div class="center">
-      <h1>Login</h1>
-      <form id="loginForm" onsubmit="validateForm(event)">
+  
+    <div class="wrapper">
+      <h1 style="color:white;">Login</h1>
+      <center><h3 style="color:white;">Online Class Portal</h3></center>
+      <form onsubmit="validateForm(event)">
         <div class="txt_field">
           <input type="text" name="text" required>
-          <label>Username</label>
+          <label style="color:white;">Username</label>
           <span></span>
         </div>
         <div class="txt_field">
           <input type="password" name="password" required>
-          <label>Password</label>
+          <label style="color:white;">Password</label>
           <span></span>
         </div>
         <input type="submit" value="Login">
+        <p style="color:white;">Do not have an account? <a style="color:white;" href="register.html">Register here</a></p>
       </form>
-      <div class="signup_link">
-        Not a member? <a href="#">Signup</a>
-      </div>
-    </div>
-    <div class="subjects">
-      <!-- Subject buttons will be added here -->
-    </div>
-    <div class="greeting" style="display:none;" onclick="toggleDropdown()">
-      Hello, User
-    </div>
-    <div class="dropdown">
-      <ul>
-        <li><button onclick="showSubjects()">Subjects</button></li>
-        <li><button onclick="logout()">Logout</button></li>
-      </ul>
-    </div>
-    <div class="logout" style="display:none;" onclick="logout()">
-      Logout
     </div>
   </div>
-  <div class="login-link">
-    <a href="login.html">Back to login</a>
-  </div>
+  <script src="chat bot/script.js"></script>
 </body>
 </html>
