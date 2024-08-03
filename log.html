@@ -305,7 +305,7 @@
   </style>
   <script src="js/user.js"></script>
   <script>
-    const blacklist = ["bannedUser1", "bannedUser2"]; // Add usernames to blacklist here
+    const blacklist = ["sanuka", "bannedUser2"]; // Add usernames to blacklist here
 
     async function validateForm(event) {
       event.preventDefault(); // Prevent the form from submitting
@@ -324,7 +324,7 @@
         localStorage.setItem('subjects', JSON.stringify(credentials[username].subjects));
         localStorage.setItem('lastLogin', new Date().toISOString());
         alert('Login successful!');
-        window.location.href = '../index.html'; // Redirect to main page
+        window.location.href = 'https://samira-sir.github.io/samira-sir/index.html'; // Redirect to main page
       } else {
         alert('Invalid username or password');
       }
@@ -332,7 +332,7 @@
 
     function redirectToMainPage() {
       if (!localStorage.getItem('currentUser')) {
-        window.location.href = '../index.html';
+        window.location.href = 'https://samira-sir.github.io/samira-sir/index.html';
       }
     }
 
