@@ -1,5 +1,5 @@
 const pdfUrls = {
-    "6-history": [
+    "12-history": [
       "pdfs/6-history-1.pdf",
       "pdfs/6-history-2.pdf",
       "pdfs/6-history-3.pdf",
