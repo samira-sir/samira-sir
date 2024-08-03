@@ -39,7 +39,7 @@
           <li><a href="#about">About</a></li>
           <li><a href="#service">Lessons</a></li>
           <li><a href="#why">Online Tests</a></li>
-          <li><a href="#gallery">Contact</a></li>
+          <li><a href="https://samira-sir.github.io/samira-sir/free_paper.html">Paper Bank</a></li>
          
         </ul>
       </nav>
@@ -180,28 +180,24 @@ Paid Lessons
 
       <!-- Gallery Section -->
     <section class="gallery" id="gallery">
-      <h2 class="section_title" style="color:white;">Contact Us</h2>
-      <center>      <div class="wrapper">
-          <div class="img-area">
-            <div class="inner-area">
-              <img src="images/coffee_about.jpg" alt="">
-            </div>
-          </div>
-  
-          <div class="name">Samira Ariyadasas</div>
-          <div class="about">Government Teacher/Tutor</div>
-          <div class="social-icons">
-            <a href="https://api.whatsapp.com/send?phone=94788766697&text=Hello%2CI%20am%20interested%20about%20your%20classes.Can%20I%20get%20informations%20about%20them.%F0%9F%99%82" class="fb"><i class="fa fa-whatsapp" aria-hidden="true"></i></i></a>
-            <a href="https://web.facebook.com/people/History-Geography-Civic-With-Samira-Ariyadasa/100083035703991/?_rdc=1&_rdr" class="twitter"><i class="fa fa-facebook"></i></a>
-            <a href="https://www.youtube.com/@samira_sir" class="yt"><i class="fa fa-youtube"></i></a>
-          </div>
-          <div class="buttons">
-            <a href="https://api.whatsapp.com/send?phone=94788766697&text=Hello%2CI%20am%20interested%20about%20your%20classes.Can%20I%20get%20informations%20about%20them.%F0%9F%99%82"> <button>Message</button></a>
-            <a href="https://www.youtube.com/@samira_sir"><button>Subscribe</button></a>
-          </div>
-   
-          </div>
-        </div></center>
+      <h2 class="section_title" style="color:white;">Paper Bank</h2>
+  <a href="https://samira-sir.github.io/samira-sir/free_paper.html"><center><button style="display: inline-block;
+    padding: 15px 25px;
+    background-color: transparent;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    font-size: 18px;
+    border: 2px solid black;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;"
+          onmouseover="this.style.backgroundColor='#45a049'; this.style.border='2px solid white';this.style.color=' white';"
+          onmouseout="this.style.backgroundColor='transparent'; this.style.border='2px solid black';this.style.color=' black';"
+  >
+  Paper Bank
+  </button></center></a> <br><br><br>
  
     </section>
   </center>
@@ -223,7 +219,7 @@ Paid Lessons
               <li><a href="#about">About</a></li>
               <li><a href="#service">Lessons</a></li>
               <li><a href="#why">Online Tests</a></li>
-              <li><a href="#gallery">Contact</a></li>
+              <li><a href="https://samira-sir.github.io/samira-sir/free_paper.html">Paper Bank</a></li>
             
             </ul>
           </div>
@@ -257,89 +253,6 @@ Paid Lessons
 
         <script src="chat bot/script.js"></script>
 
-    <script>
-                  const reviewsData = [
-            {
-                id: 1,
-                name: "John Doe",
-                job: "Software Developer",
-                img: "https://randomuser.me/api/portraits/men/1.jpg", // John Doe's image URL
-                text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, odio ut bibendum facilisis, mi sapien laoreet ipsum, nec elementum felis arcu a risus.",
-            },
-            {
-                id: 2,
-                name: "Mike Smith",
-                job: "UX Designer",
-                img: "https://randomuser.me/api/portraits/men/2.jpg", // Mike Smith's image URL
-                text: "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut ac massa a nulla scelerisque fringilla a id augue.",
-            },
-            {
-                id: 3,
-                name: "Alex Johnson",
-                job: "Data Scientist",
-                img: "https://randomuser.me/api/portraits/men/3.jpg", // Alex Johnson's image URL
-                text: "Sed at mauris nec mi suscipit gravida. Fusce eu ante augue. Suspendisse sit amet ultrices dolor, a tincidunt elit. Proin vel neque vel odio consectetur malesuada.",
-            },
-            {
-                id: 4,
-                name: "David Brown",
-                job: "Product Manager",
-                img: "https://randomuser.me/api/portraits/men/4.jpg", // David Brown's image URL
-                text: "Duis ut dui auctor, convallis velit sit amet, tristique nulla. Phasellus hendrerit ligula et odio accumsan, eu fermentum odio mattis. Aliquam erat volutpat.",
-            },
-            {
-                id: 5,
-                name: "Chris Miller",
-                job: "Marketing Specialist",
-                img: "https://randomuser.me/api/portraits/men/5.jpg", // Chris Miller's image URL
-                text: "Integer consequat tincidunt neque, sit amet congue velit euismod a. Ut id mi ut ligula eleifend interdum. Sed tincidunt purus id justo sagittis euismod.",
-            }
-        ];
 
-
-        const imgElement = document.getElementById("person-img");
-        const authorElement = document.getElementById("review-author");
-        const jobElement = document.getElementById("review-job");
-        const infoElement = document.getElementById("review-info");
-
-        const prevBtnElement = document.querySelector(".prev-review-btn");
-        const nextBtnElement = document.querySelector(".next-review-btn");
-        const randomBtnElement = document.querySelector(".random-review-btn");
-
-        let currentReview = 0;
-
-        window.addEventListener("DOMContentLoaded", function () {
-            showReview(currentReview);
-        });
-
-        function showReview(review) {
-            const currentReviewData = reviewsData[review];
-            imgElement.src = currentReviewData.img;
-            authorElement.textContent = currentReviewData.name;
-            jobElement.textContent = currentReviewData.job;
-            infoElement.textContent = currentReviewData.text;
-        }
-
-        nextBtnElement.addEventListener("click", function () {
-            currentReview++;
-            if (currentReview > reviewsData.length - 1) {
-                currentReview = 0;
-            }
-            showReview(currentReview);
-        });
-
-        prevBtnElement.addEventListener("click", function () {
-            currentReview--;
-            if (currentReview < 0) {
-                currentReview = reviewsData.length - 1;
-            }
-            showReview(currentReview);
-        });
-
-        randomBtnElement.addEventListener("click", function () {
-            currentReview = Math.floor(Math.random() * reviewsData.length);
-            showReview(currentReview);
-        });
-    </script>
   </body>
 </html>
