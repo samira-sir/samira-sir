@@ -20,3 +20,10 @@ const redirects = {
     '9-ind-Thisumi-History':'https://us05web.zoom.us/j/84988761739?pwd=ZwI3hm4gD7658MdeHucToaz93WpFwC.1',
     '9-ind-Disura-History':'https://us05web.zoom.us/j/83869305774?pwd=euk0qQtIDyqPnT8baeA5AGpqJaRfQN.1',
   };
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    // Check if the user is logged in
+    if (!localStorage.getItem("sessionFlag")) {
+        window.location.href = "../index.html";
+    }
