@@ -33,7 +33,7 @@ const credentials = {
     nethuki: { password: 'Ts9&Pe4%', subjects: [{ name: 'geography', grade: 7 }] },
     senuli: { password: 'senu', subjects: [{ name: 'geography', grade: 7 }] },
     yomini: { password: 'Hr3@Xm8&', subjects: [{ name: 'geography', grade: 7 },{ name: 'civic', grade: 7 }] },
-    senuka: { password: 'Ks9$Yp4%', subjects: [{ name: 'history', grade: 8 },{ name: 'geography', grade: 8 },{ name: 'civic', grade: 8 }] },    
+    senuka: { password: '123123', subjects: [{ name: 'history', grade: 8 },{ name: 'geography', grade: 8 },{ name: 'civic', grade: 8 }] },    
     sadil: { password: '123456', subjects: [{ name: 'history', grade: 8 },{ name: 'geography', grade: 8 },{ name: 'civic', grade: 8 }] },
     damindu: { password: 'Damindu@251', subjects: [{ name: 'history', grade: 8 },{ name: 'geography', grade: 8 },{ name: 'civic', grade: 8 }] },
     kethmin: { password: 'Nw7%Fu4@', subjects: [{ name: 'history', grade: 8 },{ name: 'geography', grade: 8 },{ name: 'civic', grade: 8}] },        
