@@ -88,3 +88,78 @@ const credentials = {
     malishi: { password: '20090326', subjects: [{ name: 'geography', grade: 10 }] },
 
   };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    // Check if the user is logged in
+    if (!localStorage.getItem("sessionFlag")) {
+        window.location.href = "../index.html";
+    }
