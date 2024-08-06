@@ -72,3 +72,26 @@ const pdfUrls = {
       "https://drive.google.com/file/d/1omuBKEuFasx22HKedbLYZecXQJZK7O1p/view?usp=sharing",
     ],
   };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    // Check if the user is logged in
+    if (!localStorage.getItem("sessionFlag")) {
+        window.location.href = "../index.html";
+    }
