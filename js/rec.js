@@ -19,3 +19,26 @@ const redirects = {
     '11-civic': 'recording/Grade 11 Civic.html',
  
   };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    // Check if the user is logged in
+    if (!localStorage.getItem("sessionFlag")) {
+        window.location.href = "../index.html";
+    }
