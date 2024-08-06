@@ -206,8 +206,3 @@ const urls = {
 
 
 
-document.addEventListener("DOMContentLoaded", function() {
-    // Check if the user is logged in
-    if (!localStorage.getItem("sessionFlag")) {
-        window.location.href = "../index.html";
-    }
