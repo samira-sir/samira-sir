@@ -41,3 +41,68 @@ const papersData = {
         // Add similar structure for grades 7-11 in English
     }
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    // Check if the user is logged in
+    if (!localStorage.getItem("sessionFlag")) {
+        window.location.href = "../index.html";
+    }
