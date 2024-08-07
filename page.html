@@ -137,6 +137,33 @@
   border: 2px solid white;
 }
 
+.alert {
+  padding: 20px;
+  background-color: #f44336;
+  color: white;
+  opacity: 1;
+  transition: opacity 0.6s;
+  margin-bottom: 15px;
+}
+
+.alert.success {background-color: #04AA6D;}
+.alert.info {background-color: #2196F3;}
+.alert.warning {background-color: #ff9800;}
+
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: black;
+}
   </style>
   <link rel="stylesheet" href="images/style.css">
 
@@ -148,6 +175,17 @@
   <script src="js/pdf.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
+
+  const announcements = {
+    "6-History": "Today History class for grade 6 will be held at 10 AM.",
+    "7-Geography": "Today Geography class for grade 7 is canceled.",
+    // Add more announcements for each class-subject combination
+  };
+
+  function displayAnnouncements(subjects) {
+    const announcementsContainer = document.getElementById('announcements');
+    announcementsContainer.innerHTML = '';
+    
       const username = localStorage.getItem('username');
       const subjects = JSON.parse(localStorage.getItem('subjects'));
 
@@ -424,7 +462,7 @@ function changeButtonText(oldText, newText) {
           </div>
         </div>
       </section>
-  
+  <div id="announcements"></div>
       <!-- About Us Section -->
       <section class="about_us" id="about">
         <div class="section_container">
