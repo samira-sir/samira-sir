@@ -175,7 +175,45 @@
   <script src="js/pdf.js"></script>
   <script>
 
-    
+      const announcements = {
+    "6-History": "Today History class for grade 6 will be held at 10 AM.",
+    "7-Geography": "Today Geography class for grade 7 is canceled.",
+    // Add more announcements for each class-subject combination
+  };
+
+  function displayAnnouncements(subjects) {
+    const announcementsContainer = document.getElementById('announcements');
+    announcementsContainer.innerHTML = ''; // Clear previous announcements
+
+    subjects.forEach(subject => {
+      const key = `${subject.grade}-${subject.name}`;
+      const announcementText = announcements[key];
+
+      if (announcementText) {
+        console.log(`Displaying announcement for ${key}: ${announcementText}`);
+        const alertDiv = document.createElement('div');
+        alertDiv.className = 'alert success'; // Use appropriate class based on announcement type
+        alertDiv.innerHTML = `
+          <span class="closebtn">&times;</span>  
+          <strong>Announcement:</strong> ${announcementText}
+        `;
+        announcementsContainer.appendChild(alertDiv);
+      } else {
+        console.log(`No announcement found for ${key}`);
+      }
+    });
+
+    var close = document.getElementsByClassName("closebtn");
+    for (var i = 0; i < close.length; i++) {
+      close[i].onclick = function() {
+        var div = this.parentElement;
+        div.style.opacity = "0";
+        setTimeout(function() {
+          div.style.display = "none";
+        }, 600);
+      }
+    }
+  }
       document.addEventListener('DOMContentLoaded', () => {
 
     
