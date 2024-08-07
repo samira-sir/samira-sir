@@ -310,8 +310,8 @@
     }
   </style>
   <script src="js/user.js"></script>
+  <script src="js/blacklist.js"></script>
   <script>
-  const blacklist = ['sanuka', 'blacklistedUser2']; // Add blacklisted usernames here
 
 async function validateForm(event) {
   event.preventDefault(); // Prevent the form from submitting
@@ -321,7 +321,7 @@ async function validateForm(event) {
 
   // Check if username is in the blacklist
   if (blacklist.includes(username)) {
-    alert('Your account has been blacklisted.');
+    alert('Your account has been blocked.');
     localStorage.clear(); // Clear local browser storage
     return; // Stop further execution
   }
