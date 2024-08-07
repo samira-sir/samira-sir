@@ -174,7 +174,9 @@
    <script src="js/wordwall.js"></script>
   <script src="js/pdf.js"></script>
   <script>
-   
+
+    
+      document.addEventListener('DOMContentLoaded', () => {
 
     
       const username = localStorage.getItem('username');
@@ -196,6 +198,16 @@
         displayGoogleForms(subjects);
       }
     });
+
+const announcements = {
+    "6-History": "Today History class for grade 6 will be held at 10 AM.",
+    "7-Geography": "Today Geography class for grade 7 is canceled.",
+    // Add more announcements for each class-subject combination
+  };
+
+  function displayAnnouncements(subjects) {
+    const announcementsContainer = document.getElementById('announcements');
+    announcementsContainer.innerHTML = '';
 
     function redirectToPage(subject, grade) {
     
