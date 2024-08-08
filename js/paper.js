@@ -33,7 +33,42 @@ const papersData = {
             // Add more subjects with their term papers for Grade 6 in Sinhala
         },
         // Add similar structure for grades 7-11 in Sinhala
+     '11': {
+            'Buddhism': {
+                '1st term': [
+
+                ],
+                '2nd term': [
+                    
+                ],
+                '3rd term': [
+                    { name: 'BUDDHISM-OL-Note-Tute-2024', link: 'https://drive.google.com/file/d/1VoSjsqRonmeF4BLFJUnnWNBSUjFaqDcv/view?usp=sharing' },
+             ]
+            },
+            // Add more subjects with their term papers for Grade 6 in Sinhala
+        },
+
+    '10': {
+            'History': {
+                '1st term': [
+
+                ],
+                '2nd term': [
+                     { name: 'Southern-Province-Grade-10-History-Second-Term-Paper-2021-–-Sinhala-Medium', link: 'https://drive.google.com/file/d/1XxW0Uf9lxTitjEtqmb-2U9L1QX5ma032/view?usp=drive_link' },
+             ]
+                ],
+                '3rd term': [
+                   
+            },
+            // Add more subjects with their term papers for Grade 6 in Sinhala
+        },
     },
+
+
+
+
+
+    
     'english': {
         '6': {
             'Science': {
