@@ -16,6 +16,125 @@
     <link rel="stylesheet" href="chat bot/styles.css">
 
 <link rel="icon" type="image/x-icon" href="images/coffee_logo.png">
+<style>
+  /* Glass Container Overlay */
+  #overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      backdrop-filter: blur(10px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+  }
+
+  .glass-container {
+      background: rgba(255, 255, 255, 0.4);
+      padding: 20px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(15px);
+      width: 90%;
+      max-width: 500px;
+      margin: 0 auto;
+  }
+
+  .glass-container h1 {
+      margin-bottom: 20px;
+      font-size: 20px;
+      color: #333;
+      font-family: Arial, sans-serif;
+  }
+
+  .glass-container .button-container {
+      margin-bottom: 15px;
+  }
+
+  .glass-container button {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0;
+      font-size: 16px;
+      color: #fff;
+      background-color: #007BFF;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      text-align: left;
+  }
+
+  .glass-container button:hover {
+      background-color: #0056b3;
+      transform: translateY(-2px);
+  }
+
+  .glass-container .button-container p {
+      margin: 0;
+      padding: 0;
+      font-size: 14px;
+      color: #fff;
+      font-family: Arial, sans-serif;
+  }
+
+  .glass-container .button-container button span {
+      font-weight: bold;
+  }
+
+  /* Countdown Timer */
+  .countdown {
+      margin-top: 20px;
+      font-size: 16px;
+      color: white;
+      font-family: Arial, sans-serif;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+      .glass-container {
+          padding: 15px;
+      }
+
+      .glass-container h1 {
+          font-size: 18px;
+          margin-bottom: 15px;
+      }
+
+      .glass-container button {
+          font-size: 14px;
+          padding: 10px;
+      }
+
+      .glass-container .button-container p {
+          font-size: 12px;
+      }
+  }
+
+  @media (max-width: 480px) {
+      .glass-container {
+          padding: 10px;
+      }
+
+      .glass-container h1 {
+          font-size: 16px;
+          margin-bottom: 10px;
+      }
+
+      .glass-container button {
+          font-size: 12px;
+          padding: 8px;
+      }
+
+      .glass-container .button-container p {
+          font-size: 10px;
+      }
+  }
+</style>
   </head>
   <body>
     <!-- Header & Navbar Section -->
@@ -95,7 +214,42 @@
         </div>
       </div>
     </section>
-
+    <div id="overlay">
+      <div class="glass-container">
+          <h1 style="color:white;">Welcome to Learn History, Geography and Civic with Samira sir</h1>
+          <div class="button-container">
+              <button onclick="register()">
+                  <span>Register</span>
+                  <p style="color:white;">ඔබ නව සාමාජිකයෙක් නම් Register වන්න.(මෙය අපගේ පන්ති වලට සහභාගී වන සිසුන් සඳහා පමණි.)</p>
+              </button>
+          </div>
+          <div class="button-container">
+              <button onclick="login()">
+                  <span>Login</span>
+                  <p style="color:white;">ඔබට ගිණුමක් තිබේ නම් ලොග් වන්න.(මෙය අපගේ පන්ති වලට සහභාගී වන සිසුන් සඳහා පමණි.)</p>
+              </button>
+          </div>
+          <div class="button-container">
+              <button onclick="helpSupport()">
+                  <span>Help & Support</span>
+                  <p style="color:white;">ඔබට දෝශයක් ඇත්නම් හෝ පිවිසීමට හෝ ලියාපදිංචි වීමට නොදන්නේ නම් මෙය ක්ලික් කරන්න.</p>
+              </button>
+          </div>
+          <div class="button-container">
+              <button onclick="continueWebsite()">
+                  <span>Close</span>
+                  <p style="color:white;">වෙබ් අඩවියට යන්න</p>
+              </button>
+          </div>
+          <div class="button-container">
+              <button onclick="goToPaperBank()">
+                  <span>Paper Bank Website</span>
+                  <p style="color:white;">Paper Bank වෙත යන්න</p>
+              </button>
+          </div>
+          <div class="countdown" id="countdown"></div>
+      </div>
+  </div>
     <!-- Services Section -->
     <section class="services" id="service">
       <h2 class="section_title">Lessons</h2>
@@ -252,7 +406,52 @@ Paid Lessons
     </footer>
 
         <script src="chat bot/script.js"></script>
+<script>
+      function register() {
+      window.location.href = 'register.html'; // Replace with the actual URL
+    }
 
+    function login() {
+      window.location.href = 'log.html'; // Replace with the actual URL
+    }
+
+    function helpSupport() {
+      window.location.href = 'help.html'; // Replace with the actual URL
+    }
+
+    function continueWebsite() {
+        document.getElementById('overlay').style.display = 'none';
+    }
+
+    function goToPaperBank() {
+        window.location.href = 'free_paper.html'; // Replace with the actual URL
+    }
+
+    function startCountdown(duration) {
+        const countdownElement = document.getElementById('countdown');
+        const endTime = Date.now() + duration;
+
+        function updateCountdown() {
+            const remainingTime = endTime - Date.now();
+            if (remainingTime <= 0) {
+                countdownElement.textContent = 'The overlay will close now.';
+                document.getElementById('overlay').style.display = 'none';
+                return;
+            }
+
+            const minutes = Math.floor(remainingTime / 60000);
+            const seconds = Math.floor((remainingTime % 60000) / 1000);
+            countdownElement.textContent = `මෙය තත්පර ${seconds} ක් තුළ Close වේ.`;
+            setTimeout(updateCountdown, 1000);
+        }
+
+        updateCountdown();
+    }
+
+    window.onload = function() {
+        startCountdown(5000); // Set the countdown duration in milliseconds (5000 ms = 5 seconds)
+    };
+</script>
 
   </body>
 </html>
