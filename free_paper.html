@@ -261,66 +261,70 @@
 };
 
 
-      function showGrades(medium) {
-          document.getElementById('medium-selection').classList.add('hidden');
-          const gradesDiv = document.getElementById('grades');
-          gradesDiv.innerHTML = '';
-          gradesDiv.classList.remove('hidden');
-          document.getElementById('subjects').classList.add('hidden');
-          document.getElementById('papers').classList.add('hidden');
-          const grades = ['1', '2', '3', '4', '5','6', '7', '8', '9', '10', '11'];
-          grades.forEach(grade => {
-              const button = document.createElement('button');
-              button.className = `btn grade-${grade}`;
-              button.textContent = `Grade ${grade}`;
-              button.onclick = () => showSubjects(medium, grade);
-              gradesDiv.appendChild(button);
-          });
-      }
+function showGrades(medium) {
+    document.getElementById('medium-selection').classList.add('hidden');
+    const gradesDiv = document.getElementById('grades');
+    gradesDiv.innerHTML = '';
+    gradesDiv.classList.remove('hidden');
+    document.getElementById('subjects').classList.add('hidden');
+    document.getElementById('papers').classList.add('hidden');
+    const grades = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11'];
+    grades.forEach(grade => {
+        const button = document.createElement('button');
+        button.className = `btn grade-${grade}`;
+        button.textContent = `Grade ${grade}`;
+        button.onclick = () => showSubjects(medium, grade);
+        gradesDiv.appendChild(button);
+    });
+}
 
-      function showSubjects(medium, grade) {
-          const subjectsDiv = document.getElementById('subjects');
-          subjectsDiv.innerHTML = '';
-          subjectsDiv.classList.remove('hidden');
-          document.getElementById('papers').classList.add('hidden');
-          const subjects = subjectsData[medium][grade];
-          subjects.forEach(subject => {
-              const button = document.createElement('button');
-              button.className = `btn ${subject.toLowerCase().replace(/\s+/g, '-')}`;
-              button.textContent = subject;
-              button.onclick = () => showPapers(medium, grade, subject);
-              subjectsDiv.appendChild(button);
-          });
-          document.getElementById('grades').classList.add('hidden');
-      }
+function showSubjects(medium, grade) {
+    const subjectsDiv = document.getElementById('subjects');
+    subjectsDiv.innerHTML = ''; // Clear existing subject buttons
+    subjectsDiv.classList.remove('hidden');
+    document.getElementById('papers').classList.add('hidden');
+    document.getElementById('grades').classList.add('hidden'); // Hide grades section
+    
+    const subjects = subjectsData[medium][grade];
+    subjects.forEach(subject => {
+        const button = document.createElement('button');
+        button.className = `btn ${subject.toLowerCase().replace(/\s+/g, '-')}`;
+        button.textContent = subject;
+        button.onclick = () => showPapers(medium, grade, subject);
+        subjectsDiv.appendChild(button);
+    });
+}
 
-      function showPapers(medium, grade, subject) {
-          const papersDiv = document.getElementById('papers');
-          papersDiv.innerHTML = '';
-          papersDiv.classList.remove('hidden');
-          const terms = ['1st term', '2nd term', '3rd term'];
-          terms.forEach(term => {
-              const termHeading = document.createElement('h1');
-              termHeading.textContent = term;
-              papersDiv.appendChild(termHeading);
-              const papers = papersData[medium][grade][subject] ? papersData[medium][grade][subject][term] : [];
-              papers.forEach(paper => {
-                  const paperDiv = document.createElement('div');
-                  paperDiv.className = 'paper-list';
-                  const button = document.createElement('button');
-                  button.className = 'paper-btn';
-                  const link = document.createElement('a');
-                  link.href = paper.link;
-                  link.textContent = paper.name;
-                  link.target = '_blank';
-                  button.appendChild(link);
-                  paperDiv.appendChild(button);
-                  papersDiv.appendChild(paperDiv);
-              });
-              papersDiv.appendChild(document.createElement('hr'));
-            document.getElementById('grades').classList.add('hidden');
-          });
-      }
+function showPapers(medium, grade, subject) {
+    const papersDiv = document.getElementById('papers');
+    papersDiv.innerHTML = ''; // Clear existing paper lists
+    papersDiv.classList.remove('hidden');
+    document.getElementById('subjects').classList.add('hidden'); // Hide subjects section
+
+    const terms = ['1st term', '2nd term', '3rd term'];
+    terms.forEach(term => {
+        const termHeading = document.createElement('h1');
+        termHeading.textContent = term;
+        papersDiv.appendChild(termHeading);
+
+        const papers = papersData[medium][grade][subject] ? papersData[medium][grade][subject][term] : [];
+        papers.forEach(paper => {
+            const paperDiv = document.createElement('div');
+            paperDiv.className = 'paper-list';
+            const button = document.createElement('button');
+            button.className = 'paper-btn';
+            const link = document.createElement('a');
+            link.href = paper.link;
+            link.textContent = paper.name;
+            link.target = '_blank';
+            button.appendChild(link);
+            paperDiv.appendChild(button);
+            papersDiv.appendChild(paperDiv);
+        });
+        papersDiv.appendChild(document.createElement('hr'));
+    });
+}
+
   </script>
   </body>
 </html>
