@@ -136,6 +136,56 @@
   background-color: black;
   border: 2px solid white;
 }
+/* styles.css */
+
+/* Glass div style */
+/* styles.css */
+
+/* Glass div style */
+.glass-div {
+    position: fixed; /* Make the div float */
+    top: 20px;
+    right: 20px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.8); /* Black background with opacity */
+    color: #fff; /* White text color */
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Floating effect */
+    max-width: 400px;
+    z-index: 1000; /* Ensure it is on top of other elements */
+}
+
+/* Label styling */
+.glass-div div {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+/* Strong tag styling */
+.glass-div strong {
+    color: #f0f0f0; /* Slightly lighter text for labels */
+}
+.toggle-button {
+    position: fixed; /* Fixed position */
+    top: 10px; /* Distance from the top */
+    right: 10px; /* Distance from the right */
+    padding: 10px 20px; /* Padding around the text */
+    background-color: #333; /* Dark background color */
+    color: #fff; /* White text color */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Floating effect */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 16px; /* Font size */
+    z-index: 1001; /* Ensure button is above other elements */
+    transition: background-color 0.3s; /* Smooth transition for background color */
+}
+
+/* Button hover effect */
+.toggle-button:hover {
+    background-color: #555; /* Slightly lighter background color on hover */
+}
 
 
   </style>
@@ -373,6 +423,51 @@ function changeButtonText(oldText, newText) {
     }
   });
 }
+// script.js
+// script.js
+function toggleUserInfo() {
+    const userInfoContainer = document.getElementById('userInfoContainer');
+    const isVisible = userInfoContainer.style.display === 'block';
+
+    if (isVisible) {
+        userInfoContainer.style.display = 'none';
+    } else {
+        // Display user info
+        showUserInfo();
+        userInfoContainer.style.display = 'block';
+    }
+}
+
+function showUserInfo() {
+    const username = localStorage.getItem('username');
+    const password = localStorage.getItem('password'); // Assuming you also stored the password
+    const subjects = JSON.parse(localStorage.getItem('subjects'));
+
+    if (username && subjects) {
+        const userInfoContainer = document.getElementById('userInfoContainer');
+        userInfoContainer.innerHTML = ''; // Clear previous content if any
+
+        // Create and populate labels for username and password
+        const usernameLabel = document.createElement('div');
+        usernameLabel.innerHTML = `<strong>Username:</strong> ${username}`;
+        const passwordLabel = document.createElement('div');
+        passwordLabel.innerHTML = `<strong>Password:</strong> ${password}`;
+        
+        // Create and populate labels for subjects and grades
+        const subjectsLabel = document.createElement('div');
+        subjectsLabel.innerHTML = '<strong>Subjects:</strong><br>' +
+            subjects.map(subject => `${subject.name} (Grade ${subject.grade})`).join('<br>');
+        
+        // Append labels to the container
+        userInfoContainer.appendChild(usernameLabel);
+        userInfoContainer.appendChild(passwordLabel);
+        userInfoContainer.appendChild(subjectsLabel);
+    } else {
+        alert('User information not found.');
+    }
+}
+
+
 
   </script>
 </head>
@@ -478,9 +573,13 @@ function changeButtonText(oldText, newText) {
             onmouseover="this.style.backgroundColor='#45a049'; this.style.border='2px solid white';this.style.color=' white';"
             onmouseout="this.style.backgroundColor='transparent'; this.style.border='2px solid black';this.style.color=' black';"
     >Recordings</button></center></a>
-      
-      </section>
 
+      </section>
+    <!-- Button to toggle the glass div visibility -->
+    <button class="toggle-button" onclick="toggleUserInfo()">My Account</button>
+
+    <!-- Container for the glass div -->
+    <div id="userInfoContainer" class="glass-div" style="display: none;"></div>
       <!-- Footer Section -->
       <footer>
         <div class="section_container">
