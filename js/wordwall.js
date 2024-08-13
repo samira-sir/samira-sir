@@ -41,6 +41,7 @@ const wallFormsUrls = {
     '8-geography': [
 
       'https://wordwall.net/resource/75592606',
+     'https://www.educaplay.com/learning-resources/19946117-elemental_quest.html',
     ],
     '10-history': [
 
