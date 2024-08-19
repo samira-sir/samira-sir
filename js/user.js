@@ -14,7 +14,7 @@ const credentials = {
     lithul: { password: 'Tn6#Yx1&', subjects: [{ name: 'geography', grade: 6 },{ name: 'history', grade: 6 },{ name: 'civic', grade: 6 }] },
     chenuka: { password: 'Vd3&Kh7@', subjects: [{ name: 'geography', grade: 6 },{ name: 'history', grade: 6 },{ name: 'civic', grade: 6 }] },        
     dinura: { password: 'Bd7@Lr2%', subjects: [{ name: 'history', grade: 7 },{ name: 'civic', grade: 7 },{ name: 'geography', grade: 7 }] },
-    pranami: { password: 'Zt4#Fq9&', subjects: [{ name: 'geography', grade: 7 }, { name: 'history', grade: 7 },] },
+    pranami: { password: 'Pranami123', subjects: [{ name: 'geography', grade: 7 }, { name: 'history', grade: 7 },] },
     vonadi: { password: '20120716', subjects: [{ name: 'history', grade: 7 }] },
     dulnitha: { password: '7777', subjects: [{ name: 'history', grade: 7 }] },
     januni: { password: 'Hj2&Yx7%', subjects: [{ name: 'history', grade: 7 }] },
