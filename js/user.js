@@ -60,7 +60,7 @@ const credentials = {
     udula: { password: 'Tj7#Vr4&', subjects: [{ name: 'history', grade: 9 },{ name: 'geography', grade: 9 },{ name: 'civic', grade: 9}] },
     praveen: { password: 'Nw8%Fu3@', subjects: [{ name: 'history', grade: 9 },{ name: 'geography', grade: 9 },{ name: 'civic', grade: 9}] },
     silma: { password: 'Pd4#Qv9&', subjects: [{ name: 'history', grade: 9 },{ name: 'geography', grade: 9 },{ name: 'civic', grade: 9}] },
-    hashini: { password: 'Ht7&Ms2%', subjects: [{ name: 'history', grade: 9 },{ name: 'geography', grade: 9 },{ name: 'civic', grade: 9}] },
+    hashini: { password: '2010', subjects: [{ name: 'history', grade: 9 },{ name: 'geography', grade: 9 },{ name: 'civic', grade: 9}] },
     kavini: { password: 'asdfg', subjects: [{ name: 'history', grade: 9 }] },
     santhuli: { password: 'Gq4%Jw9@', subjects: [{ name: 'history', grade: 9 }] },    
     disura: {password: 'disura123', subjects:  [{ name: 'ind-Disura-History', grade: 9 },{ name: 'history', grade: 9 }] },
