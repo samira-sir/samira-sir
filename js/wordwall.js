@@ -14,6 +14,7 @@ const wallFormsUrls = {
         'https://www.educaplay.com/learning-resources/19946374-countries_in_the_world_by_samira_ariyadasa.html',
         'https://www.educaplay.com/learning-resources/19945434-grade_7_geography_samira_sir.html',
         'https://www.educaplay.com/learning-resources/19946117-elemental_quest.html',
+        'Online Tests/game2.html'
         
       
     ],
