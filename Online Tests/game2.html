@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Tests By Samira sir</title>
+    <link rel="icon" type="image/x-icon" href="../pyramid.png">
+    <style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f3e5f5;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    animation: changeBackgroundColor 40s infinite alternate;
+}
+
+h1 {
+    animation: changeTitleColor 40s infinite alternate;
+    font-size: 2em;
+    margin: 20px 0;
+}
+
+.question {
+    margin: 20px auto;
+    font-size: 1.2em;
+    width: 90%;
+    max-width: 600px;
+    text-align: left;
+}
+
+.option {
+    animation: changeOptionBorderColor 40s infinite alternate;
+    background-color: #fff;
+    padding: 10px;
+    margin: 10px 0;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-radius: 120px;
+    display: block;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+    width: 400px;
+    border-color:black;
+}
+
+.option:hover {
+    background-color: #d1c4e9;
+}
+
+#timer {
+    animation: changeTimerColor 40s infinite alternate;
+    font-size: 1.5em;
+    margin: 10px 0;
+}
+
+#message {
+    margin-top: 20px;
+    font-size: 1.2em;
+}
+
+.summary {
+    text-align: left;
+    margin: 20px auto;
+    width: 90%;
+    max-width: 600px;
+}
+
+.correct-answer {
+    color: green;
+}
+
+.incorrect-answer {
+    color: red;
+}
+
+#progress-container {
+    width: 90%;
+    max-width: 600px;
+    background-color: #e0e0e0;
+    margin: 20px auto;
+    position: relative;
+    height: 40px;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+#progress-bar {
+    animation: changeProgressBarColor 40s infinite alternate;
+    width: 0;
+    height: 100%;
+    position: absolute;
+    bottom: 0;
+    border-radius: 20px;
+    transition: width 0.5s ease;
+}
+
+#skip-button,
+#do-again-button,
+#my-records-button {
+    animation: changeButtonColor 40s infinite alternate;
+    margin-top: 20px;
+    padding: 10px 20px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 600px;
+    box-sizing: border-box;
+}
+
+#skip-button:hover,
+#do-again-button:hover,
+#my-records-button:hover {
+    opacity: 0.9;
+}
+
+#records-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    display: none;
+    z-index: 1000;
+    width: 90%;
+    max-width: 600px;
+    box-sizing: border-box;
+}
+
+#close-records,
+#clear-records {
+    animation: changeButtonColor 40s infinite alternate;
+    margin-top: 10px;
+    padding: 5px 10px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-radius: 10px;
+    width: 100%;
+}
+
+#close-records:hover,
+#clear-records:hover {
+    opacity: 0.9;
+}
+
+#records-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+#records-table th,
+#records-table td {
+    border: 1px solid #6a1b9a;
+    padding: 8px;
+    text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .question,
+    .options,
+    .summary,
+    #progress-container,
+    #skip-button,
+    #do-again-button,
+    #my-records-button {
+        width: 100%;
+    }
+}
+
+.content {
+    flex: 1;
+}
+
+.footer {
+    background: linear-gradient(135deg, #6a1b9a, #ab47bc);
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+    bottom: 0;
+    position: fixed;
+    right: 0;
+    animation: changeFooterColor 40s infinite alternate;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.social-media {
+    margin-top: 10px;
+}
+
+.social-icon {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.social-icon:hover {
+    color: #ffeb3b;
+}
+
+@media (max-width: 600px) {
+    .footer-content {
+        padding: 10px;
+    }
+
+    .social-icon {
+        display: block;
+        margin: 5px 0;
+    }
+}
+
+/* Keyframes for Animations */
+@keyframes changeBackgroundColor {
+    0% {
+        background-color: #f3e5f5;
+    }
+    25% {
+        background-color: #e8f5e9;
+    }
+    50% {
+        background-color: #e3f2fd;
+    }
+    75% {
+        background-color: #fff3e0;
+    }
+    100% {
+        background-color: #ffebee;
+    }
+}
+
+@keyframes changeTitleColor {
+    0% {
+        color: #6a1b9a;
+    }
+    25% {
+        color: #388e3c;
+    }
+    50% {
+        color: #1976d2;
+    }
+    75% {
+        color: #f57c00;
+    }
+    100% {
+        color: #d32f2f;
+    }
+}
+
+@keyframes changeOptionBorderColor {
+    0% {
+        border-color: #6a1b9a;
+    }
+    25% {
+        border-color: #388e3c;
+    }
+    50% {
+        border-color: #1976d2;
+    }
+    75% {
+        border-color: #f57c00;
+    }
+    100% {
+        border-color: #d32f2f;
+    }
+}
+
+@keyframes changeTimerColor {
+    0% {
+        color: #6a1b9a;
+    }
+    25% {
+        color: #388e3c;
+    }
+    50% {
+        color: #1976d2;
+    }
+    75% {
+        color: #f57c00;
+    }
+    100% {
+        color: #d32f2f;
+    }
+}
+
+@keyframes changeProgressBarColor {
+    0% {
+        background-color: #6a1b9a;
+    }
+    25% {
+        background-color: #388e3c;
+    }
+    50% {
+        background-color: #1976d2;
+    }
+    75% {
+        background-color: #f57c00;
+    }
+    100% {
+        background-color: #d32f2f;
+    }
+}
+
+@keyframes changeButtonColor {
+    0% {
+        background-color: #6a1b9a;
+    }
+    25% {
+        background-color: #388e3c;
+    }
+    50% {
+        background-color: #1976d2;
+    }
+    75% {
+        background-color: #f57c00;
+    }
+    100% {
+        background-color: #d32f2f;
+    }
+}
+
+@keyframes changeFooterColor {
+    0% {
+        background: linear-gradient(135deg, #6a1b9a, #ab47bc);
+    }
+    25% {
+        background: linear-gradient(135deg, #388e3c, #66bb6a);
+    }
+    50% {
+        background: linear-gradient(135deg, #1976d2, #42a5f5);
+    }
+    75% {
+        background: linear-gradient(135deg, #f57c00, #ffb74d);
+    }
+    100% {
+        background: linear-gradient(135deg, #d32f2f, #ef5350);
+    }
+}
+
+
+    </style>
+    
+</head>
+<body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h1>Grade 6 Geography Test 1</h1>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <button id="do-again-button" style="display:none;">Do Again</button>
+    <button id="my-records-button" style="display:none;">My Records</button>
+    <div id="quiz-container">
+        <div class="question" id="question"></div>
+        <center>
+        <div class="options" id="options"></div>
+    </center>
+    </div>
+    <div id="timer"></div>
+    <div id="progress-container">
+        <div id="progress-bar"></div>
+    </div>
+    <button id="skip-button">Skip Question</button>
+    <div id="message"></div>
+    <div id="summary"></div>
+
+
+    <div id="records-container">
+        <h2>Your Records</h2>
+        <table id="records-table">
+            <tr>
+                <th>Date</th>
+                <th>Time Taken</th>
+                <th>Score</th>
+            </tr>
+        </table>
+        <button id="clear-records">Clear Records</button>
+        <button id="close-records">Close</button>
+    </div>
+    <footer class="footer">
+        <div class="footer-content">
+            <p><center> 2024 Samira Ariyadasa<sup>&copy</sup>. All Rights Reserved.            <a href="https://samira-sir.github.io/samira-sir/">Go To The Website</a></center></p>
+
+        </div>
+    </footer>
+
+    <script>
+function shuffle(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const questions = [
+    {
+        question: "ඔබට  විධිමත් අධ්‍යාපන ලබා දෙන ආයතනය නම් කරන්න.",
+        options: [
+            "පාසල",
+            "නිවස",
+            "පෙර පාසල",
+            "විශ්ව විද්‍යාලය"
+        ],
+        correct: "පාසල"
+    },
+    {
+        question: "ශ්‍රී ලංකාවේ කුඩා ම පරිපාලන ඵ්කකය නම් කරන්න.	",
+        options: [
+            "පළාත",
+            "දිස්ත්‍රික්කය",
+            "ග්‍රාම නිළදාරි කොට්ඨාශය",
+            "ගම"
+        ],
+        correct: "ග්‍රාම නිළදාරි කොට්ඨාශය"
+    },
+    {
+        question: "ප්‍රාදේශීය ලේකම් කොට්ඨාසයක ප්‍රධානියා කවුරුන් ද?",
+        options: [
+            "දිස්ත්‍රික් ලේකම්",
+            "පළාත් ලේකම්",
+            "ප්‍රාදේශීය සභා ලේකම්",
+            "ප්‍රාදේශීය ලේකම්"
+        ],
+        correct: "ප්‍රාදේශීය ලේකම්"
+    },
+    {
+        question: "දිස්ත්‍රික්කයක් සෑදෙන්නේ කෙසේ ද?",
+        options: [
+            "ප්‍රාදේශීය ලේකම් කොට්ඨාස කීපයක්  එකතු වී",
+            "ගම් කීයක් එකතු වී",
+            "පළාත් කීපයක් ඒකතු වී",
+            "ග්‍රාම නිළධාරි කොට්ඨාස කීපයක් එකතුවී"
+        ],
+        correct: "ප්‍රාදේශීය ලේකම් කොට්ඨාස කීපයක්  එකතු වී"
+    },
+    {
+        question: "ශ්‍රී  ලංකාවේ මුලු දිස්ත්‍රික්ක ගණන නම් කරන්න.",
+        options: [
+            "25 කි",
+            "23 කි",
+            "24 කි",
+            "9 කි"
+        ],
+        correct: "25 කි"
+    },
+    {
+        question: "දිස්ත්‍රික්කයක් භාර ව සිටින ප්‍රධාන පරිපාලන නිලධාරියා ",
+        options: [
+            "පළාත් ලේකම් තුමා",
+            "ග්‍රාම නිළධාරි තුමා",
+            "ප්‍රාදේශීය ලේකම් තුමා",
+            "දිස්ත්‍රික් ලේකම් තුමා"
+        ],
+        correct: "දිස්ත්‍රික් ලේකම් තුමා"
+    },
+    {
+        question: "ශ්‍රී දළදා මාලිගාව අයත් වන දිස්ත්‍රික්කය වන්නේ",
+        options: [
+            "අනුරාධපුරය",
+            "මහනුවර",
+            "කළුතර",
+            "මාතලේ"
+        ],
+        correct: "මහනුවර"
+    },
+    {
+        question: "ශ්‍රී ලංකාවේ පලාතක් සෑදෙන්නේ කෙසේ ද?",
+        options: [
+            "දිස්ත්‍රික්ක කීපයක් ඒකතුවී",
+            "ගම් කීපයක් ඒකතු වී",
+            "නගර කීපයක් ඒකතු වී",
+            "ප්‍රාදේශීය ලේකම් කොට්ඨාස කීපයක් ඒකතුවී"
+        ],
+        correct: "දිස්ත්‍රික්ක කීපයක් ඒකතුවී"
+    },
+    {
+        question: "සැලැස්මක් ඇදීමේ දී වැදගත් වන්නේ ",
+        options: [
+            "ගොඩනැගිලි",
+            "වනාන්තර",
+            "දිශාව",
+            "ඊතලය"
+        ],
+        correct: "දිශාව"
+    },
+    {
+        question: "නිවැරදිව දිශාව හඳුනා ගැනීම ට භාවිතා කරන උපකරණය නම් කරන්න",
+        options: [
+            "සුළං දිශා දර්ශකය",
+            "මාලිමාව",
+            "අනිලමානය",
+            "උෂ්ණත්වමානය"
+        ],
+        correct: "මාලිමාව"
+    },
+];
+
+
+
+
+
+
+
+shuffle(questions);
+
+let currentQuestionIndex = 0;
+let correctAnswers = 0;
+let userAnswers = [];
+let timer;
+let timeLeft = 10;
+let startTime;
+
+function updateProgressBar() {
+    const progressBar = document.getElementById('progress-bar');
+    const progress = ((currentQuestionIndex + 1) / questions.length) * 100;
+    progressBar.style.width = progress + '%';
+}
+
+function loadQuestion() {
+    clearInterval(timer);
+    timeLeft = 10;
+    document.getElementById('timer').innerText = `Time left: ${timeLeft} seconds`;
+
+    if (currentQuestionIndex === 0) {
+        startTime = new Date();
+    }
+
+    const questionDiv = document.getElementById('question');
+    questionDiv.innerText = '';
+
+    setTimeout(() => {
+        const currentQuestion = questions[currentQuestionIndex];
+        questionDiv.innerText = `${currentQuestionIndex + 1}. ${currentQuestion.question}`;
+
+        const optionsDiv = document.getElementById('options');
+        optionsDiv.innerHTML = '';
+
+        const shuffledOptions = [...currentQuestion.options];
+        shuffle(shuffledOptions);
+
+        shuffledOptions.forEach(optionText => {
+            const option = document.createElement('div');
+            option.className = 'option';
+            option.innerText = optionText;
+            option.setAttribute('data-answer', optionText === currentQuestion.correct ? 'correct' : 'incorrect');
+            option.addEventListener('click', selectAnswer);
+            optionsDiv.appendChild(option);
+        });
+
+        updateProgressBar();
+        timer = setInterval(updateTimer, 1000);
+    }, 100);
+}
+
+function updateTimer() {
+    timeLeft--;
+    document.getElementById('timer').innerText = `Time left: ${timeLeft} seconds`;
+    if (timeLeft === 0) {
+        clearInterval(timer);
+        selectAnswer();
+    }
+}
+
+function selectAnswer() {
+    clearInterval(timer);
+    const selectedOption = document.querySelector('.option:hover') || null;
+    const answerText = selectedOption ? selectedOption.innerText : 'No Answer';
+    const isCorrect = selectedOption && selectedOption.getAttribute('data-answer') === 'correct';
+
+    if (selectedOption) {
+        if (isCorrect) correctAnswers++;
+    }
+
+    userAnswers.push({
+        question: questions[currentQuestionIndex].question,
+        selectedAnswer: answerText,
+        correctAnswer: questions[currentQuestionIndex].correct,
+        isCorrect: selectedOption ? isCorrect : false
+    });
+
+    currentQuestionIndex++;
+    if (currentQuestionIndex < questions.length) {
+        loadQuestion();
+    } else {
+        showResults();
+    }
+}
+
+function skipQuestion() {
+    clearInterval(timer);
+    userAnswers.push({
+        question: questions[currentQuestionIndex].question,
+        selectedAnswer: 'Skipped',
+        correctAnswer: questions[currentQuestionIndex].correct,
+        isCorrect: false
+    });
+    currentQuestionIndex++;
+    if (currentQuestionIndex < questions.length) {
+        loadQuestion();
+    } else {
+        showResults();
+    }
+}
+
+function showResults() {
+    document.getElementById('quiz-container').style.display = 'none';
+    document.getElementById('timer').style.display = 'none';
+    document.getElementById('skip-button').style.display = 'none';
+
+    const summaryDiv = document.getElementById('summary');
+    summaryDiv.innerHTML = `<h2>Your Results</h2><p>You got ${correctAnswers} out of ${questions.length} correct.</p>`;
+
+    const endTime = new Date();
+    const timeTaken = Math.round((endTime - startTime) / 1000);
+
+    userAnswers.forEach((answer, index) => {
+        const answerDiv = document.createElement('div');
+        answerDiv.className = answer.isCorrect ? 'correct-answer' : 'incorrect-answer';
+        answerDiv.innerText = `${index + 1}. ${answer.question} - Your answer: ${answer.selectedAnswer} (Correct answer: ${answer.correctAnswer})`;
+        summaryDiv.appendChild(answerDiv);
+    });
+
+    saveRecord(timeTaken, correctAnswers);
+
+    document.getElementById('do-again-button').style.display = 'inline-block';
+    document.getElementById('my-records-button').style.display = 'inline-block';
+}
+
+function saveRecord(timeTaken, score) {
+    const records = JSON.parse(localStorage.getItem('quizRecords')) || [];
+    records.push({
+        date: new Date().toLocaleString(),
+        timeTaken: `${timeTaken} seconds`,
+        score: `${score}/${questions.length}`
+    });
+    localStorage.setItem('quizRecords', JSON.stringify(records));
+}
+
+function showRecords() {
+    const records = JSON.parse(localStorage.getItem('quizRecords')) || [];
+    const recordsTable = document.getElementById('records-table');
+    recordsTable.innerHTML = `
+        <tr>
+            <th>Date</th>
+            <th>Time Taken</th>
+            <th>Score</th>
+        </tr>
+    `;
+    records.forEach(record => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${record.date}</td>
+            <td>${record.timeTaken}</td>
+            <td>${record.score}</td>
+        `;
+        recordsTable.appendChild(row);
+    });
+    document.getElementById('records-container').style.display = 'block';
+}
+
+function closeRecords() {
+    document.getElementById('records-container').style.display = 'none';
+}
+
+function clearRecords() {
+    localStorage.removeItem('quizRecords');
+    showRecords();
+}
+
+document.getElementById('do-again-button').addEventListener('click', () => {
+    location.reload();
+});
+
+document.getElementById('my-records-button').addEventListener('click', showRecords);
+
+document.getElementById('close-records').addEventListener('click', closeRecords);
+
+document.getElementById('skip-button').addEventListener('click', skipQuestion);
+
+// Add event listener for clear records button
+document.getElementById('clear-records').addEventListener('click', clearRecords);
+
+loadQuestion();
+
+    </script>
+</body>
+</html>
