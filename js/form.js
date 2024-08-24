@@ -37,7 +37,8 @@ const urls = {
             'https://forms.gle/irTMoEhd6uNkr3tS9',
             'https://forms.gle/zByHt7e9GVLaCpJH9',
             'https://forms.gle/jfz1nL9NbDAKDYug7',
-            'https://forms.gle/b738bYT6NViXakmu6'
+            'https://forms.gle/b738bYT6NViXakmu6',
+                      'Online Tests/game2.html',
           ],
           '6-civic': [
             'https://forms.gle/EJEhVcmaaQwuJzjb6',
