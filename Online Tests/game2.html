@@ -759,7 +759,8 @@ h1 {
     currentCount += amount;
     
     // Calculate the level based on stars
-    const level = Math.max(1, Math.round(currentCount / 10));
+    const level = Math.round((Math.sqrt((5 / 4 + currentCount) / 5)) - 0.5);
+
     
     // Save the updated star count and level in local storage
     localStorage.setItem('starCount', currentCount);
