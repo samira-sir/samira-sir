@@ -6,6 +6,77 @@
   <link rel="icon" type="image/x-icon" href="pyramid.png">
   <title>Learn History,Geography & Civic with Samira sir</title>
   <style>
+    .star-count {
+    position: absolute;
+
+    background-color: #fff;
+    padding: 5px 10px;
+    border-radius: 15px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    font-size: 1.2em;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.star-icon {
+    font-size: 1.5em;
+    color: gold;
+}
+
+/* Container for stars */
+.stars-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+/* Individual star styling */
+.star {
+    position: absolute;
+    background-color: white;
+    border-radius: 50%;
+    opacity: 0.8;
+    box-shadow: 0 0 2px rgba(255, 255, 255, 0.8);
+}
+
+/* Star size */
+.star.small {
+    width: 2px;
+    height: 2px;
+}
+
+.star.medium {
+    width: 4px;
+    height: 4px;
+}
+
+.star.large {
+    width: 6px;
+    height: 6px;
+}
+
+/* Animation for stars */
+@keyframes twinkle {
+    0% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.5;
+    }
+}
+
+.star {
+    animation: twinkle 1.5s infinite;
+}
         .button-container button {
     background-color: green;
     color: white;
@@ -468,10 +539,28 @@ function showUserInfo() {
 }
 
 
+function loadStarCountAndLevel() {
+    const starCountElement = document.getElementById('star-count');
+    
+    // Get star count and level from local storage
+    const storedStars = parseInt(localStorage.getItem('starCount')) || 0;
+    const storedLevel = parseInt(localStorage.getItem('level')) || 1;
+    
+    // Display the star count and level
+    starCountElement.textContent = `Stars: ${storedStars} | Level: ${storedLevel}`;
+}
 
+document.addEventListener('DOMContentLoaded', () => {
+    // Load the star count and level when the page loads
+    loadStarCountAndLevel();
+    
+    // Initialize and load the first question
+    loadQuestion();
+});
   </script>
 </head>
 <body>
+ 
     <header>
         <nav>
           <div class="nav_logo">
@@ -510,11 +599,16 @@ function showUserInfo() {
               <p>
                 6 ශ්‍රේණියේ සිට 11 ශ්‍රේණිය දක්වා ඉතිහාසය,භූගෝල විද්‍යාව සහ පුරවැසි අධ්‍යාපනය
               </p>
+         
   
               <div class="hero_section_button">
-                <button class="button">Login</button>
-                
-                <button class="button">Register</button>
+                <h2>Your Stats</h2>
+                <div class="star-count">
+                  <span class="star-icon">⭐</span>
+                  <div id="star-count">Stars: 0 | Level: 1</div>
+              
+              </div>
+
               </div>
             </div>
   
