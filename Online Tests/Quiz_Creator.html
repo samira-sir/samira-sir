@@ -68,20 +68,15 @@
 
     <h1>Quiz Creator</h1>
 
+
+
     <div id="initialFields">
-        <label for="name">Name:</label>
-        <input type="text" id="name" placeholder="Enter name">
-
-        <label for="grade">Grade:</label>
-        <input type="text" id="grade" placeholder="Enter grade">
-
-        <label for="subject">Subject:</label>
-        <input type="text" id="subject" placeholder="Enter subject">
-
-        <button onclick="showQuestionFields()">Start Adding Questions</button>
+        <label for="quizName">Quiz Name:</label>
+        <input type="text" id="quizName" name="quizName" placeholder="Enter the quiz name">
+        <button onclick="showQuestionFields()">Next</button>
     </div>
 
-    <div id="questionsContainer" style="display: none;">
+    <div id="questionsContainer" style="display:none;">
         <div class="question active">
             <label for="questionText1">Question 1:</label>
             <input type="text" id="questionText1" name="questionText" placeholder="Enter your question">
@@ -102,15 +97,15 @@
             <input type="text" id="correctAnswer1" name="correctAnswer" placeholder="Correct Answer (1-4)">
             <hr>
         </div>
+        <button id="copy-output" style="display:none;" onclick="copyResults()">Copy Results</button>
+        <pre id="output"></pre>
+        <button onclick="addQuestion()">Add Another Question</button>
+        <button onclick="generateQuiz()">Generate Quiz</button>
     </div>
 
-    <button onclick="addQuestion()">Add Question</button>
-    <button onclick="generateQuiz()">Generate Quiz</button>
-    <button id="copy-output" style="display:none;" onclick="copyResults()">Copy Results</button>
 
-    <h2>Generated Quiz Code:</h2>
 
-    <div id="output"></div>
+
 
     <script>
         function copyToClipboard(text) {
@@ -162,7 +157,10 @@
         }
 
         function generateQuiz() {
-            let quizData = "const questions = [\n";
+            const quizName = document.getElementById('quizName').value;
+
+            let quizData = `const quizName = "${quizName}";\n\n`;
+            quizData += "const questions = [\n";
             
             for (let i = 1; i <= questionCount; i++) {
                 const questionText = document.getElementById(`questionText${i}`).value;
@@ -202,9 +200,6 @@
             const outputText = document.getElementById('output').innerText;
             copyToClipboard(outputText);
         }
-
-
-        
     </script>
 
 </body>
