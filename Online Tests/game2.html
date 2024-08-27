@@ -445,50 +445,20 @@ h1 {
     <div class="star-count">
         <span class="star-icon">⭐</span>
         <div id="star-count">Stars: 0 | Level: 1</div>
-
     </div>
 
+    <!-- Add the quiz name here -->
+    <h1 id="quiz-name"></h1>
 
-
-
-
-
-
-
-
-
-
-
-
-    <h1>Grade 6 Geography Test 1</h1>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<br><br>
-
-
-
-
-
-
+    <br><br>
 
     <button id="do-again-button" style="display:none;">Do Again</button>
     <button id="my-records-button" style="display:none;">My Records</button>
     <div id="quiz-container">
         <div class="question" id="question"></div>
         <center>
-        <div class="options" id="options"></div>
-    </center>
+            <div class="options" id="options"></div>
+        </center>
     </div>
     <div id="timer"></div>
     <div id="progress-container">
@@ -514,21 +484,22 @@ h1 {
     </div>
     <footer class="footer">
         <div class="footer-content">
-            <p><center> 2024 Samira Ariyadasa<sup>&copy</sup>. <a href="https://samira-sir.github.io/samira-sir/">Website</a></center></p>
-
+            <p><center>2024 Samira Ariyadasa<sup>&copy</sup>. <a href="https://samira-sir.github.io/samira-sir/">Website</a></center></p>
         </div>
     </footer>
 
-
     <script>
-        
         function shuffle(array) {
             for (let i = array.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
                 [array[i], array[j]] = [array[j], array[i]];
             }
         }
-        
+
+        // Insert the quiz name into the H1 element
+        const quizName = "6-Geography Test 1";
+        document.getElementById('quiz-name').innerText = quizName;
+
         const questions = [
     {
         question: "ඔබට  විධිමත් අධ්‍යාපන ලබා දෙන ආයතනය නම් කරන්න.",
@@ -631,6 +602,7 @@ h1 {
         correct: "මාලිමාව"
     },
 ];
+
 
 
         
