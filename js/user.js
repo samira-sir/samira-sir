@@ -83,6 +83,7 @@ const credentials = {
     thinuli: { password: 'Mn3@Rs8&', subjects: [{ name: 'geography', grade: 10 }] },
     ometh: { password: 'Lp7%Kv4@', subjects: [{ name: 'geography', grade: 10 }] },  
     malishi: { password: '20090326', subjects: [{ name: 'geography', grade: 10 }] },
+    dulani:{password: 'Diyana', subjects:[{name:'history', grade:10}]},
 
   };
 
