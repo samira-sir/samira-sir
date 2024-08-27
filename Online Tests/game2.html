@@ -187,7 +187,29 @@ h1 {
 .content {
     flex: 1;
 }
+.container {
+            width: 100%;
+            max-width: 600px; /* Set a maximum width */
+            height: 100%; /* Full height */
+            max-height: 400px; /* Set a maximum height */
+            margin: 20px auto;
+            background-color: #f3e5f5; /* Light background color */
+            border: 2px solid #6a1b9a; /* Border color */
+            border-radius: 10px; /* Rounded corners */
+            overflow-y: auto; /* Vertical scroll */
+            overflow-x: hidden; /* Hide horizontal scroll */
+            padding: 15px;
+            box-sizing: border-box;
+        }
 
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            .container {
+                max-width: 100%; /* Full width on small screens */
+                max-height: 300px; /* Adjust max height on small screens */
+            }
+        }
 .footer {
     background: linear-gradient(135deg, #6a1b9a, #ab47bc);
     color: #fff;
@@ -474,8 +496,9 @@ h1 {
     </div>
     <button id="skip-button">Skip Question</button>
     <div id="message"></div>
-    <div id="summary"></div>
-
+    <div class="container" style="display: none;">
+        <div id="summary"></div>
+    </div>
 
     <div id="records-container">
         <h2>Your Records</h2>
@@ -498,6 +521,7 @@ h1 {
 
 
     <script>
+        
         function shuffle(array) {
             for (let i = array.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
@@ -607,6 +631,7 @@ h1 {
         correct: "මාලිමාව"
     },
 ];
+
 
         
         shuffle(questions);
@@ -725,29 +750,33 @@ h1 {
         }
         
         function showResults() {
-            document.getElementById('quiz-container').style.display = 'none';
-            document.getElementById('timer').style.display = 'none';
-            document.getElementById('skip-button').style.display = 'none';
-        
-            const summaryDiv = document.getElementById('summary');
-            summaryDiv.innerHTML = `<h2>Your Results</h2><p>You got ${correctAnswers} out of ${questions.length} correct.</p>`;
-        
-            const endTime = new Date();
-            const timeTaken = Math.round((endTime - startTime) / 1000);
-        
-            userAnswers.forEach((answer, index) => {
-                const answerDiv = document.createElement('div');
-                answerDiv.className = answer.isCorrect ? 'correct-answer' : 'incorrect-answer';
-                answerDiv.innerText = `${index + 1}. ${answer.question} - Your answer: ${answer.selectedAnswer} (Correct answer: ${answer.correctAnswer})`;
-                summaryDiv.appendChild(answerDiv);
-            });
-        
-            saveRecord(timeTaken, correctAnswers);
-            addStars(correctAnswers);
-        
-            document.getElementById('do-again-button').style.display = 'inline-block';
-            document.getElementById('my-records-button').style.display = 'inline-block';
-        }
+    document.getElementById('quiz-container').style.display = 'none';
+    document.getElementById('timer').style.display = 'none';
+    document.getElementById('skip-button').style.display = 'none';
+
+    // Show the container after the quiz ends
+    document.querySelector('.container').style.display = 'block';
+
+    const summaryDiv = document.getElementById('summary');
+    summaryDiv.innerHTML = `<h2>Your Results</h2><p>You got ${correctAnswers} out of ${questions.length} correct.</p>`;
+
+    const endTime = new Date();
+    const timeTaken = Math.round((endTime - startTime) / 1000);
+
+    userAnswers.forEach((answer, index) => {
+        const answerDiv = document.createElement('div');
+        answerDiv.className = answer.isCorrect ? 'correct-answer' : 'incorrect-answer';
+        answerDiv.innerText = `${index + 1}. ${answer.question} - Your answer: ${answer.selectedAnswer} (Correct answer: ${answer.correctAnswer})`;
+        summaryDiv.appendChild(answerDiv);
+    });
+
+    saveRecord(timeTaken, correctAnswers);
+    addStars(correctAnswers);
+
+    document.getElementById('do-again-button').style.display = 'inline-block';
+    document.getElementById('my-records-button').style.display = 'inline-block';
+}
+
         
         function addStars(amount) {
     const starCountElement = document.getElementById('star-count');
