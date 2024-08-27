@@ -331,16 +331,20 @@ async function validateForm(event) {
         localStorage.setItem('username', username);
         localStorage.setItem('password', password); // Store the password
         localStorage.setItem('subjects', JSON.stringify(credentials[username].subjects));
-        
+
         // Capture current date and time
         const now = new Date();
         const timeString = now.toISOString(); // ISO 8601 format
+
+        // Get starCount from local storage
+        const starCount = localStorage.getItem('starCount') || 0; // Default to 0 if not found
 
         // Send data to Google Sheets
         const formData = new FormData();
         formData.append('Email', ''); // Add the email field if you have it
         formData.append('Name', username);
         formData.append('Time', timeString);
+        formData.append('StarCount', starCount); // Add the starCount
 
         // Show loading animation
         const loadingDiv = document.createElement('div');
@@ -355,7 +359,7 @@ async function validateForm(event) {
             });
 
             if (response.ok) {
-                window.location.href = 'page.html'; // Redirect to rec_page.html
+                window.location.href = 'page.html'; // Redirect to the desired page
             } else {
                 alert('There was an issue with your submission.');
             }
@@ -369,6 +373,8 @@ async function validateForm(event) {
         alert('Invalid password.');
     }
 }
+
+
 
 
 
