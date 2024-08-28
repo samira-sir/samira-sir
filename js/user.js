@@ -8,7 +8,7 @@ const credentials = {
     oneli: { password: 'Xc1&Ut9$', subjects: [{ name: 'history', grade: 6 },{ name: 'civic', grade: 6 }] },
     eesara: { password: '201333Ee', subjects: [{ name: 'geography', grade: 6 },{ name: 'history', grade: 6 },{ name: 'civic', grade: 6 }] },
     olindiya: { password: 'Po8%Lk2#', subjects: [{ name: 'history', grade: 6 },{ name: 'civic', grade: 6 }] },
-    sample: { password: 'sanuka30', subjects: [{ name: 'history', grade: 6 },{ name: 'civic', grade: 6 }] },
+    sample: { password: 'sanuka', subjects: [{ name: 'history', grade: 6 },{ name: 'civic', grade: 6 }] },
     dulansa: { password: 'Dz5@Fs2%', subjects: [{ name: 'history', grade: 6 },{ name: 'geography', grade: 6 },{ name: 'civic', grade: 6 }] },    
     kalani: { password: 'Wb9$Ep4@', subjects: [{ name: 'geography', grade: 6 },{ name: 'history', grade: 6 },{ name: 'civic', grade: 6 }] },
     lithul: { password: 'Tn6#Yx1&', subjects: [{ name: 'geography', grade: 6 },{ name: 'history', grade: 6 },{ name: 'civic', grade: 6 }] },
