@@ -20,7 +20,7 @@
       align-items: center;
       background-repeat: no-repeat;
       overflow: hidden; /* Prevent scrolling */
-            background-image: url(recording/back.jpg);
+      background-image: url(recording/back.jpg);
     }
  .alert {
       padding: 20px;
@@ -313,12 +313,12 @@
   <script src="js/user.js"></script>
   <script src="js/blacklist.js"></script>
   <script>
-
-async function validateForm(event) {
+  async function validateForm(event) {
     event.preventDefault(); // Prevent the form from submitting
 
-    const username = document.querySelector('input[name="text"]').value.toLowerCase();
-    const password = document.querySelector('input[name="password"]').value;
+    // Trim leading and trailing spaces from the username and password
+    const username = document.querySelector('input[name="text"]').value.trim().toLowerCase();
+    const password = document.querySelector('input[name="password"]').value.trim();
 
     // Check if username is in the blacklist
     if (blacklist.includes(username)) {
@@ -374,12 +374,7 @@ async function validateForm(event) {
         alert('Invalid password.');
     }
 }
-
-
-
-
-
-  </script>
+</script>
 </head>
 <body>
   <div id="chatbot-icon">💬</div>
