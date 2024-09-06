@@ -157,7 +157,6 @@
 
       // Copy the generated code to clipboard
       navigator.clipboard.writeText(generatedCode).then(() => {
-        alert('Code copied to clipboard');
         window.location.href = `https://github.com/samira-sir/samira-sir/blob/main/recording/Json/${selectedClass}.js`;
       }).catch(err => {
         alert('Failed to copy code');
