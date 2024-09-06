@@ -80,7 +80,7 @@ const credentials = {
     yahansa: { password: 'Er9@Pw3&', subjects: [{ name: 'geography', grade: 10 }] },    
     sanul: { password: 'Fg2%Hu7@', subjects: [{ name: 'geography', grade: 10 }] },
     nethini: { password: 'Zx6&Jo4%', subjects:[ { name: 'geography', grade: 10 }] },
-    thinuli: { password: 'Mn3@Rs8&', subjects: [{ name: 'geography', grade: 10 }] },
+    thinuli: { password: 'Mn3@Rs8&', subjects: [{ name: 'history', grade: 10 },{ name: 'geography', grade: 10 }] },
     ometh: { password: 'Lp7%Kv4@', subjects: [{ name: 'geography', grade: 10 }] },  
     malishi: { password: '20090326', subjects: [{ name: 'geography', grade: 10 }] },
     dulani:{password: 'Diyana', subjects:[{name:'history', grade:10}]},
