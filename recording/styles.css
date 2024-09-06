@@ -1,0 +1,37 @@
+.scrollable-div {
+      width: 300px; /* Set the width of the div */
+      height: 480px; /* Set the height of the div */
+      overflow: hidden; /* Enable both horizontal and vertical scrolling */
+      border: 1px solid #ccc; /* Optional: Add a border to the div */
+      padding: 10px; /* Optional: Add padding to the div */
+      background-color: white;
+      color:black;
+      border-radius:50px;
+    }  /*hello*/
+                body {
+                    margin: 0;
+                    font-family: Arial, sans-serif;
+                    overflow: hidden; /* Prevent scrolling */
+                    background: linear-gradient(to right, #283048, #859398);
+                    color:white;
+                    background-color: #343a40;
+                    background-image: url("back.jpg");
+
+                }      
+                .main-vid-title {
+background-color: white;
+                  color:black;
+                  width:max-content;
+                  text-align: center;
+                  margin-top:10px;
+                  border-radius:50px;
+                  align-items: center;
+                  height: max-content;
+              }
+footer{
+  position:fixed;
+  left:0;
+  top:0;
+  right:0;
+  overflow:hidden;
+}

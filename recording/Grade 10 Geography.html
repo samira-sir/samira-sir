@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade 10 Geography</title>
+    <link rel="icon" type="image/x-icon" href="pyramid.png">   
+<script src="script.js"></script>
+	<link rel="stylesheet" href="styles.css">
+    <style>
+
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+        }
+
+        .main-video-container {
+            flex: 1;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .main-video {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 16 / 9; /* Maintain aspect ratio */
+        }
+
+        .main-vid-title {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 1.2em;
+        }
+
+        .video-list-container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .list {
+            margin-bottom: 10px;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .list-video {
+            width: 100%;
+            aspect-ratio: 16 / 9; /* Maintain aspect ratio */
+            pointer-events: none; /* Prevent interaction with the iframe */
+        }
+
+        .list-title {
+            text-align: center;
+            margin-top: 5px;
+            font-size: 1em;
+        }
+
+        .active .list-title {
+            font-weight: bold;
+        }
+
+        /* Responsive Styles */
+        @media (min-width: 768px) {
+            .container {
+                flex-direction: row;
+            }
+
+            .main-video-container {
+                flex: 2;
+                margin-right: 20px;
+            }
+
+            .video-list-container {
+                flex: 1;
+                overflow-y: auto;
+                height: 80vh; /* Adjust height based on the viewport height */
+            }
+
+            .list {
+                flex-direction: row;
+                align-items: flex-start;
+            }
+
+            .list-video {
+                width: 30%; /* Adjust width for larger screens */
+            }
+
+            .list-title {
+                width: 70%;
+                text-align: left;
+                margin-top: 0;
+                margin-left: 10px;
+                font-size: 1em;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .main-video-container {
+                margin-right: 30px;
+            }
+
+            .list-video {
+                height: auto;
+            }
+        }
+		.watermark {
+    position: absolute;
+    left: 3%; top: 3%;
+    color: white;
+    animation: 15s moving-watermark infinite;
+}
+
+@keyframes moving-watermark {
+    0%   {left: 3%; top: 3%;}
+    25% {left: 93%; top: 3%;}
+    50% {left: 93%; top: 93%;}
+    75% {left: 3%; top: 93%;}
+    100% {left: 3%; top: 3%;}
+}
+footer {
+  text-align: center;
+  padding: 3px;
+  background-color: DarkSalmon;
+  color: black;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="main-video-container">
+			<div style="width: 5px; height: 5px; position: absolute; right: 50px; top: 10px;">
+				<img style="width: 50px; height: 50px;" src="data:image/png;base64,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">
+			</div>
+			<i class="watermark"><div id="greeting"></div></i>
+            <iframe src="https://drive.google.com/file/d/16X04qs6Ui6pVvo07NZkYv9bL-r8azNzw/preview" class="main-video" frameborder="0" allowfullscreen></iframe>
+		
+            <h3 style="font-size: 30px;"class="main-vid-title">Grade 10 Geography</h3>
+        </div>
+        <div class="scrollable-div">
+        <div class="video-list-container" id="videosList"></div></div>
+    </div>
+<footer><marquee>Do not share this recording with others.Then your account will bane.</marquee></footer>
+<script src="Json/10 Geo.js"></script>
+    <script>
+        // Block right-click
+        document.addEventListener('contextmenu', function(event) {
+            event.preventDefault();
+        });
+
+
+        const videosListContainer = document.getElementById('videosList');
+        const mainVideoContainer = document.querySelector('.main-video-container .main-video');
+        const mainVideoTitle = document.querySelector('.main-video-container .main-vid-title');
+
+        videosListContainer.innerHTML = videosList.map((item) => `
+            <div class="list">
+                <iframe src="${item.video}" class="list-video" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                <h3 class="list-title">${item.title}</h3>
+            </div>
+        `).join('');
+
+        const videoElements = document.querySelectorAll('.video-list-container .list');
+        videoElements.forEach(videoElement => {
+            const videoIframe = videoElement.querySelector('.list-video');
+            videoElement.onclick = () => {
+                videoElements.forEach(el => el.classList.remove('active'));
+                videoElement.classList.add('active');
+                const videoSrc = videoIframe.src;
+                const videoTitle = videoElement.querySelector('.list-title').textContent;
+                mainVideoContainer.src = videoSrc;
+                mainVideoTitle.textContent = videoTitle;
+            };
+        });
+        document.addEventListener('DOMContentLoaded', () => {
+      const username = localStorage.getItem('username');
+      const subjects = JSON.parse(localStorage.getItem('subjects'));
+
+      if (username) {
+           document.getElementById('greeting').textContent = `${username}`;
+
+      }
+
+      if (subjects) {
+        const subjectsContainer = document.getElementById('subjects');
+        subjects.forEach(subject => {
+          const button = document.createElement('button');
+          button.textContent = `${subject.grade} - ${subject.name}`;
+          button.onclick = () => redirectToPage(subject.name, subject.grade);
+          subjectsContainer.appendChild(button);
+        });
+
+        displayGoogleForms(subjects);
+      }
+    });
+
+    </script>
+</body>
+</html>
