@@ -12,6 +12,12 @@ const videosList = [
 { video: 'https://drive.google.com/file/d/1_xvlAWxhfbxkEr3HeQ9KXMCEAOIzjPa1/preview', title: '2024-08-24 01' },
     { video: 'https://drive.google.com/file/d/1WlCV9d75nAFqXkvl1HePCCDOH_EO5hms/preview', title: '2024-08-24 02' },
     { video: 'https://drive.google.com/file/d/1rmEOMJyusZBgW6L_-MjIFv6hT0GDmuDf/preview', title: '2024-08-24 03' },
+    { video: 'https://drive.google.com/file/d/15R9C4yNZkGP1hL-PBFUXwOuElYsTOSzr/preview', title: 'Grade 9 History 2024-09-07 Part 1' },
+{ video: 'https://drive.google.com/file/d/1YrFZ3DoFN7z5EfbxFporANrbsOEGI6Fr/preview', title: 'Grade 9 History 2024-09-07 Part 2' },
+{ video: 'https://drive.google.com/file/d/1FbQ5PaZYDu-4UuTiJp5hbxYyvtKB1_vU/preview', title: 'Grade 9 History 2024-09-07 Part 3' },
+{ video: 'https://drive.google.com/file/d/1l3WpKuZFI5xcTzEcg_fmSRduWjyhG5uz/preview', title: 'Grade 9 History 2024-09-07 Part 4' },
+{ video: 'https://drive.google.com/file/d/1CNrYWsXI0l4s5ldYJUrEwF3e56ye_T0J/preview"', title: 'Grade 9 History 2024-09-07 Part 5' },
+
 
 
 
