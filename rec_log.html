@@ -341,57 +341,80 @@
   </style>
   <script src="js/user.js"></script>
   <script>
- async function validateForm(event) {
-      event.preventDefault(); // Prevent the form from submitting
+window.addEventListener('load', () => {
+  const loggedIn = localStorage.getItem('loggedIn');
+  const usernameField = document.querySelector('input[name="text"]');
+  const passwordField = document.querySelector('input[name="password"]');
+  const loginButton = document.querySelector('button[type="submit"]'); // Assuming the login button is of type "submit"
 
-      const username = document.querySelector('input[name="text"]').value.trim().toLowerCase();
-      const password = document.querySelector('input[name="password"]').value.trim();
+  if (loggedIn === 'true') {
+    const savedUsername = localStorage.getItem('username');
+    const savedPassword = credentials[savedUsername]?.password;
 
-      if (credentials[username] && credentials[username].password === password) {
-        localStorage.setItem('loggedIn', 'true');
-        localStorage.setItem('username', username);
-        localStorage.setItem('subjects', JSON.stringify(credentials[username].subjects));
-        
-        // Store a unique flag
-        localStorage.setItem('sessionFlag', 'active');
+    if (savedUsername && savedPassword) {
+      usernameField.value = savedUsername;
+      passwordField.value = savedPassword;
 
-        // Capture current date and time
-        const now = new Date();
-        const timeString = now.toISOString(); // ISO 8601 format
-
-        // Send data to Google Sheets
-        const formData = new FormData();
-        formData.append('Email', ''); // Add the email field if you have it
-        formData.append('Name', username);
-        formData.append('Time', timeString);
-
-        // Show loading animation
-        const loadingDiv = document.createElement('div');
-        loadingDiv.id = 'loading-circle';
-        loadingDiv.innerHTML = '<div class="spinner"></div>';
-        document.body.appendChild(loadingDiv);
-
-        try {
-          const response = await fetch('https://script.google.com/macros/s/AKfycbyGNqBqdLWTKr-3OM7deo8P8YoeW6iTA5Q-ilI9xDtONklD6G7ESdKKmavHZJFjD9fOQg/exec', {
-            method: 'POST',
-            body: formData
-          });
-
-          if (response.ok) {
-            window.location.href = 'rec_page.html'; // Redirect to rec_page.html
-          } else {
-            alert('There was an issue with your submission.');
-          }
-        } catch (error) {
-          console.error('Error:', error);
-          alert('There was an error with your submission.');
-        } finally {
-          document.body.removeChild(loadingDiv);
-        }
-      } else {
-        alert('Invalid password.');
-      }
+      // Delay the button click to prevent the blinking issue
+      setTimeout(() => {
+        loginButton.click();
+      }, 500); // 500ms delay before clicking the login button
     }
+  }
+});
+
+async function validateForm(event) {
+  event.preventDefault(); // Prevent the form from submitting
+
+  const username = document.querySelector('input[name="text"]').value.trim().toLowerCase();
+  const password = document.querySelector('input[name="password"]').value.trim();
+
+  if (credentials[username] && credentials[username].password === password) {
+    localStorage.setItem('loggedIn', 'true');
+    localStorage.setItem('username', username);
+    localStorage.setItem('subjects', JSON.stringify(credentials[username].subjects));
+
+    // Store a unique flag
+    localStorage.setItem('sessionFlag', 'active');
+
+    // Capture current date and time
+    const now = new Date();
+    const timeString = now.toISOString(); // ISO 8601 format
+
+    // Send data to Google Sheets
+    const formData = new FormData();
+    formData.append('Email', ''); // Add the email field if you have it
+    formData.append('Name', username);
+    formData.append('Time', timeString);
+
+    // Show loading animation
+    const loadingDiv = document.createElement('div');
+    loadingDiv.id = 'loading-circle';
+    loadingDiv.innerHTML = '<div class="spinner"></div>';
+    document.body.appendChild(loadingDiv);
+
+    try {
+      const response = await fetch('https://script.google.com/macros/s/AKfycbyGNqBqdLWTKr-3OM7deo8P8YoeW6iTA5Q-ilI9xDtONklD6G7ESdKKmavHZJFjD9fOQg/exec', {
+        method: 'POST',
+        body: formData
+      });
+
+      if (response.ok) {
+        window.location.href = 'rec_page.html'; // Redirect to rec_page.html
+      } else {
+        alert('There was an issue with your submission.');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      alert('There was an error with your submission.');
+    } finally {
+      document.body.removeChild(loadingDiv);
+    }
+  } else {
+    alert('Invalid password.');
+  }
+}
+
   </script>
 </head>
 <body>
