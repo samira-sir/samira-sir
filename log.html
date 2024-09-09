@@ -313,7 +313,22 @@
   <script src="js/user.js"></script>
   <script src="js/blacklist.js"></script>
   <script>
-  async function validateForm(event) {
+ document.addEventListener('DOMContentLoaded', () => {
+    const usernameField = document.querySelector('input[name="text"]');
+    const passwordField = document.querySelector('input[name="password"]');
+
+    const savedUsername = localStorage.getItem('username');
+    const savedPassword = localStorage.getItem('password');
+
+    if (savedUsername && savedPassword) {
+        usernameField.value = savedUsername;
+        passwordField.value = savedPassword;
+
+        validateForm(new Event('submit'));
+    }
+});
+
+async function validateForm(event) {
     event.preventDefault(); // Prevent the form from submitting
 
     // Trim leading and trailing spaces from the username and password
@@ -374,6 +389,7 @@
         alert('Invalid password.');
     }
 }
+
 </script>
 </head>
 <body>
