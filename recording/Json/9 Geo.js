@@ -17,6 +17,10 @@ const videosList = [
 { video: 'https://drive.google.com/file/d/1-1v-0z1PMhV7MSaBoLLtU5hOCd5DQRBl/preview', title: '2024 09 02 01' },
     { video: 'https://drive.google.com/file/d/1yraVCP15xOQnsb2qhffhxTqD7IiFaLVm/preview', title: '2024 09 02 02' },
     { video: 'https://drive.google.com/file/d/1iRb01YB8pT5yUToyMu6JNEMfldFbVjjO/preview', title: '2024 09 02 03' },
+    { video: 'https://drive.google.com/file/d/1J22TZU0loe8Q6NRBvgRw6950lj8DRtuu/preview', title: 'Grade 9 Geo 2024-09-09 Part 1' },
+{ video: 'https://drive.google.com/file/d/1znomeB7EszIzTJCrtvyt0Aw26oLnn5a-/preview', title: 'Grade 9 Geo 2024-09-09 Part 2' },
+{ video: 'https://drive.google.com/file/d/1ySlhFwkH4awQmG6BZp62qfdQBvjEFe08/preview', title: 'Grade 9 Geo 2024-09-09 Part 3' },
+
 
 
 
