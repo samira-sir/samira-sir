@@ -21,6 +21,10 @@ const videosList = [
 { video: 'https://drive.google.com/file/d/1Jq8LxCVE7ytP0pnU6lKH0GTZY7KXDSSq/preview', title: '2024 09 03 part 1' },
 { video: 'https://drive.google.com/file/d/1Bxs-XklV9pfzDf5ej2B8kDG2mgAUiSoR/preview', title: '2024 09 03 part 2' },
 { video: 'https://drive.google.com/file/d/104rc5Fjm61U_P9mBOYZfFXRsu1eipCq2/preview', title: '2024 09 03 part 3' },	
+    { video: 'https://drive.google.com/file/d/1mzl73Mr9ICNHO_yCtWxgn7IAed50uup6/preview', title: 'Grade 7 History 2024-09-10 Part 1' },
+{ video: 'https://drive.google.com/file/d/1IP5kwuNKT9uBM_TJ_AZ5U8FCJVCnrt_p/preview', title: 'Grade 7 History 2024-09-10 Part 2' },
+{ video: 'https://drive.google.com/file/d/15ww119ZxQtYRZ5zNH9qMUcHlnZwDOSrG/preview', title: 'Grade 7 History 2024-09-10 Part 3' },
+
  
 
 
