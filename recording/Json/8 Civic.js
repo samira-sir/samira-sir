@@ -12,6 +12,10 @@ const videosList = [
     { video: 'https://drive.google.com/file/d/1Hkh30pDK1Jx5RHXSR03QCOdNaC2x2Rx7/preview', title: 'Grade 8 Civic 2024-09-06 Part 1' },
 { video: 'https://drive.google.com/file/d/1GcSuu0nW0Ai9eY6JMqVbV21U9h26c_c0/preview', title: 'Grade 8 Civic 2024-09-06 Part 2' },
 { video: 'https://drive.google.com/file/d/1J8Im-rpTrbe1Omyzg1FeZvO4g2iI8dVF/preview', title: 'Grade 8 Civic 2024-09-06 Part 3' },
+   { video: 'https://drive.google.com/file/d/1VrOBpz8fsfAL7ffNibUSuGqg21rJG5l_/preview', title: 'Grade 8 Civic 2024-09-13 Part 1' },
+{ video: 'https://drive.google.com/file/d/1qA4zYVYqTDCU6o3e1TPw9QjlUEFdi3V7/preview', title: 'Grade 8 Civic 2024-09-13 Part 2' },
+{ video: 'https://drive.google.com/file/d/1BklxtdXmzokdW9lKU-YZavahcRhHTh-z/preview', title: 'Grade 8 Civic 2024-09-13 Part 3' },
+ 
 
 
 
