@@ -25,6 +25,9 @@ const videosList = [
   { video: 'https://drive.google.com/file/d/1MZbOBu42NHoZwtF-i6AiQvQ7UFYbefNZ/preview', title: 'Grade 7 Civic 2024-09-15 Part 1' },
 { video: 'https://drive.google.com/file/d/1udQwJJKSxTfhhnQ2l-eR8UUg1-E2-tFJ/preview', title: 'Grade 7 Civic 2024-09-15 Part 2' },
 { video: 'https://drive.google.com/file/d/1UNa2wua0BrwjTBbJYn5zEooA2q_AmEzJ/preview', title: 'Grade 7 Civic 2024-09-15 Part 3' },
+{ video: 'https://drive.google.com/file/d/1WdXCyRY5XvRiS5qjn5L0OZJBVIDkzUdQ/preview', title: 'Grade 7 Civic 2024-09-20 Part 1' },
+{ video: 'https://drive.google.com/file/d/1lZvi5nvDKZNM9FMYgKRL3Nab8FAFOg8K/preview', title: 'Grade 7 Civic 2024-09-20 Part 2' },
+{ video: 'https://drive.google.com/file/d/1ddk_Bd8OFHTOJSkkUTDYaUnU3WPxV2w7/preview', title: 'Grade 7 Civic 2024-09-20 Part 3' },
   
 
 
