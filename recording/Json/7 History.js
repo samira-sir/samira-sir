@@ -27,6 +27,9 @@ const videosList = [
 { video: 'https://drive.google.com/file/d/1Q7GnivPOmn5d3eEAfRBYwcY9jLJXKOYM/preview', title: 'Grade 7 History 2024-09-24 Part 1' },
 { video: 'https://drive.google.com/file/d/15Cru-1hAqJVWvnJ-WE1ESXaAvujtRQyC/preview', title: 'Grade 7 History 2024-09-24 Part 2' },
 { video: 'https://drive.google.com/file/d/1NbtBHZgMER7r9598t6AhA3nBB_5ckddn/preview', title: 'Grade 7 History 2024-09-24 Part 3' },
+{ video: 'https://drive.google.com/file/d/19Xha0uAFlNbcno4BZLooL9MPA3ufPATS/preview', title: 'Grade 7 History 2024-09-29 Part 1' },
+{ video: 'https://drive.google.com/file/d/1wdo4Ny9S0jDeWbz9nyEhNQigAxrzyPC5/preview', title: 'Grade 7 History 2024-09-29 Part 2' },
+{ video: 'https://drive.google.com/file/d/1Hfovj3-Wbk4AqfDUhnElMtapOm8MAsE6/preview', title: 'Grade 7 History 2024-09-29 Part 3' },
 
  
 
