@@ -23,6 +23,9 @@ const videosList = [
 { video: 'https://drive.google.com/file/d/11Zk5S3_n_nWDQsvuziNyFIrQ3Fwwe-g5/preview', title: 'Grade 7 Geo 2024-09-23 Part 1' },
 { video: 'https://drive.google.com/file/d/1zr79w1okvPbjdN-KKBmX6pWAedMQOWTN/preview', title: 'Grade 7 Geo 2024-09-23 Part 2' },
 { video: 'https://drive.google.com/file/d/1xhkqOPuzqNMCq6EOariQ15220Wc2IXYP/preview', title: 'Grade 7 Geo 2024-09-23 Part 3' },
+{ video: 'https://drive.google.com/file/d/1NH9JAtFztSQrcXyDvA1q534tWaMoCc4u/preview', title: 'Grade 7 Geo 2024-10-01 Part 1' },
+{ video: 'https://drive.google.com/file/d/1vOqRHp_tDQlZIZzO563VrrrNn8aEBG_l/preview', title: 'Grade 7 Geo 2024-10-01 Part 2' },
+{ video: 'https://drive.google.com/file/d/1WlgskDPvn2lD0UNuXJqDkR-4fsWf5qwm/preview', title: 'Grade 7 Geo 2024-10-01 Part 3' },
 
 
 
