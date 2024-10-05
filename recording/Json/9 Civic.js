@@ -16,6 +16,9 @@ const videosList = [
 { video: 'https://drive.google.com/file/d/1km-ubvIdcIDV7EwQ1QbseuliR0_bFJTq/preview', title: 'Grade 9 Civic 2024-09-27 Part 1' },
 { video: 'https://drive.google.com/file/d/1mS4X6L95b-sJVIIxv9Bldur3rm0Fv3Wd/preview', title: 'Grade 9 Civic 2024-09-27 Part 2' },
 { video: 'https://drive.google.com/file/d/1V6JON5dIBacPvT_VYOsgGGKSQDDosFVY/preview', title: 'Grade 9 Civic 2024-09-27 Part 3' },
+{ video: 'https://drive.google.com/file/d/1au4vtrGuasOmdMnYSv21Q1_EyfOrBk0T/preview', title: 'Grade 9 Civic 2024-10-04 Part 1' },
+{ video: 'https://drive.google.com/file/d/1vF1UEzbf3zfOUFhYbvTpGjr9c-HNtIMM/preview', title: 'Grade 9 Civic 2024-10-04 Part 2' },
+{ video: 'https://drive.google.com/file/d/15Hkof1Qt1uGP3hMe4szwAwouEz-NUh_c/preview', title: 'Grade 9 Civic 2024-10-04 Part 3' },
 
 
 
