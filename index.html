@@ -134,11 +134,56 @@
           font-size: 10px;
       }
   }
+  .popup-button {
+            position: fixed;
+            top: -100px; /* Hidden above the screen initially */
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #28a745;
+            color: white;
+            text-decoration: none;
+            padding: 15px 30px;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            animation: popup 10s ease-in-out infinite; /* Animation with a 10s loop */
+        }
+
+        .popup-button:hover {
+            background-color: #218838;
+        }
+
+        /* Define keyframe animation for popup */
+        @keyframes popup {
+            0% {
+                top: -100px; /* Hidden at the top */
+                opacity: 0;
+            }
+            20% {
+                top: 20px; /* Slide down to visible position */
+                opacity: 1;
+            }
+            50% {
+                top: 20px; /* Stay visible at the center */
+                opacity: 1;
+            }
+            70% {
+                top: -100px; /* Slide back up */
+                opacity: 0;
+            }
+            100% {
+                top: -100px; /* Hidden again */
+                opacity: 0;
+            }
+        }
 </style>
   </head>
   <body>
     <!-- Header & Navbar Section -->
     <header>
+      <a href="live_stream.html" class="popup-button">Go to Live Stream</a>
       <nav>
         <div class="nav_logo">
           <a href="#">
