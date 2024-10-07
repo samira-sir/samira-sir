@@ -85,9 +85,30 @@
             color: #ccc; /* Lighter color for additional text */
             bottom:0;
         }
+                .top-button {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #28a745;
+            color: white;
+            text-decoration: none;
+            padding: 15px 30px;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s, transform 0.3s;
+            display: inline-block;
+        }
+
+        .top-button:hover {
+            background-color: #218838;
+            transform: translateX(-50%) scale(1.05);
+        }
     </style>
 </head>
-<body><marquee style="color:black;">For Online Classes-078 876697 | Samira Ariyadasa&copy</marquee>
+<body>    <a href="index.html" class="top-button">Home</a>
     <!-- Top Rectangle -->
     <div class="top-rectangle">
 
