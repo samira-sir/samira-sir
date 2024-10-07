@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Responsive YouTube Live Stream Embed">
+    <meta name="keywords" content="YouTube, Live Stream, Embed, Responsive">
+    <meta name="author" content="Your Name">
+    <link rel="icon" type="image/x-icon" href="pyramid.png">
+
+    <title>Class Live Stream</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            width: 100%;
+            background: #000;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .video-container {
+            position: absolute;
+            top: 50px; /* Adjust to accommodate top rectangle */
+            left: 0;
+            width: 100%;
+            height: calc(100% - 100px); /* Subtract height of top and bottom rectangles */
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .top-rectangle, .bottom-rectangle {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            background-color: transparent; /* Transparent for the rectangles */
+            z-index: 2;
+        }
+
+        .top-rectangle {
+            top: 0;
+            height: 110px;
+        }
+
+        .bottom-rectangle {
+            bottom: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #ffffff; /* White text color */
+            font-family: Arial, sans-serif;
+            font-size: 18px;
+            height: 90px;
+        }
+
+        /* Overlay to disable right-click */
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: transparent; /* Keep the overlay transparent */
+            z-index: 3; /* Higher z-index to be above iframe */
+        }
+
+        /* Countdown and Date Text Styling */
+        .countdown-container {
+            display: flex;
+            align-items: center;
+            gap: 20px; /* Space between countdown and date */
+        }
+
+        .footer {
+            font-size: 16px;
+            color: #ccc; /* Lighter color for additional text */
+            bottom:0;
+        }
+    </style>
+</head>
+<body><marquee style="color:black;">For Online Classes-078 876697 | Samira Ariyadasa&copy</marquee>
+    <!-- Top Rectangle -->
+    <div class="top-rectangle">
+
+
+    </div>
+
+    <!-- Video Container -->
+    <div class="video-container">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/l1DrpHFxDUA?si=ZBS-rcAcvdV6X3Gs&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>    </div>
+
+    <!-- Bottom Rectangle with Countdown Timer and Target Date -->
+    <div class="bottom-rectangle">
+        <div class="countdown-container">
+            <div class="footer"><br>          <div>Class Starts In: <span id="countdown-timer">0d 0h 0m 0s</span></div>
+Sheduled to: <span id="target-date">October 07, 2024 11:40:00</span></div>
+        </div>
+    </div>
+
+    <script>
+        // Disable right-click context menu on the entire document
+        document.addEventListener('contextmenu', event => event.preventDefault());
+
+        // Countdown timer function
+        function initializeCountdown(targetDate) {
+            const timerElement = document.getElementById('countdown-timer');
+
+            function updateCountdown() {
+                const currentTime = new Date().getTime();
+                const distance = targetDate - currentTime;
+
+                if (distance <= 0) {
+                    timerElement.textContent = "Now";
+                } else {
+                    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                    timerElement.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+                }
+            }
+
+            // Update countdown every second
+            setInterval(updateCountdown, 1000);
+        }
+
+        // Set the countdown target date and time
+        const targetDateString = 'October 08, 2024 19:30:00';
+        const targetDate = new Date(targetDateString).getTime();
+
+        // Set the target date string in the footer
+        document.getElementById('target-date').textContent = targetDateString;
+
+        initializeCountdown(targetDate);
+
+        // Function to add overlay after 20 seconds
+        function addOverlayAfterDelay() {
+            setTimeout(() => {
+                const overlay = document.createElement('div');
+                overlay.className = 'overlay';
+                overlay.oncontextmenu = () => false; // Disable right-click on overlay
+
+                // Append overlay to the video container
+                document.querySelector('.video-container').appendChild(overlay);
+            }, 20000); // 20 seconds delay
+        }
+
+        // Call the function to add overlay after 20 seconds
+        addOverlayAfterDelay();
+    </script>
+</body>
+</html>
