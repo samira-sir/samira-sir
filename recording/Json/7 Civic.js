@@ -1,12 +1,4 @@
 const videosList = [
-    { video: 'https://drive.google.com/file/d/16iKcPq_Z9g2qPQOLI94HE0uwQzNA1z29/preview', title: '2024-07-28 1' },
-    { video: 'https://drive.google.com/file/d/11LovnhXKQpzAdFMKqHiGJSo_Zcm1J8IB/preview', title: '2024-07-28 2' },
-    { video: 'https://drive.google.com/file/d/1Xu2If-2dxEboS8FnNauTsGAdOIKyvHXD/preview', title: '2024-07-28 3' },
-{ video: 'https://drive.google.com/file/d/1hTV34bBJBh4F0bKnJK1eeIXNpPnmMM67/preview', title: '2024-08-04 1' },
-    { video: 'https://drive.google.com/file/d/1SShStrZigsW_OZYcTjlNfNI52vYfPHLQ/preview', title: '2024-08-04 2' },
-    { video: 'https://drive.google.com/file/d/1jNWDSqd9t5jV-VFJ_OJQ-JoYOQCkAX9B/preview', title: '2024-08-11 1' },
-    { video: 'https://drive.google.com/file/d/1d0d5hXL-LTSTZB7yUcxoYe8Uk4Nzadkj/preview', title: '2024-08-11 2' },
-    { video: 'https://drive.google.com/file/d/1duMct2AlY0TmJwy2CV9v2jhiQLEGt5AD/preview', title: '2024-08-11 3' },
 { video: 'https://drive.google.com/file/d/1vrlcUSz88RJsfoREqj8s1K4RYA2dWaz-/preview', title: '2024-08-18 1' },
     { video: 'https://drive.google.com/file/d/1lJDbhF6EjHbjWCjC7pimGlvVy0QNTgWv/preview', title: '2024-08-18 2' },
     { video: 'https://drive.google.com/file/d/1DsxiS7ca6NB3c8dosxiabUXDBtFJwJ6a/preview', title: '2024-08-18 3' },
@@ -28,6 +20,9 @@ const videosList = [
 { video: 'https://drive.google.com/file/d/1WdXCyRY5XvRiS5qjn5L0OZJBVIDkzUdQ/preview', title: 'Grade 7 Civic 2024-09-20 Part 1' },
 { video: 'https://drive.google.com/file/d/1lZvi5nvDKZNM9FMYgKRL3Nab8FAFOg8K/preview', title: 'Grade 7 Civic 2024-09-20 Part 2' },
 { video: 'https://drive.google.com/file/d/1ddk_Bd8OFHTOJSkkUTDYaUnU3WPxV2w7/preview', title: 'Grade 7 Civic 2024-09-20 Part 3' },
+{ video: 'https://drive.google.com/file/d/16dVIk9nHxVc2lvpGEP-byc_T68CIv5oS/preview', title: 'Grade 7 Civic 2024-10-06 Part 1' },
+{ video: 'https://drive.google.com/file/d/1L5sT9kFP-gHdT8lnphKQI_3aHHUS-zzD/preview', title: 'Grade 7 Civic 2024-10-06 Part 2' },
+{ video: 'https://drive.google.com/file/d/13MPOy4oA6bSmBZjPjTDUNFXZ02y7jd-i/preview', title: 'Grade 7 Civic 2024-10-06 Part 3' },
   
 
 
