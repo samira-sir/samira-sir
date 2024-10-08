@@ -1,11 +1,5 @@
 const videosList = [
-    { video: 'https://drive.google.com/file/d/1ce2sA7dF371QSviaXwy-WP94WHBapd1W/preview', title: '2024 07 29 01' },
-    { video: 'https://drive.google.com/file/d/1zJlqMygfUjMPyUzx3IV_mBifDuxB9OnO/preview', title: '2024 07 29 02' },
-    { video: 'https://drive.google.com/file/d/15KUxOYX0HO9xR9Kv3exQPQ48DZq0Ob8d/preview', title: '2024 07 29 3' },
-    { video: 'https://drive.google.com/file/d/1OnuNF2fUgKC3xbcu6HRbCblyNqs5LeoT/preview', title: '2024 08 12 01' },
-    { video: 'https://drive.google.com/file/d/17qd8EPnARCneSckIlkJD2HsFXUMD0PxN/preview', title: '2024 08 12 02' },
-    { video: 'https://drive.google.com/file/d/1bK1LCgep_dU-8hjJPkYeH6am2d_oHap9/preview', title: '2024 08 12 03' },
-{ video: 'https://drive.google.com/file/d/1aA2PxdYQI25t2is_qmKVtJDO_J-_Apch/preview', title: '2024 08 19 02' },
+   { video: 'https://drive.google.com/file/d/1aA2PxdYQI25t2is_qmKVtJDO_J-_Apch/preview', title: '2024 08 19 02' },
     { video: 'https://drive.google.com/file/d/1aQjD-OI1a3rTME2bHrWbARRMxHtjHWHS/preview', title: '2024 08 19 01' },
     { video: 'https://drive.google.com/file/d/1-aComVDfkTlcTXPzVs6uxv0Y1yfl2SvQ/preview', title: '2024 08 19 03' },
     { video: 'https://drive.google.com/file/d/1KYYFi-I4nLIJ8rnGGeVn2g53s8OKU5fV/preview', title: '2024 08 26 01' },
@@ -26,6 +20,9 @@ const videosList = [
 { video: 'https://drive.google.com/file/d/1NH9JAtFztSQrcXyDvA1q534tWaMoCc4u/preview', title: 'Grade 7 Geo 2024-10-01 Part 1' },
 { video: 'https://drive.google.com/file/d/1vOqRHp_tDQlZIZzO563VrrrNn8aEBG_l/preview', title: 'Grade 7 Geo 2024-10-01 Part 2' },
 { video: 'https://drive.google.com/file/d/1WlgskDPvn2lD0UNuXJqDkR-4fsWf5qwm/preview', title: 'Grade 7 Geo 2024-10-01 Part 3' },
+{ video: 'https://drive.google.com/file/d/1_BoU9dBf2_fl7LSP0xjo16IWYyNey7Oz/preview', title: 'Grade 7 Geo 2024-10-07 Part 1' },
+{ video: 'https://drive.google.com/file/d/1kvAJtI8geWhKTkKJ2w-XVIIr8FKagyud/preview', title: 'Grade 7 Geo 2024-10-07 Part 2' },
+{ video: 'https://drive.google.com/file/d/16XahxBZrcpUNKCFFHbvfTiC_vidT0s1-/preview', title: 'Grade 7 Geo 2024-10-07 Part 3' },
 
 
 
