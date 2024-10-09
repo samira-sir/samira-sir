@@ -32,6 +32,9 @@ const videosList = [
 { video: 'https://drive.google.com/file/d/1sxHa7dzKtd5MpFVaa5ddyfSO1T6O0Vyq/preview', title: 'Grade 10 Geo 2024-10-01 Part 2' },
 { video: 'https://drive.google.com/file/d/1vGiVuIwIeDWfF9cO-05B6CQkslgbdnNM/preview', title: 'Grade 10 Geo 2024-10-01 Part 3' },
 { video: 'https://drive.google.com/file/d/1uQRM5VDEsymZlfHwoVicR5Q94brtlTRq/preview', title: 'Grade 10 Geo 2024-10-01 Part 4' },
+{ video: 'https://drive.google.com/file/d/1RxrhiVzMis1WAavCGJT5sHsNc9gXh6oi/preview', title: 'Grade 10 Geo 2024-10-07 Part 1' },
+{ video: 'https://drive.google.com/file/d/1yVXv77VhrlHyStmNy7_w3ZdFEX_5iqXv/preview', title: 'Grade 10 Geo 2024-10-07 Part 2' },
+{ video: 'https://drive.google.com/file/d/1IXbvVMVRtGUcoNR-Bys87cQoyb4VqOKn/preview', title: 'Grade 10 Geo 2024-10-07 Part 3' },
 
 
 
