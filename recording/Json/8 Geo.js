@@ -21,6 +21,9 @@ const videosList = [
 { video: 'https://drive.google.com/file/d/1Cs-mgwLYdbYMJjUoNg6l3SLDwmKbYsxY/preview', title: 'Grade 8 Geo 2024-09-24 Part 1' },
 { video: 'https://drive.google.com/file/d/1M68ympxNC9ohefOT96csg1oGZOxRxTrE/preview', title: 'Grade 8 Geo 2024-09-24 Part 2' },
 { video: 'https://drive.google.com/file/d/1HJBzhGDErR1qckyWrfg3cwnIKoIRh285/preview', title: 'Grade 8 Geo 2024-09-24 Part 3' },
+{ video: 'https://drive.google.com/file/d/1G_lYZN3FDeRTZ2DCtv8LUX-iqrusX0Dc/preview', title: 'Grade 8 Geo 2024-10-08 Part 1' },
+{ video: 'https://drive.google.com/file/d/1kFy4RP9WwLNtbmpj7v1J7PF0sqZmP1GX/preview', title: 'Grade 8 Geo 2024-10-08 Part 2' },
+{ video: 'https://drive.google.com/file/d/1tcD-VxJApUK0HTIbCpja2am17hoUvS5T/preview', title: 'Grade 8 Geo 2024-10-08 Part 3' },
 
 
 
