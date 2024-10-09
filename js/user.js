@@ -4,7 +4,7 @@ const credentials = {
     numaya: { password: 'abcde', subjects: [{ name: 'history', grade: 6 },{ name: 'civic', grade: 6 }] },
     kavitha: { password: 'Yx2$Ns9@', subjects: [{ name: 'geography', grade: 6 }, { name: 'history', grade: 6 },{ name: 'civic', grade: 6 }] },
     imandi: { password: 'Gw7@Eh5%', subjects: [{ name: 'history', grade: 6 }, { name: 'geography', grade: 6 },{ name: 'civic', grade: 6 }] },
-    dhanula: { password: 'Ju4#Hr6@', subjects: [{ name: 'history', grade: 6 }, { name: 'geography', grade: 6 },{ name: 'civic', grade: 6 }] },
+    danula: { password: 'danula123', subjects: [{ name: 'history', grade: 6 }, { name: 'geography', grade: 6 },{ name: 'civic', grade: 6 }] },
     oneli: { password: 'Xc1&Ut9$', subjects: [{ name: 'history', grade: 6 },{ name: 'civic', grade: 6 }] },
     olindiya: { password: '2013', subjects: [{ name: 'history', grade: 6 },{ name: 'civic', grade: 6 }] },
     sample: { password: 'sanuka', subjects: [{ name: 'history', grade: 6 },{ name: 'civic', grade: 6 }] },
