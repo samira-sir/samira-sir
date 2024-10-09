@@ -27,6 +27,8 @@ const videosList = [
 { video: 'https://drive.google.com/file/d/1SBTbxA9dWTTAinA_TdWnjdLdJaf5np__/preview', title: 'Grade 10 History 2024-10-04 Part 1' },
 { video: 'https://drive.google.com/file/d/1HTB-85AGRVbQhGk2qq0NvlTtNQgLEhyQ/preview', title: 'Grade 10 History 2024-10-04 Part 2' },
 { video: 'https://drive.google.com/file/d/141yE6EDbrxW7oDa2QgAvbQX3yBfAhbhO/preview', title: 'Grade 10 History 2024-10-04 Part 3' },
+{ video: 'https://drive.google.com/file/d/1lz3KiJY7xMmulTtGDL2Cbq867h5fOZZF/preview', title: 'Grade 10 History 2024-10-08 paper Part 1' },
+{ video: 'https://drive.google.com/file/d/1eE3D3S4hLS2DIyX5LVuM5s7ZBR5qXB4T/preview', title: 'Grade 10 History 2024-10-08 paper Part 2' },
 
 
 
