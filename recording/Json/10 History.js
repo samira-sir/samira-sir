@@ -1,7 +1,4 @@
 const videosList = [
-    { video: 'https://drive.google.com/file/d/1bXBnn-E-qWlyY2Ai3lg95mLESxbSOl55/preview', title: '2024-07-26 1' },
-    { video: 'https://drive.google.com/file/d/1dqLxTcJbvuCrijHF0VkpjzG-_Hybq0sP/preview', title: '2024-07-26 2' },
-    { video: 'https://drive.google.com/file/d/1e9X-jwGLesAx48_FJ8Y2bXu3Vr1qMONL/preview', title: '2024-07-26 3' },
     { video: 'https://drive.google.com/file/d/1BVsKzUVroDfaVXQa4jqL5bg_tJYsmXlZ/preview', title: '2024-08-03 1' },
     { video: 'https://drive.google.com/file/d/1isj0pW7dlMYFveq5QnoNL9Wgf4p2yWKk/preview', title: '2024-08-03 2' },
     { video: 'https://drive.google.com/file/d/1n4GHFYg9PwY45vQ4NIpURCIAyreD61IE/preview', title: '2024-08-03 3' },
@@ -29,6 +26,9 @@ const videosList = [
 { video: 'https://drive.google.com/file/d/141yE6EDbrxW7oDa2QgAvbQX3yBfAhbhO/preview', title: 'Grade 10 History 2024-10-04 Part 3' },
 { video: 'https://drive.google.com/file/d/1lz3KiJY7xMmulTtGDL2Cbq867h5fOZZF/preview', title: 'Grade 10 History 2024-10-08 paper Part 1' },
 { video: 'https://drive.google.com/file/d/1eE3D3S4hLS2DIyX5LVuM5s7ZBR5qXB4T/preview', title: 'Grade 10 History 2024-10-08 paper Part 2' },
+{ video: 'https://drive.google.com/file/d/19OYKYmw10aQ3iEmSlLlhhhHn7OZeIaB9/preview', title: 'Grade 10 History 2024-10-11 Part 1' },
+{ video: 'https://drive.google.com/file/d/1rDlHTR5Z137dgNHQJshHc3cI7zvbKMr1/preview', title: 'Grade 10 History 2024-10-11 Part 2' },
+{ video: 'https://drive.google.com/file/d/1Pbd8--zCPi-cRcPwx8dcuG0hMZry_u-E/preview', title: 'Grade 10 History 2024-10-11 Part 3' },
 
 
 
