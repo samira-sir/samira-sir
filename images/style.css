@@ -211,10 +211,19 @@ label .close_btn {
 }
 
 /* About Us Section */
-.about_us {
-    padding: 60px 20px 120px;
-    background: var(--light-gray-color);
+section {
+    width: 100%;
+    max-width: 100%;
+    position: relative;
+    padding: 0;
 }
+
+.about_us {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+
 
 .about_container {
     display: flex;
