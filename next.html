@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Class Subjects and Videos</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+    h1 {
+      color: #333;
+      margin-bottom: 10px;
+    }
+    .navbar {
+      display: flex;
+      flex-wrap: wrap; /* Allow wrapping for smaller screens */
+      justify-content: center;
+      background-color: #333;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+    .navbar a {
+      padding: 10px 15px;
+      text-align: center;
+      text-decoration: none;
+      color: white;
+      background-color: #333;
+      margin: 5px;
+      border-radius: 5px;
+    }
+    .navbar a:hover, .navbar a.active {
+      background-color: #575757;
+      color: yellow; /* Highlight active month with yellow text */
+    }
+    .content-container {
+      display: none; /* Initially hidden */
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    .box {
+      width: 240px;
+      height: 144px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      margin: 10px;
+      background-color: white;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 10px;
+      box-sizing: border-box;
+    }
+    .title {
+      font-size: 16px;
+      color: #333;
+      text-align: center;
+    }
+    button {
+      padding: 10px 20px;
+      margin: 5px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 100%;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    iframe {
+      width: 100%;
+      max-width: 600px; /* Set a max width for the iframe */
+      height: 350px; /* Set a fixed height for the iframe */
+      border: none;
+      margin-top: 20px;
+      display: block; /* Centering the iframe */
+    }
+    .recording-title {
+      text-align: center;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+ 
+
+        .main-video-container {
+
+ width:600px;
+            position: relative;
+        }
+
+
+
+  </style>
+</head>
+<body>
+
+  <!-- Horizontal Month Menu Bar -->
+  <div class="navbar">
+    <a href="#Jan" id="Jan-link" onclick="showMonth('Jan')">January</a>
+    <a href="#Feb" id="Feb-link" onclick="showMonth('Feb')">February</a>
+    <a href="#Mar" id="Mar-link" onclick="showMonth('Mar')">March</a>
+    <a href="#Apr" id="Apr-link" onclick="showMonth('Apr')">April</a>
+    <a href="#May" id="May-link" onclick="showMonth('May')">May</a>
+    <a href="#Jun" id="Jun-link" onclick="showMonth('Jun')">June</a>
+    <a href="#Jul" id="Jul-link" onclick="showMonth('Jul')">July</a>
+    <a href="#Aug" id="Aug-link" onclick="showMonth('Aug')">August</a>
+    <a href="#Sep" id="Sep-link" onclick="showMonth('Sep')">September</a>
+    <a href="#Oct" id="Oct-link" onclick="showMonth('Oct')">October</a>
+    <a href="#Nov" id="Nov-link" onclick="showMonth('Nov')">November</a>
+    <a href="#Dec" id="Dec-link" onclick="showMonth('Dec')">December</a>
+  </div>
+
+  <!-- Containers for Each Month's Content -->
+  <div id="Jan" class="content-container"></div>
+  <div id="Feb" class="content-container"></div>
+  <div id="Mar" class="content-container"></div>
+  <div id="Apr" class="content-container"></div>
+  <div id="May" class="content-container"></div>
+  <div id="Jun" class="content-container"></div>
+  <div id="Jul" class="content-container"></div>
+  <div id="Aug" class="content-container"></div>
+  <div id="Sep" class="content-container"></div>
+  <div id="Oct" class="content-container"></div>
+  <div id="Nov" class="content-container"></div>
+  <div id="Dec" class="content-container"></div>
+
+  <!-- Iframe for Zoom and Recordings -->
+  <div class="container">
+    <div class="main-video-container">
+  <div style="width: 5px; height: 5px; position: absolute; right: 50px; top: 10px;">
+    <img style="width: 50px; height: 50px;" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBw8PEA0PDQ0NDQ0NDQ0NDQ0NDQ8NDQ0NFREWFhURFRUYHSggGBolGxUVITEhJSkrLi4uFx8zODMsNygtLisBCgoKDQwNFhAPFS0ZFRkrKysrKysrKystLSs3KystLSs3KysrKysrKy0tKysrKysrKysrKysrKysrKysrKysrK//AABEIAKwBJgMBIgACEQEDEQH/xAAXAAEBAQEAAAAAAAAAAAAAAAAAAQIH/8QAIRABAQEAAQMEAwAAAAAAAAAAAAERgSFhoSJRceECMUH/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8A7iAAACW/rpz7KAAAAJICgAAAAAAAAAAAAAAAM/lb6cm7ct2emZbviTloAAAAAAAAAAAAAAAAAAAAAAAAAAAAAE3tyoAAAAAAAAAAAUAAAAAAAAADQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAABL289FAAAAACAAAAAAAAAAAAAAAAAGgAl+ftQAAAAAAAAAAAAAAAAAAAAAAAAAAARQAAAAAAAAAACAAAAAAAAAAAAAAAAAAAUAIAAAAAAAAlgKAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAEzhQAAAAEl8KAAAAAAAAAAAAAAAAAAAAAAlgCgAAAAAJd/nS95vRQAEoKAAAAAAAAAACUFExQAAAAAAAASqAAAAAP/2Q==">
+  </div>
+  <iframe id="videoIframe" src="" title="Video Player"></iframe></div></div>
+  <div id="recordingTitle" class="recording-title"></div>
+
+  <script>
+    // Fetch the username and subjects from local storage
+    const username = localStorage.getItem('username');
+    const subjects = JSON.parse(localStorage.getItem('subjects')); // Retrieve subjects as an array
+
+    const videoLinks = [
+      { class: '6', subject: 'History', date: '2024-10-03', month: 'October', video: 'https://drive.google.com/file/d/1NGMVZCkDCC4LYp7uLtyi1VY-6Ft7dknN/preview', title: '2024 10 03 - Class 6 - History' },
+      { class: '8', subject: 'Civic', date: '2024-12-15', month: 'December', video: 'https://drive.google.com/file/d/1NGMVZCkDCC4LYp7uLtyi1VY-6Ft7dknN/preview', title: '2024 12 15 - Class 8 - Civic' },
+      { class: '6', subject: 'Geography', date: '2024-10-05', month: 'October', video: 'https://drive.google.com/file/d/1MvGIK02A2gM9GqrA9fvMnF3KpZkGWhdy/preview', title: '2024 10 05 - Class 6 - Geography' },
+      // Add more video links here
+    ];
+
+    const redirects = {
+      '6-history': 'https://us05web.zoom.us/j/83565928302?pwd=bOB4fNS7ZhaN2S2mhu2GLGz1k7HWtB.1',
+      '6-geography': 'https://us05web.zoom.us/j/89416985234?pwd=UdrHeyZQbd0pd9Sq8fg06iBIeaeQkt.1',
+      '6-civic': 'https://us05web.zoom.us/j/83756325516?pwd=ces9kVscsxkPnW9tzkisc2MtmoYzAg.1',
+      '7-history': 'https://us05web.zoom.us/j/83514989103?pwd=Yg7mCvLzSUl1Q8HboNAatbCaNsBokg.1',
+      // Add more Zoom links here
+    };
+
+    // Function to filter video links based on the user's subjects
+    function getRelevantVideos(userSubjects) {
+      return videoLinks.filter(video => 
+        userSubjects.some(subject => 
+          subject.grade === parseInt(video.class) && subject.name.toLowerCase() === video.subject.toLowerCase()
+        )
+      );
+    }
+
+    // Display video and Zoom buttons grouped by month
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+    // Function to group videos and links by month
+    function groupByMonth(month) {
+      // Get relevant videos based on the user's subjects
+      const relevantVideos = getRelevantVideos(subjects);
+
+      // Get the content container for the given month
+      const contentContainer = document.getElementById(month);
+      
+      // Filter videos by month
+      const monthVideos = relevantVideos.filter(video => video.month.toLowerCase().startsWith(month.toLowerCase()));
+
+      // Clear previous content
+      contentContainer.innerHTML = '';
+
+      // Display relevant Zoom links first
+      subjects.forEach(subject => {
+        const key = `${subject.grade}-${subject.name.toLowerCase()}`; // e.g., '6-history'
+        if (redirects[key]) {
+          const box = document.createElement('div');
+          box.classList.add('box');
+          
+          const title = document.createElement('div');
+          title.classList.add('title');
+          title.textContent = `Class ${subject.grade} - ${subject.name}`;
+
+          const button = document.createElement('button');
+          button.textContent = 'Join Zoom Class';
+          button.onclick = () => {
+            document.getElementById('videoIframe').src = redirects[key];
+            document.getElementById('recordingTitle').textContent = `Zoom Class: Class ${subject.grade} - ${subject.name}`;
+            scrollToIframe();
+          };
+
+          box.appendChild(title);
+          box.appendChild(button);
+          contentContainer.appendChild(box);
+        }
+      });
+
+      // Display relevant videos below Zoom links
+      monthVideos.forEach(video => {
+        const box = document.createElement('div');
+        box.classList.add('box');
+
+        const title = document.createElement('div');
+        title.classList.add('title');
+        title.textContent = `${video.title} (${video.date})`;
+
+        const button = document.createElement('button');
+        button.textContent = 'Watch Recording';
+        button.onclick = () => {
+          document.getElementById('videoIframe').src = video.video;
+          document.getElementById('recordingTitle').textContent = `Recording: ${video.title}`;
+          scrollToIframe();
+        };
+
+        box.appendChild(title);
+        box.appendChild(button);
+        contentContainer.appendChild(box);
+      });
+
+      contentContainer.style.display = 'flex'; // Show the current month's content
+    }
+
+    // Function to show the selected month's content
+    function showMonth(month) {
+      months.forEach(m => {
+        document.getElementById(m).style.display = 'none'; // Hide all months
+        document.getElementById(`${m}-link`).classList.remove('active'); // Remove active class
+      });
+      document.getElementById(month).style.display = 'flex'; // Show selected month
+      document.getElementById(`${month}-link`).classList.add('active'); // Add active class
+      groupByMonth(month); // Group and show content for the selected month
+    }
+
+    // Smooth scrolling to the iframe
+    function scrollToIframe() {
+      const iframe = document.getElementById('videoIframe');
+      const y = iframe.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
+
+    // Load the current month by default
+    window.onload = () => {
+      const currentMonthIndex = new Date().getMonth(); // Get current month index (0 for Jan, 11 for Dec)
+      const currentMonth = months[currentMonthIndex]; // Get current month name
+      showMonth(currentMonth); // Show the current month
+    };
+  </script>
+</body>
+</html>
