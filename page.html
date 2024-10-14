@@ -6,6 +6,9 @@
   <link rel="icon" type="image/x-icon" href="pyramid.png">
   <title>Learn History,Geography & Civic with Samira sir</title>
   <style>
+    body{
+      overflow-x: hidden;
+    }
     .star-count {
     position: absolute;
 
@@ -258,306 +261,111 @@
     background-color: #555; /* Slightly lighter background color on hover */
 }
 
+.subjects {
+    display: none;
+}
+.navbar {
+      display: flex;
+      flex-wrap: wrap; /* Allow wrapping for smaller screens */
+      justify-content: center;
+      background-color: #333;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+    .navbar a {
+      padding: 10px 15px;
+      text-align: center;
+      text-decoration: none;
+      color: white;
+      background-color: #333;
+      margin: 5px;
+      border-radius: 5px;
+    }
+    .navbar a:hover, .navbar a.active {
+      background-color: #575757;
+      color: yellow; /* Highlight active month with yellow text */
+    }
+    .content-container {
+      display: none; /* Initially hidden */
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    .box {
+      width: 240px;
+      height: 144px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      margin: 10px;
+      background-color: white;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 10px;
+      box-sizing: border-box;
+    }
+    .title {
+      font-size: 16px;
+      color: #333;
+      text-align: center;
+    }
+    button {
+      padding: 10px 20px;
+      margin: 5px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 100%;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    iframe {
+      width: 100%;
+      max-width: 600px; /* Set a max width for the iframe */
+      height: 350px; /* Set a fixed height for the iframe */
+      border: none;
+      margin-top: 20px;
+      display: block; /* Centering the iframe */
+    }
+    .recording-title {
+      text-align: center;
+      font-weight: bold;
+      margin-top: 10px;
+    }
 
+ 
+
+        .main-video-container {
+
+ width:600px;
+            position: relative;
+        }
+
+
+
+
+    /* Responsive adjustments */
+    @media (max-width: 600px) {
+      .navbar a {
+        padding: 8px 10px;
+        font-size: 14px;
+        flex: 1 0 45%; /* Allow two items per line */
+        max-width: none; /* Remove max-width to let items take available space */
+      }
+      .box {
+        width: 90%; /* Full width on small screens */
+        max-width: 240px; /* Max width for boxes */
+      }
+    }
   </style>
   <link rel="stylesheet" href="images/style.css">
 
 
-   <script src="js/zoom.js"></script>
-   <script src="js/form.js"></script>
-   <script src="js/pdf.js"></script>
-   <script src="js/wordwall.js"></script>
-  <script src="js/pdf.js"></script>
-  <script>
-
-      document.addEventListener('DOMContentLoaded', () => {
-
-    
-      const username = localStorage.getItem('username');
-      const subjects = JSON.parse(localStorage.getItem('subjects'));
-
-      if (username) {
-        document.getElementById('greeting').textContent = `Hello, ${username}`;
-      }
-
-      if (subjects) {
-        const subjectsContainer = document.getElementById('subjects');
-        subjects.forEach(subject => {
-          const button = document.createElement('button');
-          button.textContent = `${subject.grade} - ${subject.name}`;
-          button.onclick = () => redirectToPage(subject.name, subject.grade);
-          subjectsContainer.appendChild(button);
-        });
-
-        displayGoogleForms(subjects);
-      }
-    });
-
-
-    function redirectToPage(subject, grade) {
-    
-
-      const key = `${grade}-${subject}`;
-      const url = redirects[key];
-
-      if (url) {
-        window.location.href = url;
-      } else {
-        alert('No redirection link found for this subject and grade.');
-      }
-    }
-
-   
-
-    function displayGoogleForms(subjects) {
-      const formsContainer = document.querySelector('.forms');
-      formsContainer.innerHTML = ''; // Clear previous content
-
-      subjects.forEach(subject => {
-        const subjectDiv = document.createElement('div');
-        subjectDiv.className = 'subject';
-
-        const subjectTitle = document.createElement('h2');
-        subjectTitle.textContent = `Grade ${subject.grade} - ${subject.name.charAt(0).toUpperCase() + subject.name.slice(1)}`;
-        subjectDiv.appendChild(subjectTitle);
-
-        const buttonContainer = document.createElement('div');
-        buttonContainer.className = 'button-container';
-
-        const key = `${subject.grade}-${subject.name}`;
-        const subjectUrls = urls[key];
-
-        if (subjectUrls) {
-          subjectUrls.forEach((url, index) => {
-            const button = document.createElement('button');
-            button.textContent = `Online Test ${index + 1}`;
-            button.onclick = () => window.open(url, '_blank');
-            buttonContainer.appendChild(button);
-          });
-        } else {
-          const noFormsMessage = document.createElement('p');
-          noFormsMessage.textContent = 'No forms available for this subject.';
-          buttonContainer.appendChild(noFormsMessage);
-        }
-
-        subjectDiv.appendChild(buttonContainer);
-        formsContainer.appendChild(subjectDiv);
-      });
-    }
-    
-
-    function displayWallForms(subjects) {
-      const formsContainer = document.querySelector('#class-buttons');
-      formsContainer.innerHTML = ''; // Clear previous buttons
-
-      // Group subjects by their name
-      const groupedSubjects = subjects.reduce((acc, subject) => {
-        acc[subject.name] = acc[subject.name] || [];
-        acc[subject.name].push(subject);
-        return acc;
-      }, {});
-
-      // Create buttons for each group
-      Object.keys(groupedSubjects).forEach(name => {
-        const group = groupedSubjects[name];
-        const groupContainer = document.createElement('div');
-        groupContainer.classList.add('button-group');
-
-        group.forEach((subject, index) => {
-          const gradeSubject = `${subject.grade}-${subject.name}`;
-          const formsUrls = wallFormsUrls[gradeSubject];
-          if (formsUrls) {
-            formsUrls.forEach((url, idx) => {
-              const button = document.createElement('button');
-              button.textContent = `Wordwall ${index * 5 + idx + 1}`; // Calculate unique number for each button
-              button.classList.add(subject.name.toLowerCase()); // Add class for styling
-              button.onclick = () => window.open(url, '_blank');
-              groupContainer.appendChild(button);
-            });
-          }
-        });
-
-        formsContainer.appendChild(groupContainer);
-      });
-    }
-
-    // Fetch the stored subjects and grade from local storage
-    function getStoredSubjects() {
-      const storedData = localStorage.getItem('subjects');
-      return storedData ? JSON.parse(storedData) : [];
-    }
-
-    // Example usage:
-    document.addEventListener('DOMContentLoaded', () => {
-      const subjects = getStoredSubjects();
-      displayWallForms(subjects);
-    
-    });
-
-
-
-
-
-    
-    document.addEventListener('DOMContentLoaded', () => {
-  const username = localStorage.getItem('username');
-  const subjects = JSON.parse(localStorage.getItem('subjects'));
-
-  if (username) {
-    document.getElementById('greeting').textContent = `Hello, ${username}`;
-  }
-
-  if (subjects) {
-    displayClassButtons(subjects);
-  }
-});
-
-
-
-function displayClassButtons(subjects) {
-  const container = document.getElementById('content-container');
-  container.innerHTML = '';
-
-  subjects.forEach(subject => {
-    const classSubject = `${subject.grade}-${subject.name}`;
-    const urls = pdfUrls[classSubject];
-
-    if (urls) {
-      urls.forEach((url, index) => {
-        const button = document.createElement('button');
-        button.textContent = `${classSubject} - PDF ${index + 1}`;
-        button.onclick = () => openPdfInBlankWindow(url);
-        container.appendChild(button);
-      });
-    }
-  });
-}
-
-function openPdfInBlankWindow(url) {
-  window.open(url, '_blank');
-}
-
-// Function to change button text
-function changeButtonText(oldText, newText) {
-  const buttons = document.querySelectorAll('#content-container button');
-  buttons.forEach(button => {
-    if (button.textContent === oldText) {
-      button.textContent = newText;
-    }
-  });
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-  const username = localStorage.getItem('username');
-  const subjects = JSON.parse(localStorage.getItem('subjects'));
-
-  if (username) {
-    document.getElementById('greeting').textContent = `Hello, ${username}`;
-  }
-
-  if (subjects) {
-    displayClassButtons(subjects);
-  }
-});
-
-
-
-function displayClassButtons(subjects) {
-  const container = document.getElementById('content-container');
-  container.innerHTML = '';
-
-  subjects.forEach(subject => {
-    const classSubject = `${subject.grade}-${subject.name}`;
-    const urls = pdfUrls[classSubject];
-
-    if (urls) {
-      urls.forEach((url, index) => {
-        const button = document.createElement('button');
-        button.textContent = `${classSubject} - PDF ${index + 1}`;
-        button.onclick = () => openPdfInBlankWindow(url);
-        container.appendChild(button);
-      });
-    }
-  });
-}
-
-function openPdfInBlankWindow(url) {
-  window.open(url, '_blank');
-}
-
-// Function to change button text
-function changeButtonText(oldText, newText) {
-  const buttons = document.querySelectorAll('#content-container button');
-  buttons.forEach(button => {
-    if (button.textContent === oldText) {
-      button.textContent = newText;
-    }
-  });
-}
-// script.js
-// script.js
-function toggleUserInfo() {
-    const userInfoContainer = document.getElementById('userInfoContainer');
-    const isVisible = userInfoContainer.style.display === 'block';
-
-    if (isVisible) {
-        userInfoContainer.style.display = 'none';
-    } else {
-        // Display user info
-        showUserInfo();
-        userInfoContainer.style.display = 'block';
-    }
-}
-
-function showUserInfo() {
-    const username = localStorage.getItem('username');
-    const password = localStorage.getItem('password'); // Assuming you also stored the password
-    const subjects = JSON.parse(localStorage.getItem('subjects'));
-
-    if (username && subjects) {
-        const userInfoContainer = document.getElementById('userInfoContainer');
-        userInfoContainer.innerHTML = ''; // Clear previous content if any
-
-        // Create and populate labels for username and password
-        const usernameLabel = document.createElement('div');
-        usernameLabel.innerHTML = `<strong>Username:</strong> ${username}`;
-        const passwordLabel = document.createElement('div');
-        passwordLabel.innerHTML = `<strong>Password:</strong> ${password}`;
-        
-        // Create and populate labels for subjects and grades
-        const subjectsLabel = document.createElement('div');
-        subjectsLabel.innerHTML = '<strong>Subjects:</strong><br>' +
-            subjects.map(subject => `${subject.name} (Grade ${subject.grade})`).join('<br>');
-        
-        // Append labels to the container
-        userInfoContainer.appendChild(usernameLabel);
-        userInfoContainer.appendChild(passwordLabel);
-        userInfoContainer.appendChild(subjectsLabel);
-    } else {
-        alert('User information not found.');
-    }
-}
-
-
-function loadStarCountAndLevel() {
-    const starCountElement = document.getElementById('star-count');
-    
-    // Get star count and level from local storage
-    const storedStars = parseInt(localStorage.getItem('starCount')) || 0;
-    const storedLevel = parseInt(localStorage.getItem('level')) || 1;
-    
-    // Display the star count and level
-    starCountElement.textContent = `Stars: ${storedStars} | Level: ${storedLevel}`;
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    // Load the star count and level when the page loads
-    loadStarCountAndLevel();
-    
-    // Initialize and load the first question
-    loadQuestion();
-});
-  </script>
 </head>
 <body>
  
@@ -566,7 +374,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <div class="nav_logo">
             <a href="#">
               <img src="images/coffee_logo.png" alt="Coffee Logo" />
-              <h2>Student Account</h2>
+              <h2>Zoom Links and Recordings</h2>
             </a>
           </div>
   
@@ -576,16 +384,8 @@ document.addEventListener('DOMContentLoaded', () => {
             <i class="close_btn bx bx-x"></i>
           </label>
   
-          <ul>
             
-            <li><a href="#about">Zoom Links</a></li>
-            <li><a href="#service">Online Tests</a></li>
-            <li><a href="#why">Wordwalls</a></li>
-            <li><a href="#gallery">Tutes</a></li>
-            <li><a href="#contact">Lessons</a></li>
-            
-            <li><div class="profile"><img src="images/user.png" alt="Profile Picture" class="profile-image"><p></p><div class="greeting" id="greeting">&nbsp&nbsp</div></div></li>
-          </ul>
+
         </nav>
       </header>
   
@@ -602,12 +402,7 @@ document.addEventListener('DOMContentLoaded', () => {
          
   
               <div class="hero_section_button">
-                <h2>Your Stats</h2>
-                <div class="star-count">
-                  <span class="star-icon">⭐</span>
-                  <div id="star-count">Stars: 0 | Level: 1</div>
-              
-              </div>
+
 
               </div>
             </div>
@@ -620,68 +415,165 @@ document.addEventListener('DOMContentLoaded', () => {
       </section>
 
       <!-- About Us Section -->
-      <section class="about_us" id="about">
-        <div class="section_container">
-          <h2 class="section_title">Zoom Links</h2>
-
-          <div class="subjects" id="subjects"></div>
-        </div>
-      </section>
-  
-      <!-- Services Section -->
-      <section class="services" id="service">
-        <h2 class="section_title">Online Tests</h2>
-      
-          <div class="forms"></div>
-      
-      
-      </section>
-  
-      <!-- Why Us Section -->
-      <section class="why_us" id="why">
-        <h2 class="section_title">Wordwalls</h2>
-        <div id="class-buttons" class="class-buttons"></div>
-      </section>
-  
-      <!-- Gallery Section -->
-      <section class="gallery" id="gallery">
-        <h2 class="section_title" style="color:white;">Payments</h2>
-                <center>
-        <button 
-        style="background-color: #4CAF50; color: white; border: none; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer; border-radius: 12px;" 
-        onclick="window.location.href='https://forms.gle/TLfnUT9QWuvy3hcS6';"
-        onmouseover="this.style.backgroundColor='#45a049';" 
-        onmouseout="this.style.backgroundColor='#4CAF50';">
-       Payments To the Class
-    </button>
-  </center>
-      </section>
+      <div class="navbar">
+        <a href="#Jan" id="Jan-link" onclick="showMonth('Jan')">January</a>
+        <a href="#Feb" id="Feb-link" onclick="showMonth('Feb')">February</a>
+        <a href="#Mar" id="Mar-link" onclick="showMonth('Mar')">March</a>
+        <a href="#Apr" id="Apr-link" onclick="showMonth('Apr')">April</a>
+        <a href="#May" id="May-link" onclick="showMonth('May')">May</a>
+        <a href="#Jun" id="Jun-link" onclick="showMonth('Jun')">June</a>
+        <a href="#Jul" id="Jul-link" onclick="showMonth('Jul')">July</a>
+        <a href="#Aug" id="Aug-link" onclick="showMonth('Aug')">August</a>
+        <a href="#Sep" id="Sep-link" onclick="showMonth('Sep')">September</a>
+        <a href="#Oct" id="Oct-link" onclick="showMonth('Oct')">October</a>
+        <a href="#Nov" id="Nov-link" onclick="showMonth('Nov')">November</a>
+        <a href="#Dec" id="Dec-link" onclick="showMonth('Dec')">December</a>
+      </div>
     
-      <!-- Contact Section -->
-      <section class="contact" id="contact">
-        <h2 class="section_title">Lessons</h2>
-        <a href="rec_iframe.html"><center><button style="display: inline-block;
-          padding: 15px 25px;
-          background-color: transparent;
-          color: black;
-          text-align: center;
-          text-decoration: none;
-          font-size: 18px;
-          border: 2px solid whblackite;
-          border-radius: 8px;
-          cursor: pointer;
-          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-          transition: background-color 0.3s ease;"
-            onmouseover="this.style.backgroundColor='#45a049'; this.style.border='2px solid white';this.style.color=' white';"
-            onmouseout="this.style.backgroundColor='transparent'; this.style.border='2px solid black';this.style.color=' black';"
-    >Recordings</button></center></a>
+      <!-- Containers for Each Month's Content -->
+      <div id="Jan" class="content-container"></div>
+      <div id="Feb" class="content-container"></div>
+      <div id="Mar" class="content-container"></div>
+      <div id="Apr" class="content-container"></div>
+      <div id="May" class="content-container"></div>
+      <div id="Jun" class="content-container"></div>
+      <div id="Jul" class="content-container"></div>
+      <div id="Aug" class="content-container"></div>
+      <div id="Sep" class="content-container"></div>
+      <div id="Oct" class="content-container"></div>
+      <div id="Nov" class="content-container"></div>
+      <div id="Dec" class="content-container"></div>
 
-      </section>
-    <!-- Button to toggle the glass div visibility -->
-    <button class="toggle-button" onclick="toggleUserInfo()">My Account</button>
+      <script>
+        const username = localStorage.getItem('username');
+const subjects = JSON.parse(localStorage.getItem('subjects')); // Retrieve subjects as an array
 
-    <!-- Container for the glass div --><br>
-    <div id="userInfoContainer" class="glass-div" style="display: none;"></div>
+
+
+
+// Function to filter video links based on the user's subjects
+function getRelevantVideos(userSubjects) {
+  return videoLinks.filter(video => 
+    userSubjects.some(subject => 
+      subject.grade === parseInt(video.class) && subject.name.toLowerCase() === video.subject.toLowerCase()
+    )
+  );
+}
+
+// Display video and Zoom buttons grouped by month
+const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+// Function to group videos and links by month
+function groupByMonth(month) {
+  // Get relevant videos based on the user's subjects
+  const relevantVideos = getRelevantVideos(subjects);
+
+  // Get the content container for the given month
+  const contentContainer = document.getElementById(month);
+  
+  // Filter videos by month
+  const monthVideos = relevantVideos.filter(video => video.month.toLowerCase().startsWith(month.toLowerCase()));
+
+  // Clear previous content
+  contentContainer.innerHTML = '';
+
+  // Display relevant Zoom links first
+  subjects.forEach(subject => {
+    const key = `${subject.grade}-${subject.name.toLowerCase()}`; // e.g., '6-history'
+    if (redirects[key]) {
+      const box = document.createElement('div');
+      box.classList.add('box');
+      
+      const title = document.createElement('div');
+      title.classList.add('title');
+      title.textContent = `Class ${subject.grade} - ${subject.name}`;
+
+      const button = document.createElement('button');
+      button.textContent = 'Join Zoom Class';
+      button.onclick = () => {
+        document.getElementById('videoIframe').src = redirects[key];
+        document.getElementById('recordingTitle').textContent = `Zoom Class: Class ${subject.grade} - ${subject.name}`;
+        scrollToIframe();
+      };
+
+      box.appendChild(title);
+      box.appendChild(button);
+      contentContainer.appendChild(box);
+    }
+  });
+
+  // Display relevant videos below Zoom links
+  monthVideos.forEach(video => {
+    const box = document.createElement('div');
+    box.classList.add('box');
+
+    const title = document.createElement('div');
+    title.classList.add('title');
+    title.textContent = `${video.title} (${video.date})`;
+
+    const button = document.createElement('button');
+    button.textContent = 'Watch Recording';
+    button.onclick = () => {
+      document.getElementById('videoIframe').src = video.video;
+      document.getElementById('recordingTitle').textContent = `Recording: ${video.title}`;
+      scrollToIframe();
+    };
+
+    box.appendChild(title);
+    box.appendChild(button);
+    contentContainer.appendChild(box);
+  });
+
+  contentContainer.style.display = 'flex'; // Show the current month's content
+}
+
+// Function to show the selected month's content
+function showMonth(month) {
+  months.forEach(m => {
+    document.getElementById(m).style.display = 'none'; // Hide all months
+    document.getElementById(`${m}-link`).classList.remove('active'); // Remove active class
+  });
+  document.getElementById(month).style.display = 'flex'; // Show selected month
+  document.getElementById(`${month}-link`).classList.add('active'); // Add active class
+  groupByMonth(month); // Group and show content for the selected month
+}
+
+// Smooth scrolling to the iframe
+function scrollToIframe() {
+  const iframe = document.getElementById('videoIframe');
+  const y = iframe.getBoundingClientRect().top + window.scrollY;
+  window.scrollTo({ top: y, behavior: 'smooth' });
+}
+
+// Load the current month by default
+window.onload = () => {
+  const currentMonthIndex = new Date().getMonth(); // Get current month index (0 for Jan, 11 for Dec)
+  const currentMonth = months[currentMonthIndex]; // Get current month name
+  showMonth(currentMonth); // Show the current month
+};
+     </script>
+           <script src="recording/rec.js">
+     </script>
+                <script src="js/zoom.js">
+     </script>
+
+         <!-- Container for the glass div --><br>
+          <a href="forms.html">
+         <button style="background-color: #4CAF50; color: white; padding: 10px 20px; border: none; border-radius: 5px; font-size: 16px; cursor: pointer;">
+          For Online Tests and Wordwalls
+      </button></a>
+      <br>          <a href="https://forms.gle/TLfnUT9QWuvy3hcS6">
+        <button style="background-color: #4CAF50; color: white; padding: 10px 20px; border: none; border-radius: 5px; font-size: 16px; cursor: pointer;">
+Payment Slips and Receipts
+     </button></a>
+     <center>
+      <div class="container">
+        <div class="main-video-container">
+      <div style="width: 5px; height: 5px; position: absolute; right: 50px; top: 10px;">
+        <img style="width: 50px; height: 50px;" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBw8PEA0PDQ0NDQ0NDQ0NDQ0NDQ8NDQ0NFREWFhURFRUYHSggGBolGxUVITEhJSkrLi4uFx8zODMsNygtLisBCgoKDQwNFhAPFS0ZFRkrKysrKysrKystLSs3KystLSs3KysrKysrKy0tKysrKysrKysrKysrKysrKysrKysrK//AABEIAKwBJgMBIgACEQEDEQH/xAAXAAEBAQEAAAAAAAAAAAAAAAAAAQIH/8QAIRABAQEAAQMEAwAAAAAAAAAAAAERgSFhoSJRceECMUH/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8A7iAAACW/rpz7KAAAAJICgAAAAAAAAAAAAAAAM/lb6cm7ct2emZbviTloAAAAAAAAAAAAAAAAAAAAAAAAAAAAAE3tyoAAAAAAAAAAAUAAAAAAAAADQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAABL289FAAAAACAAAAAAAAAAAAAAAAAGgAl+ftQAAAAAAAAAAAAAAAAAAAAAAAAAAARQAAAAAAAAAACAAAAAAAAAAAAAAAAAAAUAIAAAAAAAAlgKAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAEzhQAAAAEl8KAAAAAAAAAAAAAAAAAAAAAAlgCgAAAAAJd/nS95vRQAEoKAAAAAAAAAACUFExQAAAAAAAASqAAAAAP/2Q==">
+      </div>
+      <iframe allowfullscreen id="videoIframe" src="" title="Video Player"></iframe></div></div>
+      <div id="recordingTitle" class="recording-title"></div></center>
       <!-- Footer Section -->
       <footer>
         <div class="section_container">
@@ -698,10 +590,7 @@ document.addEventListener('DOMContentLoaded', () => {
               <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">Zoom Link</a></li>
-                <li><a href="#service">Google Forms</a></li>
-                <li><a href="#why">Wordwalls</a></li>
-                <li><a href="#gallery">Tutes</a></li>
-                <li><a href="#contact">Lessons</a></li>
+
                
               </ul>
             </div>
