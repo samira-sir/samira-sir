@@ -2874,7 +2874,7 @@ const videoLinks = [
 
           { 
             class: '10', 
-            subject: 'Geo', 
+            subject: 'Geography', 
             date: '2024-10-14', 
             month: 'October', 
             video: 'https://drive.google.com/file/d/1O8AqbRO6lTj6UA2Zxjv9CMOPLaCfCdnt/preview', 
@@ -2883,7 +2883,7 @@ const videoLinks = [
 
           { 
             class: '10', 
-            subject: 'Geo', 
+            subject: 'Geography', 
             date: '2024-10-14', 
             month: 'October', 
             video: 'https://drive.google.com/file/d/1hir3XfHvbLpjPpSp5v8bk4XxzNBDY1iv/preview', 
@@ -2892,7 +2892,7 @@ const videoLinks = [
 
           { 
             class: '10', 
-            subject: 'Geo', 
+            subject: 'Geography', 
             date: '2024-10-14', 
             month: 'October', 
             video: 'https://drive.google.com/file/d/1UL1mFln1gU0pjRGgcVR6cCBFBjtPahjq/preview', 
@@ -2901,7 +2901,7 @@ const videoLinks = [
 
           { 
             class: '10', 
-            subject: 'Geo', 
+            subject: 'Geography', 
             date: '2024-10-14', 
             month: 'October', 
             video: 'https://drive.google.com/file/d/1U3-Mb2QmdwnInN-puP5yp126bufF8Vhq/preview', 
@@ -2911,7 +2911,7 @@ const videoLinks = [
 
           { 
             class: '9', 
-            subject: 'Geo', 
+            subject: 'Geography', 
             date: '2024-10-14', 
             month: 'October', 
             video: 'https://drive.google.com/file/d/10hlTwN7VN1kZyy2Fs8DDCbmSfydZYaNz/preview', 
@@ -2920,7 +2920,7 @@ const videoLinks = [
 
           { 
             class: '9', 
-            subject: 'Geo', 
+            subject: 'Geography', 
             date: '2024-10-14', 
             month: 'October', 
             video: 'https://drive.google.com/file/d/1k0mHPLe99vS2Q9eBrshdzo9HVFclDsjb/preview', 
@@ -2929,7 +2929,7 @@ const videoLinks = [
 
           { 
             class: '9', 
-            subject: 'Geo', 
+            subject: 'Geography', 
             date: '2024-10-14', 
             month: 'October', 
             video: 'https://drive.google.com/file/d/1Yi0cnsoVfzXR-wnNtPamuyWIEHKkj3qa/preview', 
