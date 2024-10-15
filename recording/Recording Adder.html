@@ -78,7 +78,7 @@
   </style>
 </head>
 <body onload="showClassButtons()">
-  <h1>Recording Adder for Samira sir</h1>
+  <h1>Recording Adder for Samira Sir</h1>
   <div id="classButtons">
     <!-- Class buttons for different grades and subjects -->
     <button onclick="showInputFields('6 Geo')">6 Geo</button>
@@ -144,6 +144,15 @@
       return months[monthNumber - 1];
     }
 
+    function mapSubjectName(subjectShort) {
+      const subjectMapping = {
+        "Geo": "Geography",
+        "Civic": "Civics",
+        "History": "History"
+      };
+      return subjectMapping[subjectShort] || subjectShort;
+    }
+
     function generateCode() {
       const links = [
         document.getElementById('link1').value,
@@ -159,7 +168,8 @@
       const monthName = getMonthName(dateObj.getMonth() + 1); // Get the full month name
 
       // Split the selectedClass to get the class and subject
-      const [classNumber, subject] = selectedClass.split(' ');
+      const [classNumber, subjectShort] = selectedClass.split(' ');
+      const subjectFull = mapSubjectName(subjectShort);
 
       let generatedCode = '';
       for (let i = 0; i < links.length; i++) {
@@ -168,11 +178,11 @@
           generatedCode += `
           { 
             class: '${classNumber}', 
-            subject: '${subject}', 
+            subject: '${subjectFull}', 
             date: '${formattedDate}', 
             month: '${monthName}', 
             video: '${links[i]}', 
-            title: '${formattedDate} - Class ${classNumber} - ${subject} Part ${i + 1}' 
+            title: '${formattedDate} - Class ${classNumber} - ${subjectFull} Part ${i + 1}' 
           },\n`;
         }
       }
