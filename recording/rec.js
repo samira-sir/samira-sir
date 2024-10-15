@@ -2909,6 +2909,33 @@ const videoLinks = [
           },
 
 
+          { 
+            class: '9', 
+            subject: 'Geo', 
+            date: '2024-10-14', 
+            month: 'October', 
+            video: 'https://drive.google.com/file/d/10hlTwN7VN1kZyy2Fs8DDCbmSfydZYaNz/preview', 
+            title: '2024-10-14 - Class 9 - Geo Part 1' 
+          },
+
+          { 
+            class: '9', 
+            subject: 'Geo', 
+            date: '2024-10-14', 
+            month: 'October', 
+            video: 'https://drive.google.com/file/d/1k0mHPLe99vS2Q9eBrshdzo9HVFclDsjb/preview', 
+            title: '2024-10-14 - Class 9 - Geo Part 2' 
+          },
+
+          { 
+            class: '9', 
+            subject: 'Geo', 
+            date: '2024-10-14', 
+            month: 'October', 
+            video: 'https://drive.google.com/file/d/1Yi0cnsoVfzXR-wnNtPamuyWIEHKkj3qa/preview', 
+            title: '2024-10-14 - Class 9 - Geo Part 3' 
+          },
+
 
 
 
