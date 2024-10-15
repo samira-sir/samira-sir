@@ -2872,6 +2872,42 @@ const videoLinks = [
         title: '2024-10-11 - Class 10 - History Part 3' 
       },
 
+          { 
+            class: '10', 
+            subject: 'Geo', 
+            date: '2024-10-14', 
+            month: 'October', 
+            video: 'https://drive.google.com/file/d/1O8AqbRO6lTj6UA2Zxjv9CMOPLaCfCdnt/preview', 
+            title: '2024-10-14 - Class 10 - Geo Part 1' 
+          },
+
+          { 
+            class: '10', 
+            subject: 'Geo', 
+            date: '2024-10-14', 
+            month: 'October', 
+            video: 'https://drive.google.com/file/d/1hir3XfHvbLpjPpSp5v8bk4XxzNBDY1iv/preview', 
+            title: '2024-10-14 - Class 10 - Geo Part 2' 
+          },
+
+          { 
+            class: '10', 
+            subject: 'Geo', 
+            date: '2024-10-14', 
+            month: 'October', 
+            video: 'https://drive.google.com/file/d/1UL1mFln1gU0pjRGgcVR6cCBFBjtPahjq/preview', 
+            title: '2024-10-14 - Class 10 - Geo Part 3' 
+          },
+
+          { 
+            class: '10', 
+            subject: 'Geo', 
+            date: '2024-10-14', 
+            month: 'October', 
+            video: 'https://drive.google.com/file/d/1U3-Mb2QmdwnInN-puP5yp126bufF8Vhq/preview', 
+            title: '2024-10-14 - Class 10 - Geo Part 4' 
+          },
+
 
 
 
