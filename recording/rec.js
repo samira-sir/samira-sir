@@ -2993,6 +2993,33 @@ const videoLinks = [
             title: '2024-10-13 - Class 7 - Civic Part 3' 
           },
 
+          { 
+            class: '8', 
+            subject: 'Geography', 
+            date: '2024-10-15', 
+            month: 'October', 
+            video: 'https://drive.google.com/file/d/1YP8Pu7Qr7Z2a0i9Rz90ZpDuCQ3bwAkR4/preview', 
+            title: '2024-10-15 - Class 8 - Geography Part 1' 
+          },
+
+          { 
+            class: '8', 
+            subject: 'Geography', 
+            date: '2024-10-15', 
+            month: 'October', 
+            video: 'https://drive.google.com/file/d/1VBPslG-UC4_5ETLR1uGeXEEwQVntcHh3/preview', 
+            title: '2024-10-15 - Class 8 - Geography Part 2' 
+          },
+
+          { 
+            class: '8', 
+            subject: 'Geography', 
+            date: '2024-10-15', 
+            month: 'October', 
+            video: 'https://drive.google.com/file/d/1Kz1Q8ez8rNkYuVeVxAfXSgBM29nuO9Kr/preview', 
+            title: '2024-10-15 - Class 8 - Geography Part 3' 
+          },
+
 
 
 
