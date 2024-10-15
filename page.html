@@ -445,112 +445,134 @@
       <div id="Dec" class="content-container"></div>
 
       <script>
-        const username = localStorage.getItem('username');
-const subjects = JSON.parse(localStorage.getItem('subjects')); // Retrieve subjects as an array
+    // Fetch the username and subjects from local storage
+    const username = localStorage.getItem('username');
+    const subjects = JSON.parse(localStorage.getItem('subjects')); // Retrieve subjects as an array
 
 
 
-
-// Function to filter video links based on the user's subjects
-function getRelevantVideos(userSubjects) {
-  return videoLinks.filter(video => 
-    userSubjects.some(subject => 
-      subject.grade === parseInt(video.class) && subject.name.toLowerCase() === video.subject.toLowerCase()
-    )
-  );
-}
-
-// Display video and Zoom buttons grouped by month
-const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-
-// Function to group videos and links by month
-function groupByMonth(month) {
-  // Get relevant videos based on the user's subjects
-  const relevantVideos = getRelevantVideos(subjects);
-
-  // Get the content container for the given month
-  const contentContainer = document.getElementById(month);
-  
-  // Filter videos by month
-  const monthVideos = relevantVideos.filter(video => video.month.toLowerCase().startsWith(month.toLowerCase()));
-
-  // Clear previous content
-  contentContainer.innerHTML = '';
-
-  // Display relevant Zoom links first
-  subjects.forEach(subject => {
-    const key = `${subject.grade}-${subject.name.toLowerCase()}`; // e.g., '6-history'
-    if (redirects[key]) {
-      const box = document.createElement('div');
-      box.classList.add('box');
-      
-      const title = document.createElement('div');
-      title.classList.add('title');
-      title.textContent = `Class ${subject.grade} - ${subject.name}`;
-
-      const button = document.createElement('button');
-      button.textContent = 'Join Zoom Class';
-      button.onclick = () => {
-        document.getElementById('videoIframe').src = redirects[key];
-        document.getElementById('recordingTitle').textContent = `Zoom Class: Class ${subject.grade} - ${subject.name}`;
-        scrollToIframe();
-      };
-
-      box.appendChild(title);
-      box.appendChild(button);
-      contentContainer.appendChild(box);
+    // Function to filter video links based on the user's subjects
+    function getRelevantVideos(userSubjects) {
+      return videoLinks.filter(video => 
+        userSubjects.some(subject => 
+          subject.grade === parseInt(video.class) && subject.name.toLowerCase() === video.subject.toLowerCase()
+        )
+      );
     }
-  });
 
-  // Display relevant videos below Zoom links
-  monthVideos.forEach(video => {
+    // Display video and Zoom buttons grouped by month
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+    // Function to group videos and links by month
+    function groupByMonth(month) {
+      // Get relevant videos based on the user's subjects
+      const relevantVideos = getRelevantVideos(subjects);
+
+      // Get the content container for the given month
+      const contentContainer = document.getElementById(month);
+      
+      // Filter videos by month
+      const monthVideos = relevantVideos.filter(video => video.month.toLowerCase().startsWith(month.toLowerCase()));
+
+      // Clear previous content
+      contentContainer.innerHTML = '';
+
+      // Display relevant Zoom links first
+// Display relevant Zoom links first
+subjects.forEach(subject => {
+  const key = `${subject.grade}-${subject.name.toLowerCase()}`; // e.g., '6-history'
+  if (redirects[key]) {
     const box = document.createElement('div');
     box.classList.add('box');
-
+    
     const title = document.createElement('div');
     title.classList.add('title');
-    title.textContent = `${video.title} (${video.date})`;
+    title.textContent = `Class ${subject.grade} - ${subject.name}`;
 
     const button = document.createElement('button');
-    button.textContent = 'Watch Recording';
+    button.textContent = 'Join Zoom Class';
     button.onclick = () => {
-      document.getElementById('videoIframe').src = video.video;
-      document.getElementById('recordingTitle').textContent = `Recording: ${video.title}`;
-      scrollToIframe();
+      // Open the Zoom link in a new tab
+      window.open(redirects[key], '_blank');
+      // Set the recording title (optional, can be used in your application)
+      document.getElementById('recordingTitle').textContent = `Zoom Class: Class ${subject.grade} - ${subject.name}`;
+      scrollToIframe(); // Scroll to the iframe if needed (optional)
     };
 
     box.appendChild(title);
     box.appendChild(button);
     contentContainer.appendChild(box);
-  });
+  }
+});
 
-  contentContainer.style.display = 'flex'; // Show the current month's content
+      function encrypt(text) {
+  return btoa(text); // Encodes string in Base64
+}
+function generateToken() {
+  // Generate a simple token (use a more secure method in real applications)
+  return Math.random().toString(36).substr(2);
 }
 
-// Function to show the selected month's content
-function showMonth(month) {
-  months.forEach(m => {
-    document.getElementById(m).style.display = 'none'; // Hide all months
-    document.getElementById(`${m}-link`).classList.remove('active'); // Remove active class
-  });
-  document.getElementById(month).style.display = 'flex'; // Show selected month
-  document.getElementById(`${month}-link`).classList.add('active'); // Add active class
-  groupByMonth(month); // Group and show content for the selected month
+function setToken() {
+  const token = generateToken();
+  const expiryTime = new Date().getTime() + 30 * 60 * 1000; // Token valid for 30 minutes
+  localStorage.setItem('authToken', token);
+  localStorage.setItem('tokenExpiry', expiryTime);
 }
+      // Display relevant videos below Zoom links
+      monthVideos.forEach(video => {
+        const box = document.createElement('div');
+        box.classList.add('box');
 
-// Smooth scrolling to the iframe
-function scrollToIframe() {
-  const iframe = document.getElementById('videoIframe');
-  const y = iframe.getBoundingClientRect().top + window.scrollY;
-  window.scrollTo({ top: y, behavior: 'smooth' });
-}
+        const title = document.createElement('div');
+        title.classList.add('title');
+        title.textContent = `${video.title} (${video.date})`;
 
-// Load the current month by default
-window.onload = () => {
-  const currentMonthIndex = new Date().getMonth(); // Get current month index (0 for Jan, 11 for Dec)
-  const currentMonth = months[currentMonthIndex]; // Get current month name
-  showMonth(currentMonth); // Show the current month
+        const button = document.createElement('button');
+        button.textContent = 'Watch Recording';
+        button.onclick = () => {
+  setToken(); // Generate token on login or access
+
+  const encryptedVideoUrl = encrypt(video.video); // Encrypt the video URL
+  const videoTitle = encodeURIComponent(video.title); // Encode title as before
+  const token = localStorage.getItem('authToken'); // Get the token
+
+  // Open the video player with the encrypted video URL and token
+  window.open(`videoPlayer.html?video=${encryptedVideoUrl}&title=${videoTitle}&token=${token}`, '_blank');
 };
+
+        box.appendChild(title);
+        box.appendChild(button);
+        contentContainer.appendChild(box);
+      });
+
+      contentContainer.style.display = 'flex'; // Show the current month's content
+    }
+
+    // Function to show the selected month's content
+    function showMonth(month) {
+      months.forEach(m => {
+        document.getElementById(m).style.display = 'none'; // Hide all months
+        document.getElementById(`${m}-link`).classList.remove('active'); // Remove active class
+      });
+      document.getElementById(month).style.display = 'flex'; // Show selected month
+      document.getElementById(`${month}-link`).classList.add('active'); // Add active class
+      groupByMonth(month); // Group and show content for the selected month
+    }
+
+    // Smooth scrolling to the iframe
+    function scrollToIframe() {
+      const iframe = document.getElementById('videoIframe');
+      const y = iframe.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
+
+    // Load the current month by default
+    window.onload = () => {
+      const currentMonthIndex = new Date().getMonth(); // Get current month index (0 for Jan, 11 for Dec)
+      const currentMonth = months[currentMonthIndex]; // Get current month name
+      showMonth(currentMonth); // Show the current month
+    };
      </script>
            <script src="recording/rec.js">
      </script>
@@ -566,14 +588,7 @@ window.onload = () => {
         <button style="background-color: #4CAF50; color: white; padding: 10px 20px; border: none; border-radius: 5px; font-size: 16px; cursor: pointer;">
 Payment Slips and Receipts
      </button></a>
-     <center>
-      <div class="container">
-        <div class="main-video-container">
-      <div style="width: 5px; height: 5px; position: absolute; right: 50px; top: 10px;">
-        <img style="width: 50px; height: 50px;" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBw8PEA0PDQ0NDQ0NDQ0NDQ0NDQ8NDQ0NFREWFhURFRUYHSggGBolGxUVITEhJSkrLi4uFx8zODMsNygtLisBCgoKDQwNFhAPFS0ZFRkrKysrKysrKystLSs3KystLSs3KysrKysrKy0tKysrKysrKysrKysrKysrKysrKysrK//AABEIAKwBJgMBIgACEQEDEQH/xAAXAAEBAQEAAAAAAAAAAAAAAAAAAQIH/8QAIRABAQEAAQMEAwAAAAAAAAAAAAERgSFhoSJRceECMUH/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8A7iAAACW/rpz7KAAAAJICgAAAAAAAAAAAAAAAM/lb6cm7ct2emZbviTloAAAAAAAAAAAAAAAAAAAAAAAAAAAAAE3tyoAAAAAAAAAAAUAAAAAAAAADQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAABL289FAAAAACAAAAAAAAAAAAAAAAAGgAl+ftQAAAAAAAAAAAAAAAAAAAAAAAAAAARQAAAAAAAAAACAAAAAAAAAAAAAAAAAAAUAIAAAAAAAAlgKAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAEzhQAAAAEl8KAAAAAAAAAAAAAAAAAAAAAAlgCgAAAAAJd/nS95vRQAEoKAAAAAAAAAACUFExQAAAAAAAASqAAAAAP/2Q==">
-      </div>
-      <iframe allowfullscreen id="videoIframe" src="" title="Video Player"></iframe></div></div>
-      <div id="recordingTitle" class="recording-title"></div></center>
+
       <!-- Footer Section -->
       <footer>
         <div class="section_container">
