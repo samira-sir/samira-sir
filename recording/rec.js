@@ -2993,6 +2993,33 @@ const videoLinks = [
             title: '2024-10-13 - Class 7 - Civic Part 3' 
           },
 
+          { 
+            class: '7', 
+            subject: 'History', 
+            date: '2024-10-15', 
+            month: 'October', 
+            video: 'https://drive.google.com/file/d/1biQ9PpgSMV3clOrk6lZquDT7FjQHTqb4/preview', 
+            title: '2024-10-15 - Class 7 - History Part 1' 
+          },
+
+          { 
+            class: '7', 
+            subject: 'History', 
+            date: '2024-10-15', 
+            month: 'October', 
+            video: 'https://drive.google.com/file/d/11fSxza_6kGz7yK9n3-BQP4O6yWU5sb94/preview', 
+            title: '2024-10-15 - Class 7 - History Part 2' 
+          },
+
+          { 
+            class: '7', 
+            subject: 'History', 
+            date: '2024-10-15', 
+            month: 'October', 
+            video: 'https://drive.google.com/file/d/1EkK9HPLwCLk08EgcUnW-8_0CHng4iIMx/preview', 
+            title: '2024-10-15 - Class 7 - History Part 3' 
+          },
+
          
 
 
