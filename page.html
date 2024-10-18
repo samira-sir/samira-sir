@@ -362,6 +362,102 @@
         max-width: 240px; /* Max width for boxes */
       }
     }
+    .cart-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      width: fit-content;
+    }
+
+    /* Menu that pops up when cart button is clicked */
+    .cart-menu {
+      position: fixed;
+      top: 60px;
+      right: 20px;
+      width: fit-content;
+      background-color: white;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      display: none; /* Hidden by default */
+      
+    }
+
+    .close-btn {
+      background-color: white;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+      border-radius: 3px;
+      float: right;
+    }
+
+    /* Month selection buttons grid */
+    .month-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); /* 3 columns */
+      gap: 10px;
+      margin: 10px 0;
+    }
+
+    .month-btn {
+      padding: 10px;
+      background-color: #f0f0f0;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .month-btn.selected {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    /* Text color inside the cart */
+    .cart-menu h3, .cart-menu label, .cart-menu h4 {
+      color: #333; /* Text color for headers and labels */
+    }
+
+    /* Buy now button */
+    .buy-now-btn {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      border-radius: 5px;
+      width: 100%;
+    }
+
+    /* Responsive design for the cart */
+    @media (max-width: 600px) {
+      .cart-menu {
+        width: 100%;
+        top: 50px;
+        right: 0;
+      }
+
+      .cart-btn {
+        font-size: 14px;
+        padding: 8px 15px;
+        width: fit-content;
+        max-width: fit-content;
+      }
+
+      .buy-now-btn {
+        padding: 8px 15px;
+      }
+    }
   </style>
   <link rel="stylesheet" href="images/style.css">
 
@@ -384,8 +480,41 @@
             <i class="close_btn bx bx-x"></i>
           </label>
   
-            
+          <button class="cart-btn" onclick="toggleCartMenu()">🔓</button>
 
+          <!-- Cart Menu -->
+          <div class="cart-menu" id="cartMenu">
+            <button class="close-btn" onclick="toggleCartMenu()">❌Close</button>
+            
+            <h3>Unlock Months</h3>
+            <div class="month-grid" id="monthGrid">
+              <!-- Month buttons -->
+              <div class="month-btn" data-month="Jan">January</div>
+              <div class="month-btn" data-month="Feb">February</div>
+              <div class="month-btn" data-month="Mar">March</div>
+              <div class="month-btn" data-month="Apr">April</div>
+              <div class="month-btn" data-month="May">May</div>
+              <div class="month-btn" data-month="Jun">June</div>
+              <div class="month-btn" data-month="Jul">July</div>
+              <div class="month-btn" data-month="Aug">August</div>
+              <div class="month-btn" data-month="Sep">September</div>
+              <div class="month-btn" data-month="Oct">October</div>
+              <div class="month-btn" data-month="Nov">November</div>
+              <div class="month-btn" data-month="Dec">December</div>
+            </div>
+        
+            <!-- User information form -->
+            <h4>User Info</h4>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required><br><br>
+        
+            <label for="subject">Subject:</label>
+            <input type="text" id="subject" name="subject" required><br><br>
+        
+            <!-- Buy Now Button -->
+            <button type="button" class="buy-now-btn" onclick="buyNow()">Unlock</button>
+          </div>
+        
         </nav>
       </header>
   
@@ -443,7 +572,7 @@
       <div id="Oct" class="content-container"></div>
       <div id="Nov" class="content-container"></div>
       <div id="Dec" class="content-container"></div>
-
+<script src="payment.js"></script>
       <script>
     // Fetch the username and subjects from local storage
     const username = localStorage.getItem('username');
@@ -573,6 +702,115 @@ function setToken() {
       const currentMonth = months[currentMonthIndex]; // Get current month name
       showMonth(currentMonth); // Show the current month
     };
+    // Array for every user with their assigned months
+
+
+// Function to retrieve all months for a given username
+function getMonthsForUser(username) {
+  // Filter out the entries for the specific username and merge their months
+  const userEntries = userMonthData.filter(entry => entry.username === username);
+  
+  // Flatten the months from all matching entries
+  const userMonths = userEntries.reduce((acc, entry) => {
+    return acc.concat(entry.months);
+  }, []);
+
+  return userMonths;
+}
+
+// Function to count the occurrences of a month for a user
+function countMonthOccurrences(userMonths, month) {
+  return userMonths.filter(m => m === month).length;
+}
+
+// Function to update month menu with checkmarks and counts
+function updateMonthMenu(username) {
+  const availableMonths = getMonthsForUser(username); // Get months for the user
+  months.forEach(month => {
+    const linkElement = document.getElementById(`${month}-link`);
+
+    const count = countMonthOccurrences(availableMonths, month); // Count occurrences of each month
+
+    if (count > 0) {
+      linkElement.innerHTML = `${month} ✅ `; // Show the count of duplicates
+    } else {
+      linkElement.innerHTML = `${month} ❌`; // Show cross mark for unavailable months
+      linkElement.onclick = null; // Disable clicking for unavailable months
+    }
+  });
+}
+
+// Load the current month by default if it's available for the user
+window.onload = () => {
+  const username = localStorage.getItem('username'); // Get username from local storage
+  if (username) {
+    updateMonthMenu(username); // Update the menu with checkmarks
+
+    const currentMonthIndex = new Date().getMonth(); // Get current month index (0 for Jan, 11 for Dec)
+    const currentMonth = months[currentMonthIndex]; // Get current month name
+
+    // Only show the current month if it's available to the user
+    const availableMonths = getMonthsForUser(username);
+    if (availableMonths.includes(currentMonth)) {
+      showMonth(currentMonth); // Show the current month if available for the user
+    } else if (availableMonths.length > 0) {
+      showMonth(availableMonths[0]); // Show the first available month for the user
+    }
+  }
+};
+
+  // Toggle cart menu visibility
+    // Toggle cart menu visibility
+    function toggleCartMenu() {
+      const cartMenu = document.getElementById('cartMenu');
+      cartMenu.style.display = cartMenu.style.display === 'none' || cartMenu.style.display === '' ? 'block' : 'none';
+    }
+
+    // Handle month selection
+    const selectedMonths = [];
+    const monthButtons = document.querySelectorAll('.month-btn');
+    monthButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        const month = this.getAttribute('data-month');
+        if (selectedMonths.includes(month)) {
+          // Deselect the month
+          selectedMonths.splice(selectedMonths.indexOf(month), 1);
+          this.classList.remove('selected');
+        } else {
+          // Select the month
+          selectedMonths.push(month);
+          this.classList.add('selected');
+        }
+      });
+    });
+
+    // Function to generate a random 10-digit index
+    function generateRandomIndex() {
+      return Math.floor(1000000000 + Math.random() * 9000000000); // 10 digit random number
+    }
+
+    // Function to handle the purchase
+    function buyNow() {
+      // Get form data
+      const username = document.getElementById('username').value;
+      const subject = document.getElementById('subject').value;
+
+      if (selectedMonths.length === 0) {
+        alert("Please select at least one month to buy.");
+        return;
+      }
+
+      // Generate a random 10-digit index
+      const randomIndex = generateRandomIndex();
+
+      // WhatsApp message format
+      const message = `Username: ${username}%0ASubject: ${subject}%0AMonths: ${selectedMonths.join(', ')}%0AOrder ID: ${randomIndex}`;
+
+      // Open WhatsApp with the formatted message
+      window.open(`https://wa.me/94779239220?text=${message}`, '_blank');
+    }
+
+
      </script>
            <script src="recording/rec.js">
      </script>
