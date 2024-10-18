@@ -1,1 +1,1 @@
-  const blacklist = ['reema', 'malishi']; 
+  const blacklist = ['malishi']; 
