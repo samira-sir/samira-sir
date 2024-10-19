@@ -3077,6 +3077,33 @@ const videoLinks = [
           },
 
 
+          { 
+            class: '8', 
+            subject: 'Civic', 
+            date: '2024-10-18', 
+            month: 'October', 
+            video: 'https://drive.google.com/file/d/1RxZhFtKaw69grsaZgI-l6xpwvVtSX9mX/preview', 
+            title: '2024-10-18 - Class 8 - Civic Part 1' 
+          },
+
+          { 
+            class: '8', 
+            subject: 'Civic', 
+            date: '2024-10-18', 
+            month: 'October', 
+            video: 'https://drive.google.com/file/d/1_gwdj09vkVTXq1NVn4tR_8MknQTh1_OW/preview', 
+            title: '2024-10-18 - Class 8 - Civic Part 2' 
+          },
+
+          { 
+            class: '8', 
+            subject: 'Civic', 
+            date: '2024-10-18', 
+            month: 'October', 
+            video: 'https://drive.google.com/file/d/1V57McChog59rxJj19mS0SbV2Rw_cv7-o/preview', 
+            title: '2024-10-18 - Class 8 - Civic Part 3' 
+          },
+
 
 
 
