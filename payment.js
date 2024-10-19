@@ -88,7 +88,7 @@ const userMonthData = [
   "username": "rashini",
   "months": [
     "Nov",
-    "Dec"
+    "Oct"
   ]
 },
 ];
