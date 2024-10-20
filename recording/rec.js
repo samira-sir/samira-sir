@@ -3105,6 +3105,51 @@ const videoLinks = [
           },
 
 
+          { 
+            class: '9', 
+            subject: 'History', 
+            date: '2024-10-19', 
+            month: 'October', 
+            video: 'https://drive.google.com/file/d/1_J4FgpIaqD-6cXjOPGUv1mJU06KNZfan/preview', 
+            title: '2024-10-19 - Class 9 - History Part 1' 
+          },
+
+          { 
+            class: '9', 
+            subject: 'History', 
+            date: '2024-10-19', 
+            month: 'October', 
+            video: 'https://drive.google.com/file/d/1bLu-9kBT4glFRSVGP_rxVgOvT_gM7tIX/preview', 
+            title: '2024-10-19 - Class 9 - History Part 2' 
+          },
+
+          { 
+            class: '9', 
+            subject: 'History', 
+            date: '2024-10-19', 
+            month: 'October', 
+            video: 'https://drive.google.com/file/d/17SugnxvIY7077lKKuJQMwIQemnz2qcxb/preview', 
+            title: '2024-10-19 - Class 9 - History Part 3' 
+          },
+
+          { 
+            class: '9', 
+            subject: 'History', 
+            date: '2024-10-19', 
+            month: 'October', 
+            video: 'https://drive.google.com/file/d/18UxDkjoDaTnGiR0rt2MNOTuPYK_dHlbh/preview', 
+            title: '2024-10-19 - Class 9 - History Part 4' 
+          },
+
+          { 
+            class: '9', 
+            subject: 'History', 
+            date: '2024-10-19', 
+            month: 'October', 
+            video: 'https://drive.google.com/file/d/1tc6Sw5W--NTuYw-78DIdnm1gsxCfbAaq/preview', 
+            title: '2024-10-19 - Class 9 - History Part 5' 
+          },
+
 
 
 
