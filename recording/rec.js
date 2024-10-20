@@ -3150,6 +3150,33 @@ const videoLinks = [
             title: '2024-10-19 - Class 9 - History Part 5' 
           },
 
+          { 
+            class: '6', 
+            subject: 'Geography', 
+            date: '2024-10-19', 
+            month: 'October', 
+            video: 'https://drive.google.com/file/d/1b7FgXwE3y-Qt2oxJ9JzI6byi81XXKj0i/preview', 
+            title: '2024-10-19 - Class 6 - Geography Part 1' 
+          },
+
+          { 
+            class: '6', 
+            subject: 'Geography', 
+            date: '2024-10-19', 
+            month: 'October', 
+            video: 'https://drive.google.com/file/d/16lh-wPN44zPfMZUHAVtUyuuvEKPFbF1z/preview', 
+            title: '2024-10-19 - Class 6 - Geography Part 2' 
+          },
+
+          { 
+            class: '6', 
+            subject: 'Geography', 
+            date: '2024-10-19', 
+            month: 'October', 
+            video: 'https://drive.google.com/file/d/1CEgF_pbJPquVsDFHgp0L9ZhgIC_TVSvY/preview', 
+            title: '2024-10-19 - Class 6 - Geography Part 3' 
+          },
+
 
 
 
