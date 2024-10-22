@@ -3327,6 +3327,15 @@ const videoLinks = [
             title: '2024-10-21 - Class 9 - Geography Part 3' 
           },
 
+          { 
+            class: '10', 
+            subject: 'Geography', 
+            date: '2024-10-21', 
+            month: 'October', 
+            video: 'https://drive.google.com/file/d/1nS71Wl1BgQZNXkZXBAuCyEJJU0osdtn2/preview', 
+            title: '2024-10-21 - Class 10 - Geography Part 1' 
+          },
+
 
 
 
