@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10-11</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            background: linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.15) 100%), radial-gradient(at top center, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.40) 120%) #989898;
+ background-blend-mode: multiply,multiply;
+            height:
+             100vh;
+        }
+        .tab {
+  overflow: hidden;
+  border: 1px solid black;
+  background-color: #26f3ae;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+  color: black;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: rgb(50, 150, 85)d22;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #0bed22;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid green;
+  border-top: none;
+  background-color: #26f3ae;
+}
+
+/* Style the close button */
+.topright {
+  float: right;
+  cursor: pointer;
+  font-size: 28px;
+}
+
+.topright:hover {color: white;}
+        .record-actions {
+            text-align: right;
+        }
+        .record-actions button {
+            margin-left: 10px;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 600px;
+        }
+
+        h1, h2 {
+            text-align: center;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-top: 10px;
+        }
+
+        input, select {
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        .clear-btn {
+            background-color: #dc3545;
+        }
+
+        .clear-btn:hover {
+            background-color: #c82333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        td{
+            background-color: white;
+        }
+
+    </style>
+</head>
+<body>
+    <body onload="initialize()">
+       
+          
+         
+ 
+          
+        
+     <br><br>
+          
+    <div class="container">
+        <h1>Class Fee Management System Samira sir</h1>
+        <form id="fee-form">
+            <label for="class-select">Class:</label>
+            <select id="class-select" onchange="populateStudentDropdown()" required>
+                <option value="">Select Class</option>
+                <!-- Options will be populated dynamically from JavaScript -->
+            </select>
+
+            <label for="student-name">Student Name:</label>
+            <select id="student-name" onchange="fillStudentData()" required>
+                <option value="">Select Student</option>
+                <!-- Options will be populated dynamically from JavaScript -->
+            </select>
+
+            <label id="class-label" style="display: none;">Class: <span id="student-class"></span></label>
+
+            <label id="subjects-label" style="display: none;">Subjects: <span id="student-subjects"></span></label>
+
+            <label for="fee-amount">Fee Amount:</label>
+            <input type="number" id="fee-amount" required>
+
+            <label for="month">Month:</label>
+            <select id="month" required>
+                <option value="">Select Month</option>
+                <option value="January">January</option>
+                <option value="February">February</option>
+                <option value="March">March</option>
+                <option value="April">April</option>
+                <option value="May">May</option>
+                <option value="June">June</option>
+                <option value="July">July</option>
+                <option value="August">August</option>
+                <option value="September">September</option>
+                <option value="October">October</option>
+                <option value="November">November</option>
+                <option value="December">December</option>
+            </select>
+            
+            <label id="standard-fee-label" style="display: none;">Standard Fee: $<span id="standard-fee"></span></label>
+            <span id="due-fee"></span>
+            <span id="current-month"></span>
+            <button type="button" onclick="addFee()">Add Fee</button>
+        </form>
+        <h2>Students</h2>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Class</th>
+                    <th>Subjects</th>
+                    <th>Due Total</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="student-table-body">
+                <!-- Students will be populated dynamically -->
+            </tbody>
+        </table>
+        <h2>Transactions</h2>
+        <div id="fee-list">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Class</th>
+                        <th>Subjects</th>
+                        <th>Amount</th>
+                        <th>Month</th>
+                        <th>Date</th>
+                       
+                    </tr>
+                </thead>
+                <tbody id="fee-table-body">
+                    <!-- Fees will be displayed here -->
+                </tbody>
+            </table>
+        </div>
+        <h2>Income by Class</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Class</th>
+                    <th>Income</th>
+                </tr>
+            </thead>
+            <tbody id="class-income-table-body">
+                <!-- Class income will be populated dynamically -->
+            </tbody>
+        </table>
+        
+        <h2>Income by Month</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Month</th>
+                    <th>Income</th>
+                </tr>
+            </thead>
+            <tbody id="monthly-income-table-body">
+                <!-- Monthly income will be populated dynamically -->
+            </tbody>
+        </table>
+        
+        <h2>Student Count by Month</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Month</th>
+                    <th>Number of Students</th>
+                </tr>
+            </thead>
+            <tbody id="monthly-student-count-table-body">
+                <!-- Monthly student count will be populated dynamically -->
+            </tbody>
+        </table>
+        
+</div>
+    </div>
+</div>
+          
+
+    <script src="Class_Fee/students_high.js"></script>
+    <script>
+function openCity(evt, cityName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+
+function initialize() {
+    populateClassDropdown();
+    displayCurrentMonth();
+    displayStudents();
+}
+
+function populateClassDropdown() {
+    const classDropdown = document.getElementById('class-select');
+    const classes = [...new Set(students.map(student => student.classes[0]))];
+
+    classes.forEach(className => {
+        const option = document.createElement('option');
+        option.value = className;
+        option.textContent = className;
+        classDropdown.appendChild(option);
+    });
+}
+
+function populateStudentDropdown() {
+    const classDropdown = document.getElementById('class-select');
+    const selectedClass = classDropdown.value;
+    const studentDropdown = document.getElementById('student-name');
+    studentDropdown.innerHTML = '<option value="">Select Student</option>';
+
+    students
+        .filter(student => student.classes.includes(selectedClass))
+        .forEach(student => {
+            const option = document.createElement('option');
+            option.value = student.name;
+            option.textContent = student.name;
+            studentDropdown.appendChild(option);
+        });
+}
+
+function fillStudentData() {
+    const selectedStudentName = document.getElementById('student-name').value;
+    const selectedStudent = students.find(student => student.name === selectedStudentName);
+
+    if (selectedStudent) {
+        document.getElementById('class-label').style.display = 'block';
+        document.getElementById('student-class').textContent = selectedStudent.classes[0];
+        
+        document.getElementById('subjects-label').style.display = 'block';
+        document.getElementById('student-subjects').textContent = selectedStudent.subjects.join(', ');
+
+        calculateStandardFee(selectedStudent);
+        filterTables(selectedStudentName);
+    } else {
+        document.getElementById('class-label').style.display = 'none';
+        document.getElementById('subjects-label').style.display = 'none';
+        document.getElementById('standard-fee-label').style.display = 'none';
+        displayFees(); // Show all fees if no student is selected
+        displayStudents(); // Show all students if no student is selected
+    }
+}
+
+function calculateStandardFee(student) {
+    if (student) {
+        const standardFee = 800 * student.subjects.length;
+        document.getElementById('standard-fee').textContent = standardFee;
+        document.getElementById('standard-fee-label').style.display = 'block';
+    } else {
+        alert('Please select a student.');
+    }
+}
+
+function addFee() {
+    const name = document.getElementById('student-name').value;
+    const studentClass = document.getElementById('student-class').textContent;
+    const studentSubjects = document.getElementById('student-subjects').textContent;
+    const amount = parseFloat(document.getElementById('fee-amount').value);
+    const month = document.getElementById('month').value;
+    const date = new Date().toISOString().split('T')[0]; // Get today's date in YYYY-MM-DD format
+
+    const selectedStudent = students.find(student => student.name === name);
+    const standardFee =800 * selectedStudent.subjects.length;
+
+    const fee = { name, studentClass, subjects: studentSubjects.split(', '), amount, month, date, standardFee };
+
+    let fees = JSON.parse(localStorage.getItem('fees')) || [];
+    fees.push(fee);
+    localStorage.setItem('fees', JSON.stringify(fees));
+
+    updateTotalPayment(name, amount);
+    displayFees();
+    displayStudents();
+    document.getElementById('fee-form').reset();
+
+    const dueTotal = getDueTotalFromTable(name); // Get the due total from the table
+
+    generateWhatsAppMessage(name, studentClass, studentSubjects, amount, month);
+
+    // Create the content of the transaction.txt file
+    const transactionContent = `
+        Name: ${name}
+        Date: ${date}
+        Month: ${month}
+        Class: ${studentClass}
+        Subjects: ${studentSubjects}
+        Amount Paid: ${amount}
+        Due Total: ${dueTotal}
+    `;
+
+    // Create the name of the file based on the student's name, date, and month
+    const fileName = `${name}_${date}_${month}.txt`;
+
+    // Create a blob with the content and initiate a download
+    const blob = new Blob([transactionContent], { type: 'text/plain' });
+    const link = document.createElement('a');
+    link.href = window.URL.createObjectURL(blob);
+    link.download = fileName;
+    link.click();
+}
+
+function getDueTotalFromTable(studentName) {
+    const rows = document.querySelectorAll('#student-table-body tr');
+    for (const row of rows) {
+        const cells = row.getElementsByTagName('td');
+        const nameCell = cells[0].textContent;
+        if (nameCell === studentName) {
+            const dueTotalCell = cells[3].textContent; // Due Total is in the 4th cell (index 3)
+            return dueTotalCell;
+        }
+    }
+    return '0'; // Return '0' if the student is not found
+}
+
+
+
+
+function updateTotalPayment(studentName, amount) {
+    const totalPayments = JSON.parse(localStorage.getItem('totalPayments')) || {};
+
+    if (totalPayments[studentName]) {
+        totalPayments[studentName] += amount;
+    } else {
+        totalPayments[studentName] = amount;
+    }
+
+    localStorage.setItem('totalPayments', JSON.stringify(totalPayments));
+}
+
+function calculateTotalRevenue(studentName, standardFee) {
+    const currentMonth = new Date().getMonth() + 1; // JavaScript months are 0-based, so add 1
+    return standardFee * currentMonth;
+}
+
+function displayFees() {
+    const feeTableBody = document.getElementById('fee-table-body');
+    feeTableBody.innerHTML = '';
+
+    let fees = JSON.parse(localStorage.getItem('fees')) || [];
+
+    fees.forEach(fee => {
+        const feeRow = document.createElement('tr');
+        feeRow.innerHTML = `
+            <td>${fee.name}</td>
+            <td>${fee.studentClass}</td>
+            <td>${fee.subjects.join(', ')}</td>
+            <td>$${fee.amount}</td>
+            <td>${fee.month}</td>
+            <td>${fee.date}</td>
+            <td>$${fee.standardFee}</td>
+            <td class="record-actions">
+                <button onclick="generateWhatsAppMessage('${fee.name}', '${fee.studentClass}', '${fee.subjects.join(', ')}', ${fee.amount}, '${fee.month}')">WhatsApp</button>
+            </td>
+        `;
+        feeTableBody.appendChild(feeRow);
+    });
+}
+
+function displayCurrentMonth() {
+    const currentMonth = new Date().getMonth() + 1; // JavaScript months are 0-based, so add 1
+    document.getElementById('current-month').textContent = `Current Month: ${currentMonth}`;
+}
+
+function displayStudents() {
+    const studentTableBody = document.getElementById('student-table-body');
+    studentTableBody.innerHTML = '';
+
+    const totalPayments = JSON.parse(localStorage.getItem('totalPayments')) || {};
+
+    students.forEach(student => {
+        const standardFee = 800 * student.subjects.length;
+        const totalRevenue = calculateTotalRevenue(student.name, standardFee);
+        const totalPayment = totalPayments[student.name] || 0;
+        const dueTotal = totalRevenue - totalPayment;
+
+        const studentRow = document.createElement('tr');
+        studentRow.innerHTML = `
+            <td>${student.name}</td>
+            <td>${student.classes.join(', ')}</td>
+            <td>${student.subjects.join(', ')}</td>
+
+            <td>$${dueTotal}</td>
+            <td class="record-actions">
+                <button onclick="generateWhatsAppMessage1('${student.name}', '${dueTotal}')">WhatsApp</button>
+            </td>
+        `;
+        studentTableBody.appendChild(studentRow);
+    });
+}
+
+function filterTables(studentName) {
+    displayFeesFiltered(studentName);
+    displayStudentsFiltered(studentName);
+}
+
+function displayFeesFiltered(studentName) {
+    const feeTableBody = document.getElementById('fee-table-body');
+    feeTableBody.innerHTML = '';
+
+    let fees = JSON.parse(localStorage.getItem('fees')) || [];
+
+    fees.filter(fee => fee.name === studentName).forEach(fee => {
+        const feeRow = document.createElement('tr');
+        feeRow.innerHTML = `
+            <td>${fee.name}</td>
+            <td>${fee.studentClass}</td>
+            <td>${fee.subjects.join(', ')}</td>
+            <td>$${fee.amount}</td>
+            <td>${fee.month}</td>
+            <td>${fee.date}</td>
+
+        `;
+        feeTableBody.appendChild(feeRow);
+    });
+}
+
+function displayStudentsFiltered(studentName) {
+    const studentTableBody = document.getElementById('student-table-body');
+    studentTableBody.innerHTML = '';
+
+    const totalPayments = JSON.parse(localStorage.getItem('totalPayments')) || {};
+
+    const student = students.find(student => student.name === studentName);
+    const standardFee = 800 * student.subjects.length;
+    const totalRevenue = calculateTotalRevenue(student.name, standardFee);
+    const totalPayment = totalPayments[student.name] || 0;
+    const dueTotal = totalRevenue - totalPayment;
+
+    const studentRow = document.createElement('tr');
+    studentRow.innerHTML = `
+        <td>${student.name}</td>
+        <td>${student.classes.join(', ')}</td>
+        <td>${student.subjects.join(', ')}</td>
+        <td>$${dueTotal}</td>
+        <td class="record-actions">
+            <button onclick="generateWhatsAppMessage1('${student.name}', '${dueTotal}')">WhatsApp</button>
+        </td>
+    `;
+    studentTableBody.appendChild(studentRow);
+}
+
+function generateWhatsAppMessage(name, studentClass, subjects, amount, month) {
+    const message = ` ${name}ගේ පන්ති ගාස්තු ලෙස ගෙවූ රු.${amount} මුදලක් ${month} මාසය සදහා ලැබුණි.ස්තුතියි! මෙය ස්වයංක්‍රීය පණිවිඩයකි.(Samira sir)`;
+    const whatsappLink = `whatsapp://send?text=${encodeURIComponent(message)}`;
+    window.location.href = whatsappLink;
+}
+
+function generateWhatsAppMessage1(name, dueTotal) {
+    const message = ` ${name}ගේ රු.${dueTotal} පන්ති ගාස්තුවක් ගෙවීමට ඇත.ඒය ගෙවීමට කාරුණික වන්න. මෙය ස්වයංක්‍රීය පණිවිඩයකි.(Samira sir)`;
+    const whatsappLink = `whatsapp://send?text=${encodeURIComponent(message)}`;
+    window.location.href = whatsappLink;
+}
+
+document.getElementById('class-select').addEventListener('change', populateStudentDropdown);
+document.getElementById('student-name').addEventListener('change', fillStudentData);
+
+document.getElementById('clear-btn').addEventListener('click', function() {
+    localStorage.removeItem('fees');
+    localStorage.removeItem('totalPayments');
+    displayFees();
+    displayStudents();
+});
+function calculateClassIncome() {
+            const classIncome = {};
+            const fees = JSON.parse(localStorage.getItem('fees')) || [];
+
+            fees.forEach(fee => {
+                if (!classIncome[fee.studentClass]) {
+                    classIncome[fee.studentClass] = 0;
+                }
+                classIncome[fee.studentClass] += fee.amount;
+            });
+
+            console.log('Class Income:', classIncome); // Debugging line
+            return classIncome;
+        }
+
+        function calculateMonthIncome() {
+            const monthIncome = {};
+            const fees = JSON.parse(localStorage.getItem('fees')) || [];
+
+            fees.forEach(fee => {
+                if (!monthIncome[fee.month]) {
+                    monthIncome[fee.month] = 0;
+                }
+                monthIncome[fee.month] += fee.amount;
+            });
+
+            console.log('Month Income:', monthIncome); // Debugging line
+            return monthIncome;
+        }
+
+        function calculateMonthStudents() {
+            const monthStudents = {};
+            const fees = JSON.parse(localStorage.getItem('fees')) || [];
+
+            fees.forEach(fee => {
+                if (!monthStudents[fee.month]) {
+                    monthStudents[fee.month] = new Set();
+                }
+                monthStudents[fee.month].add(fee.name);
+            });
+
+            const monthStudentCounts = {};
+            for (const month in monthStudents) {
+                monthStudentCounts[month] = monthStudents[month].size;
+            }
+
+            console.log('Month Students:', monthStudentCounts); // Debugging line
+            return monthStudentCounts;
+        }
+
+        function displayClassIncome() {
+            const classIncome = calculateClassIncome();
+            const classIncomeBody = document.getElementById('class-income-body');
+            classIncomeBody.innerHTML = '';
+
+            for (const studentClass in classIncome) {
+                const row = document.createElement('tr');
+                row.innerHTML = `<td>${studentClass}</td><td>${classIncome[studentClass]}</td>`;
+                classIncomeBody.appendChild(row);
+            }
+        }
+
+        function displayMonthIncome() {
+            const monthIncome = calculateMonthIncome();
+            const monthIncomeBody = document.getElementById('month-income-body');
+            monthIncomeBody.innerHTML = '';
+
+            for (const month in monthIncome) {
+                const row = document.createElement('tr');
+                row.innerHTML = `<td>${month}</td><td>${monthIncome[month]}</td>`;
+                monthIncomeBody.appendChild(row);
+            }
+        }
+
+        function displayMonthStudents() {
+            const monthStudents = calculateMonthStudents();
+            const monthStudentsBody = document.getElementById('month-students-body');
+            monthStudentsBody.innerHTML = '';
+
+            for (const month in monthStudents) {
+                const row = document.createElement('tr');
+                row.innerHTML = `<td>${month}</td><td>${monthStudents[month]}</td>`;
+                monthStudentsBody.appendChild(row);
+            }
+        }
+
+        // Initialize the tables on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            displayClassIncome();
+            displayMonthIncome();
+            displayMonthStudents();
+        });
+// Initialize
+initialize();
+    </script>
+</body>
+</body>
+</html>

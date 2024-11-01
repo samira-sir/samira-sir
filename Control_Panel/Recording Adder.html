@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recording Adding Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    h1 {
+      text-align: center;
+      color: #444;
+    }
+    #classButtons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    #inputFields {
+      display: none;
+      margin-top: 20px;
+      text-align: center;
+    }
+    .links-input {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 10px;
+      overflow: hidden;
+    }
+    .links-input input[type="text"] {
+      padding: 10px;
+      width: 45%;
+      margin: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    .links-input input[name] {
+      margin-right: 5px;
+    }
+    .generate-btn {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 15px;
+      transition: background-color 0.3s ease;
+    }
+    .generate-btn:hover {
+      background-color: #218838;
+    }
+  </style>
+</head>
+<body onload="showClassButtons()">
+  <h1>Recording Adder for Samira Sir</h1>
+  <div id="classButtons">
+    <!-- Class buttons for different grades and subjects -->
+    <button onclick="showInputFields('6 Geo')">6 Geo</button>
+    <button onclick="showInputFields('6 Civic')">6 Civic</button>
+    <button onclick="showInputFields('6 History')">6 History</button>
+    <button onclick="showInputFields('7 Geo')">7 Geo</button>
+    <button onclick="showInputFields('7 Civic')">7 Civic</button>
+    <button onclick="showInputFields('7 History')">7 History</button>
+    <button onclick="showInputFields('8 Geo')">8 Geo</button>
+    <button onclick="showInputFields('8 Civic')">8 Civic</button>
+    <button onclick="showInputFields('8 History')">8 History</button>
+    <button onclick="showInputFields('9 Geo')">9 Geo</button>
+    <button onclick="showInputFields('9 Civic')">9 Civic</button>
+    <button onclick="showInputFields('9 History')">9 History</button>
+    <button onclick="showInputFields('10 Geo')">10 Geo</button>
+    <button onclick="showInputFields('10 Civic')">10 Civic</button>
+    <button onclick="showInputFields('10 History')">10 History</button>
+    <button onclick="showInputFields('11 Geo')">11 Geo</button>
+    <button onclick="showInputFields('11 Civic')">11 Civic</button>
+    <button onclick="showInputFields('11 History')">11 History</button>
+  </div>
+
+  <div id="inputFields">
+    <h2 id="selectedClass"></h2>
+    <div class="links-input">
+      <input type="text" placeholder="Link 1" id="link1">
+      <input type="date" id="date" placeholder="Select Date">
+    </div>
+    <div class="links-input">
+      <input type="text" placeholder="Link 2" id="link2">
+    </div>
+    <div class="links-input">
+      <input type="text" placeholder="Link 3" id="link3">
+    </div>
+    <div class="links-input">
+      <input type="text" placeholder="Link 4" id="link4">
+    </div>
+    <div class="links-input">
+      <input type="text" placeholder="Link 5" id="link5">
+    </div>
+    <button class="generate-btn" onclick="generateCode()">Finish</button>
+  </div>
+
+  <script>
+    function showClassButtons() {
+      document.getElementById('classButtons').style.display = 'flex';
+    }
+
+    let selectedClass = '';
+
+    function showInputFields(className) {
+      selectedClass = className;
+      document.getElementById('classButtons').style.display = 'none';  // Hide class buttons after click
+      document.getElementById('inputFields').style.display = 'block';  // Show input fields after click
+      document.getElementById('selectedClass').innerText = `Selected Class: ${className}`;
+    }
+
+    function getMonthName(monthNumber) {
+      const months = [
+        "January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
+      ];
+      return months[monthNumber - 1];
+    }
+
+    function mapSubjectName(subjectShort) {
+      const subjectMapping = {
+        "Geo": "Geography",
+        "Civic": "Civic",
+        "History": "History"
+      };
+      return subjectMapping[subjectShort] || subjectShort;
+    }
+
+    function generateCode() {
+      const links = [
+        document.getElementById('link1').value,
+        document.getElementById('link2').value,
+        document.getElementById('link3').value,
+        document.getElementById('link4').value,
+        document.getElementById('link5').value,
+      ];
+
+      const customDate = document.getElementById('date').value;
+      const dateObj = new Date(customDate);
+      const formattedDate = dateObj.toISOString().split('T')[0]; // Get the YYYY-MM-DD format
+      const monthName = getMonthName(dateObj.getMonth() + 1); // Get the full month name
+
+      // Split the selectedClass to get the class and subject
+      const [classNumber, subjectShort] = selectedClass.split(' ');
+      const subjectFull = mapSubjectName(subjectShort);
+
+      let generatedCode = '';
+      for (let i = 0; i < links.length; i++) {
+        if (links[i]) {
+          // Add "Part {i+1}" to the title
+          generatedCode += `
+          { 
+            class: '${classNumber}', 
+            subject: '${subjectFull}', 
+            date: '${formattedDate}', 
+            month: '${monthName}', 
+            video: '${links[i]}', 
+            title: '${formattedDate} - Class ${classNumber} - ${subjectFull} Part ${i + 1}' 
+          },\n`;
+        }
+      }
+
+      // Copy the generated code to clipboard
+      navigator.clipboard.writeText(generatedCode).then(() => {
+        // Always redirect to the same fixed file
+        window.location.href = 'https://github.com/samira-sir/samira-sir/tree/main/recording/rec.js';
+      }).catch(err => {
+        alert('Failed to copy code');
+      });
+    }
+  </script>
+</body>
+</html>

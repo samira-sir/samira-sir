@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Username and Months</title>
+    <style>
+        /* Basic styles for layout */
+        body { 
+            font-family: Arial, sans-serif; 
+            background-color: #f4f4f4; 
+            margin: 0; 
+            padding: 20px; 
+        }
+        .container { 
+            max-width: 500px; 
+            margin: 0 auto; 
+            padding: 20px; 
+            background: #fff; 
+            border-radius: 8px; 
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+        }
+        h2 { 
+            text-align: center; 
+        }
+        label { 
+            display: block; 
+            margin: 10px 0 5px; 
+        }
+        select, input[type="checkbox"] { 
+            margin-right: 10px; 
+        }
+        .months-container { 
+            margin-bottom: 15px; 
+        }
+        button { 
+            background: #007bff; 
+            color: white; 
+            border: none; 
+            border-radius: 5px; 
+            padding: 10px 15px; 
+            cursor: pointer; 
+            margin: 5px 0; 
+            width: 100%;
+        }
+        button:hover { 
+            background: #0056b3; 
+        }
+        .output { 
+            margin-top: 20px; 
+            padding: 10px; 
+            background: #e9ecef; 
+            border: 1px solid #ccc; 
+            border-radius: 5px; 
+            white-space: pre-wrap; 
+        }
+        #copyButton {
+            background: #28a745; 
+        }
+        #copyButton:hover { 
+            background: #218838; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Select Username and Months</h2>
+        
+        <label for="username">Username:</label>
+        <select id="username">
+            <option value="" disabled selected>Select a username</option>
+        </select>
+
+        <div class="months-container">
+            <label>Select Months:</label>
+            <input type="checkbox" id="jan" value="Jan"> Jan
+            <input type="checkbox" id="feb" value="Feb"> Feb
+            <input type="checkbox" id="mar" value="Mar"> Mar
+            <input type="checkbox" id="apr" value="Apr"> Apr
+            <input type="checkbox" id="may" value="May"> May
+            <input type="checkbox" id="jun" value="Jun"> Jun
+            <input type="checkbox" id="jul" value="Jul"> Jul
+            <input type="checkbox" id="aug" value="Aug"> Aug
+            <input type="checkbox" id="sep" value="Sep"> Sep
+            <input type="checkbox" id="oct" value="Oct"> Oct
+            <input type="checkbox" id="nov" value="Nov"> Nov
+            <input type="checkbox" id="dec" value="Dec"> Dec
+        </div>
+
+        <button onclick="generateOutput()">Generate Output</button>
+        <button id="copyButton" onclick="copyToClipboard()" style="display:none;">Copy to Clipboard</button>
+
+        <div class="output">
+            <h3>Output:</h3>
+            <pre id="outputArea"></pre>
+        </div>
+    </div>
+<script src="js/user.js"></script>
+    <script>
+
+
+        // Populate the username dropdown
+        const usernameSelect = document.getElementById('username');
+        for (const username in credentials) {
+            const option = document.createElement('option');
+            option.value = username;
+            option.textContent = username;
+            usernameSelect.appendChild(option);
+        }
+
+        function generateOutput() {
+            // Get selected username
+            const username = document.getElementById('username').value;
+
+            // Get selected months
+            const months = [];
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+            checkboxes.forEach(checkbox => {
+                months.push(checkbox.value);
+            });
+
+            // Check if both username and months are selected
+            if (username && months.length > 0) {
+                const result = { username: username, months: months };
+                document.getElementById('outputArea').textContent = JSON.stringify(result, null, 2);
+                document.getElementById('copyButton').style.display = 'block'; // Show copy button
+            } else {
+                document.getElementById('outputArea').textContent = 'Please select a username and at least one month.';
+                document.getElementById('copyButton').style.display = 'none'; // Hide copy button
+            }
+        }
+
+        function copyToClipboard() {
+            const outputText = document.getElementById('outputArea').textContent;
+            navigator.clipboard.writeText(outputText)
+                .then(() => {
+                    alert('Copied to clipboard!');
+                })
+                .catch(err => {
+                    console.error('Failed to copy: ', err);
+                });
+        }
+    </script>
+</body>
+</html>

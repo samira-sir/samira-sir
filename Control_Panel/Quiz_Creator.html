@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Creator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .question {
+            margin-bottom: 20px;
+            display: none; /* Initially hide all questions */
+        }
+        .question.active {
+            display: block; /* Show only the active question */
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            box-sizing: border-box;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #output {
+            margin-top: 20px;
+            white-space: pre-wrap;
+            background-color: #f4f4f4;
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+        #copy-output {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #00bfae;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 600px;
+            box-sizing: border-box;
+        }
+        #copy-output:hover {
+            background-color: #009688;
+        }
+    </style>
+    <!-- Include jsPDF library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+
+    <h1>Quiz Creator</h1>
+
+
+
+    <div id="initialFields">
+        <label for="quizName">Quiz Name:</label>
+        <input type="text" id="quizName" name="quizName" placeholder="Enter the quiz name">
+        <button onclick="showQuestionFields()">Next</button>
+    </div>
+
+    <div id="questionsContainer" style="display:none;">
+        <div class="question active">
+            <label for="questionText1">Question 1:</label>
+            <input type="text" id="questionText1" name="questionText" placeholder="Enter your question">
+            <br>
+            <label for="option1_1">Option 1:</label>
+            <input type="text" id="option1_1" name="option1" placeholder="Option 1">
+            <br>
+            <label for="option2_1">Option 2:</label>
+            <input type="text" id="option2_1" name="option2" placeholder="Option 2">
+            <br>
+            <label for="option3_1">Option 3:</label>
+            <input type="text" id="option3_1" name="option3" placeholder="Option 3">
+            <br>
+            <label for="option4_1">Option 4:</label>
+            <input type="text" id="option4_1" name="option4" placeholder="Option 4">
+            <br>
+            <label for="correctAnswer1">Correct Answer:</label>
+            <input type="text" id="correctAnswer1" name="correctAnswer" placeholder="Correct Answer (1-4)">
+            <hr>
+        </div>
+        <button id="copy-output" style="display:none;" onclick="copyResults()">Copy Results</button>
+        <pre id="output"></pre>
+        <button onclick="addQuestion()">Add Another Question</button>
+        <button onclick="generateQuiz()">Generate Quiz</button>
+    </div>
+
+
+
+
+
+    <script>
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                alert('Results copied to clipboard!');
+            }).catch(err => {
+                alert('Failed to copy: ' + err);
+            });
+        }
+
+        let questionCount = 1;
+
+        function showQuestionFields() {
+            document.getElementById('initialFields').style.display = 'none';
+            document.getElementById('questionsContainer').style.display = 'block';
+        }
+
+        function addQuestion() {
+            questionCount++;
+            const questionsContainer = document.getElementById('questionsContainer');
+            
+            // Hide all previous questions
+            document.querySelectorAll('.question').forEach(q => q.classList.remove('active'));
+            
+            // Create new question element
+            const newQuestion = document.createElement('div');
+            newQuestion.className = 'question active'; // Mark new question as active
+            newQuestion.innerHTML = `
+                <label for="questionText${questionCount}">Question ${questionCount}:</label>
+                <input type="text" id="questionText${questionCount}" name="questionText" placeholder="Enter your question">
+                <br>
+                <label for="option1_${questionCount}">Option 1:</label>
+                <input type="text" id="option1_${questionCount}" name="option1" placeholder="Option 1">
+                <br>
+                <label for="option2_${questionCount}">Option 2:</label>
+                <input type="text" id="option2_${questionCount}" name="option2" placeholder="Option 2">
+                <br>
+                <label for="option3_${questionCount}">Option 3:</label>
+                <input type="text" id="option3_${questionCount}" name="option3" placeholder="Option 3">
+                <br>
+                <label for="option4_${questionCount}">Option 4:</label>
+                <input type="text" id="option4_${questionCount}" name="option4" placeholder="Option 4">
+                <br>
+                <label for="correctAnswer${questionCount}">Correct Answer:</label>
+                <input type="text" id="correctAnswer${questionCount}" name="correctAnswer" placeholder="Correct Answer (1-4)">
+                <hr>
+            `;
+            questionsContainer.appendChild(newQuestion);
+        }
+
+        function generateQuiz() {
+            const quizName = document.getElementById('quizName').value;
+
+            let quizData = `const quizName = "${quizName}";\n\n`;
+            quizData += "const questions = [\n";
+            
+            for (let i = 1; i <= questionCount; i++) {
+                const questionText = document.getElementById(`questionText${i}`).value;
+                const option1 = document.getElementById(`option1_${i}`).value;
+                const option2 = document.getElementById(`option2_${i}`).value;
+                const option3 = document.getElementById(`option3_${i}`).value;
+                const option4 = document.getElementById(`option4_${i}`).value;
+                const correctAnswerIndex = document.getElementById(`correctAnswer${i}`).value;
+
+                const options = [option1, option2, option3, option4];
+                const correctAnswer = options[correctAnswerIndex - 1];  // Indexing starts from 0
+
+                quizData += `    {\n`;
+                quizData += `        question: "${questionText}",\n`;
+                quizData += `        options: [\n`;
+                quizData += `            "${option1}",\n`;
+                quizData += `            "${option2}",\n`;
+                quizData += `            "${option3}",\n`;
+                quizData += `            "${option4}"\n`;
+                quizData += `        ],\n`;
+                quizData += `        correct: "${correctAnswer}"\n`;
+                quizData += `    },\n`;
+            }
+
+            quizData += "];";
+
+            document.getElementById('output').innerText = quizData;
+
+            // Show the "Copy Results" button after generating the quiz
+            document.getElementById('copy-output').style.display = 'block';
+
+            // Generate PDF
+            generatePDF();
+        }
+
+        function copyResults() {
+            const outputText = document.getElementById('output').innerText;
+            copyToClipboard(outputText);
+        }
+    </script>
+
+</body>
+</html>

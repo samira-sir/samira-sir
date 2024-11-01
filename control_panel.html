@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Control Panel</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #f3f4f6, #eaeef1);
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    h1 {
+      color: #333;
+      text-align: center;
+      margin: 20px 0;
+      font-size: 2.5rem;
+    }
+
+    .main-content {
+      display: flex;
+      gap: 50px;
+      padding: 30px;
+      background-color: #f7f8fa;
+      border-radius: 15px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+      width: 360px;
+      box-sizing: border-box;
+    }
+
+    .btn {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 15px;
+      font-size: 16px;
+      cursor: pointer;
+      text-align: center;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background-color 0.3s, transform 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn:hover {
+      background-color: #0056b3;
+      transform: translateY(-2px);
+    }
+
+    .btn:active {
+      transform: translateY(1px);
+    }
+
+    /* Highlight specific button */
+    .highlighted-btn {
+      background-color: #ff7043; /* Different color for emphasis */
+      color: #fff;
+    }
+
+    .highlighted-btn:hover {
+      background-color: #e64a19;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 1.5rem;
+      color: #333;
+    }
+
+    iframe {
+      width: 100%;
+      height: 200px;
+      border: none;
+      margin-top: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Hi! Samira sir...</h1>
+
+  <div class="main-content">
+    <!-- Left Section -->
+    <div class="container" id="leftContainer">
+      <div class="section-title">Admin DashBoard</div>
+      <div class="section-title">Admin DashBoard</div>
+    </div>
+
+    <!-- Center Section -->
+    <div class="container" id="centerContainer">
+      <div class="section-title">Zoom Links</div>
+      <div class="section-title">Zoom Links</div>
+    </div>
+  </div>
+
+  <!-- Iframes Section -->
+  <div class="iframe-container">
+    <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRjzhpynxL_LSHlS2EyM_e9J_M2h_HZwYF4OZeeDyrozobFg-negUB5R98CzlbJ55mN6fACrBPLS4nT/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
+    <div class="section-title">Login Details</div>  <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQkKuQPOBVYaEXQIkA8D1tQbULOzfoj3vYpfpMewhYPfSojvcT6dEMYeFoC6KJBDwdm5gOdikPUfuPl/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
+    <div class="section-title">Registration Details</div>  </div>
+
+  <script>
+    // Links for the left section
+    const leftRedirects = {
+        'Register a student to the Website': 'Control_Panel/user.html',
+        'Register a 6-9 student to the Payment Database': 'Control_Panel/Stu_pay.html',
+        'Register a 10,11 student to the Payment Database': 'Control_Panel/Stu_pay2.html',
+        'Payment for 6-9 Students': 'Control_Panel/grade 6-9.html',
+        'Payment for 10,11 Students': 'Control_Panel/grade 10,11.html',
+        'Upload Recordings to the Website': 'Control_Panel/Recording Adder.html',
+        'Create Online Tests': 'Control_Panel/Quiz_Creator.html',
+        'Received payment slips': 'https://docs.google.com/spreadsheets/d/1-tLitNEHJlQiP7AaFvRRr3_B858uwMd3v7OJllIHo58/edit?usp=sharing',
+  
+      };
+  
+      // Links for the center section
+      const centerRedirects = {
+        '6-history': 'https://us05web.zoom.us/j/83565928302?pwd=bOB4fNS7ZhaN2S2mhu2GLGz1k7HWtB.1',
+      '6-geography': 'https://us05web.zoom.us/j/89416985234?pwd=UdrHeyZQbd0pd9Sq8fg06iBIeaeQkt.1',
+      '6-civic': 'https://us05web.zoom.us/j/83756325516?pwd=ces9kVscsxkPnW9tzkisc2MtmoYzAg.1',
+      '7-history': 'https://us05web.zoom.us/j/83514989103?pwd=Yg7mCvLzSUl1Q8HboNAatbCaNsBokg.1',
+      '7-geography': 'https://us05web.zoom.us/j/83271512818?pwd=Ao8PiaM4d1ojQbhcLFDpM77auHE2Cz.1',
+      '7-civic': 'https://us05web.zoom.us/j/88658711663?pwd=J0xTqbMwgd5wa5SeU8gdH7XYAksUs1.1',
+      '8-history': 'https://us05web.zoom.us/j/89349569919?pwd=If14VaTyOqM6zGNlgWbYAItrtGHZ8k.1',
+      '8-geography': 'https://us05web.zoom.us/j/85330798317?pwd=aXEmMPkIHVPAH7hTg8JDmQ4KlKNRxC.1',
+      '8-civic': 'https://us05web.zoom.us/j/87446245799?pwd=A1NUdpoN8rP7lXU5qk5ZW4sgfqp25k.1',
+      '9-history': 'https://us05web.zoom.us/j/84632240698?pwd=yX1Bb5Z9H8LcHvr3qTaHl8inubNLaa.1',
+      '9-geography': 'https://us05web.zoom.us/j/88127522664?pwd=IJGjjHETXXNGJiRImy8fApYXRBrbzY.1',
+      '9-civic': 'https://us05web.zoom.us/j/88530684179?pwd=wOVcE50HerBI2t1xgKbjxxIcn000Pb.1',
+      '10-history': 'https://us05web.zoom.us/j/88395976670?pwd=9MQmiOIqrIoeHt5dvJic5tOX1Rmfxb.1',
+      '10-geography': 'https://us05web.zoom.us/j/83224458587?pwd=4vnFbJDkAaLXDW5eV3jTNi8JdGSS1Q.1',
+      '10-civic': 'https://us05web.zoom.us/j/86036161551?pwd=JrwUbXZ9VO8m6wNs8XqR47xHlQ5btj.1',
+      '11-history': 'https://us05web.zoom.us/j/84043993561?pwd=NfdfMMAgauzHBo6Op72sCZ4wTTD4ye.1',
+      '11-geography': 'https://us05web.zoom.us/j/81629230589?pwd=sh0KAVMqlZktijDn7vMZfTaIzBZbRK.1',
+      '11-civic': 'https://us05web.zoom.us/j/82170310608?pwd=Y1KzHx7fi99cswFxjkNjtIIhjq5xLE.1',
+      '9-ind-Thisumi-History':'https://us05web.zoom.us/j/84988761739?pwd=ZwI3hm4gD7658MdeHucToaz93WpFwC.1',
+      '9-ind-Disura-History':'https://us05web.zoom.us/j/83869305774?pwd=euk0qQtIDyqPnT8baeA5AGpqJaRfQN.1',
+      };
+
+    // Generate buttons for the left section
+    const leftContainer = document.getElementById("leftContainer");
+    Object.keys(leftRedirects).forEach(key => {
+      const button = document.createElement("a");
+      button.className = "btn";
+      if (key === 'Upload Recordings to the Website') {
+        button.classList.add("highlighted-btn"); // Add highlighted style to specific button
+      }
+      button.href = leftRedirects[key];
+      button.target = "_blank";
+      button.innerText = key;
+      leftContainer.appendChild(button);
+    });
+
+    // Generate buttons for the center section
+    const centerContainer = document.getElementById("centerContainer");
+    Object.keys(centerRedirects).forEach(key => {
+      const button = document.createElement("a");
+      button.className = "btn";
+      button.href = centerRedirects[key];
+      button.target = "_blank";
+      button.innerText = key.replace(/-/g, " ");
+      centerContainer.appendChild(button);
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Grades and Subjects</title>
+  <style>
+    /* Reset and basic styling */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f2f5;
+      color: #333;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      overflow: hidden; /* Prevent vertical and horizontal scrolling */
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    #classLists {
+      display: flex;
+      gap: 20px;
+      max-width: 100%;
+      overflow: hidden;
+    }
+
+    .grade-section {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      min-width: 200px;
+      max-height: 100vh;
+      overflow-y: auto;
+    }
+
+    h2 {
+      font-size: 1.2em;
+      color: #0073e6;
+      padding: 10px 0;
+      border-bottom: 2px solid #0073e6;
+      text-align: center;
+    }
+
+    p {
+      padding: 8px 12px;
+      font-size: 1em;
+      color: #333;
+      background-color: #f9f9f9;
+      border-radius: 4px;
+      margin: 8px 0;
+      transition: background-color 0.3s, transform 0.2s;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    p:hover {
+      background-color: #e0eaff;
+      transform: scale(1.02);
+    }
+
+    /* Styling for click animation */
+    p:active {
+      transform: scale(0.98);
+    }
+  </style>
+</head>
+<body onload="loadStudents()">
+
+
+  <div id="classLists"></div>
+<script src="../js/user.js">
+    
+</script>
+  <script>
+
+
+    // Function to load students and organize by class
+    function loadStudents() {
+      const classData = {};
+
+      // Organize students by their grades
+      for (const student in credentials) {
+        credentials[student].subjects.forEach(subject => {
+          const grade = subject.grade;
+
+          // Initialize grade if not exists
+          if (!classData[grade]) classData[grade] = new Set();
+          
+          // Add student name to the grade's set to ensure unique names
+          classData[grade].add(student);
+        });
+      }
+
+      // Display organized student list horizontally
+      const classLists = document.getElementById('classLists');
+      for (const grade in classData) {
+        const gradeSection = document.createElement('div');
+        gradeSection.classList.add('grade-section');
+        gradeSection.innerHTML = `<h2>Grade ${grade}</h2>`;
+        
+        classData[grade].forEach(student => {
+          const studentItem = document.createElement('p');
+          studentItem.textContent = student;
+          studentItem.onclick = () => handleStudentClick(student);
+          gradeSection.appendChild(studentItem);
+        });
+
+        classLists.appendChild(gradeSection);
+      }
+    }
+
+    // Handle student click to generate array and redirect
+// Handle student click to generate array and redirect
+function handleStudentClick(studentName) {
+  const studentDetails = credentials[studentName];
+  const studentClasses = Array.from(new Set(studentDetails.subjects.map(sub => sub.grade.toString())));
+  const studentSubjects = Array.from(new Set(studentDetails.subjects.map(sub => capitalize(sub.name))));
+  
+  const studentArray = {
+    name: studentName.charAt(0).toUpperCase() + studentName.slice(1),
+    classes: studentClasses,
+    subjects: studentSubjects
+  };
+
+  // Copy to clipboard with a semicolon
+  navigator.clipboard.writeText(JSON.stringify(studentArray) + ';')
+    .then(() => {
+      // Redirect to GitHub after copying
+      window.location.href = "https://github.com/samira-sir/samira-sir/blob/main/Contro_Panel/Class_Fee/students_low.js";
+    })
+    .catch(err => {
+      console.error("Could not copy text: ", err);
+    });
+}
+
+
+    // Helper function to capitalize words
+    function capitalize(word) {
+      return word.charAt(0).toUpperCase() + word.slice(1);
+    }
+  </script>
+
+</body>
+</html>
