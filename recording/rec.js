@@ -3366,6 +3366,33 @@ const videoLinks = [
 
 
 
+          { 
+            class: '7', 
+            subject: 'Civic', 
+            date: '2024-10-27', 
+            month: 'October', 
+            video: 'https://drive.google.com/file/d/1UswYr6THdjhNRiJl-C43ZVWvYwCfRRoz/preview', 
+            title: '2024-10-27 - Class 7 - Civic Part 1' 
+          },
+
+          { 
+            class: '7', 
+            subject: 'Civic', 
+            date: '2024-10-27', 
+            month: 'October', 
+            video: 'https://drive.google.com/file/d/1owLyU0akvcEZsaIrQvlvU27dSi7enHmn/preview', 
+            title: '2024-10-27 - Class 7 - Civic Part 2' 
+          },
+
+          { 
+            class: '7', 
+            subject: 'Civic', 
+            date: '2024-10-27', 
+            month: 'October', 
+            video: 'https://drive.google.com/file/d/1-z3JcZy_PtNrvMHf9F1TCYILDKxtKh-E/preview', 
+            title: '2024-10-27 - Class 7 - Civic Part 3' 
+          },
+
 
 
 
