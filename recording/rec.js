@@ -3337,6 +3337,33 @@ const videoLinks = [
           },
 
 
+          { 
+            class: '7', 
+            subject: 'History', 
+            date: '2024-10-22', 
+            month: 'October', 
+            video: 'https://drive.google.com/file/d/16fLyzgSJN1AB7EvmHNH1lKEtcBtm81rH/preview', 
+            title: '2024-10-22 - Class 7 - History Part 1' 
+          },
+
+          { 
+            class: '7', 
+            subject: 'History', 
+            date: '2024-10-22', 
+            month: 'October', 
+            video: 'https://drive.google.com/file/d/193yvngsveIvlAh44eyZify5V4fzGK12k/preview', 
+            title: '2024-10-22 - Class 7 - History Part 2' 
+          },
+
+          { 
+            class: '7', 
+            subject: 'History', 
+            date: '2024-10-22', 
+            month: 'October', 
+            video: 'https://drive.google.com/file/d/1cdFBs9D0_H0o_9y7jLdVM6tRgu0iSMrQ/preview', 
+            title: '2024-10-22 - Class 7 - History Part 3' 
+          },
+
 
 
 
