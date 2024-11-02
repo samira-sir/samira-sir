@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Class Subject Videos</title>
+  <style>
+    /* General Styling */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      margin: 0;
+    }
+    
+    /* Button Container Styling */
+    .button-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 20px;
+      justify-content: center;
+      max-width: 800px;
+    }
+
+    /* Button Styling */
+    .button-container button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 15px;
+      font-size: 1rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .button-container button:hover {
+      background-color: #45a049;
+      transform: scale(1.05);
+    }
+
+    /* Table Styling */
+    .video-table {
+      width: 90%;
+      max-width: 800px;
+      border-collapse: collapse;
+      margin-top: 20px;
+      background-color: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .video-table th, .video-table td {
+      padding: 12px 15px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .video-table th {
+      background-color: #007BFF;
+      color: #fff;
+      font-weight: bold;
+    }
+
+    .video-table td {
+      color: #555;
+    }
+
+    .video-table tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    .video-table tr:hover {
+      background-color: #eaf5ff;
+    }
+
+    .video-table a {
+      color: #007BFF;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .video-table a:hover {
+      text-decoration: underline;
+    }
+
+    /* Status Label Styling */
+    .status-label {
+      display: inline-block;
+      padding: 5px 10px;
+      background-color: #28a745;
+      color: white;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      font-weight: bold;
+      text-align: center;
+      animation: pulse 1.5s infinite;
+    }
+
+    /* Animation */
+    @keyframes pulse {
+      0% { opacity: 1; }
+      50% { opacity: 0.6; }
+      100% { opacity: 1; }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 600px) {
+      .button-container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .button-container button {
+        width: 100%;
+        max-width: 300px;
+        margin: 5px 0;
+      }
+
+      .video-table th, .video-table td {
+        padding: 10px;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="button-container" id="buttonContainer"></div>
+<table class="video-table" id="videoTable" style="display: none;">
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>Subject</th>
+      <th>Date</th>
+      <th>Part Number</th>
+      <th>Video Link</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody id="videoTableBody"></tbody>
+</table>
+<script src="../recording/rec.js"></script>
+<script>
+
+
+const groupedVideos = videoLinks.reduce((acc, video) => {
+  const key = `${video.class}-${video.subject}`;
+  if (!acc[key]) acc[key] = [];
+  acc[key].push(video);
+  return acc;
+}, {});
+
+function createButtons() {
+  const buttonContainer = document.getElementById('buttonContainer');
+  for (const key in groupedVideos) {
+    const button = document.createElement('button');
+    button.textContent = key;
+    button.onclick = () => showVideos(key);
+    buttonContainer.appendChild(button);
+  }
+}
+
+function showVideos(key) {
+  const videoTable = document.getElementById('videoTable');
+  const videoTableBody = document.getElementById('videoTableBody');
+  videoTableBody.innerHTML = '';
+
+  groupedVideos[key].sort((a, b) => new Date(b.date) - new Date(a.date)).forEach((video, index) => {
+    const row = document.createElement('tr');
+    row.innerHTML = `
+      <td>${video.class}</td>
+      <td>${video.subject}</td>
+      <td>${video.date}</td>
+      <td>Part ${index + 1}</td>
+      <td><a href="${video.video}" target="_blank">Watch</a></td>
+      <td><span class="status-label">Uploaded</span></td>
+    `;
+    videoTableBody.appendChild(row);
+  });
+
+  videoTable.style.display = 'table';
+}
+
+createButtons();
+</script>
+</body>
+</html>
+/
