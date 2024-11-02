@@ -3573,6 +3573,33 @@ const videoLinks = [
           },
 
 
+          { 
+            class: '8', 
+            subject: 'History', 
+            date: '2024-10-20', 
+            month: 'October', 
+            video: 'https://drive.google.com/file/d/1PCeDvL398BYDy8bXdP6E1k5ykpsmEycd/preview', 
+            title: '2024-10-20 - Class 8 - History Part 1' 
+          },
+
+          { 
+            class: '8', 
+            subject: 'History', 
+            date: '2024-10-20', 
+            month: 'October', 
+            video: 'https://drive.google.com/file/d/1l1tlxH3ROp0pHGsqn0X2Xa8XpLmSHcLy/preview', 
+            title: '2024-10-20 - Class 8 - History Part 2' 
+          },
+
+          { 
+            class: '8', 
+            subject: 'History', 
+            date: '2024-10-20', 
+            month: 'October', 
+            video: 'https://drive.google.com/file/d/1DdRrycjOOMsI5hhsiWaFCLemKKlnYCPa/preview', 
+            title: '2024-10-20 - Class 8 - History Part 3' 
+          },
+
 
 
 
