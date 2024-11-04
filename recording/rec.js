@@ -3810,6 +3810,33 @@ const videoLinks = [
 
 
 
+          { 
+            class: '9', 
+            subject: 'Geography', 
+            date: '2024-11-04', 
+            month: 'November', 
+            video: 'https://drive.google.com/file/d/1p6xjX5vd56H6ott3jEA7QY9dz9JyFAIq/preview', 
+            title: '2024-11-04 - Class 9 - Geography Part 1' 
+          },
+
+          { 
+            class: '9', 
+            subject: 'Geography', 
+            date: '2024-11-04', 
+            month: 'November', 
+            video: 'https://drive.google.com/file/d/1zZ2f2FPiDdRvpchd2j3Fdx_tqzs8iks5/preview', 
+            title: '2024-11-04 - Class 9 - Geography Part 2' 
+          },
+
+          { 
+            class: '9', 
+            subject: 'Geography', 
+            date: '2024-11-04', 
+            month: 'November', 
+            video: 'https://drive.google.com/file/d/16CqaTepfzqBs9aN2CM-j2PTMMx6Fpz4x/preview', 
+            title: '2024-11-04 - Class 9 - Geography Part 3' 
+          },
+
 
 
 
