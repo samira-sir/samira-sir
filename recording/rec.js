@@ -3866,6 +3866,33 @@ const videoLinks = [
           },
 
 
+          { 
+            class: '7', 
+            subject: 'Geography', 
+            date: '2024-11-04', 
+            month: 'November', 
+            video: 'https://drive.google.com/file/d/1EAWvQMp8Px7lh-gS1SPVh0dcMNpoJXaC/preview', 
+            title: '2024-11-04 - Class 7 - Geography Part 1' 
+          },
+
+          { 
+            class: '7', 
+            subject: 'Geography', 
+            date: '2024-11-04', 
+            month: 'November', 
+            video: 'https://drive.google.com/file/d/1YVxP-cFXl6O4RJT-9sp-pJQ6fnufusjn/preview', 
+            title: '2024-11-04 - Class 7 - Geography Part 2' 
+          },
+
+          { 
+            class: '7', 
+            subject: 'Geography', 
+            date: '2024-11-04', 
+            month: 'November', 
+            video: 'https://drive.google.com/file/d/1TJy6uv7-jc7vG8uuDAb0ysh5OCefIyAX/preview', 
+            title: '2024-11-04 - Class 7 - Geography Part 3' 
+          },
+
 
 
 
