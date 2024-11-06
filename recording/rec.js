@@ -3904,6 +3904,24 @@ const videoLinks = [
           },
 
 
+          { 
+            class: '8', 
+            subject: 'Geography', 
+            date: '2024-11-05', 
+            month: 'November', 
+            video: 'https://drive.google.com/file/d/1x1qBbJCct46mX4BXsgxPX8f4RlyJtBlQ/preview', 
+            title: '2024-11-05 - Class 8 - Geography Part 1' 
+          },
+
+          { 
+            class: '8', 
+            subject: 'Geography', 
+            date: '2024-11-05', 
+            month: 'November', 
+            video: 'https://drive.google.com/file/d/1ovnOG0eGUPg9ESC-H-_03XPzNZR00lxH/preview', 
+            title: '2024-11-05 - Class 8 - Geography Part 2' 
+          },
+
 
 
 
