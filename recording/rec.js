@@ -3894,6 +3894,15 @@ const videoLinks = [
           },
 
 
+          { 
+            class: '7', 
+            subject: 'History', 
+            date: '2024-11-05', 
+            month: 'November', 
+            video: 'https://drive.google.com/file/d/1_1ihBWj5MwPut3S5cQ3Hi5a8IhVnTMLY/preview', 
+            title: '2024-11-05 - Class 7 - History Part 1' 
+          },
+
 
 
 
