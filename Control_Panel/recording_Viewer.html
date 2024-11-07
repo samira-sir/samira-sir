@@ -39,11 +39,17 @@
       cursor: pointer;
       transition: background-color 0.3s, transform 0.2s;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      animation: fadeInUp 0.6s ease;
     }
 
     .button-container button:hover {
       background-color: #45a049;
       transform: scale(1.05);
+    }
+
+    /* "View All" Button Styling */
+    .view-all-button {
+      background-color: #007BFF;
     }
 
     /* Table Styling */
@@ -56,6 +62,7 @@
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       border-radius: 8px;
       overflow: hidden;
+      animation: slideIn 0.5s ease-out;
     }
 
     .video-table th, .video-table td {
@@ -105,11 +112,33 @@
       animation: pulse 1.5s infinite;
     }
 
-    /* Animation */
+    /* Animations */
     @keyframes pulse {
       0% { opacity: 1; }
       50% { opacity: 0.6; }
       100% { opacity: 1; }
+    }
+
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideIn {
+      0% {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     /* Responsive Design */
@@ -134,7 +163,10 @@
 </head>
 <body>
 
-<div class="button-container" id="buttonContainer"></div>
+<div class="button-container" id="buttonContainer">
+  <!-- "View All" button to show all videos initially hidden -->
+  <button class="view-all-button" onclick="showAllVideos()">View All</button>
+</div>
 <table class="video-table" id="videoTable" style="display: none;">
   <thead>
     <tr>
@@ -150,7 +182,6 @@
 </table>
 <script src="../recording/rec.js"></script>
 <script>
-
 
 const groupedVideos = videoLinks.reduce((acc, video) => {
   const key = `${video.class}-${video.subject}`;
@@ -190,8 +221,28 @@ function showVideos(key) {
   videoTable.style.display = 'table';
 }
 
+function showAllVideos() {
+  const videoTable = document.getElementById('videoTable');
+  const videoTableBody = document.getElementById('videoTableBody');
+  videoTableBody.innerHTML = '';
+
+  videoLinks.sort((a, b) => new Date(b.date) - new Date(a.date)).forEach((video, index) => {
+    const row = document.createElement('tr');
+    row.innerHTML = `
+      <td>${video.class}</td>
+      <td>${video.subject}</td>
+      <td>${video.date}</td>
+      <td>Part ${index + 1}</td>
+      <td><a href="${video.video}" target="_blank">Watch</a></td>
+      <td><span class="status-label">Uploaded</span></td>
+    `;
+    videoTableBody.appendChild(row);
+  });
+
+  videoTable.style.display = 'table';
+}
+
 createButtons();
 </script>
 </body>
 </html>
-/
