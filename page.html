@@ -741,6 +741,7 @@ function updateMonthMenu(username) {
 }
 
 // Load the current month by default if it's available for the user
+// Load the current month by default if it's available for the user
 window.onload = () => {
   const username = localStorage.getItem('username'); // Get username from local storage
   if (username) {
@@ -749,15 +750,24 @@ window.onload = () => {
     const currentMonthIndex = new Date().getMonth(); // Get current month index (0 for Jan, 11 for Dec)
     const currentMonth = months[currentMonthIndex]; // Get current month name
 
-    // Only show the current month if it's available to the user
+    // Only show the current month if it's available to the user, else unlock next month
     const availableMonths = getMonthsForUser(username);
-    if (availableMonths.includes(currentMonth)) {
-      showMonth(currentMonth); // Show the current month if available for the user
-    } else if (availableMonths.length > 0) {
-      showMonth(availableMonths[0]); // Show the first available month for the user
+    let displayMonth = currentMonth;
+
+    if (!availableMonths.includes(currentMonth) && availableMonths.length > 0) {
+      // Get the index of the last available month
+      const lastAvailableMonthIndex = months.indexOf(availableMonths[availableMonths.length - 1]);
+
+      // Set displayMonth to the month following the last available month
+      displayMonth = months[lastAvailableMonthIndex + 1] || currentMonth;
+    }
+
+    if (availableMonths.includes(displayMonth) || months.includes(displayMonth)) {
+      showMonth(displayMonth); // Show the current or unlocked month
     }
   }
 };
+
 
   // Toggle cart menu visibility
     // Toggle cart menu visibility
