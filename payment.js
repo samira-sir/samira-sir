@@ -84,35 +84,14 @@ const userMonthData = [
     { username: 'malishi', months: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'] },
     { username: 'dulani', months: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'] },
     { username: 'dulmira', months: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'] },
-    {
-  "username": "rashini",
-  "months": [
-    "Nov",
-    "Oct"
-  ]
-},
-   {
-  "username": "santhuli",
-  "months": [
-    "Aug",
-    "Sep",
-    "Oct",
-    "Nov"
-  ]
-} ,
-{
-  "username": "dehan",
-  "months": [
-    "Oct",
-    "Nov"
-  ]
-    
-},
+    {username: "rashini",months: [ 'Nov', 'Oct']},
+   {username: "santhuli",months: ['Aug','Sep','Oct','Nov' ]} ,
+{username: "dehan",months: ['Oct','Nov']},
 
 {
-  "username": "ovindee",
-  "months": [
-    "Nov"
+  username: "ovindee",
+  months: [
+    'Nov'
   ]
 },
 
