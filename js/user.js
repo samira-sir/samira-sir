@@ -9,7 +9,7 @@ const credentials = {
     olindiya: { password: '2013', subjects: [{ name: 'history', grade: 6 },{ name: 'civic', grade: 6 }] },
     sample: { password: 'sanuka', subjects: [{ name: 'history', grade: 6 },{ name: 'civic', grade: 6 }] },
     dehan: { password: '2019', subjects: [{ name: 'history', grade: 6 },{ name: 'civic', grade: 6 }] },
-    dulansa: { password: 'Dz5@Fs2%', subjects: [{ name: 'history', grade: 6 },{ name: 'geography', grade: 6 },{ name: 'civic', grade: 6 }] },    
+    dulansa: { password: 'Dz5@Fs2%', subjects: [{ name: 'history', grade: 6 },{ name: 'geography', grade: 6 }] },    
     kalani: { password: 'Wb9$Ep4@', subjects: [{ name: 'geography', grade: 6 },{ name: 'history', grade: 6 },{ name: 'civic', grade: 6 }] },
     lithul: { password: 'Tn6#Yx1&', subjects: [{ name: 'geography', grade: 6 },{ name: 'history', grade: 6 },{ name: 'civic', grade: 6 }] },     
     dinura: { password: 'Bd7@Lr2%', subjects: [{ name: 'history', grade: 7 },{ name: 'civic', grade: 7 },{ name: 'geography', grade: 7 }] },
