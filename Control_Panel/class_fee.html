@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Fee Management System</title>
+    <link rel="icon" type="image/x-icon" href="../images/coffee_logo.png">
+
+    <style>
+        /* Styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f4f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        .select-box, .fee-summary, .month-box {
+            margin: 15px 0;
+        }
+        label {
+            font-weight: bold;
+        }
+        select, .add-fee, .custom-fee-input, .custom-fee-button {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+        .fee-summary {
+            text-align: center;
+            color: #555;
+            font-size: 1.1em;
+            font-weight: bold;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .add-fee, .custom-fee-button {
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .add-fee:hover, .custom-fee-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Fee Management</h2>
+
+        <div class="select-box">
+            <label for="grade">Select Grade:</label>
+            <select id="grade" onchange="populateStudents()">
+                <option value="" disabled selected>Select a grade</option>
+            </select>
+        </div>
+
+        <div class="select-box">
+            <label for="student">Select Student:</label>
+            <select id="student" onchange="calculateFee()">
+                <option value="" disabled selected>Select a student</option>
+            </select>
+        </div>
+
+        <div class="fee-summary" id="feeSummary">
+            <div id="calculatedFee">Calculated Fee: LKR 0</div>
+            <input type="number" class="custom-fee-input" id="customFee" placeholder="Enter custom total fee" />
+            <button class="custom-fee-button" onclick="applyCustomFee()">Apply Custom Total Fee</button>
+        </div>
+
+        <div class="month-box">
+            <label for="month">Select Month:</label>
+            <select id="month">
+                <option value="" disabled selected>Select a month</option>
+                <option>January</option>
+                <option>February</option>
+                <option>March</option>
+                <option>April</option>
+                <option>May</option>
+                <option>June</option>
+                <option>July</option>
+                <option>August</option>
+                <option>September</option>
+                <option>October</option>
+                <option>November</option>
+                <option>December</option>
+            </select>
+        </div>
+
+        <button class="add-fee" onclick="generateBill()">Add Fee</button>
+    </div>
+
+    <!-- External JavaScript for user data -->
+    <script src="js/user.js"></script>
+
+    <!-- Internal JavaScript -->
+    <script>
+        const feeRates = { '6-9': 700, '10-11': 800 };
+        let currentTotalFee = 0;
+
+        // Populate grade dropdown with unique grades found in user data
+        const gradeSelect = document.getElementById("grade");
+        const grades = [...new Set(Object.values(credentials).flatMap(student => student.subjects.map(subject => subject.grade)))];
+        grades.forEach(grade => {
+            const option = document.createElement("option");
+            option.value = grade;
+            option.textContent = `Grade ${grade}`;
+            gradeSelect.appendChild(option);
+        });
+
+        // Populate students based on selected grade
+        function populateStudents() {
+            const selectedGrade = parseInt(gradeSelect.value);
+            const studentSelect = document.getElementById("student");
+            studentSelect.innerHTML = '<option value="" disabled selected>Select a student</option>';
+
+            // Find students in the selected grade
+            Object.keys(credentials).forEach(student => {
+                const subjects = credentials[student].subjects;
+                if (subjects.some(subject => subject.grade === selectedGrade)) {
+                    const option = document.createElement("option");
+                    option.value = student;
+                    option.textContent = student.charAt(0).toUpperCase() + student.slice(1);
+                    studentSelect.appendChild(option);
+                }
+            });
+        }
+
+        function calculateFee() {
+            const selectedStudent = document.getElementById("student").value;
+            const selectedGrade = parseInt(document.getElementById("grade").value);
+
+            if (!selectedStudent) {
+                alert("Please select a student");
+                return;
+            }
+
+            // Determine monthly fee rate based on grade
+            const monthlyFee = (selectedGrade >= 6 && selectedGrade <= 9) ? feeRates['6-9'] : feeRates['10-11'];
+            const subjects = credentials[selectedStudent].subjects.filter(subject => subject.grade === selectedGrade);
+
+            // Calculate total fee
+            currentTotalFee = subjects.length * monthlyFee;
+            document.getElementById("calculatedFee").textContent = `Calculated Fee: LKR ${currentTotalFee}`;
+            document.getElementById("customFee").value = '';  // Clear custom fee input
+        }
+
+        function applyCustomFee() {
+            const customFee = parseInt(document.getElementById("customFee").value);
+
+            if (isNaN(customFee) || customFee < 0) {
+                alert("Please enter a valid custom total fee.");
+                return;
+            }
+
+            // Update total fee to custom value
+            currentTotalFee = customFee;
+            document.getElementById("calculatedFee").textContent = `Total Fee (Custom): LKR ${currentTotalFee}`;
+        }
+
+        function generateBill() {
+    const studentName = document.getElementById("student").value;
+    const selectedGrade = document.getElementById("grade").value;
+    const selectedMonth = document.getElementById("month").value;
+
+    if (!studentName || !selectedGrade || !selectedMonth) {
+        alert("Please select grade, student, and month");
+        return;
+    }
+
+    const studentSubjects = credentials[studentName].subjects.filter(subject => subject.grade == selectedGrade);
+    const dueAmount = 0;  // Assuming no due for simplicity
+    const referenceNumber = `REF${Math.floor(100000 + Math.random() * 900000)}`;
+
+    // Get the current date and time
+    const dateTime = new Date();
+    const formattedDateTime = dateTime.toLocaleString();
+
+    const bill = `
+ *Learn Geography,History & Civic with Samira sir*
+                *---Payment Invoice---*
+
+
+            Confirmed Date & Time: ${formattedDateTime}
+            Name: ${studentName.charAt(0).toUpperCase() + studentName.slice(1)}
+            Grade: ${selectedGrade}
+            Subjects: ${studentSubjects.map(subject => subject.name).join(", ")}, 
+            Month: ${selectedMonth}
+            Paid Fee: LKR ${currentTotalFee}
+            *Reference Number: ${referenceNumber}*
+    `;
+
+    // Bill array for clipboard with commas after each element
+    const billObject = {
+        name: studentName,
+        grade: selectedGrade,
+        subjects: studentSubjects.map(subject => subject.name),
+        month: selectedMonth,
+        totalFee: currentTotalFee,
+        referenceNumber: referenceNumber,
+        dateTime: dateTime,
+    };
+
+    // Convert the bill object to JSON string and add a comma after the closing brace
+    const billString = JSON.stringify(billObject, null, 2) + ",";
+
+    // Copy the formatted bill string to clipboard
+    navigator.clipboard.writeText(billString)
+        .then(() => {
+           
+
+            // Open WhatsApp and payment page
+            const whatsappLink = `whatsapp://send?text=${encodeURIComponent(bill)}`;
+            window.open(whatsappLink, '_blank');
+            window.location.href = "payment/payment.js";
+        })
+        .catch(err => console.error("Could not copy text: ", err));
+}
+
+    </script>
+</body>
+</html>
