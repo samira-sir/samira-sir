@@ -87,7 +87,7 @@ const credentials = {
     malishi: { password: '20090326', subjects: [{ name: 'geography', grade: 10 }] },
     dulani:{password: 'Diyana', subjects:[{name:'history', grade:10}]},
     dulmira:{password: 'Dulmira2009', subjects:[{name:'history', grade:10}]},
-    Ovindee: { password: '2009', subjects: [{"name":"history","grade":"10"}] },
+    ovindee: { password: '2009', subjects: [{"name":"history","grade":"10"}] },
 
   };
 
