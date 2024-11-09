@@ -1,7 +1,6 @@
 // payment/payment.js
 const billArray = [
-    {"name":"sanuka","grade":"9","subjects":["geography","civic","history","ind-Thisumi-History","ind-Disura-History"],"month":"December","totalFee":3500,"referenceNumber":"REF927513","dateTime":"11/9/2024, 11:12:49 AM"},
-    {"name":"samira","grade":"10","subjects":["history","geography","civic"],"month":"November","totalFee":2400,"referenceNumber":"REF920642","dateTime":"11/9/2024, 11:09:41 AM"},
+
     {
         "name": "pranami",
         "grade": "7",
