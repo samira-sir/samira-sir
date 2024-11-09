@@ -229,7 +229,8 @@
             // Open WhatsApp and payment page
             const whatsappLink = `whatsapp://send?text=${encodeURIComponent(bill)}`;
             window.open(whatsappLink, '_blank');
-            window.location.href = "https://github.com/samira-sir/samira-sir/blob/main/Control_Panel/payment/payment.js";
+window.open("https://github.com/samira-sir/samira-sir/blob/main/Control_Panel/payment/payment.js", "_blank");
+
         })
         .catch(err => console.error("Could not copy text: ", err));
 }
