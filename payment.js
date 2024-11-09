@@ -110,7 +110,7 @@ const userMonthData = [
 },
 
 {
-  "username": "Ovindee",
+  "username": "ovindee",
   "months": [
     "Nov"
   ]
