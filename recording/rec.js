@@ -4066,6 +4066,33 @@ const videoLinks = [
           },
 
 
+          { 
+            class: '6', 
+            subject: 'Geography', 
+            date: '2024-11-09', 
+            month: 'November', 
+            video: 'https://drive.google.com/file/d/1efRVoGkRh8qUat6RttK4O9k9_jrJaSYM/preview', 
+            title: '2024-11-09 - Class 6 - Geography Part 1' 
+          },
+
+          { 
+            class: '6', 
+            subject: 'Geography', 
+            date: '2024-11-09', 
+            month: 'November', 
+            video: 'https://drive.google.com/file/d/1OptJQW0Tm_6l1PaYweBS79EgnzPEJI7k/preview', 
+            title: '2024-11-09 - Class 6 - Geography Part 2' 
+          },
+
+          { 
+            class: '6', 
+            subject: 'Geography', 
+            date: '2024-11-09', 
+            month: 'November', 
+            video: 'https://drive.google.com/file/d/1i5WvaaF0S2xdiNqHKU2Z0p5Os5PoIRhZ/preview', 
+            title: '2024-11-09 - Class 6 - Geography Part 3' 
+          },
+
 
 
 
