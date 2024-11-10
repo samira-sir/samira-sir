@@ -4038,6 +4038,33 @@ const videoLinks = [
 
 
 
+          { 
+            class: '6', 
+            subject: 'History', 
+            date: '2024-11-09', 
+            month: 'November', 
+            video: 'https://drive.google.com/file/d/12t3O1tKl0ujhlrbBrbshQRDyT2-XhdFS/preview', 
+            title: '2024-11-09 - Class 6 - History Part 1' 
+          },
+
+          { 
+            class: '6', 
+            subject: 'History', 
+            date: '2024-11-09', 
+            month: 'November', 
+            video: 'https://drive.google.com/file/d/1pkQvRLaKrrp2zoJ2z_DyD08Od3ov-AE4/preview', 
+            title: '2024-11-09 - Class 6 - History Part 2' 
+          },
+
+          { 
+            class: '6', 
+            subject: 'History', 
+            date: '2024-11-09', 
+            month: 'November', 
+            video: 'https://drive.google.com/file/d/19mshkZuqeCyjptaXZWjxRlpexJxMHcT3/preview', 
+            title: '2024-11-09 - Class 6 - History Part 3' 
+          },
+
 
 
 
