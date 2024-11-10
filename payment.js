@@ -85,9 +85,10 @@ const userMonthData = [
     { username: 'dulani', months: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'] },
     { username: 'dulmira', months: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'] },
     {username: "rashini",months: [ 'Nov', 'Oct']},
-   {username: "santhuli",months: ['Aug','Sep','Oct','Nov' ]} ,
-{username: "dehan",months: ['Oct','Nov']},
-{username: "ovindee",months: ['Oct','Nov']},
+    {username: "santhuli",months: ['Aug','Sep','Oct','Nov' ]} ,
+    {username: "dehan",months: ['Oct','Nov']},
+    {username: "ovindee",months: ['Oct','Nov']},
+    {username: "thenuka",months: ['Nov']},
 
 
 
