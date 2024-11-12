@@ -64,7 +64,18 @@ const billArray = [
   "referenceNumber": "REF133760",
   "dateTime": "2024-11-12T09:33:57.300Z"
 },
-
+{
+  "name": "kulsum",
+  "grade": "7",
+  "subjects": [
+    "geography",
+    "history",
+   ],
+  "month": "November",
+  "totalFee": 1400,
+  "referenceNumber": "REF594266",
+  "dateTime": "2024-11-12T09:42:56.151Z"
+},
     
 },
 
