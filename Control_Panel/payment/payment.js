@@ -76,6 +76,20 @@ const billArray = [
   "referenceNumber": "REF594266",
   "dateTime": "2024-11-12T09:42:56.151Z"
 },
+{
+  "name": "minketh",
+  "grade": "8",
+  "subjects": [
+    "geography",
+    "civic"
+  ],
+  "month": "October",
+  "totalFee": 1400,
+  "referenceNumber": "REF644587",
+  "dateTime": "2024-11-12T09:44:32.188Z"
+},
+
+
     
 },
 
