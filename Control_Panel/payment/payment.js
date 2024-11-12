@@ -38,8 +38,32 @@ const billArray = [
   "dateTime": "2024-11-12T09:28:08.814Z"
 },
 
-
-
+{
+  "name": "sansala",
+  "grade": "7",
+  "subjects": [
+    "history",
+    "geography",
+    "civic"
+  ],
+  "month": "October",
+  "totalFee": 2100,
+  "referenceNumber": "REF133760",
+  "dateTime": "2024-11-12T09:33:57.300Z"
+},
+{
+  "name": "sansala",
+  "grade": "7",
+  "subjects": [
+    "history",
+    "geography",
+    "civic"
+  ],
+  "month": "October",
+  "totalFee": 2100,
+  "referenceNumber": "REF133760",
+  "dateTime": "2024-11-12T09:33:57.300Z"
+},
 
     
 },
