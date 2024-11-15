@@ -4255,6 +4255,51 @@ const videoLinks = [
           },
 
 
+          { 
+            class: '10', 
+            subject: 'Geography', 
+            date: '2024-11-13', 
+            month: 'November', 
+            video: 'https://drive.google.com/file/d/1hLg62vklHb6ik6mKEDRIMFNpuIEvSbgI/preview', 
+            title: '2024-11-13 - Class 10 - Geography Part 1' 
+          },
+
+          { 
+            class: '10', 
+            subject: 'Geography', 
+            date: '2024-11-13', 
+            month: 'November', 
+            video: 'https://drive.google.com/file/d/1v3MUpUgBU-snrOcTaLJe1jBfuvh6uWIU/preview', 
+            title: '2024-11-13 - Class 10 - Geography Part 2' 
+          },
+
+          { 
+            class: '10', 
+            subject: 'Geography', 
+            date: '2024-11-13', 
+            month: 'November', 
+            video: 'https://drive.google.com/file/d/1rgmF53nuBUlMIo4r3vCrBQXXRFKVeTT5/preview', 
+            title: '2024-11-13 - Class 10 - Geography Part 3' 
+          },
+
+          { 
+            class: '10', 
+            subject: 'Geography', 
+            date: '2024-11-13', 
+            month: 'November', 
+            video: 'https://drive.google.com/file/d/1scVhMp9iCRWhUyYH7rcmfU0yd8piEwvf/preview', 
+            title: '2024-11-13 - Class 10 - Geography Part 4' 
+          },
+
+          { 
+            class: '10', 
+            subject: 'Geography', 
+            date: '2024-11-13', 
+            month: 'November', 
+            video: 'https://drive.google.com/file/d/1WDxQRnxfe8ZANijV-3aI2xPxMp0gVYNW/preview', 
+            title: '2024-11-13 - Class 10 - Geography Part 5' 
+          },
+
 
 
 
