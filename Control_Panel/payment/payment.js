@@ -25,7 +25,7 @@ const billArray = [
   "totalFee": 1400,
   "referenceNumber": "REF103615",
   "dateTime": "2024-11-12T02:43:39.920Z"
-
+},
 {
   "name": "osadee",
   "grade": "7",
@@ -139,7 +139,7 @@ const billArray = [
   "referenceNumber": "REF431685",
   "dateTime": "2024-11-16T15:43:47.047Z"
 },
-},
+
 
 
 
