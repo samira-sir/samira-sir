@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fee Management System Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .filter-container {
+            margin-bottom: 20px;
+        }
+        select, button {
+            padding: 8px;
+            margin-right: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+<div class="filter-container">
+    <label for="nameFilter">Name:</label>
+    <select id="nameFilter"></select>
+
+    <label for="classFilter">Class:</label>
+    <select id="classFilter"></select>
+
+    <label for="subjectFilter">Subject:</label>
+    <select id="subjectFilter"></select>
+
+    <label for="monthFilter">Month:</label>
+    <select id="monthFilter"></select>
+
+    <label for="referenceNumberFilter">Reference Number:</label>
+    <select id="referenceNumberFilter"></select>
+
+    <button onclick="filterData()">Filter</button>
+</div>
+
+<table id="resultsTable">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Class</th>
+            <th>Subjects</th>
+            <th>Month</th>
+            <th>Total Fee</th>
+            <th>Reference Number</th>
+            <th>Date Time</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Filtered results will be displayed here -->
+    </tbody>
+</table>
+
+<p id="summary"></p>
+
+<script src="payment/payment.js"></script>
+<script>
+// Populate dropdowns dynamically
+function populateFilters(data) {
+    const names = new Set();
+    const grades = new Set();
+    const subjects = new Set();
+    const months = new Set();
+    const referenceNumbers = new Set();
+
+    data.forEach(item => {
+        names.add(item.name);
+        grades.add(item.grade);
+        item.subjects.forEach(subject => subjects.add(subject));
+        months.add(item.month);
+        referenceNumbers.add(item.referenceNumber);
+    });
+
+    populateDropdown('nameFilter', names);
+    populateDropdown('classFilter', grades);
+    populateDropdown('subjectFilter', subjects);
+    populateDropdown('monthFilter', months);
+    populateDropdown('referenceNumberFilter', referenceNumbers);
+}
+
+function populateDropdown(id, values) {
+    const select = document.getElementById(id);
+    select.innerHTML = '<option value="">Select</option>';
+    values.forEach(value => {
+        const option = document.createElement('option');
+        option.value = value;
+        option.textContent = value;
+        select.appendChild(option);
+    });
+}
+
+// Filter data based on selected criteria
+function filterData() {
+    const name = document.getElementById('nameFilter').value;
+    const grade = document.getElementById('classFilter').value;
+    const subject = document.getElementById('subjectFilter').value;
+    const month = document.getElementById('monthFilter').value;
+    const referenceNumber = document.getElementById('referenceNumberFilter').value;
+
+    let filteredData = billArray.filter(item => {
+        const matchesName = !name || item.name === name;
+        const matchesGrade = !grade || item.grade === grade;
+        const matchesSubject = !subject || item.subjects.includes(subject);
+        const matchesMonth = !month || item.month === month;
+        const matchesReferenceNumber = !referenceNumber || item.referenceNumber === referenceNumber;
+
+        return matchesName && matchesGrade && matchesSubject && matchesMonth && matchesReferenceNumber;
+    });
+
+    displayResults(filteredData);
+}
+
+// Display filtered results and calculate totals
+function displayResults(data) {
+    const tableBody = document.getElementById('resultsTable').getElementsByTagName('tbody')[0];
+    tableBody.innerHTML = '';
+
+    let totalFee = 0;
+
+    data.forEach(item => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${item.name}</td>
+            <td>${item.grade}</td>
+            <td>${item.subjects.join(', ')}</td>
+            <td>${item.month}</td>
+            <td>${item.totalFee}</td>
+            <td>${item.referenceNumber}</td>
+            <td>${new Date(item.dateTime).toLocaleString()}</td>
+        `;
+        tableBody.appendChild(row);
+
+        totalFee += item.totalFee;
+    });
+
+    const nameCount = new Set(data.map(item => item.name)).size;
+    document.getElementById('summary').textContent = `Total Fee: ${totalFee} | Total Names: ${nameCount}`;
+}
+
+// Initialize dropdowns and table on page load
+document.addEventListener('DOMContentLoaded', () => {
+    populateFilters(billArray);
+    displayResults(billArray);
+});
+</script>
+
+</body>
+</html>
