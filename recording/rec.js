@@ -4393,6 +4393,33 @@ const videoLinks = [
           },
 
 
+          { 
+            class: '9', 
+            subject: 'History', 
+            date: '2024-11-16', 
+            month: 'November', 
+            video: 'https://drive.google.com/file/d/1M1hK3csiUc0Sh3tUc2on1jAd9TkEVFG4/preview', 
+            title: '2024-11-16 - Class 9 - History Part 1' 
+          },
+
+          { 
+            class: '9', 
+            subject: 'History', 
+            date: '2024-11-16', 
+            month: 'November', 
+            video: 'https://drive.google.com/file/d/17K62YbD7OZriVZV3HMj_jeDZ2SkAUJDU/preview', 
+            title: '2024-11-16 - Class 9 - History Part 2' 
+          },
+
+          { 
+            class: '9', 
+            subject: 'History', 
+            date: '2024-11-16', 
+            month: 'November', 
+            video: 'https://drive.google.com/file/d/1Oi3GMtS-ybyd8SkeOTUTctr--N6rO7_k/preview', 
+            title: '2024-11-16 - Class 9 - History Part 3' 
+          },
+
 
 
 
