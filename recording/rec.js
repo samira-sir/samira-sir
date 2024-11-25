@@ -4786,6 +4786,33 @@ const videoLinks = [
             title: '2024-11-23 - Class 6 - History Part 3' 
           },
 
+          { 
+            class: '7', 
+            subject: 'History', 
+            date: '2024-11-19', 
+            month: 'November', 
+            video: 'https://drive.google.com/file/d/1XINimjDZwmcy56NS1TSy17IM5dLmzKrH/preview', 
+            title: '2024-11-19 - Class 7 - History Part 1' 
+          },
+
+          { 
+            class: '7', 
+            subject: 'History', 
+            date: '2024-11-19', 
+            month: 'November', 
+            video: 'https://drive.google.com/file/d/1TJoHoNyZqvyH9fPd8nBDUz7D7fuVnH_l/preview', 
+            title: '2024-11-19 - Class 7 - History Part 2' 
+          },
+
+          { 
+            class: '7', 
+            subject: 'History', 
+            date: '2024-11-19', 
+            month: 'November', 
+            video: 'https://drive.google.com/file/d/1QeQPpc0hmcYbZk-B7egvgu0ShswnAcNo/preview', 
+            title: '2024-11-19 - Class 7 - History Part 3' 
+          },
+
 
 
 
