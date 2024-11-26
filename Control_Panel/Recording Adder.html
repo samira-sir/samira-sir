@@ -154,47 +154,57 @@
     }
 
     function generateCode() {
-      const links = [
-        document.getElementById('link1').value,
-        document.getElementById('link2').value,
-        document.getElementById('link3').value,
-        document.getElementById('link4').value,
-        document.getElementById('link5').value,
-      ];
+  const links = [
+    document.getElementById('link1').value,
+    document.getElementById('link2').value,
+    document.getElementById('link3').value,
+    document.getElementById('link4').value,
+    document.getElementById('link5').value,
+  ];
 
-      const customDate = document.getElementById('date').value;
-      const dateObj = new Date(customDate);
-      const formattedDate = dateObj.toISOString().split('T')[0]; // Get the YYYY-MM-DD format
-      const monthName = getMonthName(dateObj.getMonth() + 1); // Get the full month name
+  const customDate = document.getElementById('date').value;
+  const dateObj = new Date(customDate);
+  const formattedDate = dateObj.toISOString().split('T')[0]; // Get the YYYY-MM-DD format
+  const monthName = getMonthName(dateObj.getMonth() + 1); // Get the full month name
 
-      // Split the selectedClass to get the class and subject
-      const [classNumber, subjectShort] = selectedClass.split(' ');
-      const subjectFull = mapSubjectName(subjectShort);
+  const [classNumber, subjectShort] = selectedClass.split(' ');
+  const subjectFull = mapSubjectName(subjectShort);
 
-      let generatedCode = '';
-      for (let i = 0; i < links.length; i++) {
-        if (links[i]) {
-          // Add "Part {i+1}" to the title
-          generatedCode += `
-          { 
-            class: '${classNumber}', 
-            subject: '${subjectFull}', 
-            date: '${formattedDate}', 
-            month: '${monthName}', 
-            video: '${links[i]}', 
-            title: '${formattedDate} - Class ${classNumber} - ${subjectFull} Part ${i + 1}' 
-          },\n`;
-        }
-      }
+  let generatedCode = '';
+  let recordingMessage = `🏫 *Grade ${classNumber} ${subjectFull} ${formattedDate} class recording uploaded.*
+  
+  🌐 *You can watch it through* https://samira-sir.github.io/samira-sir/ .`;
 
-      // Copy the generated code to clipboard
-      navigator.clipboard.writeText(generatedCode).then(() => {
-        // Always redirect to the same fixed file
-        window.location.href = 'https://github.com/samira-sir/samira-sir/tree/main/recording/rec.js';
-      }).catch(err => {
-        alert('Failed to copy code');
-      });
+  for (let i = 0; i < links.length; i++) {
+    if (links[i]) {
+      generatedCode += `
+      { 
+        class: '${classNumber}', 
+        subject: '${subjectFull}', 
+        date: '${formattedDate}', 
+        month: '${monthName}', 
+        video: '${links[i]}', 
+        title: '${formattedDate} - Class ${classNumber} - ${subjectFull} Part ${i + 1}' 
+      },\n`;
     }
+  }
+
+  // Copy the generated code to the clipboard
+  navigator.clipboard.writeText(generatedCode).then(() => {
+    // Create a WhatsApp link with the recording message
+    const whatsappLink = `whatsapp://send?text=${encodeURIComponent(recordingMessage)}`;
+    // Open WhatsApp
+    window.open(whatsappLink, '_blank');
+
+    // Redirect to GitHub after opening WhatsApp
+    setTimeout(() => {
+      window.location.href = 'https://github.com/samira-sir/samira-sir/tree/main/recording/rec.js';
+    }, 2000); // Delay to ensure WhatsApp opens before redirection
+  }).catch(err => {
+    alert('Failed to copy code');
+  });
+}
+
   </script>
 </body>
 </html>
