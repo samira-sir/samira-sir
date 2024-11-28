@@ -4972,6 +4972,24 @@ const videoLinks = [
 
 
 
+      { 
+        class: '9', 
+        subject: 'History', 
+        date: '2024-11-27', 
+        month: 'November', 
+        video: 'https://drive.google.com/file/d/1M8nJZHIokZYFXpiWtJGiFxJm3d59F_PA/preview', 
+        title: '2024-11-27 - Class 9 - History Part 1' 
+      },
+
+      { 
+        class: '9', 
+        subject: 'History', 
+        date: '2024-11-27', 
+        month: 'November', 
+        video: 'https://drive.google.com/file/d/11bbDLsYwgEXpirIhpxU5VOoJKRcHI9Xd/preview', 
+        title: '2024-11-27 - Class 9 - History Part 2' 
+      },
+
 
 
 
