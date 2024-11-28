@@ -4992,6 +4992,33 @@ const videoLinks = [
 
 
 
+      { 
+        class: '7', 
+        subject: 'History', 
+        date: '2024-11-27', 
+        month: 'November', 
+        video: 'https://drive.google.com/file/d/1IsOiqwBmh3p0nOH8FD2OrtpSbHBQFCVl/preview', 
+        title: '2024-11-27 - Class 7 - History Part 1' 
+      },
+
+      { 
+        class: '7', 
+        subject: 'History', 
+        date: '2024-11-27', 
+        month: 'November', 
+        video: 'https://drive.google.com/file/d/1A686NguL6GBc8UJpJNuNo2iC2ULWREO_/preview', 
+        title: '2024-11-27 - Class 7 - History Part 2' 
+      },
+
+      { 
+        class: '7', 
+        subject: 'History', 
+        date: '2024-11-27', 
+        month: 'November', 
+        video: 'https://drive.google.com/file/d/1IsOiqwBmh3p0nOH8FD2OrtpSbHBQFCVl/preview', 
+        title: '2024-11-27 - Class 7 - History Part 3' 
+      },
+
 
 
 
