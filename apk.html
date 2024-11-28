@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Samira Ariyadasa</title>
+  <link rel="icon" type="image/x-icon" href="images/coffee_logo.png">
+  <style>
+    /* General Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    body {
+      display: flex;
+      min-height: 100vh;
+      align-items: center;
+      justify-content: center;
+      background: #E3F2FD;
+    }
+    .download-btn {
+      outline: none;
+      border: none;
+      color: #fff;
+      display: flex;
+      cursor: pointer;
+      padding: 16px 25px;
+      border-radius: 6px;
+      align-items: center;
+      white-space: nowrap;
+      background: #4A98F7;
+      transition: all 0.2s ease;
+    }
+    .download-btn:hover {
+      background: #2382f6;
+    }
+    .download-btn.timer {
+      color: #000;
+      background: none;
+      transition: none;
+      font-size: 1.6rem;
+      pointer-events: none;
+    }
+    .download-btn.timer b {
+      color: #4A98F7;
+      padding: 0 8px;
+    }
+    .download-btn .icon {
+      font-size: 2rem;
+    }
+    .download-btn .text {
+      font-size: 1.5rem;
+      padding-left: 10px;
+    }
+  </style>
+</head>
+<body>
+  <button class="download-btn" data-timer="3">
+    <span class="text">Download Learn History,Geography and Civic with Samira sir Android App</span>
+  </button>
+
+  <script>
+    const downloadBtn = document.querySelector(".download-btn");
+    const fileLink = "https://drive.google.com/uc?export=download&id=1sBcj9oZPlwLR8h_0VnRLJCnxy8kjLzFs"; // Replace with your APK file link
+    const initTimer = () => {
+      if (downloadBtn.classList.contains("disable-timer")) {
+        return location.href = fileLink;
+      }
+      let timer = downloadBtn.dataset.timer;
+      downloadBtn.classList.add("timer");
+      downloadBtn.innerHTML = `Your download will begin in <b>${timer}</b> seconds`;
+
+      const initCounter = setInterval(() => {
+        if (timer > 0) {
+          timer--;
+          return downloadBtn.innerHTML = `Your download will begin in <b>${timer}</b> seconds`;
+        }
+        clearInterval(initCounter);
+        location.href = fileLink;
+        downloadBtn.innerText = "Your file is downloading...Click download anyway button...";
+        setTimeout(() => {
+          downloadBtn.classList.replace("timer", "disable-timer");
+          downloadBtn.innerHTML = ``;
+        }, 3000);
+      }, 1000);
+    };
+
+    downloadBtn.addEventListener("click", initTimer);
+  </script>
+</body>
+</html>
