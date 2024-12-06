@@ -5230,6 +5230,42 @@ const videoLinks = [
       },
 
 
+      { 
+        class: '8', 
+        subject: 'History', 
+        date: '2024-12-05', 
+        month: 'December', 
+        video: 'https://drive.google.com/file/d/1NKKEl_m4MyN15LFBRQiOi8peu6SPdbJy/preview', 
+        title: '2024-12-05 - Class 8 - History Part 1' 
+      },
+
+      { 
+        class: '8', 
+        subject: 'History', 
+        date: '2024-12-05', 
+        month: 'December', 
+        video: 'https://drive.google.com/file/d/1cSFp7Z0YDSQaGyXnc9LONvTMBiRDPpdQ/preview', 
+        title: '2024-12-05 - Class 8 - History Part 2' 
+      },
+
+      { 
+        class: '8', 
+        subject: 'History', 
+        date: '2024-12-05', 
+        month: 'December', 
+        video: 'https://drive.google.com/file/d/1NC-0Kd4kyw4SBHU0iPmVqCqF0ra8wH5Q/preview', 
+        title: '2024-12-05 - Class 8 - History Part 3' 
+      },
+
+      { 
+        class: '8', 
+        subject: 'History', 
+        date: '2024-12-05', 
+        month: 'December', 
+        video: 'https://drive.google.com/file/d/19YuPmjSNVRN1cI9aHubaNEwQyH_rmD-g/preview', 
+        title: '2024-12-05 - Class 8 - History Part 4' 
+      },
+
 
 
 
