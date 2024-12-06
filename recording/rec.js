@@ -5172,6 +5172,24 @@ const videoLinks = [
       },
 
 
+      { 
+        class: '7', 
+        subject: 'Geography', 
+        date: '2024-12-02', 
+        month: 'December', 
+        video: 'https://drive.google.com/file/d/1CEp6f2Bhvcm8wlMO6SWyWHvvHLayANsy/preview', 
+        title: '2024-12-02 - Class 7 - Geography Part 1' 
+      },
+
+      { 
+        class: '7', 
+        subject: 'Geography', 
+        date: '2024-12-02', 
+        month: 'December', 
+        video: 'https://drive.google.com/file/d/1FXdLbsSU7ylQ73deTSnAnaxLvp8VtBIz/preview', 
+        title: '2024-12-02 - Class 7 - Geography Part 2' 
+      },
+
 
 
 
