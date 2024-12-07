@@ -5326,6 +5326,24 @@ const videoLinks = [
       },
 
 
+      { 
+        class: '9', 
+        subject: 'Civic', 
+        date: '2024-12-06', 
+        month: 'December', 
+        video: 'https://drive.google.com/file/d/1mRWWDulfhbYKQxQxraH6U9nxHD-f4W5u/preview', 
+        title: '2024-12-06 - Class 9 - Civic Part 1' 
+      },
+
+      { 
+        class: '9', 
+        subject: 'Civic', 
+        date: '2024-12-06', 
+        month: 'December', 
+        video: 'https://drive.google.com/file/d/1H_9jNOF9AciUaP-krlztQp7IVqAGwrQs/preview', 
+        title: '2024-12-06 - Class 9 - Civic Part 2' 
+      },
+
 
 
 
