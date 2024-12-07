@@ -33,6 +33,7 @@ const credentials = {
     senuli: { password: 'senu', subjects: [{ name: 'geography', grade: 7 }] },
     yomini: { password: 'Hr3@Xm8&', subjects: [{ name: 'geography', grade: 7 },{ name: 'civic', grade: 7 }] },
     thaveesha: { password: 'Indunil@123', subjects: [{name:'geography',grade:'7'}] },
+    ushana: { password: 'Ushana123', subjects: [{name:'geography',grade:'7'}] },
     senuka: { password: '123123', subjects: [{ name: 'history', grade: 8 },{ name: 'geography', grade: 8 },{ name: 'civic', grade: 8 }] }, 
     himaka: { password: '123', subjects: [{ name: 'history', grade: 8 },{ name: 'geography', grade: 8 },{ name: 'civic', grade: 8 }] }, 
     sadil: { password: '123456', subjects: [{ name: 'history', grade: 8 },{ name: 'geography', grade: 8 },{ name: 'civic', grade: 8 }] },
