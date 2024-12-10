@@ -5537,6 +5537,42 @@ const videoLinks = [
 
 
 
+      { 
+        class: '10', 
+        subject: 'Geography', 
+        date: '2024-12-09', 
+        month: 'December', 
+        video: 'https://drive.google.com/file/d/1MJghjJ-O2fdJ65qCziVaP3CIdDecLT1c/preview', 
+        title: '2024-12-09 - Class 10 - Geography Part 1' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'Geography', 
+        date: '2024-12-09', 
+        month: 'December', 
+        video: 'https://drive.google.com/file/d/1FmDGJU0zLUWS4CJT3utCxUSiSm-vstVf/preview', 
+        title: '2024-12-09 - Class 10 - Geography Part 2' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'Geography', 
+        date: '2024-12-09', 
+        month: 'December', 
+        video: 'https://drive.google.com/file/d/1qO0ZojLFaTTH8uegTLzPNDvssDgSE2i7/preview', 
+        title: '2024-12-09 - Class 10 - Geography Part 3' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'Geography', 
+        date: '2024-12-09', 
+        month: 'December', 
+        video: 'https://drive.google.com/file/d/1dzE3jHPozcO9Dwna4o3QrhObQwNhWlK_/preview', 
+        title: '2024-12-09 - Class 10 - Geography Part 4' 
+      },
+
 
 
 
