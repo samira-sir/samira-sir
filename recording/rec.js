@@ -5375,6 +5375,33 @@ const videoLinks = [
 
 
 
+      { 
+        class: '6', 
+        subject: 'Geography', 
+        date: '2024-12-07', 
+        month: 'December', 
+        video: 'https://drive.google.com/file/d/1yldb3Zguf69DapadVCpCK3NQEyWboa58/preview', 
+        title: '2024-12-07 - Class 6 - Geography Part 1' 
+      },
+
+      { 
+        class: '6', 
+        subject: 'Geography', 
+        date: '2024-12-07', 
+        month: 'December', 
+        video: 'https://drive.google.com/file/d/1XB14tTDfk6FB3JEuSSygwfZMMOZ50PyO/preview', 
+        title: '2024-12-07 - Class 6 - Geography Part 2' 
+      },
+
+      { 
+        class: '6', 
+        subject: 'Geography', 
+        date: '2024-12-07', 
+        month: 'December', 
+        video: 'https://drive.google.com/file/d/1CCbUm1w-ADpF_0tuES8fumj4xJBzBHM3/preview', 
+        title: '2024-12-07 - Class 6 - Geography Part 3' 
+      },
+
 
 
 
