@@ -5704,6 +5704,33 @@ const videoLinks = [
       },
 
 
+      { 
+        class: '8', 
+        subject: 'Geography', 
+        date: '2024-12-10', 
+        month: 'December', 
+        video: 'https://drive.google.com/file/d/18uJB-v1w6wWH7_2oSxQJd0wH6TnYVKiR/preview', 
+        title: '2024-12-10 - Class 8 - Geography Part 1' 
+      },
+
+      { 
+        class: '8', 
+        subject: 'Geography', 
+        date: '2024-12-10', 
+        month: 'December', 
+        video: 'https://drive.google.com/file/d/1UsU7AIutQs04GYyrHHDEp5_BWMNSe1NE/preview', 
+        title: '2024-12-10 - Class 8 - Geography Part 2' 
+      },
+
+      { 
+        class: '8', 
+        subject: 'Geography', 
+        date: '2024-12-10', 
+        month: 'December', 
+        video: 'https://drive.google.com/file/d/1ogICJhhkR0HFt8vvqmL3hqOltQI6iKzg/preview', 
+        title: '2024-12-10 - Class 8 - Geography Part 3' 
+      },
+
     
   ];
 
