@@ -5658,6 +5658,51 @@ const videoLinks = [
       },
 
 
+      { 
+        class: '7', 
+        subject: 'History', 
+        date: '2024-12-10', 
+        month: 'December', 
+        video: 'https://drive.google.com/file/d/1E8D8d1I4lBzZvFC9AjL85hggWE6o7mH8/preview', 
+        title: '2024-12-10 - Class 7 - History Part 1' 
+      },
+
+      { 
+        class: '7', 
+        subject: 'History', 
+        date: '2024-12-10', 
+        month: 'December', 
+        video: 'https://drive.google.com/file/d/1QGjDLKjzSPt2uNLqJ58wMBRSmEs5t35J/preview', 
+        title: '2024-12-10 - Class 7 - History Part 2' 
+      },
+
+      { 
+        class: '7', 
+        subject: 'History', 
+        date: '2024-12-10', 
+        month: 'December', 
+        video: 'https://drive.google.com/file/d/1X_4oTYPGEDStSOn2pOfJiIZMHRR6u8za/preview', 
+        title: '2024-12-10 - Class 7 - History Part 3' 
+      },
+
+      { 
+        class: '7', 
+        subject: 'History', 
+        date: '2024-12-10', 
+        month: 'December', 
+        video: 'https://drive.google.com/file/d/10yWZJDkhBqxMW5wtksWTTN017LqeODBJ/preview', 
+        title: '2024-12-10 - Class 7 - History Part 4' 
+      },
+
+      { 
+        class: '7', 
+        subject: 'History', 
+        date: '2024-12-10', 
+        month: 'December', 
+        video: 'https://drive.google.com/file/d/1OvORygMKWNcEQWfZ53Ly5OmxoG65QV0T/preview', 
+        title: '2024-12-10 - Class 7 - History Part 5' 
+      },
+
 
     
   ];
