@@ -5574,6 +5574,33 @@ const videoLinks = [
       },
 
 
+      { 
+        class: '10', 
+        subject: 'History', 
+        date: '2024-12-10', 
+        month: 'December', 
+        video: 'https://drive.google.com/file/d/1wQ_SADkRyqFfRzU9cn_lgNF9t5zGD9kl/preview', 
+        title: '2024-12-10 - Class 10 - History Part 1' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'History', 
+        date: '2024-12-10', 
+        month: 'December', 
+        video: 'https://drive.google.com/file/d/1KcazTD-Ap1eg57fUzk9Am44etg2bp4FZ/preview', 
+        title: '2024-12-10 - Class 10 - History Part 2' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'History', 
+        date: '2024-12-10', 
+        month: 'December', 
+        video: 'https://drive.google.com/file/d/1hA6BG3aAWcBfzmY8RYTtKoPYEBdEsCNn/preview', 
+        title: '2024-12-10 - Class 10 - History Part 3' 
+      },
+
 
 
 
