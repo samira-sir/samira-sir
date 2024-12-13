@@ -5813,6 +5813,51 @@ const videoLinks = [
         title: '2024-12-12 - Class 10 - Geography Part 3' 
       },
 
+      { 
+        class: '8', 
+        subject: 'History', 
+        date: '2024-12-12', 
+        month: 'December', 
+        video: 'https://drive.google.com/file/d/14gpKfveBO1R6jbo4XHJZGgyiCte1f5oo/preview', 
+        title: '2024-12-12 - Class 8 - History Part 1' 
+      },
+
+      { 
+        class: '8', 
+        subject: 'History', 
+        date: '2024-12-12', 
+        month: 'December', 
+        video: 'https://drive.google.com/file/d/1C8CYvNPXS8gjEx8v_iROvasJ5nyN1-tC/preview', 
+        title: '2024-12-12 - Class 8 - History Part 2' 
+      },
+
+      { 
+        class: '8', 
+        subject: 'History', 
+        date: '2024-12-12', 
+        month: 'December', 
+        video: 'https://drive.google.com/file/d/1PQKBe3LGt7g429wSIL3kpiJ5kUZU90wI/preview', 
+        title: '2024-12-12 - Class 8 - History Part 3' 
+      },
+
+      { 
+        class: '8', 
+        subject: 'History', 
+        date: '2024-12-12', 
+        month: 'December', 
+        video: 'https://drive.google.com/file/d/1Tb3LvzFR0izByJKfW1EFKpZLVXYEQpug/preview', 
+        title: '2024-12-12 - Class 8 - History Part 4' 
+      },
+
+      { 
+        class: '8', 
+        subject: 'History', 
+        date: '2024-12-12', 
+        month: 'December', 
+        video: 'https://drive.google.com/file/d/1o3SKw8lWhkoHofqDYTE5qMp7A58MD2Hx/preview', 
+        title: '2024-12-12 - Class 8 - History Part 5' 
+      },
+
   ];
 
   
