@@ -5786,6 +5786,33 @@ const videoLinks = [
         title: '2024-12-12 - Class 6 - History Part 3' 
       },
 
+      { 
+        class: '10', 
+        subject: 'Geography', 
+        date: '2024-12-12', 
+        month: 'December', 
+        video: 'https://drive.google.com/file/d/1TYDQZr6MrrnsWBjQcCHYJkK3j6zvvyLH/preview', 
+        title: '2024-12-12 - Class 10 - Geography Part 1' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'Geography', 
+        date: '2024-12-12', 
+        month: 'December', 
+        video: 'https://drive.google.com/file/d/1wmBCJcaIUetGCRcDSwLbqcAdMwRp6Po6/preview', 
+        title: '2024-12-12 - Class 10 - Geography Part 2' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'Geography', 
+        date: '2024-12-12', 
+        month: 'December', 
+        video: 'https://drive.google.com/file/d/1_l_J6tqv4AxN1wCikddyvvU2Ds29waQp/preview', 
+        title: '2024-12-12 - Class 10 - Geography Part 3' 
+      },
+
   ];
 
   
