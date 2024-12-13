@@ -5759,6 +5759,33 @@ const videoLinks = [
         title: '2024-12-12 - Class 10 - History Part 3' 
       },
 
+      { 
+        class: '6', 
+        subject: 'History', 
+        date: '2024-12-12', 
+        month: 'December', 
+        video: 'https://drive.google.com/file/d/1oKI8iGCtKUQUYggYxx-5D-TEd5sSuYNi/preview', 
+        title: '2024-12-12 - Class 6 - History Part 1' 
+      },
+
+      { 
+        class: '6', 
+        subject: 'History', 
+        date: '2024-12-12', 
+        month: 'December', 
+        video: 'https://drive.google.com/file/d/1MNmkw-NNqy4MMF9euqHbWdIu7-ALFqqP/preview', 
+        title: '2024-12-12 - Class 6 - History Part 2' 
+      },
+
+      { 
+        class: '6', 
+        subject: 'History', 
+        date: '2024-12-12', 
+        month: 'December', 
+        video: 'https://drive.google.com/file/d/1ahUxEGxHWKPKc7ULRkP-9Dtsc5vbSJ-S/preview', 
+        title: '2024-12-12 - Class 6 - History Part 3' 
+      },
+
   ];
 
   
