@@ -5975,6 +5975,24 @@ const videoLinks = [
         title: '2024-12-16 - Class 9 - Geography Part 4' 
       },
 
+      { 
+        class: '7', 
+        subject: 'Geography', 
+        date: '2024-12-16', 
+        month: 'December', 
+        video: 'https://drive.google.com/file/d/1SOmw-E-1tzAkbPpT4icqNedVq5NKicaD/preview', 
+        title: '2024-12-16 - Class 7 - Geography Part 1' 
+      },
+
+      { 
+        class: '7', 
+        subject: 'Geography', 
+        date: '2024-12-16', 
+        month: 'December', 
+        video: 'https://drive.google.com/file/d/1MnCpc7P9LUS1B2pVPIe9ayUl9kzTF-lG/preview', 
+        title: '2024-12-16 - Class 7 - Geography Part 2' 
+      },
+
   ];
 
   
