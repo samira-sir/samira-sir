@@ -5939,6 +5939,42 @@ const videoLinks = [
         title: '2024-12-13 - Class 9 - Civic Part 3' 
       },
 
+      { 
+        class: '9', 
+        subject: 'Geography', 
+        date: '2024-12-16', 
+        month: 'December', 
+        video: 'https://drive.google.com/file/d/1NrIsHs6oab246lICZS4oPYHhniUvVo8f/preview', 
+        title: '2024-12-16 - Class 9 - Geography Part 1' 
+      },
+
+      { 
+        class: '9', 
+        subject: 'Geography', 
+        date: '2024-12-16', 
+        month: 'December', 
+        video: 'https://drive.google.com/file/d/1JMxNICtGa96gdVUybv_-VurwpCEgj_S3/preview', 
+        title: '2024-12-16 - Class 9 - Geography Part 2' 
+      },
+
+      { 
+        class: '9', 
+        subject: 'Geography', 
+        date: '2024-12-16', 
+        month: 'December', 
+        video: 'https://drive.google.com/file/d/1m-atIWi3x7I2-49seuv-xVfpy9EsyUVn/preview', 
+        title: '2024-12-16 - Class 9 - Geography Part 3' 
+      },
+
+      { 
+        class: '9', 
+        subject: 'Geography', 
+        date: '2024-12-16', 
+        month: 'December', 
+        video: 'https://drive.google.com/file/d/1z9YLgBB6gyKV6CfjW6z43Qz0DWS5cfwN/preview', 
+        title: '2024-12-16 - Class 9 - Geography Part 4' 
+      },
+
   ];
 
   
