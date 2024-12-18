@@ -6020,6 +6020,33 @@ const videoLinks = [
         title: '2024-12-17 - Class 7 - History Part 3' 
       },
 
+      { 
+        class: '8', 
+        subject: 'Geography', 
+        date: '2024-12-17', 
+        month: 'December', 
+        video: 'https://drive.google.com/file/d/1gN4e7TKcQfOtU0UE_aXzvDQTJnbqEP7u/preview', 
+        title: '2024-12-17 - Class 8 - Geography Part 1' 
+      },
+
+      { 
+        class: '8', 
+        subject: 'Geography', 
+        date: '2024-12-17', 
+        month: 'December', 
+        video: 'https://drive.google.com/file/d/1dL1-CmyEFpL54VMYpBCkIt0McA5msbK4/preview', 
+        title: '2024-12-17 - Class 8 - Geography Part 2' 
+      },
+
+      { 
+        class: '8', 
+        subject: 'Geography', 
+        date: '2024-12-17', 
+        month: 'December', 
+        video: 'https://drive.google.com/file/d/1WQOHFPsg3v4X6usXj5vNB5I8OlZ0YXb7/preview', 
+        title: '2024-12-17 - Class 8 - Geography Part 3' 
+      },
+
   ];
 
   
