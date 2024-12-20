@@ -6047,6 +6047,42 @@ const videoLinks = [
         title: '2024-12-17 - Class 8 - Geography Part 3' 
       },
 
+      { 
+        class: '8', 
+        subject: 'History', 
+        date: '2024-12-19', 
+        month: 'December', 
+        video: 'https://drive.google.com/file/d/1tKrn_7IX0K-gE9CiUiBR14N-PBMsJzcX/preview', 
+        title: '2024-12-19 - Class 8 - History Part 1' 
+      },
+
+      { 
+        class: '8', 
+        subject: 'History', 
+        date: '2024-12-19', 
+        month: 'December', 
+        video: 'https://drive.google.com/file/d/13ZtHbwA_-t03heavLSf6dvbYnRs6qkwT/preview', 
+        title: '2024-12-19 - Class 8 - History Part 2' 
+      },
+
+      { 
+        class: '8', 
+        subject: 'History', 
+        date: '2024-12-19', 
+        month: 'December', 
+        video: 'https://drive.google.com/file/d/15NJl8n1cjjO0gr3HGkpK0nfkyR1valSz/preview', 
+        title: '2024-12-19 - Class 8 - History Part 3' 
+      },
+
+      { 
+        class: '8', 
+        subject: 'History', 
+        date: '2024-12-19', 
+        month: 'December', 
+        video: 'https://drive.google.com/file/d/1Qp-KMxhD8eZlFd9cce9lE_v7CCcsGWl_/preview', 
+        title: '2024-12-19 - Class 8 - History Part 4' 
+      },
+
   ];
 
   
