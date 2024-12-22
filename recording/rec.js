@@ -6083,6 +6083,33 @@ const videoLinks = [
         title: '2024-12-19 - Class 8 - History Part 4' 
       },
 
+      { 
+        class: '8', 
+        subject: 'Civic', 
+        date: '2024-12-20', 
+        month: 'December', 
+        video: 'https://drive.google.com/file/d/1wwBf9HR_l05twSh0Gt-ja-LvDYD45Hdi/preview', 
+        title: '2024-12-20 - Class 8 - Civic Part 1' 
+      },
+
+      { 
+        class: '8', 
+        subject: 'Civic', 
+        date: '2024-12-20', 
+        month: 'December', 
+        video: 'https://drive.google.com/file/d/1GQd-TZiqPfFj_CII1eH2BsfU2q5oyO6h/preview', 
+        title: '2024-12-20 - Class 8 - Civic Part 2' 
+      },
+
+      { 
+        class: '8', 
+        subject: 'Civic', 
+        date: '2024-12-20', 
+        month: 'December', 
+        video: 'https://drive.google.com/file/d/1bQs0jdyOX2dILZYyeRzXKkSpf8y9Kcgq/preview', 
+        title: '2024-12-20 - Class 8 - Civic Part 3' 
+      },
+
   ];
 
   
