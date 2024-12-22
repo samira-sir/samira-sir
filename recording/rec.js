@@ -6128,6 +6128,33 @@ const videoLinks = [
         title: '2024-12-20 - Class 10 - History Part 2' 
       },
 
+      { 
+        class: '9', 
+        subject: 'Civic', 
+        date: '2024-12-20', 
+        month: 'December', 
+        video: 'https://drive.google.com/file/d/19k05pcgFSL1hZlJTzUFihNKcS-Av0SxS/preview', 
+        title: '2024-12-20 - Class 9 - Civic Part 1' 
+      },
+
+      { 
+        class: '9', 
+        subject: 'Civic', 
+        date: '2024-12-20', 
+        month: 'December', 
+        video: 'https://drive.google.com/file/d/1PqCCt_8DWbzAgzsWw8HrViHmmIGeY2JJ/preview', 
+        title: '2024-12-20 - Class 9 - Civic Part 2' 
+      },
+
+      { 
+        class: '9', 
+        subject: 'Civic', 
+        date: '2024-12-20', 
+        month: 'December', 
+        video: 'https://drive.google.com/file/d/1Tg3tsKwce239HDEnkNJiwg6Wsfe2D2Df/preview', 
+        title: '2024-12-20 - Class 9 - Civic Part 3' 
+      },
+
   ];
 
   
