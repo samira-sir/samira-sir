@@ -29,6 +29,15 @@ const videoLinks = [
       },
 
 
+      { 
+        class: '9', 
+        subject: 'History', 
+        date: '2025-01-02', 
+        month: 'January', 
+        video: 'https://drive.google.com/file/d/1jUsZu2-OLU3YRZB2MNR1exSzUPqGG7k2/preview', 
+        title: '2025-01-02 - Class 9 - History Part 1' 
+      },
+
   ];
 
   
