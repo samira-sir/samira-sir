@@ -92,6 +92,33 @@ const videoLinks = [
         title: '2025-01-06 - Class 10 - Geography Part 3' 
       },
 
+      { 
+        class: '6', 
+        subject: 'Geography', 
+        date: '2025-01-05', 
+        month: 'January', 
+        video: 'https://drive.google.com/file/d/1wm8xQ3QfZwu8orM02VRQOH2l5Gi2PdD9/preview', 
+        title: '2025-01-05 - Class 6 - Geography Part 1' 
+      },
+
+      { 
+        class: '6', 
+        subject: 'Geography', 
+        date: '2025-01-05', 
+        month: 'January', 
+        video: 'https://drive.google.com/file/d/1AfdP1cpHXEVfDvyeVcCOLSlcnEc0SiXX/preview', 
+        title: '2025-01-05 - Class 6 - Geography Part 2' 
+      },
+
+      { 
+        class: '6', 
+        subject: 'Geography', 
+        date: '2025-01-05', 
+        month: 'January', 
+        video: 'https://drive.google.com/file/d/1t3RbEYPExclkjPX3EKwlntR_pQXUkSh8/preview', 
+        title: '2025-01-05 - Class 6 - Geography Part 3' 
+      },
+
   ];
 
   
