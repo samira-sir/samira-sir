@@ -227,6 +227,15 @@ const videoLinks = [
         title: '2025-01-04 - Class 7 - Geography Part 3' 
       },
 
+      { 
+        class: '7', 
+        subject: 'History', 
+        date: '2025-01-04', 
+        month: 'January', 
+        video: 'https://drive.google.com/file/d/1eoAluWFsPzthPaCatZGTwbz9K9fMfcV4/preview', 
+        title: '2025-01-04 - Class 7 - History Part 1' 
+      },
+
   ];
 
   
