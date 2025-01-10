@@ -236,6 +236,33 @@ const videoLinks = [
         title: '2025-01-04 - Class 7 - History Part 1' 
       },
 
+      { 
+        class: '9', 
+        subject: 'History', 
+        date: '2025-01-09', 
+        month: 'January', 
+        video: 'https://drive.google.com/file/d/1GzhHsn-qRBK71vkgc6kbiHjNl9L3NBqj/preview', 
+        title: '2025-01-09 - Class 9 - History Part 1' 
+      },
+
+      { 
+        class: '9', 
+        subject: 'History', 
+        date: '2025-01-09', 
+        month: 'January', 
+        video: 'https://drive.google.com/file/d/127RsHc3oiGkIB8dKcuw_fnV4T6REMwLw/preview', 
+        title: '2025-01-09 - Class 9 - History Part 2' 
+      },
+
+      { 
+        class: '9', 
+        subject: 'History', 
+        date: '2025-01-09', 
+        month: 'January', 
+        video: 'https://drive.google.com/file/d/1oUrsgd95-krxZZV6MvMfT4BH4BzflvLr/preview', 
+        title: '2025-01-09 - Class 9 - History Part 3' 
+      },
+
   ];
 
   
