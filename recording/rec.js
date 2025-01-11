@@ -290,6 +290,42 @@ const videoLinks = [
         title: '2025-01-04 - Class 10 - History Part 3' 
       },
 
+      { 
+        class: '11', 
+        subject: 'History', 
+        date: '2025-01-10', 
+        month: 'January', 
+        video: 'https://drive.google.com/file/d/17jRKtPbh7rJl6_iY_q_y5EdYj16XEbgA/preview', 
+        title: '2025-01-10 - Class 11 - History Part 1' 
+      },
+
+      { 
+        class: '11', 
+        subject: 'History', 
+        date: '2025-01-10', 
+        month: 'January', 
+        video: 'https://drive.google.com/file/d/1PeiHhIrG8wxJVE6WE7rs3rYAzyiiHf_g/preview', 
+        title: '2025-01-10 - Class 11 - History Part 2' 
+      },
+
+      { 
+        class: '11', 
+        subject: 'History', 
+        date: '2025-01-10', 
+        month: 'January', 
+        video: 'https://drive.google.com/file/d/1_ODNSbamkbEPKlZgRslcy_YN-gu1k6Mr/preview', 
+        title: '2025-01-10 - Class 11 - History Part 3' 
+      },
+
+      { 
+        class: '11', 
+        subject: 'History', 
+        date: '2025-01-10', 
+        month: 'January', 
+        video: 'https://drive.google.com/file/d/1xIFfMXhcae5OTIByUGYotrtzjOhiNs8Q/preview', 
+        title: '2025-01-10 - Class 11 - History Part 4' 
+      },
+
   ];
 
   
