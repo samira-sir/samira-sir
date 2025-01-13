@@ -353,6 +353,51 @@ const videoLinks = [
         title: '2025-01-10 - Class 8 - Civic Part 3' 
       },
 
+      { 
+        class: '10', 
+        subject: 'History', 
+        date: '2025-01-11', 
+        month: 'January', 
+        video: 'https://drive.google.com/file/d/1w2Fmya8b9evrwLMyf6bYl1AUEcKqMicg/preview', 
+        title: '2025-01-11 - Class 10 - History Part 1' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'History', 
+        date: '2025-01-11', 
+        month: 'January', 
+        video: 'https://drive.google.com/file/d/1hIAoOVZDNFxQbbVqFpHMnilrQL2WHd-0/preview', 
+        title: '2025-01-11 - Class 10 - History Part 2' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'History', 
+        date: '2025-01-11', 
+        month: 'January', 
+        video: 'https://drive.google.com/file/d/1Corav8GMh5TCYCW8yflrdo97yZiUGbSY/preview', 
+        title: '2025-01-11 - Class 10 - History Part 3' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'History', 
+        date: '2025-01-11', 
+        month: 'January', 
+        video: 'https://drive.google.com/file/d/1A6wI5vlKlcfZdH3o47WmGaFKx4ZvyCp2/preview', 
+        title: '2025-01-11 - Class 10 - History Part 4' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'History', 
+        date: '2025-01-11', 
+        month: 'January', 
+        video: 'https://drive.google.com/file/d/1GezcqG6vYM7f8sK8WAIHGY0vkrEV-JC5/preview', 
+        title: '2025-01-11 - Class 10 - History Part 5' 
+      },
+
   ];
 
   
