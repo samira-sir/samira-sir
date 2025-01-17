@@ -62,7 +62,7 @@ const credentials = {
     saniru: { password: 'Fe9&Ys4%', subjects: [{ name: 'history', grade: 10 }] },
     thisumi: { password: '20101223', subjects: [{ name: 'history', grade: 10 },{ name: 'geography', grade: 10 },{ name: 'ind-Thisumi-History', grade: 10 }] },
     nishad: { password: 'Gt4&Pe9%', subjects: [{ name: 'history', grade: 10 }] },
-    sayumlee: { password: '1234', subjects: [{name:'history',grade:10}] },
+    lithumila: { password: '1234', subjects: [{name:'history',grade:10}] },
     dihen: { password: 'D@i$h#e9N,', subjects: [{ name: 'history', grade: 11 },{ name: 'geography', grade: 11 }] },
     hesaka: { password: 'hesaka2009', subjects: [{ name: 'history', grade: 11 }] },
     sithnuka: { password: 'Gp3%Fn8@', subjects: [{ name: 'history', grade: 11 }] },
@@ -78,7 +78,7 @@ const credentials = {
     dulmira:{password: 'Dulmira2009', subjects:[{name:'history', grade:11}]},
     ovindee: { password: '2009', subjects: [{name:'history',grade:11}] },
     thenuka: { password: 'Thenuka2009', subjects: [{name:'history',grade:11}] },
-
+    sayumlee: { password: '2009', subjects: [{name:'history',grade:11}] },
 
   };
 
