@@ -165,7 +165,23 @@
       text-align: center;
       margin-top: 20px;
     }
+        a.inline-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #add8e6, #ffffff);
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 8px;
+            transition: background 0.3s, transform 0.3s;
+            text-align: center;
+        }
 
+        a.inline-button:hover {
+            background: linear-gradient(135deg, #87ceeb, #d3d3d3);
+            transform: scale(1.05);
+        }
     .subjects button {
       margin: 5px;
       padding: 10px 20px;
@@ -424,6 +440,7 @@ async function validateForm(event) {
         </div>
         <input type="submit" value="Login">
         <p style="color:white;">Do not have an account? <a style="color:white;" href="register.html">Register here</a></p>
+            <a href="#" class="inline-button">Click Me</a>
       </form>
     </div>
   </div>
