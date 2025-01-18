@@ -63,6 +63,7 @@ const credentials = {
     thisumi: { password: '20101223', subjects: [{ name: 'history', grade: 10 },{ name: 'geography', grade: 10 },{ name: 'ind-Thisumi-History', grade: 10 }] },
     nishad: { password: 'Gt4&Pe9%', subjects: [{ name: 'history', grade: 10 }] },
     lithumila: { password: '1234', subjects: [{name:'history',grade:10}] },
+    ruhara: { password: 'minila', subjects: [{name:'history',grade:10}] },
     dihen: { password: 'D@i$h#e9N,', subjects: [{ name: 'history', grade: 11 },{ name: 'geography', grade: 11 }] },
     hesaka: { password: 'hesaka2009', subjects: [{ name: 'history', grade: 11 }] },
     sithnuka: { password: 'Gp3%Fn8@', subjects: [{ name: 'history', grade: 11 }] },
