@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grade and Subject Selection</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .container {
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      max-width: 400px;
+      width: 90%;
+    }
+    h1 {
+      font-size: 24px;
+      color: #333;
+      text-align: center;
+    }
+    label {
+      font-size: 16px;
+      color: #555;
+    }
+    .grade-options, .subject-options {
+      margin: 10px 0;
+    }
+    .grade-options input[type="radio"],
+    .subject-options input[type="checkbox"] {
+      margin-right: 10px;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background: #4caf50;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: #45a049;
+    }
+    button:disabled {
+      background: #cccccc;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Select Grade and Subjects</h1>
+
+    <div class="grade-options">
+      <label>Grade:</label><br>
+      <label><input type="radio" name="grade" value="6"> Grade 6</label><br>
+      <label><input type="radio" name="grade" value="7"> Grade 7</label><br>
+      <label><input type="radio" name="grade" value="8"> Grade 8</label><br>
+      <label><input type="radio" name="grade" value="9"> Grade 9</label><br>
+      <label><input type="radio" name="grade" value="10"> Grade 10</label><br>
+      <label><input type="radio" name="grade" value="11"> Grade 11</label>
+    </div>
+
+    <div class="subject-options">
+      <label>Subjects:</label><br>
+      <label><input type="checkbox" value="history"> History</label><br>
+      <label><input type="checkbox" value="geography"> Geography</label><br>
+      <label><input type="checkbox" value="civic"> Civic</label>
+    </div>
+
+    <button id="submit" disabled>Submit</button>
+  </div>
+
+  <script>
+    const gradeOptions = document.querySelectorAll("input[name='grade']");
+    const subjectOptions = document.querySelectorAll(".subject-options input[type='checkbox']");
+    const submitButton = document.getElementById("submit");
+
+    const pinData = {
+      '7743': ['6-history'],
+      '7764': ['6-geography'],
+      '1286': ['6-history', '6-geography'],
+      '6161': ['7-history'],
+      '2221': ['7-geography'],
+      '6196': ['7-history', '7-geography'],
+      '7935': ['8-history'],
+      '8162': ['8-geography'],
+      '7649': ['8-history', '8-geography'],
+      '3550': ['9-history'],
+      '6890': ['9-geography'],
+      '4652': ['9-history', '9-geography'],
+      '4433': ['9-civic'],
+      '6599': ['9-history', '9-civic'],
+      '7139': ['9-geography', '9-civic'],
+      '1201': ['9-history', '9-geography', '9-civic'],
+      '5339': ['10-history'],
+      '2654': ['10-geography'],
+      '6326': ['10-history', '10-geography'],
+      '3680': ['11-history'],
+      '2202': ['11-geography'],
+      '6800': ['11-history', '11-geography']
+    };
+
+    function enableButton() {
+      const gradeSelected = [...gradeOptions].some(option => option.checked);
+      submitButton.disabled = !gradeSelected;
+    }
+
+    gradeOptions.forEach(option => {
+      option.addEventListener('change', enableButton);
+    });
+
+    submitButton.addEventListener('click', () => {
+      const selectedGrade = [...gradeOptions].find(option => option.checked)?.value;
+      const selectedSubjects = [...subjectOptions]
+        .filter(option => option.checked)
+        .map(option => `${selectedGrade}-${option.value}`);
+
+      const matchedPin = Object.keys(pinData).find(pin => {
+        const subjects = pinData[pin];
+        return selectedSubjects.every(subject => subjects.includes(subject));
+      });
+
+      if (matchedPin) {
+        const message = `Grade: ${selectedGrade}\nSubjects: ${selectedSubjects.join(", ")}\nPin: ${matchedPin}\n 🌐 *Use this link to Login to your Tempory Account https://samira-sir.github.io/samira-sir/tempory.html* 📚`;
+        const whatsappLink = `whatsapp://send?text=${encodeURIComponent(message)}`;
+        window.open(whatsappLink, '_blank');
+      } else {
+        alert("No matching pin found for the selected grade and subjects.");
+      }
+    });
+  </script>
+</body>
+</html>
