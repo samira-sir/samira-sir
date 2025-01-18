@@ -578,6 +578,33 @@ const videoLinks = [
         title: '2025-01-16 - Class 9 - History Part 3' 
       },
 
+      { 
+        class: '8', 
+        subject: 'Civic', 
+        date: '2025-01-17', 
+        month: 'January', 
+        video: 'https://drive.google.com/file/d/1GFASU7O5RuSwwtUz_xwb_zmLKoa91Uwx/preview', 
+        title: '2025-01-17 - Class 8 - Civic Part 1' 
+      },
+
+      { 
+        class: '8', 
+        subject: 'Civic', 
+        date: '2025-01-17', 
+        month: 'January', 
+        video: 'https://drive.google.com/file/d/1OLp7K4sSgW9qBdqhs6yN3rsV3NZ_Qo63/preview', 
+        title: '2025-01-17 - Class 8 - Civic Part 2' 
+      },
+
+      { 
+        class: '8', 
+        subject: 'Civic', 
+        date: '2025-01-17', 
+        month: 'January', 
+        video: 'https://drive.google.com/file/d/1Sdj7rfa1kjdB5XELxqdawtsCikKl3JmW/preview', 
+        title: '2025-01-17 - Class 8 - Civic Part 3' 
+      },
+
   ];
 
   
