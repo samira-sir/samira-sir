@@ -731,6 +731,24 @@ const videoLinks = [
         title: '2025-01-19 - Class 6 - Geography Part 3' 
       },
 
+      { 
+        class: '6', 
+        subject: 'History', 
+        date: '2025-01-19', 
+        month: 'January', 
+        video: 'https://drive.google.com/file/d/16oj80PBmcGNtn6jnJjfFfD3gotiCYgVR/preview', 
+        title: '2025-01-19 - Class 6 - History Part 1' 
+      },
+
+      { 
+        class: '6', 
+        subject: 'History', 
+        date: '2025-01-19', 
+        month: 'January', 
+        video: 'https://drive.google.com/file/d/1x3-r7ikm5MwDsq7MLYE1TuWG_bePKOk5/preview', 
+        title: '2025-01-19 - Class 6 - History Part 2' 
+      },
+
   ];
 
   
