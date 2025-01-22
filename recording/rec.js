@@ -839,6 +839,33 @@ const videoLinks = [
         title: '2025-01-20 - Class 11 - Geography Part 4' 
       },
 
+      { 
+        class: '9', 
+        subject: 'Geography', 
+        date: '2025-01-21', 
+        month: 'January', 
+        video: 'https://drive.google.com/file/d/1WoRMO60fGB7IufEumDzHh7ba30iT8lrL/preview', 
+        title: '2025-01-21 - Class 9 - Geography Part 1' 
+      },
+
+      { 
+        class: '9', 
+        subject: 'Geography', 
+        date: '2025-01-21', 
+        month: 'January', 
+        video: 'https://drive.google.com/file/d/1n3MQ0OKy-oENGDf_zx4fma_0bDMVvlOO/preview', 
+        title: '2025-01-21 - Class 9 - Geography Part 2' 
+      },
+
+      { 
+        class: '9', 
+        subject: 'Geography', 
+        date: '2025-01-21', 
+        month: 'January', 
+        video: 'https://drive.google.com/file/d/1OoNgouyPXJUUEIDllr--CqpLjfT0Q4zO/preview', 
+        title: '2025-01-21 - Class 9 - Geography Part 3' 
+      },
+
   ];
 
   
