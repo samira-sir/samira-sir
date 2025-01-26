@@ -1001,6 +1001,33 @@ const videoLinks = [
         title: '2025-01-24 - Class 11 - History Part 3' 
       },
 
+      { 
+        class: '7', 
+        subject: 'History', 
+        date: '2025-01-25', 
+        month: 'January', 
+        video: 'https://drive.google.com/file/d/1DAZTA238swt1YsodR8Q7prxWFludYq4d/preview', 
+        title: '2025-01-25 - Class 7 - History Part 1' 
+      },
+
+      { 
+        class: '7', 
+        subject: 'History', 
+        date: '2025-01-25', 
+        month: 'January', 
+        video: 'https://drive.google.com/file/d/1wmWs6iXLj_7szfDWt9kpqeG6lR3ifLSB/preview"', 
+        title: '2025-01-25 - Class 7 - History Part 2' 
+      },
+
+      { 
+        class: '7', 
+        subject: 'History', 
+        date: '2025-01-25', 
+        month: 'January', 
+        video: 'https://drive.google.com/file/d/1oi4X8BRR1M2UOwn4Xvp_Xj9DiP84SS_j/preview', 
+        title: '2025-01-25 - Class 7 - History Part 3' 
+      },
+
   ];
 
   
