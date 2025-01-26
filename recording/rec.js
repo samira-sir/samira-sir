@@ -1055,6 +1055,33 @@ const videoLinks = [
         title: '2025-01-25 - Class 7 - Geography Part 3' 
       },
 
+      { 
+        class: '10', 
+        subject: 'History', 
+        date: '2025-01-25', 
+        month: 'January', 
+        video: 'https://drive.google.com/file/d/1EhXNxii6O46jR4cKzC79yfl_rEF62kAD/preview', 
+        title: '2025-01-25 - Class 10 - History Part 1' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'History', 
+        date: '2025-01-25', 
+        month: 'January', 
+        video: 'https://drive.google.com/file/d/1V6UnYbp_N0HG6_wibMf7QdduReDPd52F/preview', 
+        title: '2025-01-25 - Class 10 - History Part 2' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'History', 
+        date: '2025-01-25', 
+        month: 'January', 
+        video: 'https://drive.google.com/file/d/1MNP99YGHBX7vHyZ76yhyu3ajtRr_jiQX/preview', 
+        title: '2025-01-25 - Class 10 - History Part 3' 
+      },
+
   ];
 
   
