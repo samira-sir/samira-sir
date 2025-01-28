@@ -1190,6 +1190,33 @@ const videoLinks = [
         title: '2025-01-27 - Class 8 - Geography Part 3' 
       },
 
+      { 
+        class: '10', 
+        subject: 'Geography', 
+        date: '2025-01-27', 
+        month: 'January', 
+        video: 'https://drive.google.com/file/d/15IkBLYduiJ8FBTSApRu8zgCAzY-8XJ7i/preview', 
+        title: '2025-01-27 - Class 10 - Geography Part 1' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'Geography', 
+        date: '2025-01-27', 
+        month: 'January', 
+        video: 'https://drive.google.com/file/d/15mqFvnUjCa-spP9vmtqW5gNhyj2RfDjK/preview', 
+        title: '2025-01-27 - Class 10 - Geography Part 2' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'Geography', 
+        date: '2025-01-27', 
+        month: 'January', 
+        video: 'https://drive.google.com/file/d/193XSKsMS3_5T221mK8FNgpa_wCvpWjsl/preview', 
+        title: '2025-01-27 - Class 10 - Geography Part 3' 
+      },
+
   ];
 
   
