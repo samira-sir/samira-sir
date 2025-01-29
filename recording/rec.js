@@ -1217,6 +1217,15 @@ const videoLinks = [
         title: '2025-01-27 - Class 10 - Geography Part 3' 
       },
 
+      { 
+        class: '10', 
+        subject: 'History', 
+        date: '2025-01-28', 
+        month: 'January', 
+        video: 'https://drive.google.com/file/d/1jOuUKcxRbFuvi1fy2xzUiB06iCrN5T6Z/preview', 
+        title: '2025-01-28 - Class 10 - History Part 1' 
+      },
+
   ];
 
   
