@@ -48,7 +48,7 @@ const credentials = {
     reema: { password: '1360', subjects: [{ name: 'history', grade: 9 },{ name: 'geography', grade: 9 },{ name: 'civic', grade: 9}] },
     mihin: { password: 'Fe8&Ys3%', subjects: [{ name: 'history', grade: 9 }]},
     thinuki: { password: 'thinuki123', subjects: [{ name: 'history', grade: 9 },{ name: 'geography', grade: 9 }] },    
-    ahasna: { password: 'Gt3&Pe8%', subjects: [{ name: 'history', grade: 9 },{ name: 'geography', grade: 9 },{ name: 'civic', grade: 9}] },
+    ahasna: { password: 'Gt3&Pe8%', subjects: [{ name: 'geography', grade: 9 }] },
     manuka: { password: '2011', subjects: [{ name: 'history', grade: 9 },{ name: 'geography', grade: 9 }] },
     lahiru: { password: '12345678', subjects: [{ name: 'history', grade: 9 },{ name: 'geography', grade: 9 }] },
     senulya: { password: '123456', subjects: [{ name: 'history', grade: 9 }] },
