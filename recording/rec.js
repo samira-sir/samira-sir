@@ -1280,6 +1280,24 @@ const videoLinks = [
         title: '2025-01-28 - Class 8 - History Part 3' 
       },
 
+      { 
+        class: '11', 
+        subject: 'History', 
+        date: '2025-01-30', 
+        month: 'January', 
+        video: 'https://drive.google.com/file/d/1uC9K15FJ9femXp24f2jrZlKZyIbSd1Tm/preview', 
+        title: '2025-01-30 - Class 11 - History Part 1' 
+      },
+
+      { 
+        class: '11', 
+        subject: 'History', 
+        date: '2025-01-30', 
+        month: 'January', 
+        video: 'https://drive.google.com/file/d/1INIzgUWa51U5GhKNjeyYyCsJdMFhpuMB/preview', 
+        title: '2025-01-30 - Class 11 - History Part 2' 
+      },
+
   ];
 
   
