@@ -50,15 +50,9 @@
 
     <button onclick="calculateFee()">Submit</button>
     <div class="result" id="result"></div>
-
+<script src="user.js"></script>
     <script>
-        const credentials = {
-            senuji: { password: 'shiran', subjects: [{ name: 'geography', grade: 6 }, { name: 'history', grade: 6 }] },
-            amra: { password: '2014', subjects: [{ name: 'geography', grade: 6 }, { name: 'history', grade: 6 }] },
-            nithuki: { password: '2014', subjects: [{ name: 'geography', grade: 6 }, { name: 'history', grade: 6 }] },
-            shenya: { password: '2014', subjects: [{ name: 'geography', grade: 6 }, { name: 'history', grade: 6 }] },
-            numaya: { password: 'abcde', subjects: [{ name: 'history', grade: 7 }] }
-        };
+
 
         function loadStudents() {
             let grade = document.getElementById('gradeSelect').value;
