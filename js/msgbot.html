@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fee Calculation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+        select, button {
+            padding: 10px;
+            margin: 10px;
+            font-size: 16px;
+        }
+        .checkbox-container {
+            display: flex;
+            flex-direction: column;
+            margin: 10px 0;
+        }
+        .result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h2>Fee Calculation</h2>
+    <label>Select Grade:</label>
+    <select id="gradeSelect" onchange="loadStudents()">
+        <option value="">--Select Grade--</option>
+        <option value="6">Grade 6</option>
+        <option value="7">Grade 7</option>
+        <option value="8">Grade 8</option>
+        <option value="9">Grade 9</option>
+        <option value="10">Grade 10</option>
+        <option value="11">Grade 11</option>
+    </select>
+    
+    <label>Select Student:</label>
+    <select id="studentSelect" onchange="showCheckboxes()">
+        <option value="">--Select Student--</option>
+    </select>
+
+    <div id="checkboxContainer" class="checkbox-container"></div>
+
+    <button onclick="calculateFee()">Submit</button>
+    <div class="result" id="result"></div>
+
+    <script>
+        const credentials = {
+            senuji: { password: 'shiran', subjects: [{ name: 'geography', grade: 6 }, { name: 'history', grade: 6 }] },
+            amra: { password: '2014', subjects: [{ name: 'geography', grade: 6 }, { name: 'history', grade: 6 }] },
+            nithuki: { password: '2014', subjects: [{ name: 'geography', grade: 6 }, { name: 'history', grade: 6 }] },
+            shenya: { password: '2014', subjects: [{ name: 'geography', grade: 6 }, { name: 'history', grade: 6 }] },
+            numaya: { password: 'abcde', subjects: [{ name: 'history', grade: 7 }] }
+        };
+
+        function loadStudents() {
+            let grade = document.getElementById('gradeSelect').value;
+            let studentSelect = document.getElementById('studentSelect');
+            studentSelect.innerHTML = '<option value="">--Select Student--</option>';
+            
+            for (let student in credentials) {
+                let subjects = credentials[student].subjects;
+                if (subjects.some(sub => sub.grade == grade)) {
+                    let option = document.createElement('option');
+                    option.value = student;
+                    option.textContent = student;
+                    studentSelect.appendChild(option);
+                }
+            }
+        }
+
+        function showCheckboxes() {
+            let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+            let currentMonth = new Date().getMonth();
+            let container = document.getElementById('checkboxContainer');
+            container.innerHTML = '';
+
+            for (let i = 0; i < 4; i++) {
+                let index = currentMonth - i;
+                if (index < 0) index += 12;
+                let label = `${months[index]}`;
+                let checkbox = `<label><input type="checkbox" name="months" value="${label}"> ${label}</label>`;
+                container.innerHTML += checkbox;
+            }
+        }
+
+        function calculateFee() {
+            let studentName = document.getElementById('studentSelect').value;
+            let selectedGrade = document.getElementById('gradeSelect').value;
+            let selectedMonths = Array.from(document.querySelectorAll('input[name="months"]:checked')).map(cb => cb.value);
+            
+            if (!studentName || !selectedGrade || selectedMonths.length === 0) {
+                alert("Please select all fields.");
+                return;
+            }
+            
+            let monthsOrder = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+            selectedMonths.sort((a, b) => monthsOrder.indexOf(a) - monthsOrder.indexOf(b));
+            
+            let studentSubjects = credentials[studentName].subjects;
+            let subjectCount = studentSubjects.length;
+            let feePerSubject = selectedGrade < 10 ? 700 : 800;
+            let totalDue = subjectCount * feePerSubject * selectedMonths.length;
+            
+            let warningMessage = selectedMonths.length > 1 ? "❗ *You will be automatically remove from the website if you do not pay the due balance within 7 days.❗ඔබ දින 7ක් ඇතුළත නියමිත මුදල නොගෙවන්නේ නම්, ඔබව ස්වයංක්‍රීයව වෙබ් අඩවියෙන් ඉවත් වනු ඇත.* ❗" : "";
+            
+            let bill = `
+            ✅ *${studentName} did not pay class fees for ${selectedMonths.join(", ")}.* 
+            *The amount you have to pay is Rs.${totalDue}. Thank you.*
+            *${studentName} ${selectedMonths.join(", ")} මාස සඳහා පන්ති ගාස්තු ගෙවා නැත.* 
+            *ඔබ ගෙවිය යුතු මුදල Rs.${totalDue}. ස්තූතියි.* 💻 
+
+            ${warningMessage}`;
+            document.getElementById('result').innerHTML = bill;
+
+            const whatsappLink = `whatsapp://send?text=${encodeURIComponent(bill)}`;
+            window.open(whatsappLink, '_blank');
+        }
+    </script>
+</body>
+</html>
