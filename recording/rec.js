@@ -1325,6 +1325,24 @@ const videoLinks = [
         title: '2025-01-30 - Class 9 - History Part 3' 
       },
 
+      { 
+        class: '9', 
+        subject: 'Civic', 
+        date: '2025-01-31', 
+        month: 'January', 
+        video: 'https://drive.google.com/file/d/1Xflq5MTAHc7s_s1_FWmvBoKIIlbVk39w/preview', 
+        title: '2025-01-31 - Class 9 - Civic Part 1' 
+      },
+
+      { 
+        class: '9', 
+        subject: 'Civic', 
+        date: '2025-01-31', 
+        month: 'January', 
+        video: 'https://drive.google.com/file/d/1BU2Wlib17wqYC7F2oZW-6tp-BQbyA7C1/preview', 
+        title: '2025-01-31 - Class 9 - Civic Part 2' 
+      },
+
   ];
 
   
