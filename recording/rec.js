@@ -1015,7 +1015,7 @@ const videoLinks = [
         subject: 'History', 
         date: '2025-01-25', 
         month: 'January', 
-        video: 'https://drive.google.com/file/d/1wmWs6iXLj_7szfDWt9kpqeG6lR3ifLSB/preview"', 
+        video: 'https://drive.google.com/file/d/1wmWs6iXLj_7szfDWt9kpqeG6lR3ifLSB/preview', 
         title: '2025-01-25 - Class 7 - History Part 2' 
       },
 
