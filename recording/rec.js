@@ -1766,6 +1766,33 @@ const videoLinks = [
         title: '2025-02-08 - Class 10 - History Part 4' 
       },
 
+      { 
+        class: '6', 
+        subject: 'History', 
+        date: '2025-02-09', 
+        month: 'February', 
+        video: 'https://drive.google.com/file/d/1Io2diU_o-g0nEiS9ggcmTyf5p_L8rnqX/preview', 
+        title: '2025-02-09 - Class 6 - History Part 1' 
+      },
+
+      { 
+        class: '6', 
+        subject: 'History', 
+        date: '2025-02-09', 
+        month: 'February', 
+        video: 'https://drive.google.com/file/d/1za8cKdjROLktoHqZBaocrfd6Tl8_snil/preview', 
+        title: '2025-02-09 - Class 6 - History Part 2' 
+      },
+
+      { 
+        class: '6', 
+        subject: 'History', 
+        date: '2025-02-09', 
+        month: 'February', 
+        video: 'https://drive.google.com/file/d/1ZZup_11TXAlrckQ_hnpuWo-gQKBM-ZPd/preview', 
+        title: '2025-02-09 - Class 6 - History Part 3' 
+      },
+
   ];
 
   
