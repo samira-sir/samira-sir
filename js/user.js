@@ -81,6 +81,8 @@ const credentials = {
     akein: { password: '2009810', subjects: [{ name: 'history', grade: 10 },{ name: 'geography', grade: 10 }] },
     dulneth: { password: 'anuruddha', subjects: [{name:'history',grade:10}] },
     yenuli: { password: '2010@YENULIB', subjects: [{name:'history',grade:10}] },
+    shakuni: { password: 'shakuni2010', subjects: [{name:'history',grade:10}] },
+    githuni: { password: '1234', subjects: [{name:'history',grade:10}] },
     dihen: { password: 'D@i$h#e9N,', subjects: [{ name: 'history', grade: 11 },{ name: 'geography', grade: 11 }] },
     hesaka: { password: 'hesaka2009', subjects: [{ name: 'history', grade: 11 }] },
     sithnuka: { password: 'Gp3%Fn8@', subjects: [{ name: 'history', grade: 11 }] },
@@ -93,7 +95,6 @@ const credentials = {
     thinuli: { password: 'Mn3@Rs8&', subjects: [{ name: 'history', grade: 11 },{ name: 'geography', grade: 11 }] }, 
     dulani:{password: 'Diyana', subjects:[{name:'history', grade:11}]},
     ovindee: { password: '2009', subjects: [{name:'history',grade:11},{name:'history',grade:10}] },
-    thenuka: { password: 'Thenuka2009', subjects: [{name:'history',grade:11}] },
     sayumlee: { password: '2009', subjects: [{name:'history',grade:11}] },
 
   };
