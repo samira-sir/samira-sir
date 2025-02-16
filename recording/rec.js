@@ -2054,6 +2054,33 @@ const videoLinks = [
         title: '2025-02-15 - Class 7 - History Part 3' 
       },
 
+      { 
+        class: '8', 
+        subject: 'History', 
+        date: '2025-02-11', 
+        month: 'February', 
+        video: 'https://drive.google.com/file/d/13Fj6aEDQok9r4rF_vALI8zuzuTKYbLT1/preview', 
+        title: '2025-02-11 - Class 8 - History Part 1' 
+      },
+
+      { 
+        class: '8', 
+        subject: 'History', 
+        date: '2025-02-11', 
+        month: 'February', 
+        video: 'https://drive.google.com/file/d/1fUV0WaHoiZuN3CfEFRYguZseGKSOqURK/preview', 
+        title: '2025-02-11 - Class 8 - History Part 2' 
+      },
+
+      { 
+        class: '8', 
+        subject: 'History', 
+        date: '2025-02-11', 
+        month: 'February', 
+        video: 'https://drive.google.com/file/d/1RVZGebKwGw6RkA9SVZN1BI--1o7r-7zI/preview', 
+        title: '2025-02-11 - Class 8 - History Part 3' 
+      },
+
   ];
 
   
