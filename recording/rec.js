@@ -2180,6 +2180,33 @@ const videoLinks = [
         title: '2025-02-17 - Class 11 - Geography Part 3' 
       },
 
+      { 
+        class: '10', 
+        subject: 'Geography', 
+        date: '2025-02-17', 
+        month: 'February', 
+        video: 'https://drive.google.com/file/d/1Zuumc6yJt6jmjsAxq8247KPKAz5M4xCD/preview', 
+        title: '2025-02-17 - Class 10 - Geography Part 1' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'Geography', 
+        date: '2025-02-17', 
+        month: 'February', 
+        video: 'https://drive.google.com/file/d/16zZAnj1m6axKoU5O4IV7zav6MZpMfr-m/preview', 
+        title: '2025-02-17 - Class 10 - Geography Part 2' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'Geography', 
+        date: '2025-02-17', 
+        month: 'February', 
+        video: 'https://drive.google.com/file/d/1RBWi1slKrCUpHiEkylAZd_KRJspLBMBQ/preview', 
+        title: '2025-02-17 - Class 10 - Geography Part 3' 
+      },
+
   ];
 
   
