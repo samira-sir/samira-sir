@@ -2153,6 +2153,33 @@ const videoLinks = [
         title: '2025-02-16 - Class 6 - Geography Part 3' 
       },
 
+      { 
+        class: '11', 
+        subject: 'Geography', 
+        date: '2025-02-17', 
+        month: 'February', 
+        video: 'https://drive.google.com/file/d/1iLYcKRN0pGSWQKQrtRAH7rpmNwj3s-S3/preview', 
+        title: '2025-02-17 - Class 11 - Geography Part 1' 
+      },
+
+      { 
+        class: '11', 
+        subject: 'Geography', 
+        date: '2025-02-17', 
+        month: 'February', 
+        video: 'https://drive.google.com/file/d/11Mcv2WuVjT_kkSh26U7V0Shi8u9LIU5A/preview', 
+        title: '2025-02-17 - Class 11 - Geography Part 2' 
+      },
+
+      { 
+        class: '11', 
+        subject: 'Geography', 
+        date: '2025-02-17', 
+        month: 'February', 
+        video: 'https://drive.google.com/file/d/1YJd2D5jRkdEBkuL95UiQmaz8JijgBsrc/preview', 
+        title: '2025-02-17 - Class 11 - Geography Part 3' 
+      },
+
   ];
 
   
