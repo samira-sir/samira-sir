@@ -2288,6 +2288,24 @@ const videoLinks = [
         title: '2025-02-18 - Class 8 - History Part 3' 
       },
 
+      { 
+        class: '10', 
+        subject: 'History', 
+        date: '2025-02-18', 
+        month: 'February', 
+        video: 'https://drive.google.com/file/d/157pCu--7bVyOGm7fcf0e0ahbfd6t-g9C/preview', 
+        title: '2025-02-18 - Class 10 - History Part 1' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'History', 
+        date: '2025-02-18', 
+        month: 'February', 
+        video: 'https://drive.google.com/file/d/1lcvsskmMjVX7qSuBd-DZoiB3n5FshM-C/preview', 
+        title: '2025-02-18 - Class 10 - History Part 2' 
+      },
+
   ];
 
   
