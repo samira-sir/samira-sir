@@ -2432,6 +2432,33 @@ const videoLinks = [
         title: '2025-02-22 - Class 10 - History Part 4' 
       },
 
+      { 
+        class: '7', 
+        subject: 'Geography', 
+        date: '2025-02-22', 
+        month: 'February', 
+        video: 'https://drive.google.com/file/d/1sFTPVqWCxq2AZKZyj8U_Jmrlamh3UcCn/preview', 
+        title: '2025-02-22 - Class 7 - Geography Part 1' 
+      },
+
+      { 
+        class: '7', 
+        subject: 'Geography', 
+        date: '2025-02-22', 
+        month: 'February', 
+        video: 'https://drive.google.com/file/d/1K1y2zQuY11UKdLCm3FtXZhGHm24p49_y/preview', 
+        title: '2025-02-22 - Class 7 - Geography Part 2' 
+      },
+
+      { 
+        class: '7', 
+        subject: 'Geography', 
+        date: '2025-02-22', 
+        month: 'February', 
+        video: 'https://drive.google.com/file/d/1RHRWVV0NdMhrwIsazfJOXLK5mRLGFQBz/preview', 
+        title: '2025-02-22 - Class 7 - Geography Part 3' 
+      },
+
   ];
 
   
