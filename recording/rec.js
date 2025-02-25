@@ -2540,6 +2540,33 @@ const videoLinks = [
         title: '2025-02-23 - Class 6 - History Part 3' 
       },
 
+      { 
+        class: '11', 
+        subject: 'Geography', 
+        date: '2025-02-24', 
+        month: 'February', 
+        video: 'https://drive.google.com/file/d/18AzNE6EoTHOTMbJ38tp92apLBpp3i4el/preview', 
+        title: '2025-02-24 - Class 11 - Geography Part 1' 
+      },
+
+      { 
+        class: '11', 
+        subject: 'Geography', 
+        date: '2025-02-24', 
+        month: 'February', 
+        video: 'https://drive.google.com/file/d/1A84El383CfNIkHP0gtJzTbs152mOQUIx/preview', 
+        title: '2025-02-24 - Class 11 - Geography Part 2' 
+      },
+
+      { 
+        class: '11', 
+        subject: 'Geography', 
+        date: '2025-02-24', 
+        month: 'February', 
+        video: 'https://drive.google.com/file/d/1qCsikdMwYtwWxFYay8EDJ4zcOKTh6nTX/preview', 
+        title: '2025-02-24 - Class 11 - Geography Part 3' 
+      },
+
   ];
 
   
