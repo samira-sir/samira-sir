@@ -2594,6 +2594,33 @@ const videoLinks = [
         title: '2025-02-24 - Class 10 - Geography Part 3' 
       },
 
+      { 
+        class: '8', 
+        subject: 'History', 
+        date: '2025-02-25', 
+        month: 'February', 
+        video: 'https://drive.google.com/file/d/1E28mhBiTJTPC3QuM1kiyv0yRuULph3dw/preview', 
+        title: '2025-02-25 - Class 8 - History Part 1' 
+      },
+
+      { 
+        class: '8', 
+        subject: 'History', 
+        date: '2025-02-25', 
+        month: 'February', 
+        video: 'https://drive.google.com/file/d/1LJRNabC3AUgZaJLaSTRewY8Kvo49JC4L/preview', 
+        title: '2025-02-25 - Class 8 - History Part 2' 
+      },
+
+      { 
+        class: '8', 
+        subject: 'History', 
+        date: '2025-02-25', 
+        month: 'February', 
+        video: 'https://drive.google.com/file/d/1ly3jBRucMtUaepXJd7aN8fFr5XuXmEyG/preview', 
+        title: '2025-02-25 - Class 8 - History Part 3' 
+      },
+
   ];
 
   
