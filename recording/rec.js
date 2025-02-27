@@ -2684,6 +2684,33 @@ const videoLinks = [
         title: '2025-02-26 - Class 11 - Geography Part 4' 
       },
 
+      { 
+        class: '8', 
+        subject: 'Geography', 
+        date: '2025-02-26', 
+        month: 'February', 
+        video: 'https://drive.google.com/file/d/1LZAW4g1Jh555Qrxus4zHQ4XQvnuo4Qvh/preview', 
+        title: '2025-02-26 - Class 8 - Geography Part 1' 
+      },
+
+      { 
+        class: '8', 
+        subject: 'Geography', 
+        date: '2025-02-26', 
+        month: 'February', 
+        video: 'https://drive.google.com/file/d/1NGc6brRr5kShGktcWFQBBMdRStwKIOvg/preview', 
+        title: '2025-02-26 - Class 8 - Geography Part 2' 
+      },
+
+      { 
+        class: '8', 
+        subject: 'Geography', 
+        date: '2025-02-26', 
+        month: 'February', 
+        video: 'https://drive.google.com/file/d/11A44sT2PINMp_BzsmBgoeOojpg7NLEYb/preview', 
+        title: '2025-02-26 - Class 8 - Geography Part 3' 
+      },
+
   ];
 
   
