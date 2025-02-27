@@ -2648,6 +2648,42 @@ const videoLinks = [
         title: '2025-02-25 - Class 9 - Geography Part 3' 
       },
 
+      { 
+        class: '11', 
+        subject: 'Geography', 
+        date: '2025-02-26', 
+        month: 'February', 
+        video: 'https://drive.google.com/file/d/1D_eB_XhCd3G3EA0Gh1KcHpZzRNG_k71g/preview', 
+        title: '2025-02-26 - Class 11 - Geography Part 1' 
+      },
+
+      { 
+        class: '11', 
+        subject: 'Geography', 
+        date: '2025-02-26', 
+        month: 'February', 
+        video: 'https://drive.google.com/file/d/10ylADV8a0gzwxUmTc0eu7q2xV96pIIFQ/preview', 
+        title: '2025-02-26 - Class 11 - Geography Part 2' 
+      },
+
+      { 
+        class: '11', 
+        subject: 'Geography', 
+        date: '2025-02-26', 
+        month: 'February', 
+        video: 'https://drive.google.com/file/d/1qlNgLKKZjI60rTLuBYwEDwENlbHTHo8L/preview', 
+        title: '2025-02-26 - Class 11 - Geography Part 3' 
+      },
+
+      { 
+        class: '11', 
+        subject: 'Geography', 
+        date: '2025-02-26', 
+        month: 'February', 
+        video: 'https://drive.google.com/file/d/1r-CiulHnMSVP2OVlh6zp834J_QQSPam1/preview', 
+        title: '2025-02-26 - Class 11 - Geography Part 4' 
+      },
+
   ];
 
   
