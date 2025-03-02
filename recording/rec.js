@@ -2819,6 +2819,42 @@ const videoLinks = [
         title: '2025-03-01 - Class 10 - History Part 3' 
       },
 
+      { 
+        class: '6', 
+        subject: 'History', 
+        date: '2025-03-02', 
+        month: 'March', 
+        video: 'https://drive.google.com/file/d/1AWccOcuHCTSIz4G46Y1DiOOXGJ5Os7Bs/preview', 
+        title: '2025-03-02 - Class 6 - History Part 1' 
+      },
+
+      { 
+        class: '6', 
+        subject: 'History', 
+        date: '2025-03-02', 
+        month: 'March', 
+        video: 'https://drive.google.com/file/d/1lxFT_Z02rPRNLF_MRMsX72iOPfUNoheE/preview', 
+        title: '2025-03-02 - Class 6 - History Part 2' 
+      },
+
+      { 
+        class: '6', 
+        subject: 'History', 
+        date: '2025-03-02', 
+        month: 'March', 
+        video: 'https://drive.google.com/file/d/1-Q9PWIZTkZ2LcCILDPFCChVE4mCssVx3/preview', 
+        title: '2025-03-02 - Class 6 - History Part 3' 
+      },
+
+      { 
+        class: '6', 
+        subject: 'History', 
+        date: '2025-03-02', 
+        month: 'March', 
+        video: 'https://drive.google.com/file/d/1eCPBSgdE6163473XpFUmHODkYomjFHZr/preview', 
+        title: '2025-03-02 - Class 6 - History Part 4' 
+      },
+
   ];
 
   
