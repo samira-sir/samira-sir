@@ -2738,6 +2738,33 @@ const videoLinks = [
         title: '2025-02-27 - Class 9 - History Part 3' 
       },
 
+      { 
+        class: '7', 
+        subject: 'History', 
+        date: '2025-03-01', 
+        month: 'March', 
+        video: 'https://drive.google.com/file/d/1Ow25K60P4cx63LVyIUORZbnCwgMM7h7x/preview', 
+        title: '2025-03-01 - Class 7 - History Part 1' 
+      },
+
+      { 
+        class: '7', 
+        subject: 'History', 
+        date: '2025-03-01', 
+        month: 'March', 
+        video: 'https://drive.google.com/file/d/1tU0npXqc0Ud_Bcq1GaZxffp5DrIy063O/preview', 
+        title: '2025-03-01 - Class 7 - History Part 2' 
+      },
+
+      { 
+        class: '7', 
+        subject: 'History', 
+        date: '2025-03-01', 
+        month: 'March', 
+        video: 'https://drive.google.com/file/d/1rIF0Vy1sMoukkZdvbMfBB8NIpG9jFTjK/preview', 
+        title: '2025-03-01 - Class 7 - History Part 3' 
+      },
+
   ];
 
   
