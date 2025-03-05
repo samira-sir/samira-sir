@@ -83,6 +83,7 @@ const credentials = {
     yenuli: { password: '2010@YENULIB', subjects: [{name:'history',grade:10}] },
     shakuni: { password: 'shakuni2010', subjects: [{name:'history',grade:10}] },
     githuni: { password: '1234', subjects: [{name:'history',grade:10}] },
+    saratha: { password: 'saratha123', subjects: [{ name: 'history', grade: 10 }] },
     dihen: { password: 'D@i$h#e9N,', subjects: [{ name: 'history', grade: 11 },{ name: 'geography', grade: 11 }] },
     sithnuka: { password: 'Gp3%Fn8@', subjects: [{ name: 'history', grade: 11 }] },
     madumi: { password: 'Ho7&Kw2%', subjects: [{ name: 'history', grade: 11 },{ name: 'geography', grade: 11 }] },
