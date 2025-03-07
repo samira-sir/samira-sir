@@ -2937,5 +2937,41 @@ const videoLinks = [
       },
 
   ];
+      { 
+        class: '9', 
+        subject: 'History', 
+        date: '2025-03-06', 
+        month: 'March', 
+        video: 'https://drive.google.com/file/d/1u726YafeAU68XsDdLtsHK3JItp49S4ly/preview', 
+        title: '2025-03-06 - Class 9 - History Part 1' 
+      },
+
+      { 
+        class: '9', 
+        subject: 'History', 
+        date: '2025-03-06', 
+        month: 'March', 
+        video: 'https://drive.google.com/file/d/13XFjWSYzXNMuZELEd-nJGG1ZawX0_Lf0/preview', 
+        title: '2025-03-06 - Class 9 - History Part 2' 
+      },
+
+      { 
+        class: '9', 
+        subject: 'History', 
+        date: '2025-03-06', 
+        month: 'March', 
+        video: 'https://drive.google.com/file/d/1hQlaacVmq-b2KO-F7U2ev1bZa4ZzAc6k/preview', 
+        title: '2025-03-06 - Class 9 - History Part 3' 
+      },
+
+      { 
+        class: '9', 
+        subject: 'History', 
+        date: '2025-03-06', 
+        month: 'March', 
+        video: 'https://drive.google.com/file/d/1mUqtocoODR9sonncaWlceLITyHaKS_yB/preview', 
+        title: '2025-03-06 - Class 9 - History Part 4' 
+      },
+
 
   
