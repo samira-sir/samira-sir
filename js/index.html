@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Selection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+        }
+        select, button {
+            padding: 10px;
+            margin: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: none;
+        }
+        button {
+            background-color: green;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <label for="userDropdown">Select User:</label>
+    <select id="userDropdown">
+        <option value="">--Select a user--</option>
+    </select>
+    <button id="whatsappBtn">WhatsApp</button>
+
+    <script>
+        const credentials = {
+            amra: { password: '2014', subjects: [{ name: 'geography', grade: 6 }, { name: 'history', grade: 6 }] },
+            nithuki: { password: '2014', subjects: [{ name: 'geography', grade: 6 }, { name: 'history', grade: 6 }] },
+            shenya: { password: '2014', subjects: [{ name: 'geography', grade: 6 }, { name: 'history', grade: 6 }] },
+            ihansa: { password: '2014', subjects: [{ name: 'geography', grade: 6 }, { name: 'history', grade: 6 }] },
+            lositha: { password: '2014', subjects: [{ name: 'geography', grade: 6 }, { name: 'history', grade: 6 }] },
+            sathina: { password: 'sa2014', subjects: [{ name: 'history', grade: 6 }] },
+            numaya: { password: 'abcde', subjects: [{ name: 'history', grade: 7 }] }
+        };
+
+        const dropdown = document.getElementById("userDropdown");
+        const button = document.getElementById("whatsappBtn");
+
+        for (const username in credentials) {
+            let option = document.createElement("option");
+            option.value = username;
+            option.textContent = username;
+            dropdown.appendChild(option);
+        }
+
+        button.addEventListener("click", () => {
+            const selectedUser = dropdown.value;
+            if (!selectedUser) {
+                alert("Please select a user.");
+                return;
+            }
+
+            const userData = credentials[selectedUser];
+            const userInfo = {
+                username: selectedUser,
+                password: userData.password,
+                subjects: userData.subjects
+            };
+
+            const encryptedData = btoa(JSON.stringify(userInfo));
+            const link = `https://samira-sir.github.io/samira-sir/js/user.html?data=${encryptedData}`;
+            const bill = `Open User Details: ${link}`;
+
+            // Open WhatsApp with the encrypted link
+            const whatsappLink = `whatsapp://send?text=${encodeURIComponent(bill)}`;
+            window.open(whatsappLink, '_blank');
+        });
+    </script>
+</body>
+</html>

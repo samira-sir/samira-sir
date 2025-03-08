@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Info</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: linear-gradient(to right, #8e44ad, #ff6ec4, #3498db);
+            overflow: hidden;
+            position: relative;
+            color: white;
+            text-align: center;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            width: 80%;
+            max-width: 400px;
+        }
+        h2 {
+            margin-bottom: 10px;
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+        }
+        .subjects {
+            list-style: none;
+            padding: 0;
+        }
+        .subjects li {
+            background: rgba(255, 255, 255, 0.2);
+            margin: 5px;
+            padding: 10px;
+            border-radius: 10px;
+        }
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            margin: 10px;
+            padding: 12px 24px;
+            border: 2px solid white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            color: white;
+            text-transform: uppercase;
+            transition: 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        .btn:hover {
+            color: black;
+            background: white;
+            box-shadow: 0 0 10px white, 0 0 40px white, 0 0 80px white;
+        }
+        /* Neon Animations */
+        .neon-glow {
+            animation: glow 1.5s infinite alternate;
+        }
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 5px white, 0 0 10px cyan, 0 0 15px cyan, 0 0 20px cyan;
+            }
+            to {
+                text-shadow: 0 0 10px white, 0 0 20px blue, 0 0 30px blue, 0 0 40px blue;
+            }
+        }
+        /* Bubble Animations */
+        .bubble {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            animation: float 6s infinite ease-in-out;
+        }
+        @keyframes float {
+            0% { transform: translateY(0); opacity: 1; }
+            50% { transform: translateY(-200px); opacity: 0.5; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="card neon-glow">
+        <h2 id="username"></h2>
+        <p><strong>Password:</strong> <span id="password"></span></p>
+        <p><strong>Subjects:</strong></p>
+        <ul id="subjectList" class="subjects"></ul>
+        <a href="https://samira-sir.github.io/samira-sir/" class="btn">Website</a>
+        <a href="https://samira-sir.github.io/samira-sir/help.html" class="btn">Help</a>
+    </div>
+
+    <script>
+        function getQueryParam(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        const encryptedData = getQueryParam("data");
+        if (encryptedData) {
+            const decryptedData = JSON.parse(atob(encryptedData));
+            document.getElementById("username").textContent = "Username: " + decryptedData.username;
+            document.getElementById("password").textContent = decryptedData.password;
+
+            const subjectList = document.getElementById("subjectList");
+            decryptedData.subjects.forEach(subject => {
+                let li = document.createElement("li");
+                li.textContent = `${subject.name} (Grade ${subject.grade})`;
+                subjectList.appendChild(li);
+            });
+        }
+
+        // Generate bubbles for animation
+        function createBubbles() {
+            for (let i = 0; i < 15; i++) {
+                let bubble = document.createElement("div");
+                bubble.classList.add("bubble");
+                bubble.style.width = `${Math.random() * 60 + 20}px`;
+                bubble.style.height = bubble.style.width;
+                bubble.style.left = `${Math.random() * 100}%`;
+                bubble.style.animationDuration = `${Math.random() * 4 + 2}s`;
+                bubble.style.animationDelay = `${Math.random() * 3}s`;
+                document.body.appendChild(bubble);
+            }
+        }
+        createBubbles();
+    </script>
+</body>
+</html>
