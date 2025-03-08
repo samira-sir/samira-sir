@@ -141,6 +141,7 @@ const userMonthData = [
    { username: 'disura', months: ['Mar'] },
    { username: 'dinura', months: ['Mar'] },
    { username: 'jinuka', months: ['Mar'] },
+   { username: 'jinuka', months: ['Feb'] },
 
 
 
