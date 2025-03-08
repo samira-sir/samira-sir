@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="pyramid.png">
+  <title>Learn History,Geography & Civic with Samira sir</title>
+  <style>
+    .star-count {
+    position: absolute;
+
+    background-color: #fff;
+    padding: 5px 10px;
+    border-radius: 15px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    font-size: 1.2em;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.star-icon {
+    font-size: 1.5em;
+    color: gold;
+}
+
+/* Container for stars */
+.stars-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+/* Individual star styling */
+.star {
+    position: absolute;
+    background-color: white;
+    border-radius: 50%;
+    opacity: 0.8;
+    box-shadow: 0 0 2px rgba(255, 255, 255, 0.8);
+}
+
+/* Star size */
+.star.small {
+    width: 2px;
+    height: 2px;
+}
+
+.star.medium {
+    width: 4px;
+    height: 4px;
+}
+
+.star.large {
+    width: 6px;
+    height: 6px;
+}
+
+/* Animation for stars */
+@keyframes twinkle {
+    0% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.5;
+    }
+}
+
+.star {
+    animation: twinkle 1.5s infinite;
+}
+        .button-container button {
+    background-color: green;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  .containernxt {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+}
+
+/* Then style the iframe to fit in the container div with full height and width */
+.responsive-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+}
+  .button-container button:hover {
+    color: white;
+    background-color: black;
+    border: 2px solid white;
+  }
+    .subjects {
+      margin-top: 20px;
+    }
+    .button-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .button-container button {
+      margin: 5px;
+      padding: 10px 20px;
+    }
+    /*new contect*/
+    #class-buttons {
+      margin-top: 20px;
+    }
+
+    .button-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .button-group button {
+      flex-basis: calc(33.33% - 10px); /* Adjust the width as needed */
+      margin-bottom: 10px;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.3s;
+    }
+
+    .button-group button:hover {
+      transform: scale(1.05);
+    }
+
+    .history {
+      background-color: brown;
+    }
+
+    .history:hover {
+      color: white;
+    background-color: black;
+    border: 2px solid white; /* Darker shade for hover effect */
+    }
+    .button-container button {
+  background-color: green;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.button-container button:hover {
+  color: white;
+  background-color: black;
+  border: 2px solid white;
+}
+
+    .geography {
+      background-color: green;
+    }
+
+    .geography:hover {
+      color: white;
+    background-color: black;
+    border: 2px solid white; /* Darker shade for hover effect */
+    }
+
+    .civic {
+      background-color: blue;
+      color: black; /* Ensure text is readable on yellow background */
+    }
+
+    .civic:hover {
+      color: white;
+    background-color: black;
+    border: 2px solid white; /* Darker shade for hover effect */
+    }
+    .button-container button {
+  background-color: green;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.button-container button:hover {
+  color: white;
+  background-color: black;
+  border: 2px solid white;
+}
+/* styles.css */
+
+/* Glass div style */
+/* styles.css */
+
+/* Glass div style */
+.glass-div {
+    position: fixed; /* Make the div float */
+    top: 20px;
+    right: 20px;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.8); /* Black background with opacity */
+    color: #fff; /* White text color */
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Floating effect */
+    max-width: 400px;
+    z-index: 1000; /* Ensure it is on top of other elements */
+}
+
+/* Label styling */
+.glass-div div {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+/* Strong tag styling */
+.glass-div strong {
+    color: #f0f0f0; /* Slightly lighter text for labels */
+}
+.toggle-button {
+    position: fixed; /* Fixed position */
+    top: 10px; /* Distance from the top */
+    right: 10px; /* Distance from the right */
+    padding: 10px 20px; /* Padding around the text */
+    background-color: #333; /* Dark background color */
+    color: #fff; /* White text color */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Floating effect */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 16px; /* Font size */
+    z-index: 1001; /* Ensure button is above other elements */
+    transition: background-color 0.3s; /* Smooth transition for background color */
+}
+
+/* Button hover effect */
+.toggle-button:hover {
+    background-color: #555; /* Slightly lighter background color on hover */
+}
+
+
+  </style>
+  <link rel="stylesheet" href="images/style.css">
+
+
+   <script src="js/zoom.js"></script>
+   <script src="js/form.js"></script>
+   <script src="js/pdf.js"></script>
+   <script src="js/wordwall.js"></script>
+  <script src="js/pdf.js"></script>
+  <script>
+
+      document.addEventListener('DOMContentLoaded', () => {
+
+    
+      const username = localStorage.getItem('username');
+      const subjects = JSON.parse(localStorage.getItem('subjects'));
+
+      if (username) {
+        document.getElementById('greeting').textContent = `Hello, ${username}`;
+      }
+
+      if (subjects) {
+        const subjectsContainer = document.getElementById('subjects');
+        subjects.forEach(subject => {
+          const button = document.createElement('button');
+          button.textContent = `${subject.grade} - ${subject.name}`;
+          button.onclick = () => redirectToPage(subject.name, subject.grade);
+          subjectsContainer.appendChild(button);
+        });
+
+        displayGoogleForms(subjects);
+      }
+    });
+
+
+    function redirectToPage(subject, grade) {
+    
+
+      const key = `${grade}-${subject}`;
+      const url = redirects[key];
+
+      if (url) {
+        window.location.href = url;
+      } else {
+        alert('No redirection link found for this subject and grade.');
+      }
+    }
+
+   
+
+    function displayGoogleForms(subjects) {
+      const formsContainer = document.querySelector('.forms');
+      formsContainer.innerHTML = ''; // Clear previous content
+
+      subjects.forEach(subject => {
+        const subjectDiv = document.createElement('div');
+        subjectDiv.className = 'subject';
+
+        const subjectTitle = document.createElement('h2');
+        subjectTitle.textContent = `Grade ${subject.grade} - ${subject.name.charAt(0).toUpperCase() + subject.name.slice(1)}`;
+        subjectDiv.appendChild(subjectTitle);
+
+        const buttonContainer = document.createElement('div');
+        buttonContainer.className = 'button-container';
+
+        const key = `${subject.grade}-${subject.name}`;
+        const subjectUrls = urls[key];
+
+        if (subjectUrls) {
+          subjectUrls.forEach((url, index) => {
+            const button = document.createElement('button');
+            button.textContent = `Online Test ${index + 1}`;
+            button.onclick = () => window.open(url, '_blank');
+            buttonContainer.appendChild(button);
+          });
+        } else {
+          const noFormsMessage = document.createElement('p');
+          noFormsMessage.textContent = 'No forms available for this subject.';
+          buttonContainer.appendChild(noFormsMessage);
+        }
+
+        subjectDiv.appendChild(buttonContainer);
+        formsContainer.appendChild(subjectDiv);
+      });
+    }
+    
+
+    function displayWallForms(subjects) {
+      const formsContainer = document.querySelector('#class-buttons');
+      formsContainer.innerHTML = ''; // Clear previous buttons
+
+      // Group subjects by their name
+      const groupedSubjects = subjects.reduce((acc, subject) => {
+        acc[subject.name] = acc[subject.name] || [];
+        acc[subject.name].push(subject);
+        return acc;
+      }, {});
+
+      // Create buttons for each group
+      Object.keys(groupedSubjects).forEach(name => {
+        const group = groupedSubjects[name];
+        const groupContainer = document.createElement('div');
+        groupContainer.classList.add('button-group');
+
+        group.forEach((subject, index) => {
+          const gradeSubject = `${subject.grade}-${subject.name}`;
+          const formsUrls = wallFormsUrls[gradeSubject];
+          if (formsUrls) {
+            formsUrls.forEach((url, idx) => {
+              const button = document.createElement('button');
+              button.textContent = `Wordwall ${index * 5 + idx + 1}`; // Calculate unique number for each button
+              button.classList.add(subject.name.toLowerCase()); // Add class for styling
+              button.onclick = () => window.open(url, '_blank');
+              groupContainer.appendChild(button);
+            });
+          }
+        });
+
+        formsContainer.appendChild(groupContainer);
+      });
+    }
+
+    // Fetch the stored subjects and grade from local storage
+    function getStoredSubjects() {
+      const storedData = localStorage.getItem('subjects');
+      return storedData ? JSON.parse(storedData) : [];
+    }
+
+    // Example usage:
+    document.addEventListener('DOMContentLoaded', () => {
+      const subjects = getStoredSubjects();
+      displayWallForms(subjects);
+    
+    });
+
+
+
+
+
+    
+    document.addEventListener('DOMContentLoaded', () => {
+  const username = localStorage.getItem('username');
+  const subjects = JSON.parse(localStorage.getItem('subjects'));
+
+  if (username) {
+    document.getElementById('greeting').textContent = `Hello, ${username}`;
+  }
+
+  if (subjects) {
+    displayClassButtons(subjects);
+  }
+});
+
+
+
+function displayClassButtons(subjects) {
+  const container = document.getElementById('content-container');
+  container.innerHTML = '';
+
+  subjects.forEach(subject => {
+    const classSubject = `${subject.grade}-${subject.name}`;
+    const urls = pdfUrls[classSubject];
+
+    if (urls) {
+      urls.forEach((url, index) => {
+        const button = document.createElement('button');
+        button.textContent = `${classSubject} - PDF ${index + 1}`;
+        button.onclick = () => openPdfInBlankWindow(url);
+        container.appendChild(button);
+      });
+    }
+  });
+}
+
+function openPdfInBlankWindow(url) {
+  window.open(url, '_blank');
+}
+
+// Function to change button text
+function changeButtonText(oldText, newText) {
+  const buttons = document.querySelectorAll('#content-container button');
+  buttons.forEach(button => {
+    if (button.textContent === oldText) {
+      button.textContent = newText;
+    }
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const username = localStorage.getItem('username');
+  const subjects = JSON.parse(localStorage.getItem('subjects'));
+
+  if (username) {
+    document.getElementById('greeting').textContent = `Hello, ${username}`;
+  }
+
+  if (subjects) {
+    displayClassButtons(subjects);
+  }
+});
+
+
+
+function displayClassButtons(subjects) {
+  const container = document.getElementById('content-container');
+  container.innerHTML = '';
+
+  subjects.forEach(subject => {
+    const classSubject = `${subject.grade}-${subject.name}`;
+    const urls = pdfUrls[classSubject];
+
+    if (urls) {
+      urls.forEach((url, index) => {
+        const button = document.createElement('button');
+        button.textContent = `${classSubject} - PDF ${index + 1}`;
+        button.onclick = () => openPdfInBlankWindow(url);
+        container.appendChild(button);
+      });
+    }
+  });
+}
+
+function openPdfInBlankWindow(url) {
+  window.open(url, '_blank');
+}
+
+// Function to change button text
+function changeButtonText(oldText, newText) {
+  const buttons = document.querySelectorAll('#content-container button');
+  buttons.forEach(button => {
+    if (button.textContent === oldText) {
+      button.textContent = newText;
+    }
+  });
+}
+// script.js
+// script.js
+function toggleUserInfo() {
+    const userInfoContainer = document.getElementById('userInfoContainer');
+    const isVisible = userInfoContainer.style.display === 'block';
+
+    if (isVisible) {
+        userInfoContainer.style.display = 'none';
+    } else {
+        // Display user info
+        showUserInfo();
+        userInfoContainer.style.display = 'block';
+    }
+}
+
+function showUserInfo() {
+    const username = localStorage.getItem('username');
+    const password = localStorage.getItem('password'); // Assuming you also stored the password
+    const subjects = JSON.parse(localStorage.getItem('subjects'));
+
+    if (username && subjects) {
+        const userInfoContainer = document.getElementById('userInfoContainer');
+        userInfoContainer.innerHTML = ''; // Clear previous content if any
+
+        // Create and populate labels for username and password
+        const usernameLabel = document.createElement('div');
+        usernameLabel.innerHTML = `<strong>Username:</strong> ${username}`;
+        const passwordLabel = document.createElement('div');
+        passwordLabel.innerHTML = `<strong>Password:</strong> ${password}`;
+        
+        // Create and populate labels for subjects and grades
+        const subjectsLabel = document.createElement('div');
+        subjectsLabel.innerHTML = '<strong>Subjects:</strong><br>' +
+            subjects.map(subject => `${subject.name} (Grade ${subject.grade})`).join('<br>');
+        
+        // Append labels to the container
+        userInfoContainer.appendChild(usernameLabel);
+        userInfoContainer.appendChild(passwordLabel);
+        userInfoContainer.appendChild(subjectsLabel);
+    } else {
+        alert('User information not found.');
+    }
+}
+
+
+function loadStarCountAndLevel() {
+    const starCountElement = document.getElementById('star-count');
+    
+    // Get star count and level from local storage
+    const storedStars = parseInt(localStorage.getItem('starCount')) || 0;
+    const storedLevel = parseInt(localStorage.getItem('level')) || 1;
+    
+    // Display the star count and level
+    starCountElement.textContent = `Stars: ${storedStars} | Level: ${storedLevel}`;
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Load the star count and level when the page loads
+    loadStarCountAndLevel();
+    
+    // Initialize and load the first question
+    loadQuestion();
+});
+  </script>
+</head>
+<body>
+ 
+    <header>
+        <nav>
+          <div class="nav_logo">
+            <a href="#">
+              <img src="images/coffee_logo.png" alt="Coffee Logo" />
+              <h2>Download Tutes and Papers</h2>
+            </a>
+          </div>
+  
+          <input type="checkbox" id="click" />
+          <label for="click">
+            <i class="menu_btn bx bx-menu"></i>
+            <i class="close_btn bx bx-x"></i>
+          </label>
+  
+          <ul>
+            
+
+            <li><a href="#gallery">Tutes</a></li>
+
+            
+            <li><div class="profile"><img src="images/user.png" alt="Profile Picture" class="profile-image"><p></p><div class="greeting" id="greeting">&nbsp&nbsp</div></div></li>
+          </ul>
+        </nav>
+      </header>
+  
+      <!-- Hero Section -->
+      <section class="hero_section">
+        <div class="section_container">
+          <div class="hero_container">
+            <div class="text_section">
+              <h2>Online අධ්‍යාපනයේ Digital නව්‍යකරණය</h2>
+              <h3>සමීර ආරියදාස</h3>
+              <p>
+                6 ශ්‍රේණියේ සිට 11 ශ්‍රේණිය දක්වා ඉතිහාසය,භූගෝල විද්‍යාව සහ පුරවැසි අධ්‍යාපනය
+              </p>
+         
+  
+              <div class="hero_section_button">
+
+
+              </div>
+            </div>
+  
+            <div class="image_section">
+              <img src="images/cofffee_image.png" alt="Coffee" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About Us Section -->
+
+  
+      <!-- Services Section -->
+
+  
+      <!-- Gallery Section -->
+      <section class="gallery" id="gallery">
+        <h2 class="section_title" style="color:white;">Tutes and Papers</h2>
+        <div id="content-container" class="button-container"></div>
+      </section>
+    
+      <!-- Contact Section -->
+
+    <!-- Button to toggle the glass div visibility -->
+
+    <!-- Container for the glass div --><br>
+    <div id="userInfoContainer" class="glass-div" style="display: none;"></div>
+      <!-- Footer Section -->
+      <footer>
+        <div class="section_container">
+          <div class="footer_section">
+            <div class="footer_logo">
+              <a href="index.html">
+                <img src="images/coffee_logo.png" alt="Coffee Logo" />
+                <h2>Learn History,Geography & Civic <br>with Samira sir</h2>
+              </a>
+            </div>
+  
+            <div class="useful_links">
+              <h3>Useful Links</h3>
+              <ul>
+
+                <li><a href="#gallery">Tutes</a></li>
+
+               
+              </ul>
+            </div>
+  
+            <div class="contact_us">
+              <h3>Contact</h3>
+              <ul>
+                <li>
+                  <i class="bx bx-current-location"></i>
+                  <span>Bandarawela, Sri Lanka</span>
+                </li>
+                <li>
+                  <i class="bx bxs-phone-call"></i> <span>+9478 87 666 97</span>
+                </li>
+                <li>
+                  <i class="bx bxs-time-five"></i>
+                  <span>Mon-Sun : 07:00 AM - 7:00 PM</span>
+                </li>
+              </ul>
+            </div>
+  
+            <div class="follow_us">
+              <h3>Follow Us</h3>
+              <a href="https://api.whatsapp.com/send?phone=94788766697&text=Hello%2CI%20am%20interested%20about%20your%20classes.Can%20I%20get%20informations%20about%20them.%F0%9F%99%82" class="fb"><i class="fa fa-whatsapp" aria-hidden="true"></i></i></a>
+              <a href="https://web.facebook.com/people/History-Geography-Civic-With-Samira-Ariyadasa/100083035703991/?_rdc=1&_rdr" class="twitter"><i class="fa fa-facebook"></i></a>
+              <a href="https://www.youtube.com/@samira_sir" class="yt"><i class="fa fa-youtube"></i></a>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+</body>
+</html>
