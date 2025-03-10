@@ -245,6 +245,12 @@ const userMonthData = [
    { username: 'sayuni', months: ['Mar'] },
    { username: 'prasadi', months: ['Mar'] },
    { username: 'binuka', months: ['Mar'] },
+   { username: 'poojana', months: ['Mar'] },
+   { username: 'kithmini', months: ['Mar'] },
+   { username: 'thisumi', months: ['Mar'] },
+   { username: 'udayangani', months: ['Mar'] },
+   { username: 'linuka', months: ['Mar'] },
+   { username: 'sanuka', months: ['Mar'] },
 
 
 
