@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Map</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100vh;
+            background-color: #ffffff;
+        }
+        #search-container {
+            width: 100%;
+            background: black;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+        }
+        input {
+            padding: 8px;
+            width: 250px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            z-index: 1001;
+            text-transform: capitalize;
+        }
+        #suggestions, #titles-box, #places-box {
+            position: absolute;
+            top: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            width: 250px;
+            border: 1px solid #ccc;
+            border-top: none;
+            display: none;
+            max-height: 150px;
+            overflow-y: auto;
+            z-index: 1002;
+        }
+        #suggestions div, #titles-box div, #places-box div {
+            padding: 8px;
+            cursor: pointer;
+        }
+        #suggestions div:hover, #titles-box div:hover, #places-box div:hover {
+            background: #f0f0f0;
+        }
+        button {
+            padding: 8px 12px;
+            margin-left: 5px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #map {
+            width: 100vw;
+            height: calc(100vh - 150px);
+            margin-top: 50px;
+            background: #ffffff;
+            position: relative;
+            overflow: hidden;
+        }
+        footer {
+            width: 100%;
+            text-align: center;
+            padding: 10px;
+            background: black;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.3);
+        color:white;
+        }
+        #title-button {
+            position: fixed;
+            bottom: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1003;
+        }
+    </style>
+</head>
+<body>
+    <div id="search-container">
+        
+        <input type="text" id="location-input" placeholder="Enter a location..." onkeyup="showSuggestions()">
+        <button onclick="searchLocation()">Search</button>
+        <div id="suggestions"></div>
+    </div>
+
+    <div id="map"></div>
+    <button id="title-button" onclick="showTitles()">Show Titles</button>
+    <div id="titles-box"></div>
+    <div id="places-box"></div>
+    <footer><marquee>Learn History & Geogrphy with Samira sir.All rights reserved.2025<sup>&copy</sup> <a href="https://samira-sir.github.io/samira-sir/">Visit Us</a></marquee></footer>
+    <script>
+        var map = L.map('map', {
+            crs: L.CRS.Simple,
+            minZoom: -2,
+            maxBoundsViscosity: 1.0,
+        });
+    
+        var imageUrl = 'your-map-image.webp';
+    
+        var image = new Image();
+        image.src = imageUrl;
+        image.onload = function () {
+            var imageBounds = [[0, 0], [image.height, image.width]];
+            L.imageOverlay(imageUrl, imageBounds).addTo(map);
+            map.fitBounds(imageBounds);
+            map.setMaxBounds(imageBounds);
+        };
+    
+        var marker;
+        var places = [
+        { sinhala: "කනගරායන් ආරු", english: "Kanagarayan Aru", titles: ["ශ්‍රී ලංකාවේ ගංගා"], coords: [1914.12, 876.00] }, 
+        { sinhala: "මල්වතු ඔය", english: "Malwathu Oya", titles: ["ශ්‍රී ලංකාවේ ගංගා"], coords: [1725.06, 703.00] },
+        { sinhala: "කලා ඔය", english: "Kala Oya", titles: ["ශ්‍රී ලංකාවේ ගංගා"], coords: [1437.87, 678.00] },
+        { sinhala: "දැදුරු ඔය", english: "Daduru Oya", titles: ["ශ්‍රී ලංකාවේ ගංගා"], coords: [1186.98, 643.00] },
+        { sinhala: "මහ ඔය/මා ඔය", english: "Maha Oya/Ma Oya", titles: ["ශ්‍රී ලංකාවේ ගංගා"], coords: [972.07, 673.00] },
+        { sinhala: "කැලණි ගඟ", english: "Kelani River", titles: ["ශ්‍රී ලංකාවේ ගංගා"], coords: [790.14, 671.00] },
+        { sinhala: "කළු ගඟ", english: "Kalu Gaga", titles: ["ශ්‍රී ලංකාවේ ගංගා"], coords: [624.21, 659.00] },
+        { sinhala: "ගිං ගඟ", english: "Gin Gaga", titles: ["ශ්‍රී ලංකාවේ ගංගා"], coords: [390.68, 723.00] },
+        { sinhala: "නිල්වලා ගඟ", english: "Nilwala Ganga", titles: ["ශ්‍රී ලංකාවේ ගංගා"], coords: [299.22, 912.00] },
+        { sinhala: "වලවේ ගඟ", english: "Walawe Ganga", titles: ["ශ්‍රී ලංකාවේ ගංගා"], coords: [579.50, 1082.00] },
+        { sinhala: "කිරිඳි ඔය", english: "Kiridi Oya", titles: ["ශ්‍රී ලංකාවේ ගංගා"], coords: [568.50, 1235.00] },
+        { sinhala: "මැණික් ගඟ", english: "Menik Ganga", titles: ["ශ්‍රී ලංකාවේ ගංගා"], coords: [633.47, 1414.50] },
+        { sinhala: "ගල්ඔය", english: "Gal Oya", titles: ["ශ්‍රී ලංකාවේ ගංගා"], coords: [944.85, 1522.50] },
+        { sinhala: "මාදුරු ඔය", english: "Maduru Oya", titles: ["ශ්‍රී ලංකාවේ ගංගා"], coords: [1304.70, 1300.00] },
+        { sinhala: "මහවැලි ගඟ", english: "Mahaweli River", titles: ["ශ්‍රී ලංකාවේ ගංගා"], coords: [1344.18, 1230.00] },
+        { sinhala: "අඹන් ගඟ", english: "Aban Ganga", titles: ["ශ්‍රී ලංකාවේ ගංගා"], coords: [1224.23, 1084.00] },
+        { sinhala: "යාන් ඔය", english: "Yan Oya", titles: ["ශ්‍රී ලංකාවේ ගංගා"], coords: [1624.06, 1082.00] },
+        { sinhala: "මා ඔය", english: "Ma Oya", titles: ["ශ්‍රී ලංකාවේ ගංගා"], coords: [1819.98, 1032.00] },
+    
+    
+    
+    
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    ];
+    
+        function searchLocation() {
+            var input = document.getElementById('location-input').value.trim().toLowerCase();
+            var place = places.find(p => p.english.toLowerCase() === input || p.sinhala.toLowerCase() === input);
+            
+            if (place) {
+                if (marker) { map.removeLayer(marker); }
+                marker = L.marker(place.coords).addTo(map).bindPopup(`<b>${place.sinhala}</b>`).openPopup();
+            } else {
+                alert("Location not found");
+            }
+        }
+    
+        function showTitles() {
+            var titlesBox = document.getElementById('titles-box');
+            titlesBox.innerHTML = '';
+    
+            let allTitles = new Set();
+            places.forEach(place => {
+                place.titles.forEach(title => allTitles.add(title));
+            });
+    
+            allTitles.forEach(title => {
+                var div = document.createElement('div');
+                div.innerText = title;
+                div.onclick = function () { showPlacesByTitle(title); };
+                titlesBox.appendChild(div);
+            });
+    
+            titlesBox.style.display = 'block';
+            document.getElementById('places-box').style.display = 'none';
+        }
+    
+        function showPlacesByTitle(title) {
+            var placesBox = document.getElementById('places-box');
+            placesBox.innerHTML = '';
+    
+            var filteredPlaces = places.filter(place => place.titles.includes(title));
+    
+            filteredPlaces.forEach(place => {
+                var div = document.createElement('div');
+                div.innerText = place.english + " / " + place.sinhala;
+                div.onclick = function () { pointLocation(place); };
+                placesBox.appendChild(div);
+            });
+    
+            document.getElementById('titles-box').style.display = 'none';
+            placesBox.style.display = 'block';
+        }
+    
+        function pointLocation(place) {
+            if (marker) { map.removeLayer(marker); }
+            marker = L.marker(place.coords).addTo(map).bindPopup(`<b>${place.sinhala}</b>`).openPopup();
+    
+            document.getElementById('places-box').style.display = 'none';
+        }
+    
+        function showSuggestions() {
+            var input = document.getElementById('location-input').value.toLowerCase();
+            var suggestionBox = document.getElementById('suggestions');
+            suggestionBox.innerHTML = '';
+    
+            if (!input) {
+                suggestionBox.style.display = 'none';
+                return;
+            }
+    
+            places.forEach(place => {
+                if (place.english.toLowerCase().includes(input) || place.sinhala.toLowerCase().includes(input)) {
+                    var div = document.createElement('div');
+                    div.innerHTML = place.english + ' / ' + place.sinhala;
+                    div.onclick = function () {
+                        document.getElementById('location-input').value = place.english;
+                        suggestionBox.style.display = 'none';
+                        searchLocation();
+                    };
+                    suggestionBox.appendChild(div);
+                }
+            });
+    
+            suggestionBox.style.display = suggestionBox.innerHTML ? 'block' : 'none';
+        }
+    </script>
+    
+    
+    
+</body>
+</html>
