@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Custom Map</title>
+    <title>History Map(Trial Version)</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <style>
@@ -108,10 +108,10 @@
     </div>
 
     <div id="map"></div>
-    <button id="title-button" onclick="showTitles()">Show Titles</button>
+    <button id="title-button" onclick="showTitles()">Show Themes</button>
     <div id="titles-box"></div>
     <div id="places-box"></div>
-    <footer><marquee>Learn History & Geogrphy with Samira sir.All rights reserved.2025<sup>&copy</sup> <a href="https://samira-sir.github.io/samira-sir/">Visit Us</a></marquee></footer>
+    <footer><marquee>Learn History & Geogrphy with Samira sir.All rights reserved.2025<sup>&copy</sup> <a href="https://samira-sir.github.io/samira-sir/">Visit Us</a>.This is a trial version.</marquee></footer>
     <script>
         var map = L.map('map', {
             crs: L.CRS.Simple,
@@ -150,6 +150,64 @@
         { sinhala: "අඹන් ගඟ", english: "Aban Ganga", titles: ["ශ්‍රී ලංකාවේ ගංගා"], coords: [1224.23, 1084.00] },
         { sinhala: "යාන් ඔය", english: "Yan Oya", titles: ["ශ්‍රී ලංකාවේ ගංගා"], coords: [1624.06, 1082.00] },
         { sinhala: "මා ඔය", english: "Ma Oya", titles: ["ශ්‍රී ලංකාවේ ගංගා"], coords: [1819.98, 1032.00] },
+        { sinhala: "යෝධ වැව", english: "Yoda Wewa", titles: ["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"], coords: [1777.19, 627.89] },
+        { sinhala: "මහකනදරා වැව", english: "Mahakanadara Wewa", titles: ["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"], coords: [1539.32, 907.81] },
+        { sinhala: "නුවර වැව", english: "Nuwara Wewa", titles: ["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"], coords: [1508.72, 847.00] },
+        { sinhala: "තිසා වැව", english: "Thisa Wewa", titles: ["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"], coords: [1496.71, 810.00] },
+        { sinhala: "නාච්චාදූව වැව", english: "Nachchaduwa Wewa", titles: ["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"], coords: [1459.69, 882.00] },
+        { sinhala: "රාජාංගනය ජලාශය", english: "Rajanganaya Jalashaya", titles: ["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"], coords: [1407.67, 746.00] },
+        { sinhala: "කලා වැව", english: "Kala Wewa", titles: ["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"], coords: [1336.63, 912.00] },
+        { sinhala: "කන්ඩලම වැව", english: "Kandalama Wewa", titles: ["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"], coords: [1273.60, 993.00] },
+        { sinhala: "පොල්ගොල්ල වේල්ල", english: "Polgolla Wella", titles: ["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"], coords: [977.44, 969.00] },
+        { sinhala: "සමනල වැව", english: "Samanala Wewa", titles: ["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"], coords: [638.19, 1043.00] },
+        { sinhala: "චන්ද්‍රිකා වැව", english: "Chandrika Wewa", titles: ["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"], coords: [461.10, 1082.00] },
+        { sinhala: "මිණිපේ අමුණ", english: "Minipe Amuna", titles: ["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"], coords: [940.34, 1172.00] },
+        { sinhala: "සොරබොර වැව", english: "Sorabora Wewa", titles: ["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"], coords: [976.36, 1179.00] },
+        { sinhala: "ඇළහැර අමුණ", english: "Elahera Amuna", titles: ["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"], coords: [1261.51, 1108.00] },
+        { sinhala: "පරාක්‍රම සමුද්‍රය", english: "Parakrama Samudraya", titles: ["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"], coords: [1297.53, 1145.00] },
+        { sinhala: "මින්නේරිය වැව", english: "Minneriya Wewa", titles: ["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"], coords: [1361.56, 1092.00] },
+        { sinhala: "කවුඩුල්ල වැව", english: "Kawdulla Wewa", titles: ["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"], coords: [1421.59, 1114.00] },
+        { sinhala: "හුරුළු වැව", english: "Hurulu Wewa", titles: ["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"], coords: [1438.60, 1012.00] },
+        { sinhala: "කන්තලේ වැව", english: "Kanthale Wewa", titles: ["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"], coords: [1538.65, 1148.00] },
+        { sinhala: "පදවිය වැව", english: "Padawiya Wewa", titles: ["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"], coords: [1752.77, 1027.00] },
+        { sinhala: "ඉරණමඩු වැව", english: "Iranamadu Wewa", titles: ["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"], coords: [2005.90, 854.00] },
+        { sinhala: "ඉරණමඩු වැව", english: "Iranamadu Wewa", titles: ["ප්‍රාග් ඓතිහාසික ස්ථාන"], coords: [2005.90, 854.00] },
+        { sinhala: "වික්ටෝරියා ජලාශය", english: "Victoria Reservoir", titles: ["ශ්‍රී ලංකාවේ ජලාශ"], coords: [945.76, 1033.00] },
+        { sinhala: "කොත්මලේ ජලාශය", english: "Kothmale Reservoir", titles: ["ශ්‍රී ලංකාවේ ජලාශ"], coords: [831.70, 969.00] },
+        { sinhala: "උඩවලව ජලාශය", english: "Udawalawa Reservoir", titles: ["ශ්‍රී ලංකාවේ ජලාශ"], coords: [535.54, 1080.00] },
+        { sinhala: "රන්දෙනිගල ජලාශය", english: "Randenigala Reservoir", titles: ["ශ්‍රී ලංකාවේ ජලාශ"], coords: [896.73, 1103.00] },
+        { sinhala: "රන්ටැබේ ජලාශය", english: "Rantebe Reservoir", titles: ["ශ්‍රී ලංකාවේ ජලාශ"], coords: [920.74, 1139.00] },
+        { sinhala: "සේනානායක සමුද්‍රය", english: "Senanayaka Samudraya", titles: ["ශ්‍රී ලංකාවේ ජලාශ"], coords: [906.74, 1449.00] },
+        { sinhala: "මාදුරු ඔය ජලාශය", english: "Maduruoya Reservoir", titles: ["ශ්‍රී ලංකාවේ ජලාශ"], coords: [1118.85, 1275.00] },
+        { sinhala: "පුනරීන්", english: "Punarin", titles: ["ප්‍රාග් ඓතිහාසික ස්ථාන"], coords: [2081.51, 721.96] },
+        { sinhala: "ඉරණමඩු", english: "Iranamadu", titles: ["ප්‍රාග් ඓතිහාසික ස්ථාන"], coords: [2022.48, 819.94] },
+        { sinhala: "මන්නාරම", english: "Mannar", titles: ["ප්‍රාග් ඓතිහාසික ස්ථාන"], coords: [1812.40, 583.00] },
+        { sinhala: "පොම්පරිප්පු", english: "Pomparippu", titles: ["ප්‍රාග් ඓතිහාසික ස්ථාන","පූර්ව ඓතිහාසික ස්ථාන"], coords: [1527.28, 525.01] },
+        { sinhala: "ඉබ්බන්කටුව", english: "Ibbankatuwa", titles: ["ප්‍රාග් ඓතිහාසික ස්ථාන","පූර්ව ඓතිහාසික ස්ථාන"], coords: [1236.16, 956.90] },
+        { sinhala: "අත්තනගොඩ අළුලෙන", english: "Aththanagoda Alu Lena", titles: ["ප්‍රාග් ඓතිහාසික ස්ථාන"], coords: [894.03, 818.94] },
+        { sinhala: "කිතුල්ගල බෙලිලෙන", english: "Kithulgala Belilena", titles: ["ප්‍රාග් ඓතිහාසික ස්ථාන"], coords: [807.99, 873.92] },
+        { sinhala: "මානියම්ගම", english: "Maniyangama", titles: ["ප්‍රාග් ඓතිහාසික ස්ථාන"], coords: [761.97, 754.95] },
+        { sinhala: "කුරුවිට බටදොඹ ලෙන", english: "Kuruvita Batadombalena", titles: ["ප්‍රාග් ඓතිහාසික ස්ථාන"], coords: [662.93, 819.94] },
+        { sinhala: "පාහියන්ගල", english: "Pahiyangala", titles: ["ප්‍රාග් ඓතිහාසික ස්ථාන"], coords: [613.91, 718.96] },
+        { sinhala: "අළුගල්ගෙ", english: "Alugalge", titles: ["ප්‍රාග් ඓතිහාසික ස්ථාන"], coords: [380.82, 1200.84] },
+        { sinhala: "උඩමළල", english: "Udamalala", titles: ["ප්‍රාග් ඓතිහාසික ස්ථාන"], coords: [400.83, 1247.82] },
+        { sinhala: "බූන්දල/පතිරාජවල", english: "Bundala/Pathirajawela", titles: ["ප්‍රාග් ඓතිහාසික ස්ථාන"], coords: [418.83, 1309.81] },
+        { sinhala: "මිනිහාගල්කන්ද", english: "Minihagal Kanda", titles: ["ප්‍රාග් ඓතිහාසික ස්ථාන"], coords: [523.88, 1479.76] },
+        { sinhala: "හෝර්ටන්තැන්න", english: "Hortn Place", titles: ["ප්‍රාග් ඓතිහාසික ස්ථාන"], coords: [716.95, 1022.88] },
+        { sinhala: "රාවණා ඇල්ල", english: "Rawana Falls", titles: ["ප්‍රාග් ඓතිහාසික ස්ථාන"], coords: [735.96, 1178.84] },
+        { sinhala: "බණ්ඩාරවෙල", english: "Bandarawela", titles: ["ප්‍රාග් ඓතිහාසික ස්ථාන"], coords: [767.98, 1150.85] },
+        { sinhala: "පොතාන/අලිගල/සීගිරිය අලකොළවැව/දෙහිගහඇළකන්ද", english: "Pothana/Aligala/Sigiriya Alakolawewa/Dehigahaelakanda", titles: ["ප්‍රාග් ඓතිහාසික ස්ථාන"], coords: [1362.43, 1023.87] },
+        { sinhala: "අලිමංකඩ", english: "Elephant Pass", titles: ["ප්‍රාග් ඓතිහාසික ස්ථාන"], coords: [2122.74, 821.93] },
+        { sinhala: "ගල්සොහොන්කනත්ත", english: "Galsohonkanaththa", titles: ["පූර්ව ඓතිහාසික ස්ථාන"], coords: [1344.72, 595.85] },
+        { sinhala: "යටිගල්පොත්ත", english: "Yatigalpoththa", titles: ["පූර්ව ඓතිහාසික ස්ථාන"], coords: [1242.68, 935.76] },
+        { sinhala: "හැවෙනිවෙළ", english: "Haveniwela", titles: ["පූර්ව ඓතිහාසික ස්ථාන"], coords: [1152.64, 917.76] },
+        { sinhala: "දුම්මලසූරිය", english: "Dummalasuriya", titles: ["පූර්ව ඓතිහාසික ස්ථාන"], coords: [1092.62, 579.85] },
+        { sinhala: "නිකවලමුල්ල", english: "Nikawalamulla", titles: ["පූර්ව ඓතිහාසික ස්ථාන"], coords: [784.49, 775.80] },
+        { sinhala: "හල්දුම්මුල්ල", english: "Haldummulla", titles: ["පූර්ව ඓතිහාසික ස්ථාන"], coords: [712.46, 901.77] },
+        { sinhala: "බණ්ඩත්තර", english: "Bandaththara", titles: ["පූර්ව ඓතිහාසික ස්ථාන"], coords: [294.27, 933.76] },
+        { sinhala: "හබරත්තාව", english: "Habaraththawa", titles: ["පූර්ව ඓතිහාසික ස්ථාන"], coords: [386.31, 1215.68] },
+        { sinhala: "උඩරංචාමඩම/රංචාමඩව", english: "Udaranchamadama/Ranchamadama", titles: ["පූර්ව ඓතිහාසික ස්ථාන"], coords: [490.35, 1011.74] },
+        { sinhala: "බෙරගල", english: "Beragala", titles: ["පූර්ව ඓතිහාසික ස්ථාන"], coords: [688.43, 1117.71] },
     
     
     
