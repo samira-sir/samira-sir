@@ -3283,6 +3283,42 @@ const videoLinks = [
       },
 
 
+      { 
+        class: '9', 
+        subject: 'Civic', 
+        date: '2025-03-14', 
+        month: 'March', 
+        video: 'https://drive.google.com/file/d/1lu0HE10Z9FFSOeFQZulGonFfU-4NfA0_/preview', 
+        title: '2025-03-14 - Class 9 - Civic Part 1' 
+      },
+
+      { 
+        class: '9', 
+        subject: 'Civic', 
+        date: '2025-03-14', 
+        month: 'March', 
+        video: 'https://drive.google.com/file/d/1R2OVN__DMABq5lzmZ5yvxftgjaqWeSj5/preview', 
+        title: '2025-03-14 - Class 9 - Civic Part 2' 
+      },
+
+      { 
+        class: '9', 
+        subject: 'Civic', 
+        date: '2025-03-14', 
+        month: 'March', 
+        video: 'https://drive.google.com/file/d/18FlCUsJODekz_Y-OZJwF2uQL-7qfoumP/preview', 
+        title: '2025-03-14 - Class 9 - Civic Part 3' 
+      },
+
+      { 
+        class: '9', 
+        subject: 'Civic', 
+        date: '2025-03-14', 
+        month: 'March', 
+        video: 'https://drive.google.com/file/d/17dpdh7iRBzd1aPTgQFO3TyoTufC-Cq8i/preview', 
+        title: '2025-03-14 - Class 9 - Civic Part 4' 
+      },
+
 
 
 
