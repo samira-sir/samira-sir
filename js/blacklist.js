@@ -1,1 +1,1 @@
-  const blacklist = ['dulya','himaka','eshini','nethuki','reema','oneli','nethini','vonadi','sansala','dewmi','lithumila','githuni','shakuni']; 
+  const blacklist = ['dulya','himaka','eshini','nethuki','reema','oneli','nethini','vonadi','sansala','dewmi','lithumila','githuni','lositha','shakuni']; 
