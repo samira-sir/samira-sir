@@ -3490,35 +3490,7 @@ const videoLinks = [
         title: '2025-03-16 - Class 6 - Geography Part 2' 
       },
 
-      { 
-        class: '11', 
-        subject: 'History', 
-        date: '2025-03-17', 
-        month: 'March', 
-        video: 'https://drive.google.com/file/d/1DeTo2FHHY7gwGWZvEVObwd8SpBMoFiih/preview', 
-        title: '2025-03-17 - Class 11 - History Part 1' 
-      },
-
-      { 
-        class: '11', 
-        subject: 'History', 
-        date: '2025-03-17', 
-        month: 'March', 
-        video: 'https://drive.google.com/file/d/1Fv4BNBFil7D7wObnOgd9EpVpJhvnuYUi/preview', 
-        title: '2025-03-17 - Class 11 - History Part 2' 
-      },
-
-      { 
-        class: '11', 
-        subject: 'History', 
-        date: '2025-03-17', 
-        month: 'March', 
-        video: 'https://drive.google.com/file/d/131JNlQodt8hdhhtzhcyp3q91wWjRumBr/preview', 
-        title: '2025-03-17 - Class 11 - History Part 3' 
-      },
-
-
-      { 
+        { 
         class: '10', 
         subject: 'History', 
         date: '2025-03-17', 
@@ -3636,6 +3608,33 @@ const videoLinks = [
         month: 'March', 
         video: 'https://drive.google.com/file/d/1zaxpWP0bGYA_fF7lAAUH6NsD4Jjvc8sv/preview', 
         title: '2025-03-17 - Class 11 - Geography Part 3' 
+      },
+
+      { 
+        class: '11', 
+        subject: 'History', 
+        date: '2025-03-17', 
+        month: 'March', 
+        video: 'https://drive.google.com/file/d/1CP-IKjPRZL3KX3HsydoRHoWgrY-AaHsV/preview', 
+        title: '2025-03-17 - Class 11 - History Part 1' 
+      },
+
+      { 
+        class: '11', 
+        subject: 'History', 
+        date: '2025-03-17', 
+        month: 'March', 
+        video: 'https://drive.google.com/file/d/1Pu3TGY3DvccgtD7WacSQahF0DNu6qE_q/preview', 
+        title: '2025-03-17 - Class 11 - History Part 2' 
+      },
+
+      { 
+        class: '11', 
+        subject: 'History', 
+        date: '2025-03-17', 
+        month: 'March', 
+        video: 'https://drive.google.com/file/d/1cUkkKrx3wYTp3FZ_ylMuHJf-ey7kU_Sm/preview', 
+        title: '2025-03-17 - Class 11 - History Part 3' 
       },
 
 
