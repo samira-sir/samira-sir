@@ -3574,6 +3574,42 @@ const videoLinks = [
       },
 
 
+      { 
+        class: '10', 
+        subject: 'Geography', 
+        date: '2025-03-17', 
+        month: 'March', 
+        video: 'https://drive.google.com/file/d/1Ftlgg2LTuSSD2DfVTTROH2lb5RwGuvGq/preview', 
+        title: '2025-03-17 - Class 10 - Geography Part 1' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'Geography', 
+        date: '2025-03-17', 
+        month: 'March', 
+        video: 'https://drive.google.com/file/d/1HlOfiJ4THGR5CPwqzBC25g4EDiRiO943/preview', 
+        title: '2025-03-17 - Class 10 - Geography Part 2' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'Geography', 
+        date: '2025-03-17', 
+        month: 'March', 
+        video: 'https://drive.google.com/file/d/1IvE3aZGdEJjAzZaAwDZFNvcjrC61Foht/preview', 
+        title: '2025-03-17 - Class 10 - Geography Part 3' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'Geography', 
+        date: '2025-03-17', 
+        month: 'March', 
+        video: 'https://drive.google.com/file/d/17zm6cBqguZxxKQbGYjAWADpo2CYAfXY3/preview', 
+        title: '2025-03-17 - Class 10 - Geography Part 4' 
+      },
+
 
 
 
