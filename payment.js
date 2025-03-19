@@ -1,4 +1,4 @@
-const userMonthData = [
+ const userMonthData = [
     { username: 'sanuka', months: ['Jan'] },
     { username: 'samira', months: ['Jan'] },
     { username: 'numaya', months: ['Jan'] },
@@ -259,6 +259,10 @@ const userMonthData = [
    { username: 'hashini', months: ['Mar'] },
    { username: 'sadil', months: ['Mar'] },
    { username: 'pinidi', months: ['Mar'] },
+   { username: 'dulani', months: ['Mar'] },
+   { username: 'dulani', months: ['Apr'] },
+   { username: 'navodya', months: ['Mar'] },
+   { username: 'lahiru', months: ['Mar'] },
     
 
 
