@@ -3751,6 +3751,24 @@ const videoLinks = [
       },
 
 
+      { 
+        class: '7', 
+        subject: 'History', 
+        date: '2025-03-19', 
+        month: 'March', 
+        video: 'https://drive.google.com/file/d/13dFeimClaBOQzv1bPRlx1kazqsQuTc8U/preview', 
+        title: '2025-03-19 - Class 7 - History Part 1' 
+      },
+
+      { 
+        class: '7', 
+        subject: 'History', 
+        date: '2025-03-19', 
+        month: 'March', 
+        video: 'https://drive.google.com/file/d/1DTyomYN_zca7S8WNCrWM8MJSmjflqpw8/preview', 
+        title: '2025-03-19 - Class 7 - History Part 2' 
+      },
+
 
 
 
