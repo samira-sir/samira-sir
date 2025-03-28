@@ -3799,6 +3799,24 @@ const videoLinks = [
 
 
 
+      { 
+        class: '11', 
+        subject: 'History', 
+        date: '2025-03-27', 
+        month: 'March', 
+        video: 'https://drive.google.com/file/d/1PfXY63nxLTUo7Xd4pgDWeSrkdyb1d3Be/preview', 
+        title: '2025-03-27 - Class 11 - History Part 1' 
+      },
+
+      { 
+        class: '11', 
+        subject: 'History', 
+        date: '2025-03-27', 
+        month: 'March', 
+        video: 'https://drive.google.com/file/d/1k2dFKewMjpDOHJfI2Ma2UZBfxkeKENpK/preview', 
+        title: '2025-03-27 - Class 11 - History Part 2' 
+      },
+
 
 
 
