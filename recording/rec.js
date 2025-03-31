@@ -4008,6 +4008,24 @@ const videoLinks = [
       },
 
 
+      { 
+        class: '6', 
+        subject: 'History', 
+        date: '2025-03-30', 
+        month: 'March', 
+        video: 'https://drive.google.com/file/d/117GPZ21Q4c0LWgTGg9COdbN3q8dxHUrS/preview', 
+        title: '2025-03-30 - Class 6 - History Part 1' 
+      },
+
+      { 
+        class: '6', 
+        subject: 'History', 
+        date: '2025-03-30', 
+        month: 'March', 
+        video: 'https://drive.google.com/file/d/1b35WHJmIfRKEwMZs5MDJ_SI8nCxLBNR_/preview', 
+        title: '2025-03-30 - Class 6 - History Part 2' 
+      },
+
 
 
 
