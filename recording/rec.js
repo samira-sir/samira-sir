@@ -3980,6 +3980,33 @@ const videoLinks = [
 
 
 
+      { 
+        class: '6', 
+        subject: 'Geography', 
+        date: '2025-03-30', 
+        month: 'March', 
+        video: 'https://drive.google.com/file/d/1jBZlzcbQng8E1dZ_X8XjZxxmuzARGKdm/preview', 
+        title: '2025-03-30 - Class 6 - Geography Part 1' 
+      },
+
+      { 
+        class: '6', 
+        subject: 'Geography', 
+        date: '2025-03-30', 
+        month: 'March', 
+        video: 'https://drive.google.com/file/d/1vNlD9vEyCJ6cLnJxjQrv_DkA71IjvRFe/preview', 
+        title: '2025-03-30 - Class 6 - Geography Part 2' 
+      },
+
+      { 
+        class: '6', 
+        subject: 'Geography', 
+        date: '2025-03-30', 
+        month: 'March', 
+        video: 'https://drive.google.com/file/d/17eO0ZcGG6JRMFShcyi3_lzgt5V7AVTXS/preview', 
+        title: '2025-03-30 - Class 6 - Geography Part 3' 
+      },
+
 
 
 
