@@ -3903,6 +3903,24 @@ const videoLinks = [
       },
 
 
+      { 
+        class: '9', 
+        subject: 'Civic', 
+        date: '2025-03-28', 
+        month: 'March', 
+        video: 'https://drive.google.com/file/d/1HxSFgOPNvIcMDPSBJrV32BhstbpNTglK/preview', 
+        title: '2025-03-28 - Class 9 - Civic Part 1' 
+      },
+
+      { 
+        class: '9', 
+        subject: 'Civic', 
+        date: '2025-03-28', 
+        month: 'March', 
+        video: 'https://drive.google.com/file/d/1yi__UweLWCUtb3WXzOON7eOonPv1ITLV/preview', 
+        title: '2025-03-28 - Class 9 - Civic Part 2' 
+      },
+
 
 
 
