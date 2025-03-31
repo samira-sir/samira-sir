@@ -3951,6 +3951,33 @@ const videoLinks = [
       },
 
 
+      { 
+        class: '10', 
+        subject: 'History', 
+        date: '2025-03-29', 
+        month: 'March', 
+        video: 'https://drive.google.com/file/d/1KTzb-QzX90-LKL2tcqFT3MP1O4HTguRI/preview', 
+        title: '2025-03-29 - Class 10 - History Part 1' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'History', 
+        date: '2025-03-29', 
+        month: 'March', 
+        video: 'https://drive.google.com/file/d/1DvlQ1YLxNBpSmseWzF--kSfysztgrh7U/preview', 
+        title: '2025-03-29 - Class 10 - History Part 2' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'History', 
+        date: '2025-03-29', 
+        month: 'March', 
+        video: 'https://drive.google.com/file/d/1FWw8D5qM1VH-1gZ43jBU5Izp7lvvQ8Dl/preview', 
+        title: '2025-03-29 - Class 10 - History Part 3' 
+      },
+
 
 
 
