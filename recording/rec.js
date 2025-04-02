@@ -4027,6 +4027,33 @@ const videoLinks = [
       },
 
 
+      { 
+        class: '9', 
+        subject: 'Geography', 
+        date: '2025-04-01', 
+        month: 'April', 
+        video: 'https://drive.google.com/file/d/1MfJOjuVlLlV5bF_6PPanojuCKUhN3qKN/preview', 
+        title: '2025-04-01 - Class 9 - Geography Part 1' 
+      },
+
+      { 
+        class: '9', 
+        subject: 'Geography', 
+        date: '2025-04-01', 
+        month: 'April', 
+        video: 'https://drive.google.com/file/d/1AjnpPV8-la_usHIM7BJfqaPl4BY13bAp/preview', 
+        title: '2025-04-01 - Class 9 - Geography Part 2' 
+      },
+
+      { 
+        class: '9', 
+        subject: 'Geography', 
+        date: '2025-04-01', 
+        month: 'April', 
+        video: 'https://drive.google.com/file/d/1exiB2eHHWwH39G4PZBw_Kxp6I-OwM8BU/preview', 
+        title: '2025-04-01 - Class 9 - Geography Part 3' 
+      },
+
 
 
 
