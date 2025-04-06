@@ -4225,6 +4225,42 @@ const videoLinks = [
       },
 
 
+      { 
+        class: '10', 
+        subject: 'History', 
+        date: '2025-04-05', 
+        month: 'April', 
+        video: 'https://drive.google.com/file/d/13fgebKPo-kA35dIbU0O4b47BHTRPwo_i/preview', 
+        title: '2025-04-05 - Class 10 - History Part 1' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'History', 
+        date: '2025-04-05', 
+        month: 'April', 
+        video: 'https://drive.google.com/file/d/1QGPbNr7awMtvbQbnqI6w7vfNCYxeux6J/preview', 
+        title: '2025-04-05 - Class 10 - History Part 2' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'History', 
+        date: '2025-04-05', 
+        month: 'April', 
+        video: 'https://drive.google.com/file/d/1d59lgX7rKubxiR1HfRwxw6gb103UE8kc/preview', 
+        title: '2025-04-05 - Class 10 - History Part 3' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'History', 
+        date: '2025-04-05', 
+        month: 'April', 
+        video: 'https://drive.google.com/file/d/1n8OIA7XQU2TN2utA_K3H6r8AhM0jVtSk/preview', 
+        title: '2025-04-05 - Class 10 - History Part 4' 
+      },
+
 
 
 
