@@ -4379,6 +4379,33 @@ const videoLinks = [
 
 
 
+      { 
+        class: '8', 
+        subject: 'Geography', 
+        date: '2025-04-07', 
+        month: 'April', 
+        video: 'https://drive.google.com/file/d/1CyFlFTUocYHA2gN5YBxIl-UypLLwthm5/preview', 
+        title: '2025-04-07 - Class 8 - Geography Part 1' 
+      },
+
+      { 
+        class: '8', 
+        subject: 'Geography', 
+        date: '2025-04-07', 
+        month: 'April', 
+        video: 'https://drive.google.com/file/d/1KF6I-2n7ElXBWGyQNEy0bT36ghxHI80p/preview', 
+        title: '2025-04-07 - Class 8 - Geography Part 2' 
+      },
+
+      { 
+        class: '8', 
+        subject: 'Geography', 
+        date: '2025-04-07', 
+        month: 'April', 
+        video: 'https://drive.google.com/file/d/1LTjBnFLxHd-EM2UKfh9L24Amq5jzahwk/preview', 
+        title: '2025-04-07 - Class 8 - Geography Part 3' 
+      },
+
 
 
 
