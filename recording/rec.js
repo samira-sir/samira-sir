@@ -4408,6 +4408,24 @@ const videoLinks = [
 
 
 
+      { 
+        class: '10', 
+        subject: 'History', 
+        date: '2025-04-08', 
+        month: 'April', 
+        video: 'https://drive.google.com/file/d/1tJmkPYLKJFDm-WRHBZLSbsrorWwAWNNh/preview', 
+        title: '2025-04-08 - Class 10 - History Part 1' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'History', 
+        date: '2025-04-08', 
+        month: 'April', 
+        video: 'https://drive.google.com/file/d/1oILM5g20Bv-Ni6o0lQCEbovozW8aajfm/preview', 
+        title: '2025-04-08 - Class 10 - History Part 2' 
+      },
+
 
 
 
