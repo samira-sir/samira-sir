@@ -329,7 +329,7 @@
                            { username: 'hashini', months: ['Apr'] },
                            { username: 'minketh', months: ['Mar'] },
                              { username: 'bavidu', months: ['Apr'] },
-  
+                               { username: 'lithuli', months: ['Mar'] },
   
   
   
