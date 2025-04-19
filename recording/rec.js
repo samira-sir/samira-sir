@@ -4622,6 +4622,33 @@ const videoLinks = [
       },
 
 
+      { 
+        class: '11', 
+        subject: 'History', 
+        date: '2025-04-11', 
+        month: 'April', 
+        video: 'https://drive.google.com/file/d/1hP-ESkCkSHrHMocRUuZeHvSHpUvltEr8/preview', 
+        title: '2025-04-11 - Class 11 - History Part 1' 
+      },
+
+      { 
+        class: '11', 
+        subject: 'History', 
+        date: '2025-04-11', 
+        month: 'April', 
+        video: 'https://drive.google.com/file/d/1tRfPEdoSnW74rAcOH3bwU1EQAzZ7m7jk/preview', 
+        title: '2025-04-11 - Class 11 - History Part 2' 
+      },
+
+      { 
+        class: '11', 
+        subject: 'History', 
+        date: '2025-04-11', 
+        month: 'April', 
+        video: 'https://drive.google.com/file/d/1G0Y7Y1MZsgoVul2k-i-1ejpvPB37Fe4P/preview', 
+        title: '2025-04-11 - Class 11 - History Part 3' 
+      },
+
 
 
 
