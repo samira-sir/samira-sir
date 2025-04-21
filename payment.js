@@ -330,6 +330,9 @@
                            { username: 'minketh', months: ['Mar'] },
                              { username: 'bavidu', months: ['Apr'] },
                                { username: 'lithuli', months: ['Mar'] },
+                               { username: 'sayuni', months: ['Apr'] },
+                                { username: 'santhuli', months: ['Apr'] },
+                                { username: 'nishini', months: ['Mar'] },
   
   
   
