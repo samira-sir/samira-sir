@@ -4772,6 +4772,24 @@ const videoLinks = [
       },
 
 
+      { 
+        class: '11', 
+        subject: 'Geography', 
+        date: '2025-04-21', 
+        month: 'April', 
+        video: 'https://drive.google.com/file/d/1FouK6hTFF3uNb9AhEaVuxHTBqViNphk1/preview', 
+        title: '2025-04-21 - Class 11 - Geography Part 1' 
+      },
+
+      { 
+        class: '11', 
+        subject: 'Geography', 
+        date: '2025-04-21', 
+        month: 'April', 
+        video: 'https://drive.google.com/file/d/1OFzdu5q291yKm80S7IoGVHgWOTu5OBVP/preview', 
+        title: '2025-04-21 - Class 11 - Geography Part 2' 
+      },
+
 
 
 
