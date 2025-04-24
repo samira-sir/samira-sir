@@ -4791,6 +4791,24 @@ const videoLinks = [
       },
 
 
+      { 
+        class: '10', 
+        subject: 'Geography', 
+        date: '2025-04-21', 
+        month: 'April', 
+        video: 'https://drive.google.com/file/d/1SufibAbeyP7e_xEqrsDWew5V5oEM4Foy/preview', 
+        title: '2025-04-21 - Class 10 - Geography Part 1' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'Geography', 
+        date: '2025-04-21', 
+        month: 'April', 
+        video: 'https://drive.google.com/file/d/1Nu-VJQR9JXpU4moWRnc8Aoaiquz7SHrj/preview', 
+        title: '2025-04-21 - Class 10 - Geography Part 2' 
+      },
+
 
 
 
