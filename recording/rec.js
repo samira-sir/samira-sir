@@ -4811,6 +4811,24 @@ const videoLinks = [
 
 
 
+      { 
+        class: '9', 
+        subject: 'Geography', 
+        date: '2025-04-24', 
+        month: 'April', 
+        video: 'https://drive.google.com/file/d/1tbc1TtNOsfUvHXMPb1CeVko9vofylHz9/preview', 
+        title: '2025-04-24 - Class 9 - Geography Part 1' 
+      },
+
+      { 
+        class: '9', 
+        subject: 'Geography', 
+        date: '2025-04-24', 
+        month: 'April', 
+        video: 'https://drive.google.com/file/d/1W6hQbRgnTloF36KHvX32xwKFJMwkniYh/preview', 
+        title: '2025-04-24 - Class 9 - Geography Part 2' 
+      },
+
 
 
 
