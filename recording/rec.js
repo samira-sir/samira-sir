@@ -4988,6 +4988,42 @@ const videoLinks = [
         title: '2025-04-26 - Class 7 - Geography Part 3' 
       },
 
+      { 
+        class: '10', 
+        subject: 'History', 
+        date: '2025-04-26', 
+        month: 'April', 
+        video: 'https://drive.google.com/file/d/1Vpx_ymVFS6SNpa98O6Nd61tLNJm74v8u/preview', 
+        title: '2025-04-26 - Class 10 - History Part 1' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'History', 
+        date: '2025-04-26', 
+        month: 'April', 
+        video: 'https://drive.google.com/file/d/1TuCkpl6VSRpcNI7Q_eu6A_UAhDDigU2n/preview', 
+        title: '2025-04-26 - Class 10 - History Part 2' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'History', 
+        date: '2025-04-26', 
+        month: 'April', 
+        video: 'https://drive.google.com/file/d/1eAOBE0f2xmbY2rsSYIBA5tH684jMK8nP/preview', 
+        title: '2025-04-26 - Class 10 - History Part 3' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'History', 
+        date: '2025-04-26', 
+        month: 'April', 
+        video: 'https://drive.google.com/file/d/1LIOU7d1DDvCWetMuovyrqnP8r87tumDE/preview', 
+        title: '2025-04-26 - Class 10 - History Part 4' 
+      },
+
 
 
 
