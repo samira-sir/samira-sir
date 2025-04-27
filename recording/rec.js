@@ -4961,6 +4961,33 @@ const videoLinks = [
 
 
 
+      { 
+        class: '7', 
+        subject: 'Geography', 
+        date: '2025-04-26', 
+        month: 'April', 
+        video: 'https://drive.google.com/file/d/11Px59ujVLLQEcuqiGfvIt7lPx6j9rFyN/preview', 
+        title: '2025-04-26 - Class 7 - Geography Part 1' 
+      },
+
+      { 
+        class: '7', 
+        subject: 'Geography', 
+        date: '2025-04-26', 
+        month: 'April', 
+        video: 'https://drive.google.com/file/d/1GP8bA6fgGoqCIe76ajAJGxD15G-bjZ5u/preview', 
+        title: '2025-04-26 - Class 7 - Geography Part 2' 
+      },
+
+      { 
+        class: '7', 
+        subject: 'Geography', 
+        date: '2025-04-26', 
+        month: 'April', 
+        video: 'https://drive.google.com/file/d/1V2EVHXXvZzz6kQBf32bfu3jqfjhkNaVB/preview', 
+        title: '2025-04-26 - Class 7 - Geography Part 3' 
+      },
+
 
 
 
