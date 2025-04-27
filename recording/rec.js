@@ -5024,6 +5024,33 @@ const videoLinks = [
         title: '2025-04-26 - Class 10 - History Part 4' 
       },
 
+      { 
+        class: '6', 
+        subject: 'History', 
+        date: '2025-04-27', 
+        month: 'April', 
+        video: 'https://drive.google.com/file/d/1x0b9m3t3UbdVKLJp0fOG1J_cJsezqBMv/preview', 
+        title: '2025-04-27 - Class 6 - History Part 1' 
+      },
+
+      { 
+        class: '6', 
+        subject: 'History', 
+        date: '2025-04-27', 
+        month: 'April', 
+        video: 'https://drive.google.com/file/d/1biKSmBfXVMUcrBzysLlyeMTygX30cVg9/preview', 
+        title: '2025-04-27 - Class 6 - History Part 2' 
+      },
+
+      { 
+        class: '6', 
+        subject: 'History', 
+        date: '2025-04-27', 
+        month: 'April', 
+        video: 'https://drive.google.com/file/d/1Zlugs6pC8_raf9FUwJsViYQcc4FZGodm/preview', 
+        title: '2025-04-27 - Class 6 - History Part 3' 
+      },
+
 
 
 
