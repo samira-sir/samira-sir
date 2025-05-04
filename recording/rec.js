@@ -5250,6 +5250,24 @@ const videoLinks = [
       },
 
 
+      { 
+        class: '9', 
+        subject: 'Civic', 
+        date: '2025-05-02', 
+        month: 'May', 
+        video: 'https://drive.google.com/file/d/1uhaK22Lx0DT3xI1YmPjh-RkRCq_8LRRx/preview', 
+        title: '2025-05-02 - Class 9 - Civic Part 1' 
+      },
+
+      { 
+        class: '9', 
+        subject: 'Civic', 
+        date: '2025-05-02', 
+        month: 'May', 
+        video: 'https://drive.google.com/file/d/1FDnUGn6EKKjKD9hKWX_spmaWG4dc0ITr/preview', 
+        title: '2025-05-02 - Class 9 - Civic Part 2' 
+      },
+
 
 
 
