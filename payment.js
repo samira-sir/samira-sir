@@ -358,6 +358,8 @@
                                     { username: 'januni', months: ['May'] },
                                     { username: 'senulya', months: ['May'] },
                                     { username: 'dilakshana', months: ['Apr'] },
+                                      { username: 'kethmin', months: ['Apr'] },
+                                      { username: 'rasuli', months: ['Apr'] },
   
   
   
