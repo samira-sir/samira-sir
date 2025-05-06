@@ -5474,6 +5474,33 @@ const videoLinks = [
       },
 
 
+      { 
+        class: '9', 
+        subject: 'History', 
+        date: '2025-05-05', 
+        month: 'May', 
+        video: 'https://drive.google.com/file/d/1ETBx9s2gV70F_37j_JUb9sF56a-P_VQn/preview', 
+        title: '2025-05-05 - Class 9 - History Part 1' 
+      },
+
+      { 
+        class: '9', 
+        subject: 'History', 
+        date: '2025-05-05', 
+        month: 'May', 
+        video: 'https://drive.google.com/file/d/1Z6DSGt3q_A_XomvzpgsmtV-LUapiZanq/preview', 
+        title: '2025-05-05 - Class 9 - History Part 2' 
+      },
+
+      { 
+        class: '9', 
+        subject: 'History', 
+        date: '2025-05-05', 
+        month: 'May', 
+        video: 'https://drive.google.com/file/d/1eht8f8BqEye1gwNZpIvyQt_2MInhTSH7/preview', 
+        title: '2025-05-05 - Class 9 - History Part 3' 
+      },
+
 
 
 
