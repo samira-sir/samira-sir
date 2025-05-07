@@ -40,7 +40,6 @@ const credentials = {
     chenul: { password: 'Me7%Pq3@', subjects: [{ name: 'geography', grade: 8 },{ name: 'history', grade: 8 }] },        
     anneq: { password: 'anneq123', subjects: [{ name: 'history', grade: 8 }] },
     nawodya: { password: '1234', subjects: [{ name: 'history', grade: 8 }] },
-    nethuki: { password: 'Ts9&Pe4%', subjects: [{ name: 'geography', grade: 8 }] },
     senuli: { password: 'senu', subjects: [{ name: 'geography', grade: 8 }] },
     thaveesha: { password: 'Indunil@123', subjects: [{name:'geography',grade:8}] },
     ushana: { password: 'Ushana123', subjects: [{name:'geography',grade:8}] },
