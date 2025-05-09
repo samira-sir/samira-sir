@@ -360,6 +360,10 @@
                                     { username: 'dilakshana', months: ['Apr'] },
                                       { username: 'kethmin', months: ['Apr'] },
                                       { username: 'rasuli', months: ['Apr'] },
+                                      { username: 'chiranya', months: ['May'] },
+                                      { username: 'radheesha', months: ['May'] },
+                                      { username: 'senula', months: ['May'] },
+  
   
   
   
