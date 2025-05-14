@@ -5795,6 +5795,33 @@ const videoLinks = [
 
 
 
+      { 
+        class: '10', 
+        subject: 'Geography', 
+        date: '2025-05-13', 
+        month: 'May', 
+        video: 'https://drive.google.com/file/d/10gFvSQb4jwgIQRPGwGESHgd_iyKxn20c/preview', 
+        title: '2025-05-13 - Class 10 - Geography Part 1' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'Geography', 
+        date: '2025-05-13', 
+        month: 'May', 
+        video: 'https://drive.google.com/file/d/1SYRVvs079WFPYODtRXX3tls6pdyeD86I/preview', 
+        title: '2025-05-13 - Class 10 - Geography Part 2' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'Geography', 
+        date: '2025-05-13', 
+        month: 'May', 
+        video: 'https://drive.google.com/file/d/1xgge5K_n_4Gwf-VVCDsPvyP2kpgkT4vj/preview', 
+        title: '2025-05-13 - Class 10 - Geography Part 3' 
+      },
+
 
 
 
