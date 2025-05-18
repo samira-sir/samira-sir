@@ -5925,6 +5925,33 @@ const videoLinks = [
       },
 
 
+      { 
+        class: '7', 
+        subject: 'History', 
+        date: '2025-05-17', 
+        month: 'May', 
+        video: 'https://drive.google.com/file/d/1-umvE4TalzjY61s1LseFZqDa2hbXTPUY/preview', 
+        title: '2025-05-17 - Class 7 - History Part 1' 
+      },
+
+      { 
+        class: '7', 
+        subject: 'History', 
+        date: '2025-05-17', 
+        month: 'May', 
+        video: 'https://drive.google.com/file/d/182E3Bz1mniji-gEn3LO_5woSX6owpLZH/preview', 
+        title: '2025-05-17 - Class 7 - History Part 2' 
+      },
+
+      { 
+        class: '7', 
+        subject: 'History', 
+        date: '2025-05-17', 
+        month: 'May', 
+        video: 'https://drive.google.com/file/d/1kq4yivDma24OjhitIf94eSaLgZcY1chK/preview', 
+        title: '2025-05-17 - Class 7 - History Part 3' 
+      },
+
 
 
 
