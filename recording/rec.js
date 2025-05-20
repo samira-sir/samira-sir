@@ -6008,6 +6008,51 @@ const videoLinks = [
         title: '2025-05-17 - Class 10 - History Part 3' 
       },
 
+      { 
+        class: '6', 
+        subject: 'Geography', 
+        date: '2025-05-18', 
+        month: 'May', 
+        video: 'https://drive.google.com/file/d/11buc5IEgzx56V94OYXlxYzttPYMVf3p7/preview', 
+        title: '2025-05-18 - Class 6 - Geography Part 1' 
+      },
+
+      { 
+        class: '6', 
+        subject: 'Geography', 
+        date: '2025-05-18', 
+        month: 'May', 
+        video: 'https://drive.google.com/file/d/14aEtGQYKgfKk9fp3u28Itps-zOUp55Z9/preview', 
+        title: '2025-05-18 - Class 6 - Geography Part 2' 
+      },
+
+      { 
+        class: '6', 
+        subject: 'Geography', 
+        date: '2025-05-18', 
+        month: 'May', 
+        video: 'https://drive.google.com/file/d/1XiEd9Qur0kr_whhQSXS8NXhiOb5qtJgs/preview', 
+        title: '2025-05-18 - Class 6 - Geography Part 3' 
+      },
+
+      { 
+        class: '6', 
+        subject: 'Geography', 
+        date: '2025-05-18', 
+        month: 'May', 
+        video: 'https://drive.google.com/file/d/1XpEZS-fXgQO0OLa-JwjqwSH3-Zv-q4Ii/preview', 
+        title: '2025-05-18 - Class 6 - Geography Part 4' 
+      },
+
+      { 
+        class: '6', 
+        subject: 'Geography', 
+        date: '2025-05-18', 
+        month: 'May', 
+        video: 'https://drive.google.com/file/d/1WxTqlpu76GTi-ryyD88aWTkwfjwSfatZ/preview', 
+        title: '2025-05-18 - Class 6 - Geography Part 5' 
+      },
+
 
 
 
