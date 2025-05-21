@@ -6186,6 +6186,24 @@ const videoLinks = [
 
 
 
+      { 
+        class: '10', 
+        subject: 'History', 
+        date: '2025-05-20', 
+        month: 'May', 
+        video: 'https://drive.google.com/file/d/1ynSXNangLBC-DVyfYYJBqmGbNgfNODV7/preview', 
+        title: '2025-05-20 - Class 10 - History Part 1' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'History', 
+        date: '2025-05-20', 
+        month: 'May', 
+        video: 'https://drive.google.com/file/d/1TV0SjmA7mKUpucKUuoxrQvlHlTOrRR-M/preview', 
+        title: '2025-05-20 - Class 10 - History Part 2' 
+      },
+
 
 
 
