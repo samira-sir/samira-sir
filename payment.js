@@ -418,6 +418,14 @@
     { username: 'kavithma', months: ['May'] },
     { username: 'kavithma', months: ['Jun'] },
     { username: 'kavithma', months: ['Jul'] },
+      { username: 'udayangani', months: ['May'] },
+      { username: 'madumi', months: ['May'] },
+      { username: 'kavitha', months: ['June'] },
+      { username: 'kavitha', months: ['May'] },
+      { username: 'dulansa', months: ['May'] },
+      { username: 'silma', months: ['May'] },
+      { username: 'dulani', months: ['May'] },
+      { username: 'dulani', months: ['June'] },
   
   
   
