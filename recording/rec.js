@@ -6410,6 +6410,33 @@ const videoLinks = [
       },
 
 
+      { 
+        class: '6', 
+        subject: 'History', 
+        date: '2025-05-25', 
+        month: 'May', 
+        video: 'https://drive.google.com/file/d/1-jzUu26DWFbUFgTY8TqbPRczc4m9rEkX/preview', 
+        title: '2025-05-25 - Class 6 - History Part 1' 
+      },
+
+      { 
+        class: '6', 
+        subject: 'History', 
+        date: '2025-05-25', 
+        month: 'May', 
+        video: 'https://drive.google.com/file/d/1H_UF66HNzpFxH4lZPybHIxmCONg95cOh/preview', 
+        title: '2025-05-25 - Class 6 - History Part 2' 
+      },
+
+      { 
+        class: '6', 
+        subject: 'History', 
+        date: '2025-05-25', 
+        month: 'May', 
+        video: 'https://drive.google.com/file/d/168MzxXKa0X52cbE4erZVjXJnaTrWk2bg/preview', 
+        title: '2025-05-25 - Class 6 - History Part 3' 
+      },
+
 
 
 
