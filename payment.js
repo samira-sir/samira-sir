@@ -436,6 +436,10 @@
           { username: 'praveen', months: ['May'] },
           { username: 'imandi', months: ['May'] },
             { username: 'indunith', months: ['Jun'] },
+            { username: 'lithuli', months: ['May'] },
+            { username: 'timasha', months: ['May'] },
+            { username: 'dehan', months: ['May'] },
+            { username: 'senulya', months: ['Jun'] },
   
   
   
