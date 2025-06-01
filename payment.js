@@ -420,12 +420,22 @@
     { username: 'kavithma', months: ['Jul'] },
       { username: 'udayangani', months: ['May'] },
       { username: 'madumi', months: ['May'] },
-      { username: 'kavitha', months: ['June'] },
+      { username: 'kavitha', months: ['Jun'] },
       { username: 'kavitha', months: ['May'] },
       { username: 'dulansa', months: ['May'] },
       { username: 'silma', months: ['May'] },
       { username: 'dulani', months: ['May'] },
       { username: 'dulani', months: ['June'] },
+        { username: 'amra', months: ['May'] },
+        { username: 'seneth', months: ['May'] },
+        { username: 'dulnitha', months: ['Apr'] },
+          { username: 'dulnitha', months: ['May'] },
+          { username: 'dulnitha', months: ['Jun'] },
+          { username: 'dulnitha', months: ['Jul'] },
+          { username: 'dulnitha', months: ['Aug'] },
+          { username: 'praveen', months: ['May'] },
+          { username: 'imandi', months: ['May'] },
+            { username: 'indunith', months: ['Jun'] },
   
   
   
