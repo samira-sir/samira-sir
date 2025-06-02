@@ -6790,6 +6790,33 @@ const videoLinks = [
       },
 
 
+      { 
+        class: '6', 
+        subject: 'Geography', 
+        date: '2025-06-01', 
+        month: 'June', 
+        video: 'https://drive.google.com/file/d/1oPPKJOjE2-vaWV0Qigvbq7vAeLWNQtlR/preview', 
+        title: '2025-06-01 - Class 6 - Geography Part 1' 
+      },
+
+      { 
+        class: '6', 
+        subject: 'Geography', 
+        date: '2025-06-01', 
+        month: 'June', 
+        video: 'https://drive.google.com/file/d/1q6kA1ZMplK9Rq4jOR1IEJhXsG77WCX4B/preview', 
+        title: '2025-06-01 - Class 6 - Geography Part 2' 
+      },
+
+      { 
+        class: '6', 
+        subject: 'Geography', 
+        date: '2025-06-01', 
+        month: 'June', 
+        video: 'https://drive.google.com/file/d/1zceb1lu65za195inrtwGDFRh2JfWWLW4/preview', 
+        title: '2025-06-01 - Class 6 - Geography Part 3' 
+      },
+
 
 
 
