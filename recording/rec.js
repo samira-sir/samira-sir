@@ -6963,6 +6963,33 @@ const videoLinks = [
 
 
 
+      { 
+        class: '9', 
+        subject: 'Geography', 
+        date: '2025-06-03', 
+        month: 'June', 
+        video: 'https://drive.google.com/file/d/1sfuMFk9b-Un0aCHxRLZwje22_5-TMPCp/preview', 
+        title: '2025-06-03 - Class 9 - Geography Part 1' 
+      },
+
+      { 
+        class: '9', 
+        subject: 'Geography', 
+        date: '2025-06-03', 
+        month: 'June', 
+        video: 'https://drive.google.com/file/d/1JIolunnNFmcj6ukKZRfETJ9N3QO3JgF0/preview', 
+        title: '2025-06-03 - Class 9 - Geography Part 2' 
+      },
+
+      { 
+        class: '9', 
+        subject: 'Geography', 
+        date: '2025-06-03', 
+        month: 'June', 
+        video: 'https://drive.google.com/file/d/1xROZ72P7Ubmj0Uk26-nJWXyzK-LXsieQ/preview', 
+        title: '2025-06-03 - Class 9 - Geography Part 3' 
+      },
+
 
 
 
