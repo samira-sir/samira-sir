@@ -6934,6 +6934,33 @@ const videoLinks = [
 
 
 
+      { 
+        class: '8', 
+        subject: 'History', 
+        date: '2025-06-03', 
+        month: 'June', 
+        video: 'https://drive.google.com/file/d/1ZUjPHJIPWLKAojzBy1xLg6vWpb60b7_4/preview', 
+        title: '2025-06-03 - Class 8 - History Part 1' 
+      },
+
+      { 
+        class: '8', 
+        subject: 'History', 
+        date: '2025-06-03', 
+        month: 'June', 
+        video: 'https://drive.google.com/file/d/1THaMS1HHB9xtOdCFPG9du_ijqZC7CEpl/preview', 
+        title: '2025-06-03 - Class 8 - History Part 2' 
+      },
+
+      { 
+        class: '8', 
+        subject: 'History', 
+        date: '2025-06-03', 
+        month: 'June', 
+        video: 'https://drive.google.com/file/d/11bQJVe-jA9uNYMtSgOJWWTC7E1FLlkNc/preview', 
+        title: '2025-06-03 - Class 8 - History Part 3' 
+      },
+
 
 
 
