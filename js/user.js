@@ -101,7 +101,6 @@ const credentials = {
     poojana: { password: '101019', subjects: [{name:'history',grade:10}] },
     santhuli: { password: '22982', subjects: [{name:'history',grade:10}] },
     saratha: { password: 'saratha123', subjects: [{ name: 'history', grade: 10 }] },
-    thasanya: { password: 'thasanya2010', subjects: [{ name: 'history', grade: 10 }] },
     timasha: { password: 'Timamaa2020', subjects: [{ name: 'history', grade: 10 },{ name: 'geography', grade: 10 }] },
     thushmini: { password: 'thushi', subjects: [{ name: 'geography', grade: 10 }] },
     dihen: { password: 'D@i$h#e9N,', subjects: [{ name: 'history', grade: 11 },{ name: 'geography', grade: 11 }] },
