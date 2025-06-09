@@ -7145,6 +7145,33 @@ const videoLinks = [
 
 
 
+      { 
+        class: '6', 
+        subject: 'History', 
+        date: '2025-06-08', 
+        month: 'June', 
+        video: 'https://drive.google.com/file/d/1PLOx8gJtSHLcT48Jm2vJDf1OVkCZnMln/preview', 
+        title: '2025-06-08 - Class 6 - History Part 1' 
+      },
+
+      { 
+        class: '6', 
+        subject: 'History', 
+        date: '2025-06-08', 
+        month: 'June', 
+        video: 'https://drive.google.com/file/d/1SBroM-P8WECukFHJ1hS0EIxBeUGNAcoK/preview', 
+        title: '2025-06-08 - Class 6 - History Part 2' 
+      },
+
+      { 
+        class: '6', 
+        subject: 'History', 
+        date: '2025-06-08', 
+        month: 'June', 
+        video: 'https://drive.google.com/file/d/1vSFzKpdGNZ-1VKJ1N8whWgAEBlFnFT1z/preview', 
+        title: '2025-06-08 - Class 6 - History Part 3' 
+      },
+
 
 
 
