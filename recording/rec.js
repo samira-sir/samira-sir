@@ -7262,6 +7262,33 @@ const videoLinks = [
 
 
 
+      { 
+        class: '9', 
+        subject: 'History', 
+        date: '2025-06-12', 
+        month: 'June', 
+        video: 'https://drive.google.com/file/d/1Qv-un2Wm8wpOW7iXTtD__3EdJr4hPq8Q/preview', 
+        title: '2025-06-12 - Class 9 - History Part 1' 
+      },
+
+      { 
+        class: '9', 
+        subject: 'History', 
+        date: '2025-06-12', 
+        month: 'June', 
+        video: 'https://drive.google.com/file/d/18YFey4iliautsbnXNwrZC8gigQtmXpYt/preview', 
+        title: '2025-06-12 - Class 9 - History Part 2' 
+      },
+
+      { 
+        class: '9', 
+        subject: 'History', 
+        date: '2025-06-12', 
+        month: 'June', 
+        video: 'https://drive.google.com/file/d/1AVSBW02gObzxZ5ok3VhJT_dsoh8_iFJ-/preview', 
+        title: '2025-06-12 - Class 9 - History Part 3' 
+      },
+
 
 
 
