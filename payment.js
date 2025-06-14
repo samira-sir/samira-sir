@@ -490,7 +490,9 @@
                   { username: 'nishini', months: ['Apr'] },
                   { username: 'nishini', months: ['May'] },
                   { username: 'ruzni', months: ['May'] },
-                  { username: 'ruzni', months: ['Jun'] },
+                  { username: 'ashleigh', months: ['Jun'] },
+                    { username: 'ruzni', months: ['Jun'] },
+                    { username: 'udamna', months: ['Jun'] },
   
   
   
