@@ -485,6 +485,13 @@
                 { username: 'sinura', months: ['Jun'] },
                 { username: 'kulsum', months: ['Jun'] },
                 { username: 'ushana', months: ['Jun'] },
+                 { username: 'yenuli', months: ['Jun'] },
+                  { username: 'akein', months: ['Jun'] },
+                  { username: 'nishini', months: ['Apr'] },
+                  { username: 'nishini', months: ['May'] },
+                  { username: 'ruzni', months: ['May'] },
+                  { username: 'ruzni', months: ['Jun'] },
+  
   
   
   
