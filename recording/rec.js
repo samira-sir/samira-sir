@@ -7468,6 +7468,33 @@ const videoLinks = [
         title: '2025-06-15 - Class 6 - Geography Part 3' 
       },
 
+      { 
+        class: '6', 
+        subject: 'History', 
+        date: '2025-06-15', 
+        month: 'June', 
+        video: 'https://drive.google.com/file/d/1PsGDSaub7WYJc8ECY-wrGqwpZqAEXM2P/preview', 
+        title: '2025-06-15 - Class 6 - History Part 1' 
+      },
+
+      { 
+        class: '6', 
+        subject: 'History', 
+        date: '2025-06-15', 
+        month: 'June', 
+        video: 'https://drive.google.com/file/d/1xD8OXQoa8HQyGmdpONeo_NrV0b1NQbd_/preview', 
+        title: '2025-06-15 - Class 6 - History Part 2' 
+      },
+
+      { 
+        class: '6', 
+        subject: 'History', 
+        date: '2025-06-15', 
+        month: 'June', 
+        video: 'https://drive.google.com/file/d/1DDH7bTgPW6G7VJt29NGtKLdxiXDEaTWC/preview', 
+        title: '2025-06-15 - Class 6 - History Part 3' 
+      },
+
 
 
 
