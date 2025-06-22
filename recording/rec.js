@@ -7736,6 +7736,33 @@ const videoLinks = [
         title: '2025-06-20 - Class 9 - Civic Part 3' 
       },
 
+      { 
+        class: '7', 
+        subject: 'Geography', 
+        date: '2025-06-21', 
+        month: 'June', 
+        video: 'https://drive.google.com/file/d/1IAWjUtyLrv5Dfm1u6YIMzizrCjGdLJV3/preview', 
+        title: '2025-06-21 - Class 7 - Geography Part 1' 
+      },
+
+      { 
+        class: '7', 
+        subject: 'Geography', 
+        date: '2025-06-21', 
+        month: 'June', 
+        video: 'https://drive.google.com/file/d/1XZDbqZKlF54YuWcYw5n4uQdYRSTTHFr1/preview', 
+        title: '2025-06-21 - Class 7 - Geography Part 2' 
+      },
+
+      { 
+        class: '7', 
+        subject: 'Geography', 
+        date: '2025-06-21', 
+        month: 'June', 
+        video: 'https://drive.google.com/file/d/1X_nga5N0PIbtOXybztiFtgJuaOTR8P4r/preview', 
+        title: '2025-06-21 - Class 7 - Geography Part 3' 
+      },
+
 
 
 
