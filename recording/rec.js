@@ -7664,6 +7664,51 @@ const videoLinks = [
         title: '2025-06-19 - Class 9 - History Part 3' 
       },
 
+      { 
+        class: '10', 
+        subject: 'History', 
+        date: '2025-06-21', 
+        month: 'June', 
+        video: 'https://drive.google.com/file/d/1O9E4pRp72_-N8xxENxOMw2qVRy0H1Exa/preview', 
+        title: '2025-06-21 - Class 10 - History Part 1' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'History', 
+        date: '2025-06-21', 
+        month: 'June', 
+        video: 'https://drive.google.com/file/d/1kcgd-HBS8S2pOj7P4JdBiX7URRvXxQMw/preview', 
+        title: '2025-06-21 - Class 10 - History Part 2' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'History', 
+        date: '2025-06-21', 
+        month: 'June', 
+        video: 'https://drive.google.com/file/d/1ONMCoAWxj-IwMJMGvT-HpZhoyI8ldRUV/preview', 
+        title: '2025-06-21 - Class 10 - History Part 3' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'History', 
+        date: '2025-06-21', 
+        month: 'June', 
+        video: 'https://drive.google.com/file/d/1TbbaQjPekq9fAXzL5RngYnxaW6y49Zq2/preview', 
+        title: '2025-06-21 - Class 10 - History Part 4' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'History', 
+        date: '2025-06-21', 
+        month: 'June', 
+        video: 'https://drive.google.com/file/d/1DsFj38eO-q-XcxYH5iwgsr2ctGxiJN80/preview', 
+        title: '2025-06-21 - Class 10 - History Part 5' 
+      },
+
 
 
 
