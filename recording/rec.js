@@ -7884,6 +7884,33 @@ const videoLinks = [
       },
 
 
+      { 
+        class: '11', 
+        subject: 'Geography', 
+        date: '2025-06-23', 
+        month: 'June', 
+        video: 'https://drive.google.com/file/d/1q-YwlZgJPqmMeV9tPE82LyYggfjoOFoe/preview', 
+        title: '2025-06-23 - Class 11 - Geography Part 1' 
+      },
+
+      { 
+        class: '11', 
+        subject: 'Geography', 
+        date: '2025-06-23', 
+        month: 'June', 
+        video: 'https://drive.google.com/file/d/1CoedVnSzanxAupm_MVGJtzQeCZvIMS5y/preview', 
+        title: '2025-06-23 - Class 11 - Geography Part 2' 
+      },
+
+      { 
+        class: '11', 
+        subject: 'Geography', 
+        date: '2025-06-23', 
+        month: 'June', 
+        video: 'https://drive.google.com/file/d/1yaSbhTnbJmbLj7qOgYghg95ItWZJeGou/preview', 
+        title: '2025-06-23 - Class 11 - Geography Part 3' 
+      },
+
 
 
 
