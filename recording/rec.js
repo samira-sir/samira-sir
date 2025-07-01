@@ -8202,6 +8202,33 @@ const videoLinks = [
         title: '2025-06-28 - Class 10 - History Part 4' 
       },
 
+      { 
+        class: '11', 
+        subject: 'Geography', 
+        date: '2025-06-30', 
+        month: 'June', 
+        video: 'https://drive.google.com/file/d/1Jo2hzLsOYtJc7owOILLVNV-f7v6YSzGO/preview', 
+        title: '2025-06-30 - Class 11 - Geography Part 1' 
+      },
+
+      { 
+        class: '11', 
+        subject: 'Geography', 
+        date: '2025-06-30', 
+        month: 'June', 
+        video: 'https://drive.google.com/file/d/15n5XE-hdJwY2mZzM8ErCqXZvkAWeocGT/preview', 
+        title: '2025-06-30 - Class 11 - Geography Part 2' 
+      },
+
+      { 
+        class: '11', 
+        subject: 'Geography', 
+        date: '2025-06-30', 
+        month: 'June', 
+        video: 'https://drive.google.com/file/d/1AwqHx6NGjwcaTRwQj1_xRvbQhXWpufK4/preview', 
+        title: '2025-06-30 - Class 11 - Geography Part 3' 
+      },
+
 
         ];
   
