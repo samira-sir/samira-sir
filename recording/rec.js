@@ -8284,5 +8284,35 @@ const videoLinks = [
         title: '2025-06-30 - Class 8 - Geography Part 3' 
       },
 
+      { 
+        class: '8', 
+        subject: 'History', 
+        date: '2025-07-01', 
+        month: 'July', 
+        video: 'https://drive.google.com/file/d/1t6S1MrkJNNn2_VsjthArc6zNzVNIJCke/preview', 
+        title: '2025-07-01 - Class 8 - History Part 1' 
+      },
+
+      { 
+        class: '8', 
+        subject: 'History', 
+        date: '2025-07-01', 
+        month: 'July', 
+        video: 'https://drive.google.com/file/d/1FCqQ2UFydcQsVwtxr-cs__6OK5GI6Bcz/preview', 
+        title: '2025-07-01 - Class 8 - History Part 2' 
+      },
+
+      { 
+        class: '8', 
+        subject: 'History', 
+        date: '2025-07-01', 
+        month: 'July', 
+        video: 'https://drive.google.com/file/d/1m6X8F3reiNYxP5rLrfe1-I1gXT872NtU/preview', 
+        title: '2025-07-01 - Class 8 - History Part 3' 
+      },
+
+
+
+      
         ];
   
