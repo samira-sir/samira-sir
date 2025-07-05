@@ -552,8 +552,16 @@
        { username: 'pranami', months: ['may'] },
        { username: 'manuka', months: ['Jul'] },
        { username: 'ihansa', months: ['Jul'] },
+       { username: 'thinuli', months: ['Jul'] },
+       { username: 'sinura', months: ['Jul'] }, 
+{ username: 'udamna', months: ['Jul'] },
+      { username: 'dulani', months: ['Jul'] }, 
+      { username: 'ashle', months: ['Jul'] }, 
+     { username: 'sinura', months: ['Jul'] }, 
+     { username: 'damindu', months: ['Jul'] }, 
+    { username: 'damindu', months: ['Jun'] }, 
   
-
+  
   
      { username: 'sanul', months: ['Apr'] },
   
