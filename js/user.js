@@ -116,7 +116,6 @@ const credentials = {
     ovindee: { password: '2009', subjects: [{name:'history',grade:11},{name:'history',grade:10}] },
     sayumlee: { password: '2009', subjects: [{name:'history',grade:11}] },
     ometh: { password: 'Demash2025', subjects:[ { name: 'geography', grade: 11 }] },
-    kithmini: { password: '90305', subjects: [{name:'history',grade:11}] },
     dulya: { password: 'dul*25', subjects: [{name:'history',grade:11}] },
     aysha: { password: '9876', subjects: [{name:'history',grade:11}] },
     samadi: { password: 'samadi123', subjects: [{name:'history',grade:11}] },
