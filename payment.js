@@ -560,8 +560,15 @@
      { username: 'sinura', months: ['Jul'] }, 
      { username: 'damindu', months: ['Jul'] }, 
     { username: 'damindu', months: ['Jun'] }, 
-  
-  
+    { username: 'indunith', months: ['Jul'] }, 
+  { username: 'radheesha', months: ['Jul'] }, 
+  { username: 'chiranya', months: ['Jul'] }, 
+  { username: 'senula', months: ['Jul'] }, 
+  { username: 'ishan', months: ['Jul'] }, 
+  { username: 'pranami', months: ['Jul'] }, 
+  { username: 'januni', months: ['Jul'] }, 
+   { username: 'sithnuka', months: ['Jul'] }, 
+    
   
      { username: 'sanul', months: ['Apr'] },
   
