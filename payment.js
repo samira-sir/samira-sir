@@ -568,10 +568,11 @@
   { username: 'pranami', months: ['Jul'] }, 
   { username: 'januni', months: ['Jul'] }, 
    { username: 'sithnuka', months: ['Jul'] }, 
-    
-  
+   { username: 'kethsara', months: ['Jul'] }, 
+   { username: 'kethsara', months: ['Jun'] },   
+   { username: 'linuka', months: ['Jun'] },
      { username: 'sanul', months: ['Apr'] },
-  
+  { username: 'thisumi', months: ['jul'] },
   
   
   
