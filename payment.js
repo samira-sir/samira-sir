@@ -573,6 +573,7 @@
    { username: 'linuka', months: ['Jun'] },
      { username: 'sanul', months: ['Apr'] },
   { username: 'thisumi', months: ['jul'] },
+  { username: 'thisumi', months: ['jun'] },
   
   
   
