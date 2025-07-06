@@ -571,9 +571,12 @@
    { username: 'kethsara', months: ['Jul'] }, 
    { username: 'kethsara', months: ['Jun'] },   
    { username: 'linuka', months: ['Jun'] },
-     { username: 'sanul', months: ['Apr'] },
-  { username: 'thisumi', months: ['jul'] },
+{ username: 'thisumi', months: ['jul'] },
   { username: 'thisumi', months: ['jun'] },
+
+  
+     { username: 'sanul', months: ['Apr'] },
+  
   
   
   
