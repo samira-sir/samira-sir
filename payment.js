@@ -586,9 +586,10 @@
   { username: 'nawodya', months: ['Jun'] },
   { username: 'nawodya', months: ['Jul'] },
     { username: 'minketh', months: ['Jun'] },
-  
-
-  
+   { username: 'anudi', months: ['Jun'] },
+   { username: 'ranul', months: ['Jun'] },
+  { username: 'osadee', months: ['Jul'] },
+  { username: 'kulsum', months: ['Jul'] },
   
      { username: 'sanul', months: ['Apr'] },
   
