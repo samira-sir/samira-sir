@@ -590,6 +590,8 @@
    { username: 'ranul', months: ['Jun'] },
   { username: 'osadee', months: ['Jul'] },
   { username: 'kulsum', months: ['Jul'] },
+   { username: 'lithushi', months: ['Jun'] },
+  { username: 'lithushi', months: ['Jul'] },
   
      { username: 'sanul', months: ['Apr'] },
   
