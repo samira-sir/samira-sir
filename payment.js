@@ -592,6 +592,13 @@
   { username: 'kulsum', months: ['Jul'] },
    { username: 'lithushi', months: ['Jun'] },
   { username: 'lithushi', months: ['Jul'] },
+   { username: 'rasuli', months: ['Jul'] },
+   { username: 'abinu', months: ['Jul'] },
+   { username: 'adrianna', months: ['Jul'] },
+    { username: 'lahiru', months: ['Jul'] },
+  { username: 'aysha', months: ['Jun'] },
+  { username: 'hashini', months: ['Jul'] },
+  
   
      { username: 'sanul', months: ['Apr'] },
   
