@@ -8702,6 +8702,24 @@ const videoLinks = [
         title: '2025-07-12 - Class 7 - History Part 3' 
       },
 
+      { 
+        class: '10', 
+        subject: 'History', 
+        date: '2025-07-12', 
+        month: 'July', 
+        video: 'https://drive.google.com/file/d/1EwDWz5j9-mdxf2JGeoF__HHyZ__R8knm/preview', 
+        title: '2025-07-12 - Class 10 - History Part 1' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'History', 
+        date: '2025-07-12', 
+        month: 'July', 
+        video: 'https://drive.google.com/file/d/1UuMmL8hUy7LtG-iT87tzUnWqsfLWtASc/preview', 
+        title: '2025-07-12 - Class 10 - History Part 2' 
+      },
+
       
         ];
   
