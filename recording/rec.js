@@ -8748,5 +8748,14 @@ const videoLinks = [
         title: '2025-07-13 - Class 6 - History Part 3' 
       },
 
+      { 
+        class: '6', 
+        subject: 'Geography', 
+        date: '2025-07-13', 
+        month: 'July', 
+        video: 'https://drive.google.com/file/d/14M4QMFIYDRbm6XqqWrRSdzo9CSYO5diu/preview', 
+        title: '2025-07-13 - Class 6 - Geography Part 1' 
+      },
+
         ];
   
