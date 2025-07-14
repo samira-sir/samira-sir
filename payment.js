@@ -598,6 +598,7 @@
     { username: 'lahiru', months: ['Jul'] },
   { username: 'aysha', months: ['Jun'] },
   { username: 'hashini', months: ['Jul'] },
+  { username: 'samadi', months: ['Jul'] },
   
   
      { username: 'sanul', months: ['Apr'] },
