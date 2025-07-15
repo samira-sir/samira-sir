@@ -14,6 +14,7 @@ const credentials = {
     dilakshana: { password: '1111', subjects: [{ name: 'history', grade: 6 }] },
     ashleigh: { password: '12345', subjects: [{ name: 'geography', grade: 6 }, { name: 'history', grade: 6 }] },
     udamna: { password: 'Udamna', subjects: [{ name: 'history', grade: 6 }] },
+    danuli: { password: '12345', subjects: [{ name: 'history', grade: 6 }] },
     numaya: { password: 'abcde', subjects: [{ name: 'history', grade: 7 }] },
     kavitha: { password: 'kavitha123', subjects: [{ name: 'geography', grade: 7 }, { name: 'history', grade: 7 }] },
     imandi: { password: 'Gw7@Eh5%', subjects: [{ name: 'history', grade: 7 }, { name: 'geography', grade: 7 }] },
