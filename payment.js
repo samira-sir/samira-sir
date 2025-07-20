@@ -602,6 +602,7 @@
   { username: 'roshell', months: ['Jul'] },
   { username: 'silma', months: ['Jul'] },
    { username: 'yenuli', months: ['Jul'] },
+     { username: 'lithuli', months: ['Jul'] },
 
      { username: 'sanul', months: ['Apr'] },
   
