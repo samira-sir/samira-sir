@@ -9030,6 +9030,33 @@ const videoLinks = [
         title: '2025-07-19 - Class 7 - History Part 3' 
       },
 
+      { 
+        class: '6', 
+        subject: 'History', 
+        date: '2025-07-20', 
+        month: 'July', 
+        video: 'https://drive.google.com/file/d/1LHBaRKxKdDA1sWgqB3QnnY1ZWCwttGsv/preview', 
+        title: '2025-07-20 - Class 6 - History Part 1' 
+      },
+
+      { 
+        class: '6', 
+        subject: 'History', 
+        date: '2025-07-20', 
+        month: 'July', 
+        video: 'https://drive.google.com/file/d/19gjUs739Sy0C6BbjKYrhvPGBpIpDF4nt/preview', 
+        title: '2025-07-20 - Class 6 - History Part 2' 
+      },
+
+      { 
+        class: '6', 
+        subject: 'History', 
+        date: '2025-07-20', 
+        month: 'July', 
+        video: 'https://drive.google.com/file/d/1FNtDyPs1v_Ftsjp970j2wJgRYaw8iPBR/preview', 
+        title: '2025-07-20 - Class 6 - History Part 3' 
+      },
+
       
         ];
   
