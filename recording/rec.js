@@ -9112,5 +9112,32 @@ const videoLinks = [
       },
 
       
+      { 
+        class: '10', 
+        subject: 'Geography', 
+        date: '2025-07-21', 
+        month: 'July', 
+        video: 'https://drive.google.com/file/d/1rkQZdXA-2l35fDicNVtmU9hPIZdf0JCB/preview', 
+        title: '2025-07-21 - Class 10 - Geography Part 1' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'Geography', 
+        date: '2025-07-21', 
+        month: 'July', 
+        video: 'https://drive.google.com/file/d/1j6Eh9GGn-XVnVCJ3oE2jUI3RDP94vdAl/preview', 
+        title: '2025-07-21 - Class 10 - Geography Part 2' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'Geography', 
+        date: '2025-07-21', 
+        month: 'July', 
+        video: 'https://drive.google.com/file/d/1f6Lq5Fz31yl9FG_iQub7vaBorgcgjb_D/preview', 
+        title: '2025-07-21 - Class 10 - Geography Part 3' 
+      },
+
         ];
   
