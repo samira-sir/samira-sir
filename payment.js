@@ -604,6 +604,9 @@
   { username: 'silma', months: ['Jul'] },
    { username: 'yenuli', months: ['Jul'] },
      { username: 'lithuli', months: ['Jul'] },
+  { username: 'nishini', months: ['Jun'] },
+   { username: 'akein', months: ['Jul'] },
+   { username: 'akein', months: ['Jul'] },
 
      { username: 'sanul', months: ['Apr'] },
   
