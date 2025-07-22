@@ -9084,6 +9084,33 @@ const videoLinks = [
         title: '2025-07-20 - Class 6 - Geography Part 3' 
       },
 
+      { 
+        class: '8', 
+        subject: 'Geography', 
+        date: '2025-07-21', 
+        month: 'July', 
+        video: 'https://drive.google.com/file/d/1-tBbLeOm6DBetatxsIomB-HNbE7_9Nox/preview', 
+        title: '2025-07-21 - Class 8 - Geography Part 1' 
+      },
+
+      { 
+        class: '8', 
+        subject: 'Geography', 
+        date: '2025-07-21', 
+        month: 'July', 
+        video: 'https://drive.google.com/file/d/1XYG5nw8c54dJPNZQLZ7llv52TDVo3pxd/preview', 
+        title: '2025-07-21 - Class 8 - Geography Part 2' 
+      },
+
+      { 
+        class: '8', 
+        subject: 'Geography', 
+        date: '2025-07-21', 
+        month: 'July', 
+        video: 'https://drive.google.com/file/d/1OwODC_OzpqlCSo4YnexDKRFVrypN543v/preview', 
+        title: '2025-07-21 - Class 8 - Geography Part 3' 
+      },
+
       
         ];
   
