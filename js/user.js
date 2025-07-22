@@ -50,7 +50,6 @@ const credentials = {
     iduwara: { password: '2012', subjects: [{name:'history',grade:8}] },
     kethsara: { password: 'ssc', subjects: [{ name: 'history', grade: 8},{ name: 'geography', grade: 8 }] }, 
     adeesha: { password: '1520', subjects: [{ name: 'history', grade: 8}] },
-    minadi: { password: '13118', subjects: [{ name: 'history', grade: 8}] },
     zuha: { password: 'F@zahafirzan', subjects: [{ name: 'history', grade: 8}] },
     rasuli: { password: '2012', subjects: [{ name: 'history', grade: 8}] },
     osadee: { password: '2012', subjects: [{ name: 'history', grade: 8}] },
