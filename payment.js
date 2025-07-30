@@ -606,7 +606,16 @@
      { username: 'lithuli', months: ['Jul'] },
   { username: 'nishini', months: ['Jun'] },
    { username: 'akein', months: ['Jul'] },
+ { username: 'ketmin', months: ['Jul'] },
+   { username: 'senuji', months: ['Jul'] },
+    { username: 'thushmini', months: ['Jul'] },
+    { username: 'praveen', months: ['Jul'] },
+    { username: 'imandi', months: ['Jul'] },
+    { username: 'ovindee', months: ['Jul'] },
+    { username: 'madumi', months: ['Jul'] },
+    { username: 'seneth', months: ['Jul'] },
  
+  
 
      { username: 'sanul', months: ['Apr'] },
   
