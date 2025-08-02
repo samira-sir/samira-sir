@@ -613,7 +613,16 @@
     { username: 'imandi', months: ['Jul'] },
     { username: 'ovindee', months: ['Jul'] },
     { username: 'madumi', months: ['Jul'] },
-    { username: 'seneth', months: ['Jul'] },
+    { username: 'ashvini', months: ['Jul'] },
+    { username: 'ashvini', months: ['Aug'] },
+  { username: 'indunith', months: ['Aug'] },
+   { username: 'ashleigh', months: ['Aug'] },
+   { username: 'udamna', months: ['Aug'] },
+      { username: 'timasha', months: ['Jul'] },
+     { username: 'amra', months: ['Jul'] },
+    
+
+
  
   
 
@@ -660,3 +669,4 @@
 
     
 ];
+
