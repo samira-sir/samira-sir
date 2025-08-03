@@ -626,8 +626,14 @@
    { username: 'shenya', months: ['Aug'] },
    { username: 'shenya', months: ['Jul'] },
  { username: 'shenya', months: ['Jun'] },
+   { username: 'udula', months: ['Jun'] },
+   { username: 'danula', months: ['Jun'] },
+ { username: 'udula', months: ['Aug'] },
+   { username: 'danula', months: ['Aug'] },
+   { username: 'silma', months: ['Aug'] },
+    { username: 'anudi', months: ['Jul'] },
+   { username: 'ranul', months: ['Jul'] },
 
- 
   
 
      { username: 'sanul', months: ['Apr'] },
@@ -673,5 +679,6 @@
 
     
 ];
+
 
 
