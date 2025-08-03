@@ -9670,7 +9670,35 @@ const videoLinks = [
         title: '2025-08-01 - Class 11 - History Part 3' 
       },
 
+      { 
+        class: '7', 
+        subject: 'History', 
+        date: '2025-08-02', 
+        month: 'August', 
+        video: 'https://drive.google.com/file/d/13SbhB4Xgztk6fGBbSrxoOb6-HY4wVrQp/preview', 
+        title: '2025-08-02 - Class 7 - History Part 1' 
+      },
+
+      { 
+        class: '7', 
+        subject: 'History', 
+        date: '2025-08-02', 
+        month: 'August', 
+        video: 'https://drive.google.com/file/d/1nsjMiQcXNOkqYsiTdoqLtb6OzJ7qjJo1/preview', 
+        title: '2025-08-02 - Class 7 - History Part 2' 
+      },
+
+      { 
+        class: '7', 
+        subject: 'History', 
+        date: '2025-08-02', 
+        month: 'August', 
+        video: 'https://drive.google.com/file/d/1tbl3T6M_rsgjxc5XDGigZQ9gZy7dih1o/preview', 
+        title: '2025-08-02 - Class 7 - History Part 3' 
+      },
+
         ];
   
+
 
 
