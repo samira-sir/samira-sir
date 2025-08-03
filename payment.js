@@ -620,8 +620,12 @@
    { username: 'udamna', months: ['Aug'] },
       { username: 'timasha', months: ['Jul'] },
      { username: 'amra', months: ['Jul'] },
-    
-
+    { username: 'sadew', months: ['Jul'] },
+  { username: 'sadew', months: ['Jun'] },
+  { username: 'sadew', months: ['Aug'] },
+   { username: 'shenya', months: ['Aug'] },
+   { username: 'shenya', months: ['Jul'] },
+ { username: 'shenya', months: ['Jun'] },
 
  
   
@@ -669,4 +673,5 @@
 
     
 ];
+
 
