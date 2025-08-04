@@ -21,7 +21,6 @@
     { username: 'sadew', months: ['Jan'] },
     { username: 'samindya', months: ['Jan'] },
     { username: 'kulsum', months: ['Jan'] },
-    { username: 'roshell', months: ['Jan'] },  
     { username: 'chenul', months: ['Jan'] },
     { username: 'sandeepa', months: ['Jan'] },
     { username: 'anneq', months: ['Jan'] },
@@ -683,6 +682,7 @@
 
     
 ];
+
 
 
 
