@@ -9787,8 +9787,36 @@ const videoLinks = [
         title: '2025-08-03 - Class 6 - Geography Part 3' 
       },
 
+      { 
+        class: '6', 
+        subject: 'History', 
+        date: '2025-08-03', 
+        month: 'August', 
+        video: 'https://drive.google.com/file/d/16mTBUiSECYrOdKTlP9f1f3xj9QpPq4no/preview', 
+        title: '2025-08-03 - Class 6 - History Part 1' 
+      },
+
+      { 
+        class: '6', 
+        subject: 'History', 
+        date: '2025-08-03', 
+        month: 'August', 
+        video: 'https://drive.google.com/file/d/1fNONmGFlt0bTcs7-k9scgfcrBXJkS5Gp/preview', 
+        title: '2025-08-03 - Class 6 - History Part 2' 
+      },
+
+      { 
+        class: '6', 
+        subject: 'History', 
+        date: '2025-08-03', 
+        month: 'August', 
+        video: 'https://drive.google.com/file/d/1qLGTyRxsusJfDl0U_tUPBsKtX5wfUX_W/preview', 
+        title: '2025-08-03 - Class 6 - History Part 3' 
+      },
+
         ];
   
+
 
 
 
