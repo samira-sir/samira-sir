@@ -637,7 +637,13 @@
 { username: 'senula', months: ['Aug'] },
    { username: 'dulansa', months: ['Jul'] },
  { username: 'udayangani', months: ['Jul'] },
-  
+  { username: 'pranami', months: ['Aug'] }, 
+    { username: 'lahiru', months: ['Aug'] }, 
+      { username: 'kulsum', months: ['Aug'] }, 
+    { username: 'radheesha', months: ['Aug'] }, 
+  { username: 'januni', months: ['Aug'] }, 
+  { username: 'sithnuka', months: ['Aug'] },
+  { username: 'dilakshana', months: ['Jul'] }, 
 
      { username: 'sanul', months: ['Apr'] },
   
@@ -682,6 +688,7 @@
 
     
 ];
+
 
 
 
