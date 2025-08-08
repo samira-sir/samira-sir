@@ -645,6 +645,7 @@
   { username: 'sithnuka', months: ['Aug'] },
   { username: 'dilakshana', months: ['Jul'] }, 
     { username: 'thinuli', months: ['Aug'] },
+     { username: 'linuka', months: ['Aug'] },
 
      { username: 'sanul', months: ['Apr'] },
   
@@ -689,6 +690,7 @@
 
     
 ];
+
 
 
 
