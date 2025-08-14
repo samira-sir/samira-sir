@@ -657,8 +657,15 @@
    { username: 'nishad', months: ['Aug'] },
  { username: 'adrianna', months: ['Aug'] },
    { username: 'zuha', months: ['Aug'] },
- 
-  
+   { username: 'harishadi', months: ['Jul'] },
+  { username: 'akein', months: ['Aug'] },
+   { username: 'saniru', months: ['Aug'] },
+  { username: 'dulya', months: ['Jul'] },
+   { username: 'sadil', months: ['Jul'] },
+  { username: 'sadil', months: ['Aug'] },
+  { username: 'minketh', months: ['Jul'] },
+  { username: 'thaveesha', months: ['Jul'] },
+
 
   
      { username: 'sanul', months: ['Apr'] },
@@ -704,6 +711,7 @@
 
     
 ];
+
 
 
 
