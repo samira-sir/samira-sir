@@ -10471,8 +10471,54 @@ const videoLinks = [
         title: '2025-08-17 - Class 8 - Geography Part 3' 
       },
 
+      { 
+        class: '10', 
+        subject: 'Geography', 
+        date: '2025-08-18', 
+        month: 'August', 
+        video: 'https://drive.google.com/file/d/1W9UXGu2YqokKFJGAvMBEAZdHZGaJAnwT/preview', 
+        title: '2025-08-18 - Class 10 - Geography Part 1' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'Geography', 
+        date: '2025-08-18', 
+        month: 'August', 
+        video: 'https://drive.google.com/file/d/1xoV1ehTeCADr0vhJbJhwSyDQg_Ip2cqy/preview', 
+        title: '2025-08-18 - Class 10 - Geography Part 2' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'Geography', 
+        date: '2025-08-18', 
+        month: 'August', 
+        video: 'https://drive.google.com/file/d/1lMYFMq3BJO1tabDQH0kmOJLEI0eX8lkf/preview', 
+        title: '2025-08-18 - Class 10 - Geography Part 3' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'Geography', 
+        date: '2025-08-18', 
+        month: 'August', 
+        video: 'https://drive.google.com/file/d/1sy8FE6mJQ6DALNrZjC4WpUlvVcYMLg3f/preview', 
+        title: '2025-08-18 - Class 10 - Geography Part 4' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'Geography', 
+        date: '2025-08-18', 
+        month: 'August', 
+        video: 'https://drive.google.com/file/d/1-F88AvVl31OGtvqI8HmuSbDiD1TyrWdB/preview', 
+        title: '2025-08-18 - Class 10 - Geography Part 5' 
+      },
+
         ];
   
+
 
 
 
