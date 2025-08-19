@@ -10372,8 +10372,54 @@ const videoLinks = [
         title: '2025-08-16 - Class 10 - History Part 4' 
       },
 
+      { 
+        class: '7', 
+        subject: 'Geography', 
+        date: '2025-08-16', 
+        month: 'August', 
+        video: 'https://drive.google.com/file/d/179LJ5wemIRQ3zU9uVNyfxYjN3HmDupVU/preview', 
+        title: '2025-08-16 - Class 7 - Geography Part 1' 
+      },
+
+      { 
+        class: '7', 
+        subject: 'Geography', 
+        date: '2025-08-16', 
+        month: 'August', 
+        video: 'https://drive.google.com/file/d/1h_UaVg_Kz13na5Jz6FTlxja2kJwamz4C/preview', 
+        title: '2025-08-16 - Class 7 - Geography Part 2' 
+      },
+
+      { 
+        class: '7', 
+        subject: 'Geography', 
+        date: '2025-08-16', 
+        month: 'August', 
+        video: 'https://drive.google.com/file/d/1a1H07Ys413bc_7juzImc4LmNrWdhCwWG/preview', 
+        title: '2025-08-16 - Class 7 - Geography Part 3' 
+      },
+
+      { 
+        class: '7', 
+        subject: 'Geography', 
+        date: '2025-08-16', 
+        month: 'August', 
+        video: 'https://drive.google.com/file/d/1Zm6dIp1YK9-mqpJShEQM7teNYJ5vazeI/preview', 
+        title: '2025-08-16 - Class 7 - Geography Part 4' 
+      },
+
+      { 
+        class: '7', 
+        subject: 'Geography', 
+        date: '2025-08-16', 
+        month: 'August', 
+        video: 'https://drive.google.com/file/d/1DZwHrqWSbQpoX9pdh_4OqIvrE9DAu49B/preview', 
+        title: '2025-08-16 - Class 7 - Geography Part 5' 
+      },
+
         ];
   
+
 
 
 
