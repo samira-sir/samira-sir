@@ -674,6 +674,10 @@
    { username: 'manuka', months: ['Aug'] },
    { username: 'ihansa', months: ['Aug'] },
     { username: 'reema', months: ['Jul'] },
+  { username: 'nawodya', months: ['Aug'] },
+    { username: 'praveen', months: ['Aug'] },
+  { username: 'imandi', months: ['Aug'] },
+
 
   
      { username: 'sanul', months: ['Apr'] },
@@ -719,6 +723,7 @@
 
     
 ];
+
 
 
 
