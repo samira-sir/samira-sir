@@ -10957,8 +10957,36 @@ const videoLinks = [
         title: '2025-08-25 - Class 8 - Geography Part 3' 
       },
 
+      { 
+        class: '11', 
+        subject: 'Geography', 
+        date: '2025-08-25', 
+        month: 'August', 
+        video: 'https://drive.google.com/file/d/1tcdYwPuuImoD_m1iZH1jgn3rhh1oevNv/preview', 
+        title: '2025-08-25 - Class 11 - Geography Part 1' 
+      },
+
+      { 
+        class: '11', 
+        subject: 'Geography', 
+        date: '2025-08-25', 
+        month: 'August', 
+        video: 'https://drive.google.com/file/d/1Bc4eJYCHOu2FITC_y0gvUAknmLf6lOlu/preview', 
+        title: '2025-08-25 - Class 11 - Geography Part 2' 
+      },
+
+      { 
+        class: '11', 
+        subject: 'Geography', 
+        date: '2025-08-25', 
+        month: 'August', 
+        video: '"https://drive.google.com/file/d/1056sYaWZro5OHyo3JsnK6eEd5qEGESo3/preview', 
+        title: '2025-08-25 - Class 11 - Geography Part 3' 
+      },
+
         ];
   
+
 
 
 
