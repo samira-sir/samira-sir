@@ -11200,8 +11200,37 @@ const videoLinks = [
         video: 'https://drive.google.com/file/d/1PtqliM6zwZkXyvaTXyXICXa0w5o4Wz58/preview', 
         title: '2025-08-31 - Class 6 - History Part 4' 
       },
+      
+      { 
+        class: '11', 
+        subject: 'Geography', 
+        date: '2025-09-01', 
+        month: 'September', 
+        video: 'https://drive.google.com/file/d/14VE06yrSp4k-AF7icnjBYxL-rXokt7G_/preview', 
+        title: '2025-09-01 - Class 11 - Geography Part 1' 
+      },
+
+      { 
+        class: '11', 
+        subject: 'Geography', 
+        date: '2025-09-01', 
+        month: 'September', 
+        video: 'https://drive.google.com/file/d/1KS0hEWtxcqLzJJZ10L3ZSRLb3FV5YvFt/preview', 
+        title: '2025-09-01 - Class 11 - Geography Part 2' 
+      },
+
+      { 
+        class: '11', 
+        subject: 'Geography', 
+        date: '2025-09-01', 
+        month: 'September', 
+        video: 'https://drive.google.com/file/d/1AKoKm6-l4MsgMgtWC1KdsolcCX7m5jC9/preview', 
+        title: '2025-09-01 - Class 11 - Geography Part 3' 
+      },
+
      ];
   
+
 
 
 
