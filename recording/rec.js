@@ -11255,8 +11255,27 @@ const videoLinks = [
         title: '2025-09-01 - Class 10 - Geography Part 3' 
       },
 
+      { 
+        class: '8', 
+        subject: 'Geography', 
+        date: '2025-09-01', 
+        month: 'September', 
+        video: 'https://drive.google.com/file/d/1ZffGpawmS055v01SvaGjjyoUFoPF2edQ/preview', 
+        title: '2025-09-01 - Class 8 - Geography Part 1' 
+      },
+
+      { 
+        class: '8', 
+        subject: 'Geography', 
+        date: '2025-09-01', 
+        month: 'September', 
+        video: 'https://drive.google.com/file/d/1DbQ1dV81obvjh7rc7d_oXJwM6xSirvZR/preview', 
+        title: '2025-09-01 - Class 8 - Geography Part 2' 
+      },
+
      ];
   
+
 
 
 
