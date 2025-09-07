@@ -722,6 +722,8 @@
   { username: 'pranami', months: ['Sept'] },
    { username: 'januni', months: ['Sept'] },
   { username: 'sithnuka', months: ['Sept'] },
+  { username: 'senuji', months: ['Aug'] },
+    { username: 'thushmini', months: ['Aug'] },
   
 
   
@@ -768,6 +770,7 @@
 
     
 ];
+
 
 
 
