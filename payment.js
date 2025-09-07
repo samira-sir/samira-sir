@@ -715,7 +715,13 @@
     { username: 'nishad', months: ['Sept'] },
     { username: 'chiranya', months: ['Sept'] },
    { username: 'ushana', months: ['Sept'] },
-   
+   { username: 'linuka', months: ['Sept'] },
+  { username: 'thinuli', months: ['Sept'] },
+  { username: 'ashleigh', months: ['Sept'] },
+  { username: 'ishan', months: ['Sept'] },
+  { username: 'pranami', months: ['Sept'] },
+   { username: 'januni', months: ['Sept'] },
+  { username: 'sithnuka', months: ['Sept'] },
   
 
   
@@ -762,6 +768,7 @@
 
     
 ];
+
 
 
 
