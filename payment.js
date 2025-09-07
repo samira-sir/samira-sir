@@ -724,7 +724,13 @@
   { username: 'sithnuka', months: ['Sept'] },
   { username: 'senuji', months: ['Aug'] },
     { username: 'thushmini', months: ['Aug'] },
-  
+   { username: 'senuji', months: ['Aug'] },
+    { username: 'thushmini', months: ['Aug'] },
+  { username: 'ahasna', months: ['Jul'] },
+   { username: 'ahasna', months: ['Aug'] },
+    { username: 'ahasna', months: ['Sept'] },
+  { username: 'dehan', months: ['Aug'] },
+   { username: 'dehan', months: ['Jul'] },
 
   
      { username: 'sanul', months: ['Apr'] },
@@ -770,6 +776,7 @@
 
     
 ];
+
 
 
 
