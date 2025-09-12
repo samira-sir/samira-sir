@@ -11642,8 +11642,36 @@ const videoLinks = [
         title: '2025-09-09 - Class 8 - History Part 3' 
       },
 
+      { 
+        class: '9', 
+        subject: 'History', 
+        date: '2025-09-11', 
+        month: 'September', 
+        video: 'https://drive.google.com/file/d/1ZxT1Xv58efNL-GXbd2_B3pRsYtkvNtRO/preview', 
+        title: '2025-09-11 - Class 9 - History Part 1' 
+      },
+
+      { 
+        class: '9', 
+        subject: 'History', 
+        date: '2025-09-11', 
+        month: 'September', 
+        video: 'https://drive.google.com/file/d/1fbXaHUpDvPGNPBLb1vgPjfcqTiRExHx3/preview', 
+        title: '2025-09-11 - Class 9 - History Part 2' 
+      },
+
+      { 
+        class: '9', 
+        subject: 'History', 
+        date: '2025-09-11', 
+        month: 'September', 
+        video: 'https://drive.google.com/file/d/18sxgGI0xCQpqEb467g93CE7OvcVi3BmU/preview', 
+        title: '2025-09-11 - Class 9 - History Part 3' 
+      },
+
      ];
   
+
 
 
 
