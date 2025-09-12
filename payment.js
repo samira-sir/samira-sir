@@ -712,7 +712,7 @@
     { username: 'dulansa', months: ['Aug'] },
     { username: 'indunith', months: ['Oct'] },
     { username: 'adrianna', months: ['Sept'] },
-    { username: 'nishad', months: ['Sept'] },
+    { username: 'nishad', months: ['Sep'] },
     { username: 'chiranya', months: ['Sept'] },
    { username: 'ushana', months: ['Sept'] },
    { username: 'linuka', months: ['Sept'] },
@@ -785,6 +785,7 @@
 
     
 ];
+
 
 
 
