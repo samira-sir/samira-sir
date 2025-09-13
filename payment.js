@@ -756,6 +756,7 @@
   { username: 'danula', months: ['Sep'] },
   { username: 'anneq', months: ['Sep'] },
   { username: 'kulsum', months: ['Sep'] },
+  { username: 'rimidhi', months: ['Sep'] },
   
      { username: 'sanul', months: ['Apr'] },
   
@@ -800,6 +801,7 @@
 
     
 ];
+
 
 
 
