@@ -757,6 +757,12 @@
   { username: 'anneq', months: ['Sep'] },
   { username: 'kulsum', months: ['Sep'] },
   { username: 'rimidhi', months: ['Sep'] },
+    { username: 'abinu', months: ['Aug'] },
+    { username: 'rasuli', months: ['Aug'] },
+    { username: 'abinu', months: ['Sep'] },
+    { username: 'rasuli', months: ['Sep'] },
+   { username: 'osadee', months: ['Sep'] },
+   { username: 'thisumi', months: ['Sep'] },
   
      { username: 'sanul', months: ['Apr'] },
   
@@ -801,6 +807,7 @@
 
     
 ];
+
 
 
 
