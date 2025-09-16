@@ -763,6 +763,14 @@
     { username: 'rasuli', months: ['Sep'] },
    { username: 'osadee', months: ['Sep'] },
    { username: 'thisumi', months: ['Sep'] },
+  { username: 'dilakshana', months: ['Aug'] },
+  { username: 'minketh', months: ['Aug'] },
+  { username: 'yenuli', months: ['Sep'] },
+  { username: 'damindu', months: ['Jul'] },
+  { username: 'damindu', months: ['Aug'] },
+  { username: 'udamna', months: ['Sep'] },
+   { username: 'udamna', months: ['Oct'] },
+   { username: 'udamna', months: ['Nov'] },
   
      { username: 'sanul', months: ['Apr'] },
   
@@ -807,6 +815,7 @@
 
     
 ];
+
 
 
 
