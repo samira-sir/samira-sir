@@ -29,6 +29,7 @@ const credentials = {
     indunith: { password: 'shashi@123', subjects: [{ name: 'history', grade: 7 }] },
      lithushi: { password: 'lithushi', subjects: [{ name: 'geography', grade: 7 }] },
      rimidhi: { password: '20130202', subjects: [{ name: 'history', grade: 7 }] },
+     nadun: { password: '1234', subjects: [{ name: 'geography', grade: 7 }] },
      dinura: { password: 'Bd7@Lr2%', subjects: [{ name: 'history', grade: 8 },{ name: 'geography', grade: 8 }] },
     pranami: { password: 'Pranami123', subjects: [{ name: 'geography', grade: 8 }] },
     dulnitha: { password: '7777', subjects: [{ name: 'history', grade: 8 }] },
@@ -119,6 +120,7 @@ const credentials = {
    
 
   };
+
 
 
 
