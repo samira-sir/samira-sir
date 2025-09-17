@@ -11922,8 +11922,36 @@ const videoLinks = [
         title: '2025-09-16 - Class 9 - Geography Part 3' 
       },
 
+      { 
+        class: '8', 
+        subject: 'History', 
+        date: '2025-09-16', 
+        month: 'September', 
+        video: 'https://drive.google.com/file/d/1rS0RC0J3AVZhAU7ydgZ3MaWBBIQybPSV/preview', 
+        title: '2025-09-16 - Class 8 - History Part 1' 
+      },
+
+      { 
+        class: '8', 
+        subject: 'History', 
+        date: '2025-09-16', 
+        month: 'September', 
+        video: 'https://drive.google.com/file/d/1erzGJKhLE2H87qvr21VM6-Siss-dywHy/preview', 
+        title: '2025-09-16 - Class 8 - History Part 2' 
+      },
+
+      { 
+        class: '8', 
+        subject: 'History', 
+        date: '2025-09-16', 
+        month: 'September', 
+        video: 'https://drive.google.com/file/d/1SHbNGkhVWyU2Pc_T_dGrGp9i4VJX35Bd/preview', 
+        title: '2025-09-16 - Class 8 - History Part 3' 
+      },
+
      ];
   
+
 
 
 
