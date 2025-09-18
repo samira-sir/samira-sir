@@ -59,7 +59,7 @@ const credentials = {
     nishini: { password: 'Gq3%Jw8@', subjects: [{ name: 'history', grade: 9 },{ name: 'geography', grade: 9 },{ name: 'civic', grade: 9}] },
     harishadi: { password: 'yahansa123', subjects: [{ name: 'history', grade: 9 },{ name: 'geography', grade: 9 }] },
     kavithma: { password: '9900', subjects: [{ name: 'history', grade: 9 },{ name: 'geography', grade: 9 },{ name: 'civic', grade: 9}] },
-    reema: { password: '1360', subjects: [{ name: 'history', grade: 9 },{ name: 'geography', grade: 9 },{ name: 'civic', grade: 9}] },
+    reema: { password: '1360', subjects: [{ name: 'geography', grade: 9 },{ name: 'civic', grade: 9}] },
     mihin: { password: 'Fe8&Ys3%', subjects: [{ name: 'history', grade: 9 }]},
     thinuki: { password: 'thinuki123', subjects: [{ name: 'history', grade: 9 },{ name: 'geography', grade: 9 }] },    
     ahasna: { password: 'Gt3&Pe8%', subjects: [{ name: 'geography', grade: 9 },{ name: 'history', grade: 9 }] },
@@ -71,7 +71,7 @@ const credentials = {
     dewmi: { password: 'TADAW', subjects: [{ name: 'history', grade: 9 }] },
     minketh: { password: 'Dq1%Ws6@', subjects: [{ name: 'geography', grade: 9 },{ name: 'civic', grade: 9}] },
     pinidi: { password: '2058', subjects: [{ name: 'history', grade: 9 },{ name: 'geography', grade: 9 }] }, 
-    nadun: { password: '1234', subjects: [{ name: 'geography', grade: 9 }] }, 
+    nadun: { password: '1234', subjects: [{ name: 'history', grade: 9 },{ name: 'geography', grade: 9 }] }, 
     ishan: { password: '2010', subjects: [{ name: 'history', grade: 10 }] },
     udula: { password: 'udula123', subjects: [{ name: 'history', grade: 10 }] },
     praveen: { password: 'Nw8%Fu3@', subjects: [{ name: 'history', grade: 10 },{ name: 'geography', grade: 10 }] },
@@ -120,6 +120,7 @@ const credentials = {
    
 
   };
+
 
 
 
