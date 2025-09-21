@@ -12039,8 +12039,36 @@ const videoLinks = [
         title: '2025-09-20 - Class 7 - Geography Part 3' 
       },
 
+      { 
+        class: '7', 
+        subject: 'History', 
+        date: '2025-09-20', 
+        month: 'September', 
+        video: 'https://drive.google.com/file/d/14T-0z5-6dVQdho1fC4PDKCx0XZfammAF/preview', 
+        title: '2025-09-20 - Class 7 - History Part 1' 
+      },
+
+      { 
+        class: '7', 
+        subject: 'History', 
+        date: '2025-09-20', 
+        month: 'September', 
+        video: 'https://drive.google.com/file/d/18b8TfqBT_5_G9QujgCs190ypQ_tU_e-c/preview', 
+        title: '2025-09-20 - Class 7 - History Part 2' 
+      },
+
+      { 
+        class: '7', 
+        subject: 'History', 
+        date: '2025-09-20', 
+        month: 'September', 
+        video: 'https://drive.google.com/file/d/1WSizTC0X74Sa5ue7b-BLViUe2H2pLDpI/preview', 
+        title: '2025-09-20 - Class 7 - History Part 3' 
+      },
+
      ];
   
+
 
 
 
