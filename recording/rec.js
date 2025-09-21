@@ -12093,8 +12093,36 @@ const videoLinks = [
         title: '2025-09-19 - Class 11 - History Part 3' 
       },
 
+      { 
+        class: '9', 
+        subject: 'Civic', 
+        date: '2025-09-19', 
+        month: 'September', 
+        video: 'https://drive.google.com/file/d/1N9fyyZi4t9MdFUhwO2Yg4AI5Y4w39n31/preview', 
+        title: '2025-09-19 - Class 9 - Civic Part 1' 
+      },
+
+      { 
+        class: '9', 
+        subject: 'Civic', 
+        date: '2025-09-19', 
+        month: 'September', 
+        video: 'https://drive.google.com/file/d/1jZnXZgeeeZbB0AMvSmhAQ-RbQrzU7sgq/preview', 
+        title: '2025-09-19 - Class 9 - Civic Part 2' 
+      },
+
+      { 
+        class: '9', 
+        subject: 'Civic', 
+        date: '2025-09-19', 
+        month: 'September', 
+        video: 'https://drive.google.com/file/d/1EFR7MJbz49pIUvmXiou2snTdQw0sBoHB/preview', 
+        title: '2025-09-19 - Class 9 - Civic Part 3' 
+      },
+
      ];
   
+
 
 
 
