@@ -15,6 +15,7 @@ const credentials = {
     ashleigh: { password: '12345', subjects: [{ name: 'geography', grade: 6 }, { name: 'history', grade: 6 }] },
     udamna: { password: 'Udamna', subjects: [{ name: 'history', grade: 6 }] },
     menara: { password: '19762014', subjects: [{ name: 'geography', grade: 6 }, { name: 'history', grade: 6 }] },
+    nethsara : { password: '20140709N', subjects: [{ name: 'history', grade: 6 }] },
     kavitha: { password: 'kavitha123', subjects: [{ name: 'geography', grade: 7 }, { name: 'history', grade: 7 }] },
     imandi: { password: 'Gw7@Eh5%', subjects: [{ name: 'history', grade: 7 }, { name: 'geography', grade: 7 }] },
     danula: { password: 'danula123', subjects: [{ name: 'history', grade: 7 }, { name: 'geography', grade: 7 }] },
@@ -120,6 +121,7 @@ const credentials = {
    
 
   };
+
 
 
 
