@@ -12120,8 +12120,36 @@ const videoLinks = [
         title: '2025-09-19 - Class 9 - Civic Part 3' 
       },
 
+      { 
+        class: '11', 
+        subject: 'Geography', 
+        date: '2025-09-22', 
+        month: 'September', 
+        video: 'https://drive.google.com/file/d/1SAgG9tf3bvNqBJJVcS1tY30STQ_4dCdS/preview', 
+        title: '2025-09-22 - Class 11 - Geography Part 1' 
+      },
+
+      { 
+        class: '11', 
+        subject: 'Geography', 
+        date: '2025-09-22', 
+        month: 'September', 
+        video: 'https://drive.google.com/file/d/1MeMVKmAejBUnHNJbRcM7TqRHtra5cwue/preview', 
+        title: '2025-09-22 - Class 11 - Geography Part 2' 
+      },
+
+      { 
+        class: '11', 
+        subject: 'Geography', 
+        date: '2025-09-22', 
+        month: 'September', 
+        video: 'https://drive.google.com/file/d/17DNTDqsdS648zSiM3mmJk-qN68es-ZvT/preview', 
+        title: '2025-09-22 - Class 11 - Geography Part 3' 
+      },
+
      ];
   
+
 
 
 
