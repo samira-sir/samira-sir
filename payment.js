@@ -776,6 +776,9 @@
    { username: 'akein', months: ['Sep'] },
    { username: 'silma', months: ['Sep'] },
   { username: 'adeesha', months: ['Sep'] },
+  { username: 'nethsara', months: ['Sep'] },
+  { username: 'thushmini', months: ['Sep'] },
+  { username: 'senuji', months: ['Sep'] },
   
      { username: 'sanul', months: ['Apr'] },
   
@@ -820,6 +823,7 @@
 
     
 ];
+
 
 
 
