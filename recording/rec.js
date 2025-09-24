@@ -12264,8 +12264,54 @@ const videoLinks = [
         title: '2025-09-21 - Class 6 - History Part 3' 
       },
 
+      { 
+        class: '8', 
+        subject: 'Geography', 
+        date: '2025-09-23', 
+        month: 'September', 
+        video: 'https://drive.google.com/file/d/1aP3VSZObLPz56hJl8GoSf5NTf35NkWvN/preview', 
+        title: '2025-09-23 - Class 8 - Geography Part 1' 
+      },
+
+      { 
+        class: '8', 
+        subject: 'Geography', 
+        date: '2025-09-23', 
+        month: 'September', 
+        video: 'https://drive.google.com/file/d/1br78J9AgGc-NE91fpHY2C5gVK028sGxv/preview', 
+        title: '2025-09-23 - Class 8 - Geography Part 2' 
+      },
+
+      { 
+        class: '8', 
+        subject: 'Geography', 
+        date: '2025-09-23', 
+        month: 'September', 
+        video: 'https://drive.google.com/file/d/1bQ8CCTU0uKPCOQ7WeDTXY6vsX2tbqMfq/preview', 
+        title: '2025-09-23 - Class 8 - Geography Part 3' 
+      },
+
+      { 
+        class: '8', 
+        subject: 'Geography', 
+        date: '2025-09-23', 
+        month: 'September', 
+        video: 'https://drive.google.com/file/d/1lAHXqalOvcQnDQBJgOoj2595u-ddxf6c/preview', 
+        title: '2025-09-23 - Class 8 - Geography Part 4' 
+      },
+
+      { 
+        class: '8', 
+        subject: 'Geography', 
+        date: '2025-09-23', 
+        month: 'September', 
+        video: 'https://drive.google.com/file/d/1yTWMhof6PfDW2LQKA54jWL-QdVvpsY5f/preview', 
+        title: '2025-09-23 - Class 8 - Geography Part 5' 
+      },
+
      ];
   
+
 
 
 
