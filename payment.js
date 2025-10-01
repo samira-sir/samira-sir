@@ -792,6 +792,13 @@
   { username: 'pasadi', months: ['Aug'] },
   { username: 'praveen', months: ['Sept'] },
   { username: 'imandi', months: ['Sept'] },
+    { username: 'inudi', months: ['Oct'] },
+    { username: 'nishad', months: ['Oct'] },
+    { username: 'dilakshana', months: ['Sept'] },
+    { username: 'sayuni', months: ['Oct'] },
+    { username: 'ovindi', months: ['Sept'] },
+  { username: 'ashleigh', months: ['Oct'] },
+ 
   
   
   
@@ -838,6 +845,7 @@
 
     
 ];
+
 
 
 
