@@ -12696,8 +12696,54 @@ const videoLinks = [
         title: '2025-10-02 - Class 9 - History Part 4' 
       },
 
+      { 
+        class: '10', 
+        subject: 'History', 
+        date: '2025-10-04', 
+        month: 'October', 
+        video: 'https://drive.google.com/file/d/1GbbanrT4qg-HLq3yTuzOAIUyXn-9AgW9/preview', 
+        title: '2025-10-04 - Class 10 - History Part 1' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'History', 
+        date: '2025-10-04', 
+        month: 'October', 
+        video: 'https://drive.google.com/file/d/1hYKTQ_CR_JBao6KI--0n32vFyQTFGmvx/preview', 
+        title: '2025-10-04 - Class 10 - History Part 2' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'History', 
+        date: '2025-10-04', 
+        month: 'October', 
+        video: 'https://drive.google.com/file/d/1Yrc_FyKFB-H1qJ6OJK_6nVtT1um4KC3k/preview', 
+        title: '2025-10-04 - Class 10 - History Part 3' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'History', 
+        date: '2025-10-04', 
+        month: 'October', 
+        video: 'https://drive.google.com/file/d/1nUxG_8wuY3CV09U8_DzUv54NSS3ikduI/preview', 
+        title: '2025-10-04 - Class 10 - History Part 4' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'History', 
+        date: '2025-10-04', 
+        month: 'October', 
+        video: 'https://drive.google.com/file/d/1oZ1QjW1B417JViPGG6bb5Cjao_KG-55s/preview', 
+        title: '2025-10-04 - Class 10 - History Part 5' 
+      },
+
      ];
   
+
 
 
 
