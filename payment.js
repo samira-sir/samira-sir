@@ -821,6 +821,7 @@
    { username: 'indunith', months: ['Nov'] },
    { username: 'dehan', months: ['Sept'] },
    { username: 'chiranaya', months: ['Oct'] },
+   { username: 'kenuli', months: ['Oct'] },
   
      { username: 'sanul', months: ['Apr'] },
   
@@ -865,6 +866,7 @@
 
     
 ];
+
 
 
 
