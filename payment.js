@@ -823,6 +823,9 @@
    { username: 'chiranaya', months: ['Oct'] },
    { username: 'kenuli', months: ['Oct'] },
    { username: 'senula', months: ['Oct'] },
+   { username: 'ushana', months: ['Oct'] },
+   { username: 'zuha', months: ['Oct'] },
+   
   
      { username: 'sanul', months: ['Apr'] },
   
@@ -867,6 +870,7 @@
 
     
 ];
+
 
 
 
