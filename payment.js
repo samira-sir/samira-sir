@@ -825,8 +825,18 @@
    { username: 'senula', months: ['Oct'] },
    { username: 'ushana', months: ['Oct'] },
    { username: 'zuha', months: ['Oct'] },
-   
-  
+  { username: 'lakni', months: ['Sep'] },
+   { username: 'lakni', months: ['Oct'] },
+   { username: 'kulsum', months: ['Oct'] },
+   { username: 'januni', months: ['Oct'] },
+  { username: 'sithnuka', months: ['Oct'] },
+   { username: 'dinura', months: ['Oct'] },
+   { username: 'nawodya', months: ['Sep'] },
+   { username: 'nawodya', months: ['Oct'] },
+   { username: 'ometh', months: ['Oct'] },
+   { username: 'ometh', months: ['Nov'] },
+   { username: 'Ometh', months: ['Dec'] },
+
      { username: 'sanul', months: ['Apr'] },
   
   
@@ -870,6 +880,7 @@
 
     
 ];
+
 
 
 
