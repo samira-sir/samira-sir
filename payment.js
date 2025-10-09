@@ -836,6 +836,13 @@
    { username: 'ometh', months: ['Oct'] },
    { username: 'ometh', months: ['Nov'] },
    { username: 'Ometh', months: ['Dec'] },
+ { username: 'thinuli', months: ['Oct'] },
+   { username: 'ashvini', months: ['Oct'] },
+   { username: 'ashvini', months: ['Sep'] },
+   { username: 'timasha', months: ['Sep'] },
+   { username: 'radheesha', months: ['Oct'] },
+ 
+  
 
      { username: 'sanul', months: ['Apr'] },
   
@@ -880,6 +887,7 @@
 
     
 ];
+
 
 
 
