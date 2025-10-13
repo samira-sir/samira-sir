@@ -13092,8 +13092,36 @@ const videoLinks = [
         title: '2025-10-11 - Class 10 - History Part 3' 
       },
 
+      { 
+        class: '6', 
+        subject: 'History', 
+        date: '2025-10-12', 
+        month: 'October', 
+        video: 'https://drive.google.com/file/d/1jBUJHOIchVEyXyc4AankSDDofa59u909/preview', 
+        title: '2025-10-12 - Class 6 - History Part 1' 
+      },
+
+      { 
+        class: '6', 
+        subject: 'History', 
+        date: '2025-10-12', 
+        month: 'October', 
+        video: 'https://drive.google.com/file/d/1G2TeriLyGMI7VhzLSU86b-LEQwTuPumE/preview', 
+        title: '2025-10-12 - Class 6 - History Part 2' 
+      },
+
+      { 
+        class: '6', 
+        subject: 'History', 
+        date: '2025-10-12', 
+        month: 'October', 
+        video: 'https://drive.google.com/file/d/1QxoPlrwyyLFxfIjOd0O3Mbg445CkY4Y7/preview', 
+        title: '2025-10-12 - Class 6 - History Part 3' 
+      },
+
      ];
   
+
 
 
 
