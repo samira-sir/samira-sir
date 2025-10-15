@@ -851,6 +851,14 @@
    { username: 'hashini', months: ['Sep'] },
    { username: 'aneeq', months: ['Oct'] },
    { username: 'kethmin', months: ['Sep'] },
+   { username: 'udayangani', months: ['Sep'] },
+   { username: 'udayangani', months: ['Oct'] },
+   { username: 'nadun', months: ['Oct'] },
+   { username: 'osadee', months: ['Oct'] },
+   { username: 'senuji', months: ['Oct'] },
+    { username: 'thushmini', months: ['Oct'] },
+    { username: 'minketh', months: ['Sep'] },
+   { username: 'lahiru', months: ['Oct'] },
 
   
      { username: 'sanul', months: ['Apr'] },
@@ -896,6 +904,7 @@
 
     
 ];
+
 
 
 
