@@ -859,7 +859,14 @@
     { username: 'thushmini', months: ['Oct'] },
     { username: 'minketh', months: ['Sep'] },
    { username: 'lahiru', months: ['Oct'] },
-
+     { username: 'manuka', months: ['Oct'] },
+    { username: 'ihansa', months: ['Oct'] },
+   { username: 'dulansa', months: ['Sep'] },
+     { username: 'dehan', months: ['Oct'] },
+    { username: 'senulya', months: ['Oct'] },
+   { username: 'dulya', months: ['Sep'] },
+  { username: 'hashini', months: ['Oct'] },
+  
   
      { username: 'sanul', months: ['Apr'] },
   
@@ -904,6 +911,7 @@
 
     
 ];
+
 
 
 
