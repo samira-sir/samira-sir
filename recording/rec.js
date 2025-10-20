@@ -13416,8 +13416,36 @@ const videoLinks = [
         title: '2025-10-18 - Class 10 - History Part 3' 
       },
 
+      { 
+        class: '6', 
+        subject: 'Geography', 
+        date: '2025-10-19', 
+        month: 'October', 
+        video: 'https://drive.google.com/file/d/1OzcITh03V8MsDrSqPCvDnTX_pcgBq3t3/preview', 
+        title: '2025-10-19 - Class 6 - Geography Part 1' 
+      },
+
+      { 
+        class: '6', 
+        subject: 'Geography', 
+        date: '2025-10-19', 
+        month: 'October', 
+        video: 'https://drive.google.com/file/d/1WmnMicKDTw0oQ9DGGLlMKLIbjtB2NokB/preview', 
+        title: '2025-10-19 - Class 6 - Geography Part 2' 
+      },
+
+      { 
+        class: '6', 
+        subject: 'Geography', 
+        date: '2025-10-19', 
+        month: 'October', 
+        video: 'https://drive.google.com/file/d/1_W-Av2nRyiYL7yxPYotF9jWSUUt8WN1I/preview', 
+        title: '2025-10-19 - Class 6 - Geography Part 3' 
+      },
+
      ];
   
+
 
 
 
