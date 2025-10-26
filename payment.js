@@ -871,7 +871,12 @@
    { username: 'dulnitha', months: ['Sep'] },
   { username: 'dulnitha', months: ['Dec'] },
    { username: 'ahasna', months: ['Oct'] },
-   
+  { username: 'praveen', months: ['Oct'] },
+   { username: 'imandi', months: ['Oct'] },
+  { username: 'akein', months: ['Oct'] },
+   { username: 'sadil', months: ['Oct'] },
+  { username: 'ovindi', months: ['Oct'] },
+
   
   
      { username: 'sanul', months: ['Apr'] },
@@ -917,6 +922,7 @@
 
     
 ];
+
 
 
 
