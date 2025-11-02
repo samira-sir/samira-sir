@@ -13893,8 +13893,36 @@ const videoLinks = [
         title: '2025-10-28 - Class 8 - History Part 3' 
       },
 
+      { 
+        class: '7', 
+        subject: 'History', 
+        date: '2025-11-01', 
+        month: 'November', 
+        video: 'https://drive.google.com/file/d/1Gk7b5FArTrEEvEEDCQByb4mK0bpdCHaC/preview', 
+        title: '2025-11-01 - Class 7 - History Part 1' 
+      },
+
+      { 
+        class: '7', 
+        subject: 'History', 
+        date: '2025-11-01', 
+        month: 'November', 
+        video: 'https://drive.google.com/file/d/1d8KjcMk6OJOtjfOX4gJr1JfYKOo6fGrt/preview', 
+        title: '2025-11-01 - Class 7 - History Part 2' 
+      },
+
+      { 
+        class: '7', 
+        subject: 'History', 
+        date: '2025-11-01', 
+        month: 'November', 
+        video: 'https://drive.google.com/file/d/1M5htSay2Dl2j8dMntQAdv0nGNoZWYqT0/preview', 
+        title: '2025-11-01 - Class 7 - History Part 3' 
+      },
+
      ];
   
+
 
 
 
