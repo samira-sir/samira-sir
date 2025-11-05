@@ -14199,8 +14199,36 @@ const videoLinks = [
         title: '2025-11-03 - Class 11 - Geography Part 4' 
       },
 
+      { 
+        class: '10', 
+        subject: 'Geography', 
+        date: '2025-11-03', 
+        month: 'November', 
+        video: 'https://drive.google.com/file/d/1r33Pd1K3seoJ2laqpg3SN7Cy3Qsiys7d/preview', 
+        title: '2025-11-03 - Class 10 - Geography Part 1' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'Geography', 
+        date: '2025-11-03', 
+        month: 'November', 
+        video: 'https://drive.google.com/file/d/1l9vPOKDRIziHBU_FvqZj7zJ_QRR2sTZj/preview', 
+        title: '2025-11-03 - Class 10 - Geography Part 2' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'Geography', 
+        date: '2025-11-03', 
+        month: 'November', 
+        video: 'https://drive.google.com/file/d/1ScYgYUzov4FKZM0YfXx3DN-ozQc0kvR7/preview', 
+        title: '2025-11-03 - Class 10 - Geography Part 3' 
+      },
+
      ];
   
+
 
 
 
