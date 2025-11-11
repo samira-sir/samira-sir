@@ -927,6 +927,14 @@
     { username: 'ruhara', months: ['Sep'] },
    { username: 'ruhara', months: ['Oct'] },
    { username: 'ruhara', months: ['Nov'] },
+   { username: 'manishi', months: ['Oct'] },
+  { username: 'sayuni', months: ['Nov'] },
+    { username: 'pasadi', months: ['Oct'] },
+   { username: 'kethsara', months: ['Oct'] },
+   { username: 'kethsara', months: ['Nov'] },
+   { username: 'thisumi', months: ['Nov'] },
+   { username: 'hashini', months: ['Nov'] },
+
   
      { username: 'sanul', months: ['Apr'] },
   
@@ -971,6 +979,7 @@
 
     
 ];
+
 
 
 
