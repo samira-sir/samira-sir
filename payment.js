@@ -936,7 +936,14 @@
    { username: 'hashini', months: ['Nov'] },
    { username: 'kulsum', months: ['Nov'] },
    { username: 'nadun', months: ['Nov'] },
-
+  { username: 'dulya', months: ['Oct'] },
+  { username: 'thinuki', months: ['Jul'] },
+   { username: 'nethuki', months: ['Aug },
+   { username: 'thinuki', months: ['Jul'] },
+   { username: 'nethuki', months: ['Aug'] },
+    { username: 'kavithma', months: ['Sept'] },
+   { username: 'kavithma', months: ['Oct'] },
+   { username: 'kavithma', months: ['Nov'] 
   
      { username: 'sanul', months: ['Apr'] },
   
@@ -981,6 +988,7 @@
 
     
 ];
+
 
 
 
