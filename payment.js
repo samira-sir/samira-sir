@@ -949,9 +949,15 @@
       { username: 'menara', months: ['Feb'] },   
     { username: 'menara', months: ['Mar'] },   
       { username: 'menara', months: ['Apr'] },    
-     { username: 'menara', months: ['May'] },                               
-     
-  
+     { username: 'menara', months: ['May'] },    
+   { username: 'yenuli', months: ['Nov'] }, 
+   { username: 'chenul', months: ['Nov'] }, 
+   { username: 'dehan', months: ['Nov'] },  
+      { username: 'Osadee', months: ['Nov'] },   
+  { username: 'udula', months: ['Oct'] },  
+  { username: 'danula', months: ['Oct'] },
+
+                                   
      { username: 'sanul', months: ['Apr'] },
   
   
@@ -995,6 +1001,7 @@
 
     
 ];
+
 
 
 
