@@ -14910,8 +14910,27 @@ const videoLinks = [
         title: '2025-11-21 - Class 11 - History Part 3' 
       },
 
+      { 
+        class: '7', 
+        subject: 'History', 
+        date: '2025-11-22', 
+        month: 'November', 
+        video: 'https://drive.google.com/file/d/1f36faBZEvKXeHmzCeP7phTqH0FN05ZGq/preview', 
+        title: '2025-11-22 - Class 7 - History Part 1' 
+      },
+
+      { 
+        class: '7', 
+        subject: 'History', 
+        date: '2025-11-22', 
+        month: 'November', 
+        video: 'https://drive.google.com/file/d/1Mq19eW4w8UvlsKsSEUdeBDk5JIyv0MJa/preview', 
+        title: '2025-11-22 - Class 7 - History Part 2' 
+      },
+
      ];
   
+
 
 
 
