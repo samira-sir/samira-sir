@@ -964,8 +964,22 @@
   { username: 'sanul', months: ['Nov'] }, 
   { username: 'sanul', months: ['Sep'] },  
 
+       { username: 'ashleigh', months: ['Nov'] },   
+  { username: 'ashleigh', months: ['Dec'] },  
+  { username: 'sayuni', months: ['Dec'] }, 
+  { username: 'chiranya', months: ['Dec'] },                                  
+  { username: 'senulya', months: ['Nov'] },  
+  { username: 'senulya', months: ['Dec'] }, 
+  { username: 'udamna', months: ['Dec'] }, 
+    { username: 'amra', months: ['Nov'] },  
+  { username: 'kethmin', months: ['Nov'] }, 
+  { username: 'manuka', months: ['Nov'] },                                
+     { username: 'ihansa', months: ['Nov'] },  
+  { username: 'roshel', months: ['Nov'] }, 
+  { username: 'kavith', months: ['Nov'] },     
+ 
                                    
-     { username: 'sanul', months: ['Apr'] },
+     { username: 'kavith', months: ['Dec'] },
   
   
   
@@ -1008,6 +1022,7 @@
 
     
 ];
+
 
 
 
