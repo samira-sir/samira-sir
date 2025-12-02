@@ -52,6 +52,7 @@ const credentials = {
     rasuli: { password: '2012', subjects: [{ name: 'history', grade: 8}] },
     osadee: { password: '2012', subjects: [{ name: 'history', grade: 8}] },
     roshell: { password: '97865342', subjects: [{ name: 'history', grade: 8},{ name: 'geography', grade: 8 }] }, 
+    shanudi : { password: 'ABCDE', subjects: [{ name: 'history', grade: 8}] },
     senuka: { password: '123123', subjects: [{ name: 'history', grade: 9 },{ name: 'geography', grade: 9 },{ name: 'civic', grade: 9 }] }, 
     sadil: { password: '123456', subjects: [{ name: 'history', grade: 9 },{ name: 'geography', grade: 9 },{ name: 'civic', grade: 9 }] },
     damindu: { password: 'Damindu', subjects: [{ name: 'history', grade: 9 },{ name: 'geography', grade: 9 },{ name: 'civic', grade: 9 }] },
@@ -123,6 +124,7 @@ const credentials = {
    
 
   };
+
 
 
 
