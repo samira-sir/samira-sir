@@ -15036,8 +15036,27 @@ const videoLinks = [
         title: '2025-11-23 - Class 6 - Geography Part 2' 
       },
 
+      { 
+        class: '8', 
+        subject: 'History', 
+        date: '2025-12-02', 
+        month: 'December', 
+        video: 'https://drive.google.com/file/d/10E2KthL8Ge8aS2A5JA46PAK49TomgyIl/preview', 
+        title: '2025-12-02 - Class 8 - History Part 1' 
+      },
+
+      { 
+        class: '8', 
+        subject: 'History', 
+        date: '2025-12-02', 
+        month: 'December', 
+        video: 'https://drive.google.com/file/d/1SwxEGvVbpl8BbG7IqXTQmFC4f6j1YhNo/preview', 
+        title: '2025-12-02 - Class 8 - History Part 2' 
+      },
+
      ];
   
+
 
 
 
