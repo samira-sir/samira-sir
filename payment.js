@@ -982,10 +982,14 @@
    { username: 'seneth', months: ['Nov'] }, 
   { username: 'madumi', months: ['Nov'] }                                 
      { username: 'kavith', months: ['Dec'] },
-    { username: ''aysha, months: ['Nov'] }                                  
-  
-  
-  
+    { username: ''aysha, months: ['Nov'] }  
+     { username: 'shanudi', months: ['Oct'] },
+    { username: ''shanudi, months: ['Nov'] }  
+    { username: 'thisumi', months: ['Dec'] }, 
+    { username: 'dihen', months: ['Nov'] },                                 
+   { username: 'senuka', months: ['Nov'] },  
+   { username: 'nethsara', months: ['Dec'] },  
+  { username: 'menara', months: ['Dec'] },  
   
   
   
@@ -1025,6 +1029,7 @@
 
     
 ];
+
 
 
 
