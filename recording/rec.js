@@ -15180,8 +15180,45 @@ const videoLinks = [
         title: '2025-12-06 - Class 7 - History Part 3' 
       },
 
+      { 
+        class: '6', 
+        subject: 'History', 
+        date: '2025-12-07', 
+        month: 'December', 
+        video: 'https://drive.google.com/file/d/1Eiui3KVHFIdBHWc9GX9DyaPOL6SzNWbd/preview', 
+        title: '2025-12-07 - Class 6 - History Part 1' 
+      },
+
+      { 
+        class: '6', 
+        subject: 'History', 
+        date: '2025-12-07', 
+        month: 'December', 
+        video: 'https://drive.google.com/file/d/1Ce8a84ge5G2UuCoFRqvDCCPXAVUzKB_u/preview', 
+        title: '2025-12-07 - Class 6 - History Part 2' 
+      },
+
+      { 
+        class: '6', 
+        subject: 'History', 
+        date: '2025-12-07', 
+        month: 'December', 
+        video: 'https://drive.google.com/file/d/1wbFS0Cthkuro4r5pdQtPqRTvzSftWgAL/preview', 
+        title: '2025-12-07 - Class 6 - History Part 3' 
+      },
+
+      { 
+        class: '6', 
+        subject: 'History', 
+        date: '2025-12-07', 
+        month: 'December', 
+        video: 'https://drive.google.com/file/d/1tbvxjwoiMZcTUKrDnD3RwpagD_IFYYo0/preview', 
+        title: '2025-12-07 - Class 6 - History Part 4' 
+      },
+
      ];
   
+
 
 
 
