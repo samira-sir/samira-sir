@@ -1006,15 +1006,21 @@
  { username: 'thinuli', months: ['Dec'] }, 
   { username: 'yashen', months: ['Oct'] }, 
   { username: 'yashen', months: ['Nov'] }, 
-  
-  
-
+  { username: 'ushana', months: ['Dec'] },                                  
+ { username: 'thinuli', months: ['Dec'] }, 
+  { username: 'sithnuka', months: ['Dec'] }, 
+  { username: 'januni', months: ['Dec'] },                                 
+  { username: 'ovindee', months: ['Dec'] }, 
+  { username: 'senula', months: ['Dec'] }, 
+  { username: 'inudi', months: ['Dec'] }, 
+ { username: 'ranudi', months: ['Dec'] }, 
 
 
 
 
     
 ];
+
 
 
 
