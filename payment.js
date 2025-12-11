@@ -1014,12 +1014,15 @@
   { username: 'senula', months: ['Dec'] }, 
   { username: 'inudi', months: ['Dec'] }, 
  { username: 'ranudi', months: ['Dec'] }, 
-
-
-
-
-    
+{ username: 'kulsum', months: ['Dec'] }, 
+  { username: 'poojana', months: ['Nov'] }, 
+  { username: 'senuji', months: ['Dec'] }, 
+ { username: 'imandika', months: ['Dec'] }, 
+{ username: 'thaveesha', months: ['Oct'] }, 
+{ username: 'thaveesha', months: ['Nov'] }, 
+ { username: 'dulya', months: ['Oct'] },    
 ];
+
 
 
 
