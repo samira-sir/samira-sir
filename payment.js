@@ -1020,8 +1020,14 @@
  { username: 'imandika', months: ['Dec'] }, 
 { username: 'thaveesha', months: ['Oct'] }, 
 { username: 'thaveesha', months: ['Nov'] }, 
- { username: 'dulya', months: ['Oct'] },    
+ { username: 'dulya', months: ['Oct'] },  
+  { username: 'sadew', months: ['Nov'] }, 
+{ username: 'shenya', months: ['Nov'] }, 
+{ username: 'sithuki', months: ['Nov'] }, 
+ { username: 'sethuki', months: ['Dec'] },                                   
+                                   
 ];
+
 
 
 
