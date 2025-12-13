@@ -1024,9 +1024,15 @@
   { username: 'sadew', months: ['Nov'] }, 
 { username: 'shenya', months: ['Nov'] }, 
 { username: 'sithuki', months: ['Nov'] }, 
- { username: 'sethuki', months: ['Dec'] },                                   
+ { username: 'sethuki', months: ['Dec'] },  
+ { username: 'yashen', months: ['Dec'] }, 
+{ username: 'akein', months: ['Nov'] }, 
+ { username: 'navodya', months: ['Nov'] }, 
+  { username: 'dulneth', months: ['Nov'] }, 
+                                  
                                    
 ];
+
 
 
 
