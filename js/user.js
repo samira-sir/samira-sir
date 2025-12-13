@@ -35,6 +35,7 @@ const credentials = {
     niven: { password: '201385', subjects: [{ name: 'history', grade: 7 }] },
      minduni: { password: '2013', subjects: [{ name: 'history', grade: 7 }] },
      sithuki : { password: '12345', subjects: [{ name: 'history', grade: 7 }] },
+     niven : { password: 'niven123', subjects: [{ name: 'history', grade: 7 }] },
      dinura: { password: 'Bd7@Lr2%', subjects: [{ name: 'history', grade: 8 },{ name: 'geography', grade: 8 }] },
     pranami: { password: 'Pranami123', subjects: [{ name: 'geography', grade: 8 }] },
     dulnitha: { password: '7777', subjects: [{ name: 'history', grade: 8 }] },
@@ -126,6 +127,7 @@ const credentials = {
    
 
   };
+
 
 
 
