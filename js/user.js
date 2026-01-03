@@ -93,13 +93,14 @@ const credentials = {
     sanul: { password: 'Fg2%Hu7@', subjects: [{ name: 'geography', grade: 11 }] },
     thinuli: { password: 'Mn3@Rs8&', subjects: [{ name: 'history', grade: 11 },{ name: 'geography', grade: 11 }] }, 
     dulani:{password: 'Diyana', subjects:[{name:'history', grade:11}]},
-    ovindee: { password: '2009', subjects: [{name:'history',grade:11},{name:'history',grade:10}] },
+    ovindee: { password: '2009', subjects: [{name:'history',grade:11}] },
     sayumlee: { password: '2009', subjects: [{name:'history',grade:11}] },
     ometh: { password: 'Demash2025', subjects:[ { name: 'geography', grade: 11 }] },
     dulya: { password: 'dul*25', subjects: [{name:'history',grade:11}] },
     aysha: { password: '9876', subjects: [{ name: 'history', grade: 11 },{ name: 'geography', grade: 11 }] }, 
-    manishi: { password: '2009', subjects: [{name:'history',grade:11}] },
+    manishi: { password: '2121', subjects: [{name:'history',grade:11}] },
     };
+
 
 
 
