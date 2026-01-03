@@ -64,6 +64,8 @@ const credentials = {
     manuka: { password: '2011', subjects: [{ name: 'history', grade: 10 },{ name: 'geography', grade: 10 }] },
     lahiru: { password: '12345678', subjects: [{ name: 'history', grade: 10 }] },
     senulya: { password: '123456', subjects: [{ name: 'history', grade: 10 }] },
+    sethumli : { password: '12125', subjects: [{ name: 'geography', grade: 10 }] },
+    yenumi : { password: '201195', subjects: [{ name: 'geography', grade: 10 }] },
     isara: { password: '2011', subjects: [{ name: 'history', grade: 10 }] },
     nadun: { password: '1234', subjects: [{ name: 'history', grade: 10 },{ name: 'geography', grade: 10 }] }, 
     ishan: { password: '2010', subjects: [{ name: 'history', grade: 11 }] },
@@ -100,6 +102,7 @@ const credentials = {
     aysha: { password: '9876', subjects: [{ name: 'history', grade: 11 },{ name: 'geography', grade: 11 }] }, 
     manishi: { password: '2121', subjects: [{name:'history',grade:11}] },
     };
+
 
 
 
