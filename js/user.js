@@ -61,7 +61,7 @@ const credentials = {
     damindu: { password: 'Damindu', subjects: [{ name: 'history', grade: 10}] },
     kethmin: { password: 'kethmin@16202', subjects: [{ name: 'history', grade: 10 }] },        
     ruzni: { password: 'Ht6&Ms1%', subjects: [{ name: 'history', grade: 10 }] },
-    nishini: { password: 'Gq3%Jw8@', subjects: [{ name: 'history', grade: 10 },{ name: 'geography', grade:10 }] },
+    nishini: { password: 'Gq3%Jw8@', subjects: [{ name: 'history', grade: 10 },] },
     harishadi: { password: 'yahansa123', subjects: [{ name: 'history', grade: 10 }] },
     kavithma: { password: '9900', subjects: [{ name: 'history', grade:10 }] },
     thinuki: { password: 'thinuki123', subjects: [{ name: 'history', grade:10 },{ name: 'geography', grade: 10 }] },    
@@ -109,6 +109,7 @@ const credentials = {
     aysha: { password: '9876', subjects: [{ name: 'history', grade: 11 },{ name: 'geography', grade: 11 }] }, 
     binuga: { password: '2010', subjects: [{name:'geography',grade:11}, {name:'geography',grade:10}] },
     };
+
 
 
 
