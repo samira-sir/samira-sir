@@ -3,6 +3,7 @@ const credentials = {
     samira: { password: 'samira1977', subjects: [{ name: 'history', grade: 6 }, { name: 'geography', grade: 6 },{ name: 'civic', grade: 6 }, { name: 'geography', grade: 7 },{ name: 'civic', grade: 7 }, { name: 'history', grade: 7 },{ name: 'history', grade: 8 }, { name: 'geography', grade: 8 },{ name: 'civic', grade: 8 }, { name: 'geography', grade: 9 },{ name: 'civic', grade: 9 }, { name: 'history', grade: 9 },{ name: 'history', grade: 10 }, { name: 'geography', grade: 10 },{ name: 'civic', grade: 10 }, { name: 'geography', grade: 11 },{ name: 'civic', grade: 11 },{ name: 'ind-Thisumi-History', grade: 9 }, { name: 'ind-Disura-History', grade: 9 }, { name: 'history', grade: 11 },] },
     vinulya: { password: '2015', subjects: [{ name: 'geography', grade: 6 }, { name: 'history', grade: 6 }] },
     andrea: { password: '2016', subjects: [{ name: 'geography', grade: 6 }, { name: 'history', grade: 6 }] },
+    pawan: { password: '868551712', subjects: [{ name: 'geography', grade: 6 }, { name: 'history', grade: 6 }] },
     senuji: { password: 'shiran', subjects: [{ name: 'geography', grade: 7 }, { name: 'history', grade: 7 }] },
     amra: { password: '2014', subjects: [{ name: 'geography', grade: 7 }, { name: 'history', grade: 7 }] },
     nithuki: { password: '2014', subjects: [{ name: 'geography', grade: 7 }, { name: 'history', grade: 7 }] },
@@ -36,6 +37,7 @@ const credentials = {
      minduni: { password: '2013', subjects: [{ name: 'history', grade: 8 }] },
      sithuki : { password: '12345', subjects: [{ name: 'history', grade: 8 }] },
      niven : { password: 'niven123', subjects: [{ name: 'history', grade: 8 }] },
+    shevin : { password: 'Shevin2013', subjects: [{ name: 'history', grade: 8 }] },
      dinura: { password: 'Bd7@Lr2%', subjects: [{ name: 'history', grade: 9 },{ name: 'geography', grade: 9 }] },
     pranami: { password: 'Pranami123', subjects: [{ name: 'geography', grade: 9 }] },
     dulnitha: { password: '7777', subjects: [{ name: 'history', grade: 9 }] },
@@ -71,6 +73,8 @@ const credentials = {
     yenumi : { password: '201195', subjects: [{ name: 'geography', grade: 10 }] },
     isara: { password: '2011', subjects: [{ name: 'history', grade: 10 }] },
     nadun: { password: '1234', subjects: [{ name: 'history', grade: 10 },{ name: 'geography', grade: 10 }] }, 
+    niduka: { password: 'nidu1212', subjects: [{ name: 'history', grade: 10 }] },
+    kenuli : { password: '1520', subjects: [{ name: 'geography', grade: 10 }] },
     ishan: { password: '2010', subjects: [{ name: 'history', grade: 11 }] },
     udula: { password: 'udula123', subjects: [{ name: 'history', grade: 11 }] },
     praveen: { password: 'Nw8%Fu3@', subjects: [{ name: 'history', grade: 11 },{ name: 'geography', grade: 11 }] },
@@ -103,8 +107,9 @@ const credentials = {
     ometh: { password: 'Demash2025', subjects:[ { name: 'geography', grade: 11 }] },
     dulya: { password: 'dul*25', subjects: [{name:'history',grade:11}] },
     aysha: { password: '9876', subjects: [{ name: 'history', grade: 11 },{ name: 'geography', grade: 11 }] }, 
-    manishi: { password: '2121', subjects: [{name:'history',grade:11}] },
+    binuga: { password: '2010', subjects: [{name:'geography',grade:11}, {name:'geography',grade:10}] },
     };
+
 
 
 
