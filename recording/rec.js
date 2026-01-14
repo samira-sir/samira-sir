@@ -317,8 +317,36 @@ const videoLinks = [
         title: '2026-01-13 - Class 9 - History Part 4' 
       },
 
+      { 
+        class: '9', 
+        subject: 'Geography', 
+        date: '2026-01-05', 
+        month: 'January', 
+        video: 'https://drive.google.com/file/d/16i4lN0rMmGsvytcG6d1SBWRmZivJfbeh/preview', 
+        title: '2026-01-05 - Class 9 - Geography Part 1' 
+      },
+
+      { 
+        class: '9', 
+        subject: 'Geography', 
+        date: '2026-01-05', 
+        month: 'January', 
+        video: 'https://drive.google.com/file/d/112AXl_1JqkRpPRAgDh-xyTj4jDR4Wu1H/preview', 
+        title: '2026-01-05 - Class 9 - Geography Part 2' 
+      },
+
+      { 
+        class: '9', 
+        subject: 'Geography', 
+        date: '2026-01-05', 
+        month: 'January', 
+        video: 'https://drive.google.com/file/d/1ro7Yi4u9BONlWbFbFq2hoc7lXaPP7_ET/preview', 
+        title: '2026-01-05 - Class 9 - Geography Part 3' 
+      },
+
      ];
   
+
 
 
 
