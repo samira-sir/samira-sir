@@ -227,8 +227,36 @@ const videoLinks = [
         title: '2026-01-01 - Class 8 - Geography Part 2' 
       },
 
+      { 
+        class: '8', 
+        subject: 'Geography', 
+        date: '2026-01-08', 
+        month: 'January', 
+        video: 'https://drive.google.com/file/d/1wGvQgyrR2RQkNwG7hXamhF_mJgeD25m_/preview', 
+        title: '2026-01-08 - Class 8 - Geography Part 1' 
+      },
+
+      { 
+        class: '8', 
+        subject: 'Geography', 
+        date: '2026-01-08', 
+        month: 'January', 
+        video: 'https://drive.google.com/file/d/1I_FpjwL6K8cMq-il5xRlelVwRslWMCiQ/preview', 
+        title: '2026-01-08 - Class 8 - Geography Part 2' 
+      },
+
+      { 
+        class: '8', 
+        subject: 'Geography', 
+        date: '2026-01-08', 
+        month: 'January', 
+        video: 'https://drive.google.com/file/d/1RCj5s5b6IZ66D5vO5FqGPJ8bHU6caoQ7/preview', 
+        title: '2026-01-08 - Class 8 - Geography Part 3' 
+      },
+
      ];
   
+
 
 
 
