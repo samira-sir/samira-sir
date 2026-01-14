@@ -209,8 +209,27 @@ const videoLinks = [
         title: '2026-01-10 - Class 8 - History Part 3' 
       },
 
+      { 
+        class: '8', 
+        subject: 'Geography', 
+        date: '2026-01-01', 
+        month: 'January', 
+        video: 'https://drive.google.com/file/d/1zwNgHSRYhbHxpyOrjMzDAqESdApK6Wej/preview', 
+        title: '2026-01-01 - Class 8 - Geography Part 1' 
+      },
+
+      { 
+        class: '8', 
+        subject: 'Geography', 
+        date: '2026-01-01', 
+        month: 'January', 
+        video: 'https://drive.google.com/file/d/1Q-JaI6jQ-FYhNyXprMMMWG-eY_MxA0ys/preview', 
+        title: '2026-01-01 - Class 8 - Geography Part 2' 
+      },
+
      ];
   
+
 
 
 
