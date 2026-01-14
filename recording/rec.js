@@ -119,8 +119,36 @@ const videoLinks = [
         title: '2026-01-04 - Class 7 - Geography Part 3' 
       },
 
+      { 
+        class: '7', 
+        subject: 'Geography', 
+        date: '2026-01-11', 
+        month: 'January', 
+        video: 'https://drive.google.com/file/d/1cj743Zh_53f39e8QMtoQ7fxqmxTYFXEE/preview', 
+        title: '2026-01-11 - Class 7 - Geography Part 1' 
+      },
+
+      { 
+        class: '7', 
+        subject: 'Geography', 
+        date: '2026-01-11', 
+        month: 'January', 
+        video: 'https://drive.google.com/file/d/1BJlXTuP74659u1OxzM0OADI6APJtlH5l/preview', 
+        title: '2026-01-11 - Class 7 - Geography Part 2' 
+      },
+
+      { 
+        class: '7', 
+        subject: 'Geography', 
+        date: '2026-01-11', 
+        month: 'January', 
+        video: 'https://drive.google.com/file/d/1qOPw6hSEZQ4hE-QbRb7QqSB8obR1cGfs/preview', 
+        title: '2026-01-11 - Class 7 - Geography Part 3' 
+      },
+
      ];
   
+
 
 
 
