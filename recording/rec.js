@@ -749,8 +749,36 @@ const videoLinks = [
         title: '2026-01-18 - Class 7 - History Part 3' 
       },
 
+      { 
+        class: '10', 
+        subject: 'Geography', 
+        date: '2026-01-18', 
+        month: 'January', 
+        video: 'https://drive.google.com/file/d/1iUsLOpr-8HCUZQhX4mWNUMz630LZxMVB/preview', 
+        title: '2026-01-18 - Class 10 - Geography Part 1' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'Geography', 
+        date: '2026-01-18', 
+        month: 'January', 
+        video: 'https://drive.google.com/file/d/11LzoKtAe2IuTkxtrMjbloaIdZn0BFR72/preview', 
+        title: '2026-01-18 - Class 10 - Geography Part 2' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'Geography', 
+        date: '2026-01-18', 
+        month: 'January', 
+        video: 'https://drive.google.com/file/d/1cIlRlVzJfVc9DBTaBICv8H0BghPXBbxo/preview', 
+        title: '2026-01-18 - Class 10 - Geography Part 3' 
+      },
+
      ];
   
+
 
 
 
