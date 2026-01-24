@@ -830,8 +830,36 @@ const videoLinks = [
         title: '2026-01-20 - Class 9 - History Part 3' 
       },
 
+      { 
+        class: '10', 
+        subject: 'History', 
+        date: '2026-01-22', 
+        month: 'January', 
+        video: 'https://drive.google.com/file/d/1GKRt7AUFwtWvr_stIDoydpVmyGOGygYa/preview', 
+        title: '2026-01-22 - Class 10 - History Part 1' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'History', 
+        date: '2026-01-22', 
+        month: 'January', 
+        video: 'https://drive.google.com/file/d/1Mr1CXFh4Gsh2VUzxHS_yDvP4BdBvNQIh/preview', 
+        title: '2026-01-22 - Class 10 - History Part 2' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'History', 
+        date: '2026-01-22', 
+        month: 'January', 
+        video: 'https://drive.google.com/file/d/1J5-i-PbVWCSRRX3jiG42-HKjC7X4PBYZ/preview', 
+        title: '2026-01-22 - Class 10 - History Part 3' 
+      },
+
      ];
   
+
 
 
 
