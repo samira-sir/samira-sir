@@ -1064,8 +1064,36 @@ const videoLinks = [
         title: '2026-01-25 - Class 7 - History Part 3' 
       },
 
+      { 
+        class: '6', 
+        subject: 'History', 
+        date: '2026-01-26', 
+        month: 'January', 
+        video: 'https://drive.google.com/file/d/1ik7k1tVlpal5X2xKz2c2_HI9vKz2_v4l/preview', 
+        title: '2026-01-26 - Class 6 - History Part 1' 
+      },
+
+      { 
+        class: '6', 
+        subject: 'History', 
+        date: '2026-01-26', 
+        month: 'January', 
+        video: 'https://drive.google.com/file/d/1-_me99jELq8PN2Qq68qEF6p9UNqHstAF/preview', 
+        title: '2026-01-26 - Class 6 - History Part 2' 
+      },
+
+      { 
+        class: '6', 
+        subject: 'History', 
+        date: '2026-01-26', 
+        month: 'January', 
+        video: 'https://drive.google.com/file/d/1dvqiH6dBplJ9eV8eGosDi2wwwzQt-5l0/preview', 
+        title: '2026-01-26 - Class 6 - History Part 3' 
+      },
+
      ];
   
+
 
 
 
