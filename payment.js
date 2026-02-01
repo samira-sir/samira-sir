@@ -16,7 +16,6 @@
   { username: 'udamna', months: ['Jan'] },
   { username: 'udamna', months: ['Feb'] },
   { username: 'ranudi', months: ['Jan'] },
-
   { username: 'kavitha', months: ['Jan'] },
   { username: 'adrianna', months: ['Jan'] },
   { username: 'imandi', months: ['Jan'] },
@@ -63,8 +62,20 @@
   { username: 'hashini', months: ['Jan'] },
   { username: 'yenuli', months: ['Jan'] },
   { username: 'thinara', months: ['Jan'] },
+  { username: 'inudi', months: ['Feb'] },
+  { username: 'ranudi', months: ['Feb'] },
+  { username: 'manuka', months: ['Jan'] },
+  { username: 'ihansa', months: ['Jan'] },
+  { username: 'ruhara', months: ['Jan'] },
+  { username: 'ruhara', months: ['Feb'] },
+  { username: 'januni', months: ['Feb'] },
+  { username: 'anneq', months: ['Jan'] },
+  { username: 'binuga', months: ['Feb'] },
+  { username: 'seneth', months: ['Jan'] },
+  { username: 'amra', months: ['Jan'] },
    
 ];
+
 
 
 
