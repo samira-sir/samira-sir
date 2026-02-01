@@ -4,7 +4,9 @@
  { username: 'vinulya', months: ['Jan'] },
   { username: 'andrea', months: ['Jan'] },                                 
    { username: 'pawan', months: ['Jan'] },
+  { username: 'nishad', months: ['Jan'] },
 ];
+
 
 
 
