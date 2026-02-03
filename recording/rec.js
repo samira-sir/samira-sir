@@ -1298,8 +1298,36 @@ const videoLinks = [
         title: '2026-01-31 - Class 6 - Geography Part 2' 
       },
 
+      { 
+        class: '10', 
+        subject: 'Geography', 
+        date: '2026-02-02', 
+        month: 'February', 
+        video: 'https://drive.google.com/file/d/1uVhlhMMzwb6OjUp-1FdIvOp-e3DNbUvw/preview', 
+        title: '2026-02-02 - Class 10 - Geography Part 1' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'Geography', 
+        date: '2026-02-02', 
+        month: 'February', 
+        video: 'https://drive.google.com/file/d/1k2-9a6eVg-HrjcJi80apd-k27xpc1L_i/preview', 
+        title: '2026-02-02 - Class 10 - Geography Part 2' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'Geography', 
+        date: '2026-02-02', 
+        month: 'February', 
+        video: 'https://drive.google.com/file/d/1a9pOCVYEsIYhpukcCnLEl9dEGFzJTAzn/preview', 
+        title: '2026-02-02 - Class 10 - Geography Part 3' 
+      },
+
      ];
   
+
 
 
 
