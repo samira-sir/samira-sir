@@ -75,11 +75,22 @@
   { username: 'amra', months: ['Jan'] },
   { username: 'menara', months: ['Feb'] },
   { username: 'vinulya', months: ['Jan'] },
-  { username: 'nishad', months: ['Feb'] } 
+  { username: 'nishad', months: ['Feb'] } ,
+  { username: 'nawodya', months: ['Jan'] },
+   { username: 'dulnitha', months: ['Jan'] },
+  { username: 'dulnitha', months: ['Feb'] },
+  { username: 'dulnitha', months: ['Mar'] },
+  { username: 'dulnitha', months: ['Apr'] },
+  { username: 'radheesha', months: ['Feb'] },
+  { username: 'senulya', months: ['Feb'] },
+  { username: 'senulya', months: ['Jan'] },
+  
+  
   
   
    
 ];
+
 
 
 
