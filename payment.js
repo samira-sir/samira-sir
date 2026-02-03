@@ -73,8 +73,14 @@
   { username: 'binuga', months: ['Feb'] },
   { username: 'seneth', months: ['Jan'] },
   { username: 'amra', months: ['Jan'] },
+  { username: 'menara', months: ['Feb'] },
+  { username: 'vinulya', months: ['Jan'] },
+  { username: 'nishad', months: ['Feb'] } 
+  
+  
    
 ];
+
 
 
 
