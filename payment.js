@@ -91,10 +91,13 @@
    { username: 'adrianna', months: ['Feb'] },
   { username: 'silma', months: ['Jan'] },
   { username: 'poojana', months: ['Jan'] },
+   { username: 'silma', months: ['Feb'] },
+   { username: 'senula', months: ['Feb'] },
   
   
    
 ];
+
 
 
 
