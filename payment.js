@@ -93,10 +93,14 @@
   { username: 'poojana', months: ['Jan'] },
    { username: 'silma', months: ['Feb'] },
    { username: 'senula', months: ['Feb'] },
-  
+   { username: 'thaveesha', months: ['Jan'] },
+   { username: 'zuha', months: ['Feb'] },
+  { username: 'anudi', months: ['Jan'] },
+  { username: 'ranul', months: ['Jan'] },
   
    
 ];
+
 
 
 
