@@ -1505,8 +1505,36 @@ const videoLinks = [
         title: '2026-02-08 - Class 7 - Geography Part 3' 
       },
 
+      { 
+        class: '7', 
+        subject: 'History', 
+        date: '2026-02-08', 
+        month: 'February', 
+        video: 'https://drive.google.com/file/d/1dPpmOqPt0_GgvKmtMbqrtdpoHnOrfGho/preview', 
+        title: '2026-02-08 - Class 7 - History Part 1' 
+      },
+
+      { 
+        class: '7', 
+        subject: 'History', 
+        date: '2026-02-08', 
+        month: 'February', 
+        video: 'https://drive.google.com/file/d/149EMX88luF-TjK6MR513578qkEpMEczN/preview', 
+        title: '2026-02-08 - Class 7 - History Part 2' 
+      },
+
+      { 
+        class: '7', 
+        subject: 'History', 
+        date: '2026-02-08', 
+        month: 'February', 
+        video: 'https://drive.google.com/file/d/1AknBCh-l7ZoGSrE4snjfNSn0-wfSl_Ub/preview', 
+        title: '2026-02-08 - Class 7 - History Part 3' 
+      },
+
      ];
   
+
 
 
 
