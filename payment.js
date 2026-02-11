@@ -119,9 +119,11 @@
    { username: 'indunith', months: ['Mar'] },
   { username: 'dilakshana', months: ['Jan'] },
    { username: 'kulsum', months: ['Feb'] },
+   { username: 'ruzni', months: ['Jan'] },
   
   
 ];
+
 
 
 
