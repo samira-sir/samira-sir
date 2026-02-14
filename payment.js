@@ -120,9 +120,13 @@
   { username: 'dilakshana', months: ['Jan'] },
    { username: 'kulsum', months: ['Feb'] },
    { username: 'ruzni', months: ['Jan'] },
-  
-  
+    { username: 'harishadi', months: ['Jan'] },
+   { username: 'yenuli', months: ['Feb'] },
+   { username: 'udula', months: ['Feb'] },
+   { username: 'danula', months: ['Feb'] },
+   { username: 'ushana', months: ['Feb'] },
 ];
+
 
 
 
