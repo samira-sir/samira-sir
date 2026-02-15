@@ -1757,8 +1757,27 @@ const videoLinks = [
         title: '2026-02-14 - Class 6 - Geography Part 3' 
       },
 
+      { 
+        class: '11', 
+        subject: 'History', 
+        date: '2026-02-14', 
+        month: 'February', 
+        video: 'https://drive.google.com/file/d/1365_vBzv0k0BacB14j-bZwiAktVAfOMs/preview', 
+        title: '2026-02-14 - Class 11 - History Part 1' 
+      },
+
+      { 
+        class: '11', 
+        subject: 'History', 
+        date: '2026-02-14', 
+        month: 'February', 
+        video: 'https://drive.google.com/file/d/1_UZAWBDoHpYfvA18EcckR4eaxesXFMI9/preview', 
+        title: '2026-02-14 - Class 11 - History Part 2' 
+      },
+
      ];
   
+
 
 
 
