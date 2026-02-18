@@ -1775,8 +1775,36 @@ const videoLinks = [
         title: '2026-02-14 - Class 11 - History Part 2' 
       },
 
+      { 
+        class: '6', 
+        subject: 'History', 
+        date: '2026-02-17', 
+        month: 'February', 
+        video: 'https://drive.google.com/file/d/15GlqEuA5paU3zdr2Y1jbC5xy3yBH7N8d/preview', 
+        title: '2026-02-17 - Class 6 - History Part 1' 
+      },
+
+      { 
+        class: '6', 
+        subject: 'History', 
+        date: '2026-02-17', 
+        month: 'February', 
+        video: 'https://drive.google.com/file/d/1kfYotkEl2rPjmKBu4QRmh8pT-1FLpY-Y/preview', 
+        title: '2026-02-17 - Class 6 - History Part 2' 
+      },
+
+      { 
+        class: '6', 
+        subject: 'History', 
+        date: '2026-02-17', 
+        month: 'February', 
+        video: 'https://drive.google.com/file/d/1d4uZ7k-Q67xTHa5cKtgJiRm3aJEko3Jg/preview', 
+        title: '2026-02-17 - Class 6 - History Part 3' 
+      },
+
      ];
   
+
 
 
 
