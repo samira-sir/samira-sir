@@ -1847,8 +1847,18 @@ const videoLinks = [
         title: '2026-02-16 - Class 11 - Geography Part 2' 
       },
 
+      { 
+        class: '10', 
+        subject: 'Geography', 
+        date: '2026-02-16', 
+        month: 'February', 
+        video: 'https://drive.google.com/file/d/1nm-_uaSbPTTw1MKVW5PO10AR2-blV0QS/preview', 
+        title: '2026-02-16 - Class 10 - Geography Part 1' 
+      },
+
      ];
   
+
 
 
 
