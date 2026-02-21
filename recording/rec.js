@@ -1928,8 +1928,36 @@ const videoLinks = [
         title: '2026-02-15 - Class 7 - Geography Part 3' 
       },
 
+      { 
+        class: '8', 
+        subject: 'Geography', 
+        date: '2026-02-19', 
+        month: 'February', 
+        video: 'https://drive.google.com/file/d/1hnZXimT3SfzP_iqAQ4Q_yoZacU9IV79g/preview', 
+        title: '2026-02-19 - Class 8 - Geography Part 1' 
+      },
+
+      { 
+        class: '8', 
+        subject: 'Geography', 
+        date: '2026-02-19', 
+        month: 'February', 
+        video: 'https://drive.google.com/file/d/11sDUtK-M_yqVfKHu_joGCKzs4bSRSBoa/preview', 
+        title: '2026-02-19 - Class 8 - Geography Part 2' 
+      },
+
+      { 
+        class: '8', 
+        subject: 'Geography', 
+        date: '2026-02-19', 
+        month: 'February', 
+        video: 'https://drive.google.com/file/d/16OFr4nvN0zzOf0NjPAC1mWl7EqwjKyuT/preview', 
+        title: '2026-02-19 - Class 8 - Geography Part 3' 
+      },
+
      ];
   
+
 
 
 
