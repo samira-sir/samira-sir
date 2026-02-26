@@ -144,7 +144,12 @@
   { username: 'ahasna', months: ['Feb'] },
     { username: 'praveen', months: ['Feb'] },
   { username: 'imandi', months: ['Feb'] },
+  { username: 'shanudi', months: ['Feb'] },
+  { username: 'seneth', months: ['Feb'] },
+  { username: 'kenuli', months: ['Feb'] },
+  
 ];
+
 
 
 
