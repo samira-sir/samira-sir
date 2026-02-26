@@ -142,8 +142,10 @@
   { username: 'manuka', months: ['Feb'] },
   { username: 'ihansa', months: ['Feb'] },
   { username: 'ahasna', months: ['Feb'] },
-  
+    { username: 'praveen', months: ['Feb'] },
+  { username: 'imandi', months: ['Feb'] },
 ];
+
 
 
 
