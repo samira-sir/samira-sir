@@ -20,7 +20,6 @@ const credentials = {
     nethsara : { password: '20140709N', subjects: [{ name: 'history', grade: 7 }] },
      ranudi : { password: 'ranu123', subjects: [{ name: 'history', grade: 7 }] }, 
      yashen : { password: 'BGYS@12', subjects: [{ name: 'history', grade: 7 }] }, 
-     sakith: { password: 'Shayaan', subjects: [{ name: 'geography', grade: 7 }, { name: 'history', grade: 7 }] },
      ovindu : { password: 'ovindu12345', subjects: [{ name: 'history', grade: 7 }] }, 
      kavitha: { password: 'kavitha123', subjects: [{ name: 'geography', grade: 8 }, { name: 'history', grade: 8 }] },
     imandi: { password: 'Gw7@Eh5%', subjects: [{ name: 'history', grade: 8 }, { name: 'geography', grade: 8 }] },
@@ -51,7 +50,6 @@ const credentials = {
     sadew: { password: 'sa@#dew', subjects: [{ name: 'history', grade: 9 },{ name: 'geography', grade: 9 }] },    
     kulsum: { password: 'MKM2812', subjects: [{ name: 'geography', grade: 9 },{ name: 'history', grade: 9 }] },
     chenul: { password: 'Me7%Pq3@', subjects: [{ name: 'geography', grade: 9 },{ name: 'history', grade: 9 }] },        
-    anneq: { password: 'anneq123', subjects: [{ name: 'history', grade: 9 }] },
     nawodya: { password: '1234', subjects: [{ name: 'history', grade: 9 }] },
     senuli: { password: 'senu', subjects: [{ name: 'geography', grade: 9 }] },
     thaveesha: { password: 'Indunil@123', subjects: [{name:'geography',grade:9}] },
@@ -87,7 +85,6 @@ const credentials = {
     praveen: { password: 'Nw8%Fu3@', subjects: [{ name: 'history', grade: 11 },{ name: 'geography', grade: 11 }] },
     silma: { password: 'Pd4#Qv9&', subjects: [{ name: 'history', grade: 11 },{ name: 'geography', grade: 11 }] },
     hashini: { password: '2010', subjects: [{ name: 'history', grade: 11 }] },
-    kavini: { password: 'asdfg', subjects: [{ name: 'history', grade: 11 }] },
     disura: { password: 'disura123', subjects: [{ name: 'ind-Disura-History', grade: 11 },{ name: 'history', grade: 11 }] },
     senula: { password: '12345678', subjects: [{ name: 'history', grade: 11 }] },
     chiranya: { password: 'chiranya', subjects: [{ name: 'geography', grade: 11 }] },
@@ -100,15 +97,9 @@ const credentials = {
     yenuli: { password: '2010@YENULIB', subjects: [{name:'history',grade:11}] },
     thushmini: { password: 'thushi', subjects: [{ name: 'history', grade: 11 },{ name: 'geography', grade: 11 }] },
     poojana: { password: '101019', subjects: [{name:'history',grade:11}] },
-    dihen: { password: 'D@i$h#e9N,', subjects: [{ name: 'history', grade: 11 },{ name: 'geography', grade: 11 }] },
-    madumi: { password: 'Ho7&Kw2%', subjects: [{ name: 'history', grade: 11 },{ name: 'geography', grade: 11 }] },
-    pasandi: { password: 'Tr4@Qs9&', subjects: [{ name: 'geography', grade: 11 }] },
-    yahansa: { password: 'Er9@Pw3&', subjects: [{ name: 'geography', grade: 11 }] },    
-    sanul: { password: 'Fg2%Hu7@', subjects: [{ name: 'geography', grade: 11 }] },
-    thinuli: { password: 'Mn3@Rs8&', subjects: [{ name: 'history', grade: 11 },{ name: 'geography', grade: 11 }] }, 
-    ometh: { password: 'Demash2025', subjects:[ { name: 'geography', grade: 11 }] },
     binuga: { password: '2010', subjects: [{name:'geography',grade:11}, {name:'geography',grade:10}] },
     };
+
 
 
 
