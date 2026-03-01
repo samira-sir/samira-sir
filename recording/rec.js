@@ -2225,8 +2225,45 @@ const videoLinks = [
         title: '2026-02-28 - Class 11 - History Part 3' 
       },
 
+      { 
+        class: '8', 
+        subject: 'History', 
+        date: '2026-02-28', 
+        month: 'February', 
+        video: 'https://drive.google.com/file/d/1lYcK70nhlzzs1Xd4y44qRQLjXKDXkXz4/preview', 
+        title: '2026-02-28 - Class 8 - History Part 1' 
+      },
+
+      { 
+        class: '8', 
+        subject: 'History', 
+        date: '2026-02-28', 
+        month: 'February', 
+        video: 'https://drive.google.com/file/d/10tg-PEMRHwZ3kHQ-JKa21g38uJI4rVJy/preview', 
+        title: '2026-02-28 - Class 8 - History Part 2' 
+      },
+
+      { 
+        class: '8', 
+        subject: 'History', 
+        date: '2026-02-28', 
+        month: 'February', 
+        video: 'https://drive.google.com/file/d/1tuUVG1E09pDn8Ll4L9nMNRNK7-1f8m-F/preview', 
+        title: '2026-02-28 - Class 8 - History Part 3' 
+      },
+
+      { 
+        class: '8', 
+        subject: 'History', 
+        date: '2026-02-28', 
+        month: 'February', 
+        video: 'https://drive.google.com/file/d/1lYcK70nhlzzs1Xd4y44qRQLjXKDXkXz4/preview', 
+        title: '2026-02-28 - Class 8 - History Part 4' 
+      },
+
      ];
   
+
 
 
 
