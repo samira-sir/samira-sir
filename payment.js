@@ -155,9 +155,13 @@
   { username: 'kethmin', months: ['Feb'] },
   { username: 'kavith', months: ['Feb'] },
   { username: 'kavith', months: ['Mar'] },
-  
-  
+  { username: 'inudi', months: ['Mar'] },
+  { username: 'ranudi', months: ['Mar'] },
+  { username: 'ashvini', months: ['Jan'] },
+  { username: 'ashvini', months: ['Feb'] },
+  { username: 'ashvini', months: ['Mar'] },
 ];
+
 
 
 
