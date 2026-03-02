@@ -147,8 +147,18 @@
   { username: 'shanudi', months: ['Feb'] },
   { username: 'seneth', months: ['Feb'] },
   { username: 'kenuli', months: ['Feb'] },
+  { username: 'ashleigh', months: ['Feb'] },
+  { username: 'ashleigh', months: ['Mar'] },
+  { username: 'amra', months: ['Feb'] },
+   { username: 'vinulya', months: ['Mar'] },
+  { username: 'shevin', months: ['Feb'] },
+  { username: 'kethmin', months: ['Feb'] },
+  { username: 'kavith', months: ['Feb'] },
+  { username: 'kavith', months: ['Mar'] },
+  
   
 ];
+
 
 
 
