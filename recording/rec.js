@@ -2351,8 +2351,36 @@ const videoLinks = [
         title: '2026-03-01 - Class 7 - History Part 4' 
       },
 
+      { 
+        class: '11', 
+        subject: 'Geography', 
+        date: '2026-03-02', 
+        month: 'March', 
+        video: 'https://drive.google.com/file/d/1EvmNSEk1d2tSqr0ZxpiIcFOnoFr3wxO3/preview', 
+        title: '2026-03-02 - Class 11 - Geography Part 1' 
+      },
+
+      { 
+        class: '11', 
+        subject: 'Geography', 
+        date: '2026-03-02', 
+        month: 'March', 
+        video: 'https://drive.google.com/file/d/14DcMXEKVKth2h10w5uAF91XvgOvRDaMx/preview', 
+        title: '2026-03-02 - Class 11 - Geography Part 2' 
+      },
+
+      { 
+        class: '11', 
+        subject: 'Geography', 
+        date: '2026-03-02', 
+        month: 'March', 
+        video: 'https://drive.google.com/file/d/1L8nzz7_lTm1UkacTEKk6iN4fJJxWA01j/preview', 
+        title: '2026-03-02 - Class 11 - Geography Part 3' 
+      },
+
      ];
   
+
 
 
 
