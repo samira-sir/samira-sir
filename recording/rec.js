@@ -2378,8 +2378,36 @@ const videoLinks = [
         title: '2026-03-02 - Class 11 - Geography Part 3' 
       },
 
+      { 
+        class: '6', 
+        subject: 'History', 
+        date: '2026-03-03', 
+        month: 'March', 
+        video: 'https://drive.google.com/file/d/1s5TcNPi1zpSeuEl-2n3O7ePjE_SRORBP/preview', 
+        title: '2026-03-03 - Class 6 - History Part 1' 
+      },
+
+      { 
+        class: '6', 
+        subject: 'History', 
+        date: '2026-03-03', 
+        month: 'March', 
+        video: 'https://drive.google.com/file/d/1suKIn-cyR26321Md0VLah1zH5gOZu__l/preview', 
+        title: '2026-03-03 - Class 6 - History Part 2' 
+      },
+
+      { 
+        class: '6', 
+        subject: 'History', 
+        date: '2026-03-03', 
+        month: 'March', 
+        video: 'https://drive.google.com/file/d/1M6lipdPgVHn3VkIfYhnr2-KQJUJqglZn/preview', 
+        title: '2026-03-03 - Class 6 - History Part 3' 
+      },
+
      ];
   
+
 
 
 
