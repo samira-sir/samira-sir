@@ -173,7 +173,10 @@
    { username: 'udamna', months: ['Mar'] }, 
    { username: 'udamna', months: ['Apr'] }, 
    { username: 'udamna', months: ['May'] }, 
+  { username: 'linuka', months: ['Feb'] },
+  { username: 'linuka', months: ['Mar'] },
   ];
+
 
 
 
