@@ -175,7 +175,20 @@
    { username: 'udamna', months: ['May'] }, 
   { username: 'linuka', months: ['Feb'] },
   { username: 'linuka', months: ['Mar'] },
+   { username: 'linuka', months: ['Mar'] },
+  { username: 'andrea', months: ['Mar'] },
+  { username: 'adrianna', months: ['Mar'] },
+   { username: 'harishadi', months: ['Feb'] },
+   { username: 'nishad', months: ['Mar'] },
+   { username: 'sadil', months: ['Feb'] },
+  { username: 'anudi', months: ['Feb'] },
+  { username: 'ranul', months: ['Feb'] },
+  { username: 'januni', months: ['Mar'] },
+   { username: 'dilakshana', months: ['Feb'] },
+   { username: 'dinura', months: ['Mar'] },
+  { username: 'chiranya', months: ['Mar'] },
   ];
+
 
 
 
