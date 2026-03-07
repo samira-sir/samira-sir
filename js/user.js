@@ -29,7 +29,7 @@ const credentials = {
     dehan: { password: '2019', subjects: [{ name: 'history', grade: 8 }] },
     dulansa: { password: 'Dz5@Fs2%', subjects: [{ name: 'history', grade: 8 },{ name: 'geography', grade: 8 }] },    
     adrianna: { password: 'Adrianna@2013', subjects: [{ name: 'history', grade:8 },{ name: 'geography', grade:8 }] }, 
-    ranul: { password: '2013', subjects: [{ name: 'history', grade: 8 },{ name: 'geography', grade: 8 }] }, 
+    ranul: { password: '2013', subjects: [{ name: 'history', grade: 8 }] }, 
     seneth: { password: 'a1b2cd', subjects: [{ name: 'history', grade: 8 }] },
     inudi: { password: 'INUDI9090', subjects: [{ name: 'history', grade: 8 }] },
     ashvini: { password: '12345', subjects: [{ name: 'history', grade: 8 }] },
@@ -100,6 +100,7 @@ const credentials = {
     poojana: { password: '101019', subjects: [{name:'history',grade:11}] },
     binuga: { password: '2010', subjects: [{name:'geography',grade:11}, {name:'geography',grade:10}] },
     };
+
 
 
 
