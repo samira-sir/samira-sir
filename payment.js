@@ -187,7 +187,15 @@
    { username: 'dilakshana', months: ['Feb'] },
    { username: 'dinura', months: ['Mar'] },
   { username: 'chiranya', months: ['Mar'] },
+  { username: 'senuji', months: ['Mar'] },
+  { username: 'thushmini', months: ['Mar'] },
+  { username: 'dulneth', months: ['Mar'] },
+    { username: 'yenumi', months: ['Mar'] },
+  { username: 'yenumi', months: ['Apr'] },
+  { username: 'yashen', months: ['mar'] },
+  { username: 'binuga', months: ['mar'] },
   ];
+
 
 
 
