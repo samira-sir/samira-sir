@@ -2540,8 +2540,36 @@ const videoLinks = [
         title: '2026-03-08 - Class 7 - Geography Part 3' 
       },
 
+      { 
+        class: '8', 
+        subject: 'History', 
+        date: '2026-03-07', 
+        month: 'March', 
+        video: 'https://drive.google.com/file/d/1cGcnPYdOAaK3Oj2KhiBSZ9Xp8M93Lz1M/preview', 
+        title: '2026-03-07 - Class 8 - History Part 1' 
+      },
+
+      { 
+        class: '8', 
+        subject: 'History', 
+        date: '2026-03-07', 
+        month: 'March', 
+        video: 'https://drive.google.com/file/d/18HxLj999Y6FV-gWYS9oYbFh-sCARRLVF/preview', 
+        title: '2026-03-07 - Class 8 - History Part 2' 
+      },
+
+      { 
+        class: '8', 
+        subject: 'History', 
+        date: '2026-03-07', 
+        month: 'March', 
+        video: 'https://drive.google.com/file/d/1or3zBByZkSbmjjv3m4tIO2AOY9x3LY9R/preview', 
+        title: '2026-03-07 - Class 8 - History Part 3' 
+      },
+
      ];
   
+
 
 
 
