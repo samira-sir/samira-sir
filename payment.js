@@ -192,9 +192,18 @@
   { username: 'dulneth', months: ['Mar'] },
     { username: 'yenumi', months: ['Mar'] },
   { username: 'yenumi', months: ['Apr'] },
-  { username: 'yashen', months: ['mar'] },
-  { username: 'binuga', months: ['mar'] },
+  { username: 'yashen', months: ['Mar'] },
+  { username: 'binuga', months: ['Mar'] },
+   { username: 'indula', months: ['Mar'] },
+   { username: 'adeesha', months: ['Mar'] },
+   { username: 'nawodya', months: ['Mar'] },
+   { username: 'nawodya', months: ['Feb'] },
+  { username: 'pawan', months: ['Mar'] },
+  { username: 'nethsara', months: ['Mar'] },
+   { username: 'thisumi', months: ['Mar'] },
+  
   ];
+
 
 
 
