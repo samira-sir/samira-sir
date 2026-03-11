@@ -2702,8 +2702,36 @@ const videoLinks = [
         title: '2026-03-10 - Class 6 - History Part 3' 
       },
 
+      { 
+        class: '10', 
+        subject: 'History', 
+        date: '2026-03-05', 
+        month: 'March', 
+        video: 'https://drive.google.com/file/d/1ThEp8DS6sEOTr1oTGtkTdizoiKX5YJiw/preview', 
+        title: '2026-03-05 - Class 10 - History Part 1' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'History', 
+        date: '2026-03-05', 
+        month: 'March', 
+        video: 'https://drive.google.com/file/d/1jPwcvvIgeTXPm1Hr6eWiBXQEVELw-hKY/preview', 
+        title: '2026-03-05 - Class 10 - History Part 2' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'History', 
+        date: '2026-03-05', 
+        month: 'March', 
+        video: 'https://drive.google.com/file/d/1Cf_fO8GahFdFEU3fLNxBeAQS6-uLFbEN/preview', 
+        title: '2026-03-05 - Class 10 - History Part 3' 
+      },
+
      ];
   
+
 
 
 
