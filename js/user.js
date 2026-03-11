@@ -6,6 +6,7 @@ const credentials = {
     pawan: { password: '868551712', subjects: [{ name: 'geography', grade: 6 }, { name: 'history', grade: 6 }] },
     sasen: { password: '12345', subjects: [{ name: 'history', grade: 6 }] },
     thisandi: { password: '2015', subjects: [{ name: 'geography', grade: 6 }, { name: 'history', grade: 6 }] },
+    dinsara: { password: '123456', subjects: [{ name: 'history', grade: 6 }] },
     senuji: { password: 'shiran', subjects: [{ name: 'geography', grade: 7 }, { name: 'history', grade: 7 }] },
     amra: { password: '2014', subjects: [{ name: 'geography', grade: 7 }, { name: 'history', grade: 7 }] },
     nithuki: { password: '2014', subjects: [{ name: 'geography', grade: 7 }, { name: 'history', grade: 7 }] },
@@ -100,6 +101,7 @@ const credentials = {
     poojana: { password: '101019', subjects: [{name:'history',grade:11}] },
     binuga: { password: '2010', subjects: [{name:'geography',grade:11}, {name:'geography',grade:10}] },
     };
+
 
 
 
