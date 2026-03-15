@@ -2783,6 +2783,33 @@ const videoLinks = [
         title: '2026-03-14 - Class 8 - History Part 3' 
       },
 
+      { 
+        class: '6', 
+        subject: 'Geography', 
+        date: '2026-03-14', 
+        month: 'March', 
+        video: 'https://drive.google.com/file/d/1pu0KcBPx_eCfHwiN6_YjFxWOT5-gwnYP/preview', 
+        title: '2026-03-14 - Class 6 - Geography Part 1' 
+      },
+
+      { 
+        class: '6', 
+        subject: 'Geography', 
+        date: '2026-03-14', 
+        month: 'March', 
+        video: 'https://drive.google.com/file/d/1Xl4TBQNZ3SC1FYd2d88Oatr2OmEraGBw/preview', 
+        title: '2026-03-14 - Class 6 - Geography Part 2' 
+      },
+
+      { 
+        class: '6', 
+        subject: 'Geography', 
+        date: '2026-03-14', 
+        month: 'March', 
+        video: 'https://drive.google.com/file/d/15Aj3V_5n1AgvzaVFIq8EOwrHBKnTwt5b/preview', 
+        title: '2026-03-14 - Class 6 - Geography Part 3' 
+      },
+
      ];
   
 
