@@ -2810,6 +2810,58 @@ const videoLinks = [
         title: '2026-03-14 - Class 6 - Geography Part 3' 
       },
 
+      { 
+        class: '10', 
+        subject: 'History', 
+        date: '2026-03-12', 
+        month: 'March', 
+        video: 'https://drive.google.com/file/d/1K5aXfk2eS915vVr1pfRIde1zyU1v7dtB/preview', 
+        title: '2026-03-12 - Class 10 - History Part 1' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'History', 
+        date: '2026-03-12', 
+        month: 'March', 
+        video: 'https://drive.google.com/file/d/1VkyS_pP7Cfo1BZQa28KnDma0XBVqz-6w/preview', 
+        title: '2026-03-12 - Class 10 - History Part 2' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'History', 
+        date: '2026-03-12', 
+        month: 'March', 
+        video: 'https://drive.google.com/file/d/19Xt0Mntz4mwJJ-yAyoOe4Xo3_ZaHFxJY/preview', 
+        title: '2026-03-12 - Class 10 - History Part 3' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'History', 
+        date: '2026-03-12', 
+        month: 'March', 
+        video: 'https://drive.google.com/file/d/1HIy64fYA5Fml0kKyjwak9pLB6cebeRUn/preview', 
+        title: '2026-03-12 - Class 10 - History Part 4' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'History', 
+        date: '2026-03-12', 
+        month: 'March', 
+        video: 'https://drive.google.com/file/d/1T2UHEmisYl_CO7P-l8aCMuhWmqFvWcDZ/preview', 
+        title: '2026-03-12 - Class 10 - History Part 5' 
+      },
+{ 
+        class: '10', 
+        subject: 'History', 
+        date: '2026-03-12', 
+        month: 'March', 
+        video: 'https://drive.google.com/file/d/1njS8gKeOZjhJXDk8_Wn_DsJJWt_-TmVp/preview', 
+        title: '2026-03-12 - Class 10 - History Part 6' 
+      },
      ];
   
 
