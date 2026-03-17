@@ -97,7 +97,7 @@
     <button onclick="showInputFields('10 Civic')">10 Civic</button>
     <button onclick="showInputFields('10 History')">10 History</button>
     <button onclick="showInputFields('11 Geo')">11 Geo</button>
-    <button onclick="showInputFields('11 Civic')">11 Civic</button>
+    <button onclick="showInputFields('11 Paper')">11 History Paper</button>
     <button onclick="showInputFields('11 History')">11 History</button>
   </div>
 
@@ -147,7 +147,7 @@
     function mapSubjectName(subjectShort) {
       const subjectMapping = {
         "Geo": "Geography",
-        "Civic": "Civic",
+        "Paper": "History Paper",
         "History": "History"
       };
       return subjectMapping[subjectShort] || subjectShort;
@@ -171,7 +171,7 @@
   const subjectFull = mapSubjectName(subjectShort);
 
   let generatedCode = '';
-  let recordingMessage = `🏫 *Grade ${classNumber} ${subjectFull} ${formattedDate} class recording uploaded.*
+  let recordingMessage = `🏫 *${formattedDate} Grade ${classNumber} ${subjectFull} class recording uploaded.*
   
   🌐 *You can watch it through* https://samira-sir.github.io/samira-sir/ .`;
 
@@ -184,7 +184,7 @@
         date: '${formattedDate}', 
         month: '${monthName}', 
         video: '${links[i]}', 
-        title: '${formattedDate} - Class ${classNumber} - ${subjectFull} Part ${i + 1}' 
+        title: '${formattedDate} - Grade ${classNumber} ${subjectFull}  Class Part ${i + 1}' 
       },\n`;
     }
   }
