@@ -2983,6 +2983,42 @@ const videoLinks = [
 
 
 
+      { 
+        class: '10', 
+        subject: 'Geography', 
+        date: '2026-03-16', 
+        month: 'March', 
+        video: 'https://drive.google.com/file/d/1bKPV7cvwIb4LhnL0sxSm6XmvbdnOQUcS/preview', 
+        title: '2026-03-16 - Grade 10 Geography  Class Part 1' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'Geography', 
+        date: '2026-03-16', 
+        month: 'March', 
+        video: 'https://drive.google.com/file/d/177aogI-CqxZMJRME60T1zFKUfWRX9BaD/preview', 
+        title: '2026-03-16 - Grade 10 Geography  Class Part 2' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'Geography', 
+        date: '2026-03-16', 
+        month: 'March', 
+        video: 'https://drive.google.com/file/d/1t8LeHVsIwc-KVJNS9_12U7XrAe1rrM2M/preview', 
+        title: '2026-03-16 - Grade 10 Geography  Class Part 3' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'Geography', 
+        date: '2026-03-16', 
+        month: 'March', 
+        video: 'https://drive.google.com/file/d/1FMMx9Grspis-V0_bia_atUNhWyUtSgX4/preview', 
+        title: '2026-03-16 - Grade 10 Geography  Class Part 4' 
+      },
+
 
 
 
