@@ -3050,6 +3050,33 @@ const videoLinks = [
 
 
 
+      { 
+        class: '9', 
+        subject: 'History', 
+        date: '2026-03-17', 
+        month: 'March', 
+        video: 'https://drive.google.com/file/d/1P2JS3vI0jfbJCA-uvyC01y3YGLsYuUJ1/preview', 
+        title: '2026-03-17 - Grade 9 History  Class Part 1' 
+      },
+
+      { 
+        class: '9', 
+        subject: 'History', 
+        date: '2026-03-17', 
+        month: 'March', 
+        video: 'https://drive.google.com/file/d/1cBaFlMzv0FLOdKMSkrmt3HWYqS6KNuvs/preview', 
+        title: '2026-03-17 - Grade 9 History  Class Part 2' 
+      },
+
+      { 
+        class: '9', 
+        subject: 'History', 
+        date: '2026-03-17', 
+        month: 'March', 
+        video: 'https://drive.google.com/file/d/18NU6U33u2YHYyNH6k_spRU_Wi1pCvCm4/preview', 
+        title: '2026-03-17 - Grade 9 History  Class Part 3' 
+      },
+
 
 
 
