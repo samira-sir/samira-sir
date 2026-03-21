@@ -3106,6 +3106,42 @@ const videoLinks = [
       },
 
 
+      { 
+        class: '10', 
+        subject: 'History', 
+        date: '2026-03-19', 
+        month: 'March', 
+        video: 'https://drive.google.com/file/d/1jQuRIgkpL6WSd3D2M53uRlgcNrW1bEHx/preview', 
+        title: '2026-03-19 - Grade 10 History  Class Part 1' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'History', 
+        date: '2026-03-19', 
+        month: 'March', 
+        video: 'https://drive.google.com/file/d/1UklgUp_a249nSPXVGcSiosBXCtKNTTCj/preview', 
+        title: '2026-03-19 - Grade 10 History  Class Part 2' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'History', 
+        date: '2026-03-19', 
+        month: 'March', 
+        video: 'https://drive.google.com/file/d/163W5wxfIrdP9FCJeHFU2KQrkc7uR_ikc/preview', 
+        title: '2026-03-19 - Grade 10 History  Class Part 3' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'History', 
+        date: '2026-03-19', 
+        month: 'March', 
+        video: 'https://drive.google.com/file/d/1GqWCsnyKs_QubfexqHLvz2onPBkxe4iG/preview', 
+        title: '2026-03-19 - Grade 10 History  Class Part 4' 
+      },
+
 
 
 
