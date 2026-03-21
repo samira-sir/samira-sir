@@ -228,6 +228,8 @@
   { username: 'nishini', months: ['Feb'] },
    { username: 'hashini', months: ['Mar'] },
   { username: 'senuka', months: ['Feb'] },
+  { username: 'senura', months: ['Feb'] },
+  
   ];
 
 
