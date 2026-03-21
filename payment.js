@@ -229,7 +229,14 @@
    { username: 'hashini', months: ['Mar'] },
   { username: 'senuka', months: ['Feb'] },
   { username: 'senura', months: ['Feb'] },
-  
+   { username: 'indunith', months: ['Apr'] },
+   { username: 'nadun', months: ['Mar'] },
+   { username: 'kavitma', months: ['Feb'] },
+  { username: 'metmi', months: ['Mar'] },
+   { username: 'sadil', months: ['Mar'] },
+  { username: 'danuka', months: ['Jan'] },
+  { username: 'danuka', months: ['Feb'] },
+   { username: 'danuka', months: ['Mar'] },
   ];
 
 
