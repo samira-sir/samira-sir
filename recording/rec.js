@@ -3226,6 +3226,24 @@ const videoLinks = [
       },
 
 
+      { 
+        class: '6', 
+        subject: 'Geography', 
+        date: '2026-03-21', 
+        month: 'March', 
+        video: 'https://drive.google.com/file/d/1H_8G34MD42tcrmbU90nZDoTSOSmscNLX/preview', 
+        title: '2026-03-21 - Grade 6 Geography  Class Part 1' 
+      },
+
+      { 
+        class: '6', 
+        subject: 'Geography', 
+        date: '2026-03-21', 
+        month: 'March', 
+        video: 'https://drive.google.com/file/d/1vEOAJG8hkt9lICZgJ3gRgnDSdBTaxLyn/preview', 
+        title: '2026-03-21 - Grade 6 Geography  Class Part 2' 
+      },
+
 
 
 
