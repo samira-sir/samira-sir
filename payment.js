@@ -239,6 +239,7 @@
    { username: 'danuka', months: ['Mar'] },
   { username: 'radheesha', months: ['Mar'] },
   { username: 'ahasna', months: ['Mar'] },
+   { username: 'shanudi', months: ['Mar'] },
  
   ];
 
