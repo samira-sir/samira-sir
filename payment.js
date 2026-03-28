@@ -241,7 +241,9 @@
   { username: 'ahasna', months: ['Mar'] },
    { username: 'shanudi', months: ['Mar'] },
    { username: 'dilki', months: ['Mar'] },
- 
+   { username: 'dilki', months: ['Feb'] },
+   { username: 'praveen', months: ['Mar'] },
+   { username: 'imandi', months: ['Mar'] },
   ];
 
 
