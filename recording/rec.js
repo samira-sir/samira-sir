@@ -3448,6 +3448,33 @@ const videoLinks = [
       },
 
 
+      { 
+        class: '8', 
+        subject: 'History', 
+        date: '2026-03-28', 
+        month: 'March', 
+        video: 'https://drive.google.com/file/d/16ytuJwEfyyHWXIWww3Nh_zz3bh27TP3n/preview', 
+        title: '2026-03-28 - Grade 8 History  Class Part 1' 
+      },
+
+      { 
+        class: '8', 
+        subject: 'History', 
+        date: '2026-03-28', 
+        month: 'March', 
+        video: 'https://drive.google.com/file/d/1xhlOT_WrSl6Te0qy1pgRyA8PZUF2HKWE/preview', 
+        title: '2026-03-28 - Grade 8 History  Class Part 2' 
+      },
+
+      { 
+        class: '8', 
+        subject: 'History', 
+        date: '2026-03-28', 
+        month: 'March', 
+        video: 'https://drive.google.com/file/d/1l0Tq9pYj1r9s9uK35XlPnBnt1YW7KbIE/preview', 
+        title: '2026-03-28 - Grade 8 History  Class Part 3' 
+      },
+
 
 
 
