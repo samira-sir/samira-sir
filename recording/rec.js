@@ -3300,6 +3300,33 @@ const videoLinks = [
         title: '2026-03-22 - Grade 7 Geography  Class Part 3' 
       },
 
+      { 
+        class: '8', 
+        subject: 'Geography', 
+        date: '2026-03-19', 
+        month: 'March', 
+        video: 'https://drive.google.com/file/d/1-9GhdvslATTrL_IwKe2CuxHBF-Om7yDR/preview', 
+        title: '2026-03-19 - Grade 8 Geography  Class Part 1' 
+      },
+
+      { 
+        class: '8', 
+        subject: 'Geography', 
+        date: '2026-03-19', 
+        month: 'March', 
+        video: 'https://drive.google.com/file/d/1YPVypdNVPADOEV0bFQbNCik64gwn1pW7/preview', 
+        title: '2026-03-19 - Grade 8 Geography  Class Part 2' 
+      },
+
+      { 
+        class: '8', 
+        subject: 'Geography', 
+        date: '2026-03-19', 
+        month: 'March', 
+        video: 'https://drive.google.com/file/d/1Bt-alNHNRBJ3pVtfqbzJAWCNOxdg8OIV/preview', 
+        title: '2026-03-19 - Grade 8 Geography  Class Part 3' 
+      },
+
 
 
 
