@@ -3356,6 +3356,42 @@ const videoLinks = [
       },
 
 
+      { 
+        class: '11', 
+        subject: 'History Paper', 
+        date: '2026-03-27', 
+        month: 'March', 
+        video: 'https://drive.google.com/file/d/1vXj8zXzvjhq4jrgWrmP-sDeKxhkw59bT/preview', 
+        title: '2026-03-27 - Grade 11 History Paper  Class Part 1' 
+      },
+
+      { 
+        class: '11', 
+        subject: 'History Paper', 
+        date: '2026-03-27', 
+        month: 'March', 
+        video: 'https://drive.google.com/file/d/1JWYhpEq6fqwGe6KbWTp40idHN4mFtg9p/preview', 
+        title: '2026-03-27 - Grade 11 History Paper  Class Part 2' 
+      },
+
+      { 
+        class: '11', 
+        subject: 'History Paper', 
+        date: '2026-03-27', 
+        month: 'March', 
+        video: 'https://drive.google.com/file/d/1cOkwbtn2WwoXWIh7Luex16LPRl9t3OUA/preview', 
+        title: '2026-03-27 - Grade 11 History Paper  Class Part 3' 
+      },
+
+      { 
+        class: '11', 
+        subject: 'History Paper', 
+        date: '2026-03-27', 
+        month: 'March', 
+        video: 'https://drive.google.com/file/d/14Q9Qki43yW8SZ2u_NrGl5eS11XxrAxwC/preview', 
+        title: '2026-03-27 - Grade 11 History Paper  Class Part 4' 
+      },
+
 
 
 
