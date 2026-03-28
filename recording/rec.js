@@ -3328,6 +3328,33 @@ const videoLinks = [
       },
 
 
+      { 
+        class: '10', 
+        subject: 'History', 
+        date: '2026-03-19', 
+        month: 'March', 
+        video: 'https://drive.google.com/file/d/1vvI5zh6C9jvEcMUmIanh73xy_Biyv9XM/preview', 
+        title: '2026-03-19 - Grade 10 History  Class Part 1' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'History', 
+        date: '2026-03-19', 
+        month: 'March', 
+        video: 'https://drive.google.com/file/d/1LgJa6wzzP2ruWNeaytC1SkDtP5o9vEkp/preview', 
+        title: '2026-03-19 - Grade 10 History  Class Part 2' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'History', 
+        date: '2026-03-19', 
+        month: 'March', 
+        video: 'https://drive.google.com/file/d/1QY6aRp2YAFzEoWYpDnAeJZUnc1Piu45-/preview', 
+        title: '2026-03-19 - Grade 10 History  Class Part 3' 
+      },
+
 
 
 
