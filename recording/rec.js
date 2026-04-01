@@ -3476,6 +3476,24 @@ const videoLinks = [
       },
 
 
+      { 
+        class: '9', 
+        subject: 'Geography', 
+        date: '2026-03-30', 
+        month: 'March', 
+        video: 'https://drive.google.com/file/d/1W2QU9pVreZ2NO5Ugakl26EXl7on41fSd/preview', 
+        title: '2026-03-30 - Grade 9 Geography  Class Part 1' 
+      },
+
+      { 
+        class: '9', 
+        subject: 'Geography', 
+        date: '2026-03-30', 
+        month: 'March', 
+        video: 'https://drive.google.com/file/d/1KIH9yMQY79lwb5uZHtXzQJh98K5aXplG/preview', 
+        title: '2026-03-30 - Grade 9 Geography  Class Part 2' 
+      },
+
 
 
 
