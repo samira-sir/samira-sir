@@ -3579,6 +3579,33 @@ const videoLinks = [
       },
 
 
+      { 
+        class: '6', 
+        subject: 'History', 
+        date: '2026-03-31', 
+        month: 'March', 
+        video: 'https://drive.google.com/file/d/1UfkA8G9dVrhbzvlgjM0GNyD0tfivaMoR/preview', 
+        title: '2026-03-31 - Grade 6 History  Class Part 1' 
+      },
+
+      { 
+        class: '6', 
+        subject: 'History', 
+        date: '2026-03-31', 
+        month: 'March', 
+        video: 'https://drive.google.com/file/d/1HFSAOFvt_FpK9AuNjy_bR3F1SvQc_gNt/preview', 
+        title: '2026-03-31 - Grade 6 History  Class Part 2' 
+      },
+
+      { 
+        class: '6', 
+        subject: 'History', 
+        date: '2026-03-31', 
+        month: 'March', 
+        video: 'https://drive.google.com/file/d/1cVYwdM8a1U2Gs0FWN2VfrMAB4LoImzGp/preview', 
+        title: '2026-03-31 - Grade 6 History  Class Part 3' 
+      },
+
 
 
 
