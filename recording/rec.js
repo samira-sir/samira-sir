@@ -3662,6 +3662,33 @@ const videoLinks = [
         title: '2026-04-02 - Grade 8 Geography  Class Part 3' 
       },
 
+      { 
+        class: '11', 
+        subject: 'History Paper', 
+        date: '2026-04-03', 
+        month: 'April', 
+        video: 'https://drive.google.com/file/d/1muI-4jpuc54MJVih-bM5C-iYn2eMiYMU/preview', 
+        title: '2026-04-03 - Grade 11 History Paper  Class Part 1' 
+      },
+
+      { 
+        class: '11', 
+        subject: 'History Paper', 
+        date: '2026-04-03', 
+        month: 'April', 
+        video: 'https://drive.google.com/file/d/10h1CQCzwlLk7Zd642Xq4kyZ4mk7yrT6a/preview', 
+        title: '2026-04-03 - Grade 11 History Paper  Class Part 2' 
+      },
+
+      { 
+        class: '11', 
+        subject: 'History Paper', 
+        date: '2026-04-03', 
+        month: 'April', 
+        video: 'https://drive.google.com/file/d/1vLDCGSPozHPH-oaZPVcCOPf8hWiRPa22/preview', 
+        title: '2026-04-03 - Grade 11 History Paper  Class Part 3' 
+      },
+
 
 
 
