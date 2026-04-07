@@ -3801,6 +3801,33 @@ const videoLinks = [
       },
 
 
+      { 
+        class: '8', 
+        subject: 'Geography', 
+        date: '2026-04-06', 
+        month: 'April', 
+        video: 'https://drive.google.com/file/d/1bf47Jh1gKdU8Fpzo4h8LN0PIdT0hUN87/preview', 
+        title: '2026-04-06 - Grade 8 Geography  Class Part 1' 
+      },
+
+      { 
+        class: '8', 
+        subject: 'Geography', 
+        date: '2026-04-06', 
+        month: 'April', 
+        video: 'https://drive.google.com/file/d/1N_L7VAmty-XV9ey1niIUFHA_nHCGXVCa/preview', 
+        title: '2026-04-06 - Grade 8 Geography  Class Part 2' 
+      },
+
+      { 
+        class: '8', 
+        subject: 'Geography', 
+        date: '2026-04-06', 
+        month: 'April', 
+        video: 'https://drive.google.com/file/d/1ELICMmRWHPCJj3ltzPvUTlGI2ezB6LJl/preview', 
+        title: '2026-04-06 - Grade 8 Geography  Class Part 3' 
+      },
+
 
 
 
