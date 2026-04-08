@@ -282,7 +282,9 @@
   { username: 'anudi', months: ['Apr'] },
     { username: 'thisumi', months: ['Apr'] },
    { username: 'savin', months: ['Apr'] },
-  
+   { username: 'thisandi', months: ['Apr'] },
+   { username: 'senuji', months: ['Apr'] },
+   { username: 'thushmini', months: ['Apr'] },
   ];
 
 
