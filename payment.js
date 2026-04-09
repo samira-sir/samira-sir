@@ -285,6 +285,14 @@
    { username: 'thisandi', months: ['Apr'] },
    { username: 'senuji', months: ['Apr'] },
    { username: 'thushmini', months: ['Apr'] },
+   { username: 'niduka', months: ['Feb'] },
+   { username: 'niduka', months: ['Mar'] },
+   { username: 'ushana', months: ['Apr'] },
+   { username: 'sayuni', months: ['Apr'] },
+     { username: 'dinura', months: ['Apr'] },
+   { username: 'akein', months: ['Apr'] },
+    { username: 'senulya', months: ['Mar'] },
+  { username: 'poojana', months: ['Apr'] },  
   ];
 
 
