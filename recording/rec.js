@@ -3967,6 +3967,33 @@ const videoLinks = [
       },
 
 
+      { 
+        class: '6', 
+        subject: 'Geography', 
+        date: '2026-04-11', 
+        month: 'April', 
+        video: 'https://drive.google.com/file/d/1V7i_Q0wFQSSC4PJpSi3EODKtNdjE0EHi/preview', 
+        title: '2026-04-11 - Grade 6 Geography  Class Part 1' 
+      },
+
+      { 
+        class: '6', 
+        subject: 'Geography', 
+        date: '2026-04-11', 
+        month: 'April', 
+        video: 'https://drive.google.com/file/d/1AVwYT9Hfj7y7fUhwWB8l-ZYnJjV1LFpn/preview', 
+        title: '2026-04-11 - Grade 6 Geography  Class Part 2' 
+      },
+
+      { 
+        class: '6', 
+        subject: 'Geography', 
+        date: '2026-04-11', 
+        month: 'April', 
+        video: 'https://drive.google.com/file/d/19-4JUMoGXoEWlNPNoirAGhF6UOcaZTVt/preview', 
+        title: '2026-04-11 - Grade 6 Geography  Class Part 3' 
+      },
+
 
       
      ];
