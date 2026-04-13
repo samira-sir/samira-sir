@@ -9,7 +9,7 @@ const credentials = {
     sasen: { password: '12345', subjects: [{ name: 'history', grade: 6 }] },
     thisandi: { password: '2015', subjects: [{ name: 'geography', grade: 6 }, { name: 'history', grade: 6 }] },
     dinsara: { password: '123456', subjects: [{ name: 'history', grade: 6 }] },
-    chanidu: { password: 'Chanindudinsara ', subjects: [{ name: 'history', grade: 6 }] },
+    chanidu: { password: 'Chanindudinsara', subjects: [{ name: 'history', grade: 6 }] },
     senuji: { password: 'shiran', subjects: [{ name: 'geography', grade: 7 }, { name: 'history', grade: 7 }] },
     amra: { password: '2014', subjects: [{ name: 'geography', grade: 7 }, { name: 'history', grade: 7 }] },
     nithuki: { password: '2014', subjects: [{ name: 'geography', grade: 7 }, { name: 'history', grade: 7 }] },
