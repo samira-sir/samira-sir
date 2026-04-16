@@ -3,162 +3,552 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fee Management System Analysis</title>
+    <title>Fee Analysis Dashboard</title>
+    <!-- Chart.js for Visualizations -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
+        :root {
+            --primary: #3b82f6;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --dark: #1f2937;
+            --light: #f3f4f6;
+            --white: #ffffff;
+            --border: #d1d5db;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            margin: 0;
+            padding: 20px;
         }
-        .filter-container {
+
+        .dashboard-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .top-bar {
+            background: var(--dark);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: var(--white);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+
+        .stat-card h3 {
+            margin: 0;
+            font-size: 0.9em;
+            color: #6b7280;
+            text-transform: uppercase;
+        }
+
+        .stat-card p {
+            margin: 10px 0 0;
+            font-size: 1.8em;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .charts-section {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .chart-container {
+            background: var(--white);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            /* Fixed height prevents the "growing chart" bug */
+            height: 350px; 
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chart-container h3 {
+            margin-top: 0;
             margin-bottom: 20px;
+            font-size: 1.1em;
+            color: var(--dark);
         }
-        select, button {
+
+        .chart-wrapper {
+            flex-grow: 1;
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .filter-section {
+            background: var(--white);
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .filter-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+        }
+
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            font-size: 0.85em;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        select, input {
             padding: 8px;
-            margin-right: 10px;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            outline: none;
         }
+
+        .btn-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 10px 18px;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            transition: opacity 0.2s;
+        }
+
+        .btn-primary { background: var(--primary); color: white; }
+        .btn-success { background: var(--success); color: white; }
+        .btn-warning { background: var(--warning); color: white; }
+        .btn-outline { background: transparent; border: 1px solid var(--border); }
+
+        .table-container {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-bottom: 50px;
+        }
+
         table {
             width: 100%;
             border-collapse: collapse;
-        }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
             text-align: left;
         }
+
+        th, td {
+            padding: 12px 15px;
+            border-bottom: 1px solid var(--light);
+        }
+
         th {
-            background-color: #f2f2f2;
+            background-color: #f9fafb;
+            font-weight: 600;
+        }
+
+        .no-data {
+            text-align: center;
+            padding: 40px;
+            color: #6b7280;
+        }
+
+        /* Modal Styling for Upload */
+        #uploadModal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            width: 500px;
+            max-width: 90%;
+        }
+
+        textarea {
+            width: 100%;
+            height: 200px;
+            margin: 15px 0;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            padding: 10px;
+            font-family: monospace;
+        }
+
+        @media (max-width: 900px) {
+            .charts-section { grid-template-columns: 1fr; }
+            .chart-container { height: 300px; }
         }
     </style>
 </head>
 <body>
 
-<div class="filter-container">
-    <label for="nameFilter">Name:</label>
-    <select id="nameFilter"></select>
+<div class="dashboard-container">
+    <div class="top-bar">
+        <h2 style="margin:0;">Fee Analysis Dashboard</h2>
+        <div style="display: flex; gap: 10px;">
+            <button class="btn-warning" onclick="openUploadModal()">Upload JSON Array</button>
+            <button class="btn-success" onclick="downloadJSON()">Download JSON</button>
+        </div>
+    </div>
 
-    <label for="classFilter">Class:</label>
-    <select id="classFilter"></select>
+    <div class="stats-grid">
+        <div class="stat-card">
+            <h3>Total Revenue</h3>
+            <p id="totalRevenue">LKR 0</p>
+        </div>
+        <div class="stat-card">
+            <h3>Total Payments</h3>
+            <p id="totalCount">0</p>
+        </div>
+        <div class="stat-card">
+            <h3>Unique Students</h3>
+            <p id="uniqueStudents">0</p>
+        </div>
+    </div>
 
-    <label for="subjectFilter">Subject:</label>
-    <select id="subjectFilter"></select>
+    <div class="charts-section">
+        <div class="chart-container">
+            <h3>Revenue Growth (By Month)</h3>
+            <div class="chart-wrapper">
+                <canvas id="revenueChart"></canvas>
+            </div>
+        </div>
+        <div class="chart-container">
+            <h3>Student Split (By Grade)</h3>
+            <div class="chart-wrapper">
+                <canvas id="gradeChart"></canvas>
+            </div>
+        </div>
+    </div>
 
-    <label for="monthFilter">Month:</label>
-    <select id="monthFilter"></select>
+    <div class="filter-section">
+        <div class="filter-grid">
+            <div class="filter-group">
+                <label>Name Search</label>
+                <input type="text" id="searchName" placeholder="Type student name..." oninput="applyFilters()">
+            </div>
+            <div class="filter-group">
+                <label>Grade</label>
+                <select id="filterGrade" onchange="applyFilters()">
+                    <option value="all">All Grades</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>Month</label>
+                <select id="filterMonth" onchange="applyFilters()">
+                    <option value="all">All Months</option>
+                    <option>January</option><option>February</option><option>March</option>
+                    <option>April</option><option>May</option><option>June</option>
+                    <option>July</option><option>August</option><option>September</option>
+                    <option>October</option><option>November</option><option>December</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>Subject</label>
+                <select id="filterSubject" onchange="applyFilters()">
+                    <option value="all">All Subjects</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>Year</label>
+                <input type="number" id="filterYear" placeholder="2026" oninput="applyFilters()">
+            </div>
+        </div>
+        <div class="btn-group">
+            <button class="btn-outline" onclick="resetFilters()">Clear Filters</button>
+        </div>
+    </div>
 
-    <label for="referenceNumberFilter">Reference Number:</label>
-    <select id="referenceNumberFilter"></select>
-
-    <button onclick="filterData()">Filter</button>
+    <div class="table-container">
+        <table id="transactionTable">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Name</th>
+                    <th>Grade</th>
+                    <th>Month</th>
+                    <th>Subjects</th>
+                    <th>Amount</th>
+                    <th>Ref No.</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody"></tbody>
+        </table>
+        <div id="emptyState" class="no-data">No data found.</div>
+    </div>
 </div>
 
-<table id="resultsTable">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Class</th>
-            <th>Subjects</th>
-            <th>Month</th>
-            <th>Total Fee</th>
-            <th>Reference Number</th>
-            <th>Date Time</th>
-        </tr>
-    </thead>
-    <tbody>
-        <!-- Filtered results will be displayed here -->
-    </tbody>
-</table>
+<!-- Upload Modal -->
+<div id="uploadModal">
+    <div class="modal-content">
+        <h3>Import Transaction Data</h3>
+        <p style="font-size: 0.85em; color: #666;">Paste your JSON array below to add it to the history.</p>
+        <textarea id="jsonInput" placeholder='[{"name": "student", ...}, ...]'></textarea>
+        <div class="btn-group" style="justify-content: flex-end;">
+            <button class="btn-outline" onclick="closeUploadModal()">Cancel</button>
+            <button class="btn-primary" onclick="importJSON()">Import Data</button>
+        </div>
+    </div>
+</div>
 
-<p id="summary"></p>
+<script src="../js/user.js"></script>
 
-<script src="payment/payment.js"></script>
 <script>
-// Populate dropdowns dynamically
-function populateFilters(data) {
-    const names = new Set();
-    const grades = new Set();
-    const subjects = new Set();
-    const months = new Set();
-    const referenceNumbers = new Set();
+    let rawData = [];
+    let revenueChartInstance = null;
+    let gradeChartInstance = null;
 
-    data.forEach(item => {
-        names.add(item.name);
-        grades.add(item.grade);
-        item.subjects.forEach(subject => subjects.add(subject));
-        months.add(item.month);
-        referenceNumbers.add(item.referenceNumber);
-    });
+    // Load Filter Options from user.js (credentials)
+    function initializeFilters() {
+        const userCredentials = typeof credentials !== 'undefined' ? credentials : {};
+        
+        // Populate Grades
+        const grades = [...new Set(Object.values(userCredentials).flatMap(s => s.subjects.map(sub => sub.grade)))].sort((a,b) => a-b);
+        const gradeSelect = document.getElementById('filterGrade');
+        grades.forEach(g => {
+            const opt = document.createElement('option');
+            opt.value = g; opt.textContent = `Grade ${g}`;
+            gradeSelect.appendChild(opt);
+        });
 
-    populateDropdown('nameFilter', names);
-    populateDropdown('classFilter', grades);
-    populateDropdown('subjectFilter', subjects);
-    populateDropdown('monthFilter', months);
-    populateDropdown('referenceNumberFilter', referenceNumbers);
-}
+        // Populate Subjects (Case Insensitive deduplication)
+        const subjects = [...new Set(Object.values(userCredentials).flatMap(s => s.subjects.map(sub => sub.name.trim().toLowerCase())))].sort();
+        const subjectSelect = document.getElementById('filterSubject');
+        subjects.forEach(s => {
+            const opt = document.createElement('option');
+            opt.value = s; opt.textContent = s.charAt(0).toUpperCase() + s.slice(1);
+            subjectSelect.appendChild(opt);
+        });
+    }
 
-function populateDropdown(id, values) {
-    const select = document.getElementById(id);
-    select.innerHTML = '<option value="">Select</option>';
-    values.forEach(value => {
-        const option = document.createElement('option');
-        option.value = value;
-        option.textContent = value;
-        select.appendChild(option);
-    });
-}
+    function loadData() {
+        const stored = localStorage.getItem('paymentHistory');
+        if (stored) {
+            rawData = JSON.parse(stored);
+            rawData.forEach(item => {
+                // Ensure date object is available
+                item.dateObj = item.timestamp ? new Date(item.timestamp) : new Date();
+            });
+        }
+        applyFilters();
+    }
 
-// Filter data based on selected criteria
-function filterData() {
-    const name = document.getElementById('nameFilter').value;
-    const grade = document.getElementById('classFilter').value;
-    const subject = document.getElementById('subjectFilter').value;
-    const month = document.getElementById('monthFilter').value;
-    const referenceNumber = document.getElementById('referenceNumberFilter').value;
+    function applyFilters() {
+        const nameVal = document.getElementById('searchName').value.toLowerCase();
+        const gradeVal = document.getElementById('filterGrade').value;
+        const monthVal = document.getElementById('filterMonth').value;
+        const subjectVal = document.getElementById('filterSubject').value.toLowerCase();
+        const yearVal = document.getElementById('filterYear').value;
 
-    let filteredData = billArray.filter(item => {
-        const matchesName = !name || item.name === name;
-        const matchesGrade = !grade || item.grade === grade;
-        const matchesSubject = !subject || item.subjects.includes(subject);
-        const matchesMonth = !month || item.month === month;
-        const matchesReferenceNumber = !referenceNumber || item.referenceNumber === referenceNumber;
+        const filtered = rawData.filter(item => {
+            const matchesName = item.name.toLowerCase().includes(nameVal);
+            const matchesGrade = gradeVal === 'all' || item.grade.toString() === gradeVal;
+            const matchesMonth = monthVal === 'all' || item.month === monthVal;
+            
+            // Fix: Check subjects case-insensitively
+            const matchesSubject = subjectVal === 'all' || 
+                item.subjects.some(s => s.toLowerCase() === subjectVal);
+            
+            const matchesYear = !yearVal || item.dateObj.getFullYear().toString() === yearVal;
 
-        return matchesName && matchesGrade && matchesSubject && matchesMonth && matchesReferenceNumber;
-    });
+            return matchesName && matchesGrade && matchesMonth && matchesSubject && matchesYear;
+        });
 
-    displayResults(filteredData);
-}
+        updateUI(filtered);
+    }
 
-// Display filtered results and calculate totals
-function displayResults(data) {
-    const tableBody = document.getElementById('resultsTable').getElementsByTagName('tbody')[0];
-    tableBody.innerHTML = '';
+    function updateUI(data) {
+        renderStats(data);
+        renderTable(data);
+        updateCharts(data);
+    }
 
-    let totalFee = 0;
+    function renderStats(data) {
+        const total = data.reduce((sum, item) => sum + (item.totalFee || 0), 0);
+        const unique = new Set(data.map(i => i.name.toLowerCase())).size;
 
-    data.forEach(item => {
-        const row = document.createElement('tr');
-        row.innerHTML = `
-            <td>${item.name}</td>
-            <td>${item.grade}</td>
-            <td>${item.subjects.join(', ')}</td>
-            <td>${item.month}</td>
-            <td>${item.totalFee}</td>
-            <td>${item.referenceNumber}</td>
-            <td>${new Date(item.dateTime).toLocaleString()}</td>
-        `;
-        tableBody.appendChild(row);
+        document.getElementById('totalRevenue').textContent = `LKR ${total.toLocaleString()}`;
+        document.getElementById('totalCount').textContent = data.length;
+        document.getElementById('uniqueStudents').textContent = unique;
+    }
 
-        totalFee += item.totalFee;
-    });
+    function renderTable(data) {
+        const tbody = document.getElementById('tableBody');
+        const emptyState = document.getElementById('emptyState');
+        tbody.innerHTML = '';
+        
+        if (data.length === 0) {
+            emptyState.style.display = 'block';
+            return;
+        }
+        emptyState.style.display = 'none';
+        
+        // Sort descending by date
+        data.sort((a,b) => b.timestamp - a.timestamp);
 
-    const nameCount = new Set(data.map(item => item.name)).size;
-    document.getElementById('summary').textContent = `Total Fee: ${totalFee} | Total Names: ${nameCount}`;
-}
+        data.forEach(item => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${item.formattedDateTime || item.dateObj.toLocaleDateString()}</td>
+                <td style="text-transform: capitalize;">${item.name}</td>
+                <td>G-${item.grade}</td>
+                <td>${item.month}</td>
+                <td style="font-size: 0.8em; color: #666;">${item.subjects.join(', ')}</td>
+                <td style="font-weight: 600;">${item.totalFee}</td>
+                <td style="font-family: monospace;">${item.referenceNumber}</td>
+            `;
+            tbody.appendChild(row);
+        });
+    }
 
-// Initialize dropdowns and table on page load
-document.addEventListener('DOMContentLoaded', () => {
-    populateFilters(billArray);
-    displayResults(billArray);
-});
+    function updateCharts(data) {
+        const monthOrder = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        
+        // Revenue per Month logic
+        const monthTotals = {};
+        data.forEach(i => {
+            monthTotals[i.month] = (monthTotals[i.month] || 0) + i.totalFee;
+        });
+        const labels = monthOrder.filter(m => monthTotals[m] !== undefined);
+        const chartData = labels.map(m => monthTotals[m]);
+
+        if (revenueChartInstance) revenueChartInstance.destroy();
+        const ctxRev = document.getElementById('revenueChart').getContext('2d');
+        revenueChartInstance = new Chart(ctxRev, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Revenue (LKR)',
+                    data: chartData,
+                    backgroundColor: '#3b82f6',
+                    borderRadius: 4
+                }]
+            },
+            options: { 
+                responsive: true, 
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                }
+            }
+        });
+
+        // Grade Split logic
+        const gradeCounts = {};
+        data.forEach(i => {
+            gradeCounts[`Grade ${i.grade}`] = (gradeCounts[`Grade ${i.grade}`] || 0) + 1;
+        });
+
+        if (gradeChartInstance) gradeChartInstance.destroy();
+        const ctxGrade = document.getElementById('gradeChart').getContext('2d');
+        gradeChartInstance = new Chart(ctxGrade, {
+            type: 'doughnut',
+            data: {
+                labels: Object.keys(gradeCounts),
+                datasets: [{
+                    data: Object.values(gradeCounts),
+                    backgroundColor: ['#3b82f6', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6']
+                }]
+            },
+            options: { 
+                responsive: true, 
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: { boxWidth: 12, padding: 15 }
+                    }
+                }
+            }
+        });
+    }
+
+    function resetFilters() {
+        document.getElementById('searchName').value = '';
+        document.getElementById('filterGrade').value = 'all';
+        document.getElementById('filterMonth').value = 'all';
+        document.getElementById('filterSubject').value = 'all';
+        document.getElementById('filterYear').value = '';
+        applyFilters();
+    }
+
+    // Modal & Import Functions
+    function openUploadModal() { document.getElementById('uploadModal').style.display = 'flex'; }
+    function closeUploadModal() { document.getElementById('uploadModal').style.display = 'none'; }
+
+    function importJSON() {
+        const input = document.getElementById('jsonInput').value;
+        try {
+            const newArray = JSON.parse(input);
+            if (!Array.isArray(newArray)) throw new Error("Not an array");
+            
+            const existing = JSON.parse(localStorage.getItem('paymentHistory') || '[]');
+            const merged = [...existing, ...newArray];
+            
+            // Simple de-duplication based on referenceNumber
+            const uniqueMerged = Array.from(new Map(merged.map(item => [item.referenceNumber, item])).values());
+            
+            localStorage.setItem('paymentHistory', JSON.stringify(uniqueMerged));
+            alert(`Imported ${newArray.length} items successfully!`);
+            closeUploadModal();
+            loadData();
+        } catch (e) {
+            alert("Error parsing JSON. Please check formatting.");
+        }
+    }
+
+    function downloadJSON() {
+        const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(rawData, null, 2));
+        const dlAnchor = document.createElement('a');
+        dlAnchor.setAttribute("href", dataStr);
+        dlAnchor.setAttribute("download", `fees_export_${new Date().toLocaleDateString()}.json`);
+        dlAnchor.click();
+    }
+
+    window.onload = () => {
+        initializeFilters();
+        loadData();
+    };
 </script>
 
 </body>
