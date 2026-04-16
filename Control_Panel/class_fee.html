@@ -9,55 +9,80 @@
     <style>
         /* Styling */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #f3f4f6;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
+            margin: 0;
         }
         .container {
             background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 300px;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            width: 340px;
         }
         h2 {
             text-align: center;
-            color: #333;
+            color: #1f2937;
+            margin-top: 0;
         }
         .select-box, .fee-summary, .month-box {
             margin: 15px 0;
         }
         label {
-            font-weight: bold;
+            font-weight: 600;
+            font-size: 0.9em;
+            color: #4b5563;
         }
         select, .add-fee, .custom-fee-input, .custom-fee-button {
             width: 100%;
-            padding: 8px;
+            padding: 10px;
             margin-top: 5px;
-            border-radius: 4px;
-            border: 1px solid #ccc;
+            border-radius: 6px;
+            border: 1px solid #d1d5db;
+            box-sizing: border-box;
+            font-size: 14px;
         }
         .fee-summary {
             text-align: center;
-            color: #555;
+            color: #374151;
+            padding: 15px;
+            background-color: #f9fafb;
+            border-radius: 8px;
+            border: 1px dashed #d1d5db;
+        }
+        #calculatedFee {
             font-size: 1.1em;
             font-weight: bold;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            margin-bottom: 10px;
         }
         .add-fee, .custom-fee-button {
-            background-color: #4caf50;
+            background-color: #10b981;
             color: #fff;
             border: none;
+            font-weight: bold;
             cursor: pointer;
-            margin-top: 10px;
+            transition: background 0.2s;
         }
-        .add-fee:hover, .custom-fee-button:hover {
-            background-color: #45a049;
+        .add-fee {
+            background-color: #3b82f6;
+            margin-top: 20px;
+            padding: 12px;
+        }
+        .add-fee:hover {
+            background-color: #2563eb;
+        }
+        .custom-fee-button:hover {
+            background-color: #059669;
+        }
+        .success-msg {
+            font-size: 12px;
+            color: #059669;
+            margin-top: 5px;
+            display: none;
         }
     </style>
 </head>
@@ -83,6 +108,7 @@
             <div id="calculatedFee">Calculated Fee: LKR 0</div>
             <input type="number" class="custom-fee-input" id="customFee" placeholder="Enter custom total fee" />
             <button class="custom-fee-button" onclick="applyCustomFee()">Apply Custom Total Fee</button>
+            <div id="feeStatus" class="success-msg">Custom fee applied!</div>
         </div>
 
         <div class="month-box">
@@ -104,7 +130,7 @@
             </select>
         </div>
 
-        <button class="add-fee" onclick="generateBill()">Add Fee</button>
+        <button class="add-fee" onclick="generateBill()">Add Fee & Send WhatsApp</button>
     </div>
 
     <!-- External JavaScript for user data -->
@@ -112,26 +138,40 @@
 
     <!-- Internal JavaScript -->
     <script>
-        const feeRates = { '6-9': 700, '10-11': 800 };
+       const feeRates = { 
+            '6-9': 700, 
+            '10-11-normal': 800,
+            '10-11-paper': 400 
+        };
+
         let currentTotalFee = 0;
+        let activeSubjects = [];
 
-        // Populate grade dropdown with unique grades found in user data
-        const gradeSelect = document.getElementById("grade");
-        const grades = [...new Set(Object.values(credentials).flatMap(student => student.subjects.map(subject => subject.grade)))];
-        grades.forEach(grade => {
-            const option = document.createElement("option");
-            option.value = grade;
-            option.textContent = `Grade ${grade}`;
-            gradeSelect.appendChild(option);
-        });
 
-        // Populate students based on selected grade
+
+        // Initialize UI
+        window.onload = () => {
+            const userCredentials = typeof credentials !== 'undefined' ? credentials : {};
+            const gradeSelect = document.getElementById("grade");
+            const grades = [...new Set(Object.values(userCredentials).flatMap(student => student.subjects.map(subject => subject.grade)))].sort((a,b) => a - b);
+
+            grades.forEach(grade => {
+                const option = document.createElement("option");
+                option.value = grade;
+                option.textContent = `Grade ${grade}`;
+                gradeSelect.appendChild(option);
+            });
+
+            // Set current month as default
+            const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+            document.getElementById("month").value = monthNames[new Date().getMonth()];
+        };
+
         function populateStudents() {
-            const selectedGrade = parseInt(gradeSelect.value);
+            const selectedGrade = parseInt(document.getElementById("grade").value);
             const studentSelect = document.getElementById("student");
             studentSelect.innerHTML = '<option value="" disabled selected>Select a student</option>';
 
-            // Find students in the selected grade
             Object.keys(credentials).forEach(student => {
                 const subjects = credentials[student].subjects;
                 if (subjects.some(subject => subject.grade === selectedGrade)) {
@@ -141,112 +181,134 @@
                     studentSelect.appendChild(option);
                 }
             });
+            
+            // Reset fee display
+            document.getElementById("calculatedFee").textContent = `Calculated Fee: LKR 0`;
+            document.getElementById("feeBreakdown").textContent = "";
         }
 
         function calculateFee() {
             const selectedStudent = document.getElementById("student").value;
             const selectedGrade = parseInt(document.getElementById("grade").value);
 
-            if (!selectedStudent) {
-                alert("Please select a student");
-                return;
-            }
+            if (!selectedStudent || isNaN(selectedGrade)) return;
 
-            // Determine monthly fee rate based on grade
-            const monthlyFee = (selectedGrade >= 6 && selectedGrade <= 9) ? feeRates['6-9'] : feeRates['10-11'];
             const subjects = credentials[selectedStudent].subjects.filter(subject => subject.grade === selectedGrade);
+            activeSubjects = subjects;
+            
+            let total = 0;
+            let breakdown = [];
 
-            // Calculate total fee
-            currentTotalFee = subjects.length * monthlyFee;
+            subjects.forEach(sub => {
+                let cost = 0;
+                const subName = sub.name.toLowerCase();
+
+                if (selectedGrade >= 6 && selectedGrade <= 9) {
+                    cost = feeRates['6-9'];
+                } else if (selectedGrade >= 10 && selectedGrade <= 11) {
+                    // Check if it's a paper class
+                    if (subName.includes('paper')) {
+                        cost = feeRates['10-11-paper']; // 400
+                    } else {
+                        cost = feeRates['10-11-normal']; // 800
+                    }
+                }
+                
+                total += cost;
+                breakdown.push(`${sub.name}: ${cost}`);
+            });
+
+            currentTotalFee = total;
             document.getElementById("calculatedFee").textContent = `Calculated Fee: LKR ${currentTotalFee}`;
-            document.getElementById("customFee").value = '';  // Clear custom fee input
+            document.getElementById("feeBreakdown").textContent = breakdown.join(" + ");
+            document.getElementById("customFee").value = ''; 
+            document.getElementById("feeStatus").style.display = "none";
         }
 
         function applyCustomFee() {
-            const customFee = parseInt(document.getElementById("customFee").value);
+            const customFeeInput = document.getElementById("customFee").value;
+            const customFee = parseInt(customFeeInput);
 
             if (isNaN(customFee) || customFee < 0) {
-                alert("Please enter a valid custom total fee.");
-                return;
+                return; // Simple fail silently or UI feedback
             }
 
-            // Update total fee to custom value
             currentTotalFee = customFee;
             document.getElementById("calculatedFee").textContent = `Total Fee (Custom): LKR ${currentTotalFee}`;
+            document.getElementById("feeStatus").style.display = "block";
+        }
+
+        function saveBillToLocalStorage(billObj) {
+            try {
+                const history = JSON.parse(localStorage.getItem('paymentHistory') || '[]');
+                history.push(billObj);
+                localStorage.setItem('paymentHistory', JSON.stringify(history));
+            } catch (e) {
+                console.error("Storage Error:", e);
+            }
         }
 
         function generateBill() {
-    const studentName = document.getElementById("student").value;
-    const selectedGrade = document.getElementById("grade").value;
-    const selectedMonth = document.getElementById("month").value;
+            const studentName = document.getElementById("student").value;
+            const selectedGrade = document.getElementById("grade").value;
+            const selectedMonth = document.getElementById("month").value;
 
-    if (!studentName || !selectedGrade || !selectedMonth) {
-        alert("Please select grade, student, and month");
-        return;
-    }
+            if (!studentName || !selectedGrade || !selectedMonth) {
+                alert("Please select grade, student, and month");
+                return;
+            }
 
-    const studentSubjects = credentials[studentName].subjects.filter(subject => subject.grade == selectedGrade);
-    const dueAmount = 0;  // Assuming no due for simplicity
-    const referenceNumber = `REF${Math.floor(100000 + Math.random() * 900000)}`;
+            const referenceNumber = `REF${Math.floor(100000 + Math.random() * 900000)}`;
+            const dateTime = new Date();
+            const formattedDateTime = dateTime.toLocaleString();
 
-    // Get the current date and time
-    const dateTime = new Date();
-    const formattedDateTime = dateTime.toLocaleString();
+            const billText = 
+`*Learn*
+*Geography, History & Civic*
+*with Samira sir*
 
-    const bill = `
-                      *Learn*
-             *Geography,History & Civic*
-                  *with Samira sir*
-                  
-                *___Payment Invoice___*
+*___Payment Invoice___*
 
+Confirmed Date & Time: ${formattedDateTime}
+Name: ${studentName.charAt(0).toUpperCase() + studentName.slice(1)}
+Grade: ${selectedGrade}
+Subjects: ${activeSubjects.map(s => s.name).join(", ")}
+Month: ${selectedMonth}
+Paid Fee: LKR ${currentTotalFee}
+*Reference Number: ${referenceNumber}*
 
-            Confirmed Date & Time: ${formattedDateTime}
-            Name: ${studentName.charAt(0).toUpperCase() + studentName.slice(1)}
-            Grade: ${selectedGrade}
-            Subjects: ${studentSubjects.map(subject => subject.name).join(", ")}, 
-            Month: ${selectedMonth}
-            Paid Fee: LKR ${currentTotalFee}
-            *Reference Number: ${referenceNumber}*
+*Noted With Thanks*`;
 
-                  *Noted With Thanks*
-    `;
+            const billObject = {
+                name: studentName,
+                grade: selectedGrade,
+                subjects: activeSubjects.map(s => s.name),
+                month: selectedMonth,
+                totalFee: currentTotalFee,
+                referenceNumber: referenceNumber,
+                timestamp: dateTime.getTime(),
+                formattedDateTime: formattedDateTime
+            };
 
-    // Bill array for clipboard with commas after each element
-    const billObject = {
-        name: studentName,
-        grade: selectedGrade,
-        subjects: studentSubjects.map(subject => subject.name),
-        month: selectedMonth,
-        totalFee: currentTotalFee,
-        referenceNumber: referenceNumber,
-        dateTime: dateTime,
-    };
+            saveBillToLocalStorage(billObject);
 
-    // Convert the bill object to JSON string and add a comma after the closing brace
-    const billString = JSON.stringify(billObject, null, 2) + ",";
+            // Copy data to clipboard as JSON
+            const billString = JSON.stringify(billObject, null, 2) + ",";
+            
+            // Using modern clipboard API with fallback
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(billString).finally(() => {
+                    openWhatsApp(billText);
+                });
+            } else {
+                openWhatsApp(billText);
+            }
+        }
 
-    // Copy the formatted bill string to clipboard
-    navigator.clipboard.writeText(billString)
-        .then(() => {
-           
-
-            // Open WhatsApp and payment page
-            const whatsappLink = `whatsapp://send?text=${encodeURIComponent(bill)}`;
+        function openWhatsApp(text) {
+            const whatsappLink = `https://wa.me/?text=${encodeURIComponent(text)}`;
             window.open(whatsappLink, '_blank');
-            window.location.href = "https://github.com/samira-sir/samira-sir/blob/main/Control_Panel/payment/payment.js";
-
-// GitHub link opens in a new tab after WhatsApp opens
-
-
-
-
-
-
-        })
-        .catch(err => console.error("Could not copy text: ", err));
-}
-
+        }
     </script>
 </body>
-</html>
+</html>   
