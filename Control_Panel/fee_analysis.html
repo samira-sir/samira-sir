@@ -17,6 +17,7 @@
             --text-dim: #b4b6d1;
             --border: rgba(255, 255, 255, 0.1);
             --success: #10b981;
+            --danger: #ef4444;
         }
 
         * { box-sizing: border-box; }
@@ -178,7 +179,8 @@
         .btn-warning { background: var(--accent); color: white; }
         .btn-outline { background: transparent; border: 1px solid var(--border); color: white; }
         .btn-outline:hover { background: rgba(255,255,255,0.05); }
-        .btn-danger { background: #ef4444; color: white; padding: 6px 12px; font-size: 0.75rem; }
+        .btn-danger { background: var(--danger); color: white; padding: 6px 12px; font-size: 0.75rem; }
+        .btn-danger-large { background: var(--danger); color: white; }
 
         /* Table Section */
         .table-container {
@@ -263,6 +265,7 @@
     <div class="top-bar">
         <h2>Fee Analysis Pro</h2>
         <div style="display: flex; gap: 10px;">
+            <button class="btn-danger-large" onclick="openClearModal()">Clear History</button>
             <button class="btn-outline" onclick="openUploadModal()">Import JSON</button>
             <button class="btn-warning" onclick="downloadJSON()">Export JSON</button>
         </div>
@@ -270,7 +273,7 @@
 
     <div class="stats-grid">
         <div class="stat-card">
-            <h3>Total Revenue (Filtered)</h3>
+            <h3>Total Revenue</h3>
             <p id="totalRevenue">LKR 0</p>
         </div>
         <div class="stat-card">
@@ -348,7 +351,7 @@
                     <th>Grade</th>
                     <th>Month</th>
                     <th>Subjects</th>
-                    <th>Amount</th>
+                    <th>Calculated Rate</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -384,7 +387,7 @@
                 <input type="text" id="editName">
             </div>
             <div class="filter-group">
-                <label>Amount (LKR)</label>
+                <label>Manual Override Amount (LKR)</label>
                 <input type="number" id="editAmount">
             </div>
             <div class="filter-group">
@@ -408,43 +411,70 @@
     </div>
 </div>
 
+<!-- Clear Data Modal -->
+<div id="clearModal" class="modal">
+    <div class="modal-content">
+        <h3 style="margin-top:0; color: var(--danger);">Clear Transaction History?</h3>
+        <p>This will permanently delete all stored transactions. This action cannot be undone. We recommend exporting your data before clearing.</p>
+        <div class="btn-group" style="justify-content: flex-end;">
+            <button class="btn-outline" onclick="closeClearModal()">Cancel</button>
+            <button class="btn-danger-large" onclick="clearAllData()">Yes, Delete Everything</button>
+        </div>
+    </div>
+</div>
+
 <script>
     let rawData = [];
     let revenueChartInstance = null;
     let subjectChartInstance = null;
 
-    // Pricing rules and subject mapping
-    function getSubjectBreakdown(item) {
+    // Pricing rates provided
+    const feeRates = { 
+        '6-9': 700, 
+        '10-11-normal': 800,
+        '10-11-paper': 400 
+    };
+
+    /**
+     * Calculates fee based on specific subject logic.
+     * Note: This logic assumes that 'totalFee' in the raw JSON is the amount actually paid,
+     * but we use the filter logic to re-calculate expectations or break down earnings.
+     */
+    function calculateSubjectEarnings(item, filterSubject = 'all') {
         const grade = parseInt(item.grade);
-        const subjects = item.subjects || [];
-        const breakdown = { history: 0, geo: 0, paper: 0 };
-        
-        subjects.forEach(sub => {
-            const s = sub.toLowerCase();
-            if (s.includes("history") && s.includes("paper")) {
-                if (grade >= 10) breakdown.paper += 400;
-            } else if (s.includes("history")) {
-                if (grade >= 6 && grade <= 9) breakdown.history += 700;
-                else if (grade >= 10) breakdown.history += 800;
-            } else if (s.includes("geography")) {
-                if (grade >= 6 && grade <= 9) breakdown.geo += 700;
-                else if (grade >= 10) breakdown.geo += 800;
-            } else {
-                // Fallback for any other subject in 6-9
-                if (grade >= 6 && grade <= 9) breakdown.history += 700; 
+        const subs = item.subjects.map(s => s.toLowerCase());
+        let calculatedValue = 0;
+
+        subs.forEach(sub => {
+            // Logic for History Paper (10, 11 only)
+            if (sub.includes("paper")) {
+                if (grade >= 10 && (filterSubject === 'all' || filterSubject === 'paper')) {
+                    calculatedValue += feeRates['10-11-paper'];
+                }
+            } 
+            // Logic for History/Geography (Normal classes)
+            else if (sub.includes("history") || sub.includes("geography")) {
+                if (grade >= 6 && grade <= 9) {
+                    if (filterSubject === 'all' || sub.includes(filterSubject)) {
+                        calculatedValue += feeRates['6-9'];
+                    }
+                } else if (grade >= 10 && grade <= 11) {
+                    if (filterSubject === 'all' || sub.includes(filterSubject)) {
+                        calculatedValue += feeRates['10-11-normal'];
+                    }
+                }
             }
         });
-        
-        return breakdown;
+
+        return calculatedValue;
     }
 
     function loadData() {
         const stored = localStorage.getItem('paymentHistory');
         if (stored) {
             rawData = JSON.parse(stored);
-            rawData.forEach(item => {
-                item._breakdown = getSubjectBreakdown(item);
-            });
+        } else {
+            rawData = [];
         }
         applyFilters();
     }
@@ -464,28 +494,30 @@
             return matchesName && matchesGrade && matchesMonth && matchesSub;
         });
 
-        updateUI(filtered);
+        updateUI(filtered, subVal);
     }
 
-    function updateUI(data) {
-        renderStats(data);
-        renderTable(data);
+    function updateUI(data, activeFilterSubject) {
+        renderStats(data, activeFilterSubject);
+        renderTable(data, activeFilterSubject);
         updateCharts(data);
     }
 
-    function renderStats(data) {
-        let total = 0;
+    function renderStats(data, activeFilterSubject) {
+        let totalCalculated = 0;
+        
         data.forEach(item => {
-            total += item.totalFee;
+            // Calculate exactly based on the requested logic
+            totalCalculated += calculateSubjectEarnings(item, activeFilterSubject);
         });
 
         const unique = new Set(data.map(i => i.name.toLowerCase())).size;
 
-        document.getElementById('totalRevenue').textContent = `LKR ${total.toLocaleString()}`;
+        document.getElementById('totalRevenue').textContent = `LKR ${totalCalculated.toLocaleString()}`;
         document.getElementById('uniqueStudents').textContent = unique;
     }
 
-    function renderTable(data) {
+    function renderTable(data, activeFilterSubject) {
         const tbody = document.getElementById('tableBody');
         const emptyState = document.getElementById('emptyState');
         tbody.innerHTML = '';
@@ -499,6 +531,7 @@
         data.sort((a,b) => b.timestamp - a.timestamp);
 
         data.forEach(item => {
+            const calculatedAmount = calculateSubjectEarnings(item, activeFilterSubject);
             const row = document.createElement('tr');
             row.innerHTML = `
                 <td>${item.formattedDateTime || new Date(item.timestamp).toLocaleDateString()}</td>
@@ -508,7 +541,7 @@
                 <td>
                     <div style="font-size: 0.85rem;">${item.subjects.join(', ')}</div>
                 </td>
-                <td style="font-weight: 800; color: var(--accent);">LKR ${item.totalFee.toLocaleString()}</td>
+                <td style="font-weight: 800; color: var(--accent);">LKR ${calculatedAmount.toLocaleString()}</td>
                 <td>
                     <div class="action-cell">
                         <button class="edit-btn" onclick="openEditModal('${item.referenceNumber}')">Edit</button>
@@ -523,7 +556,7 @@
     function updateCharts(data) {
         const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
         const monthlyTotals = months.map(m => {
-            return data.filter(i => i.month === m).reduce((sum, i) => sum + i.totalFee, 0);
+            return data.filter(i => i.month === m).reduce((sum, i) => sum + calculateSubjectEarnings(i), 0);
         });
 
         // Revenue Trend Chart
@@ -558,9 +591,9 @@
         // Subject Distribution Chart
         let hSum = 0, gSum = 0, pSum = 0;
         data.forEach(i => {
-            hSum += i._breakdown.history;
-            gSum += i._breakdown.geo;
-            pSum += i._breakdown.paper;
+            hSum += calculateSubjectEarnings(i, 'history');
+            gSum += calculateSubjectEarnings(i, 'geography');
+            pSum += calculateSubjectEarnings(i, 'paper');
         });
 
         if (subjectChartInstance) subjectChartInstance.destroy();
@@ -595,6 +628,16 @@
         saveAndReload();
     }
 
+    function clearAllData() {
+        localStorage.removeItem('paymentHistory');
+        rawData = [];
+        closeClearModal();
+        applyFilters();
+    }
+
+    function openClearModal() { document.getElementById('clearModal').style.display = 'flex'; }
+    function closeClearModal() { document.getElementById('clearModal').style.display = 'none'; }
+
     function openEditModal(ref) {
         const item = rawData.find(i => i.referenceNumber === ref);
         if(!item) return;
@@ -619,7 +662,6 @@
             rawData[index].totalFee = parseFloat(document.getElementById('editAmount').value);
             rawData[index].grade = parseInt(document.getElementById('editGrade').value);
             rawData[index].month = document.getElementById('editMonth').value;
-            rawData[index]._breakdown = getSubjectBreakdown(rawData[index]);
             
             saveAndReload();
             closeEditModal();
@@ -656,7 +698,14 @@
             localStorage.setItem('paymentHistory', JSON.stringify(unique));
             closeUploadModal();
             loadData();
-        } catch (e) { alert("Invalid JSON format. Ensure you paste a valid JSON array."); }
+        } catch (e) { 
+            console.error("Import error", e);
+            const msg = document.createElement('div');
+            msg.style.cssText = "position:fixed; top:20px; right:20px; background:var(--danger); color:white; padding:15px; border-radius:8px; z-index:2000;";
+            msg.textContent = "Invalid JSON format. Check your input.";
+            document.body.appendChild(msg);
+            setTimeout(() => msg.remove(), 3000);
+        }
     }
 
     function downloadJSON() {
