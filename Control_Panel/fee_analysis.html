@@ -3,219 +3,257 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fee Analysis Dashboard</title>
+    <title>Fee Analysis Pro Dashboard</title>
     <!-- Chart.js for Visualizations -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         :root {
-            --primary: #3b82f6;
+            --bg-deep: #05072a;
+            --bg-card: #0D1164;
+            --primary: #EA2264;
+            --secondary: #640D5F;
+            --accent: #F78D60;
+            --text-main: #ffffff;
+            --text-dim: #b4b6d1;
+            --border: rgba(255, 255, 255, 0.1);
             --success: #10b981;
-            --warning: #f59e0b;
-            --dark: #1f2937;
-            --light: #f3f4f6;
-            --white: #ffffff;
-            --border: #d1d5db;
         }
 
+        * { box-sizing: border-box; }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--light);
-            color: var(--dark);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-deep);
+            color: var(--text-main);
             margin: 0;
             padding: 20px;
+            line-height: 1.5;
         }
 
         .dashboard-container {
-            max-width: 1200px;
+            max-width: 1300px;
             margin: 0 auto;
         }
 
+        /* Header Styling */
         .top-bar {
-            background: var(--dark);
-            color: white;
-            padding: 15px 25px;
-            border-radius: 12px;
+            background: linear-gradient(135deg, var(--bg-card), var(--secondary));
+            padding: 20px 30px;
+            border-radius: 16px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            border: 1px solid var(--border);
         }
 
+        .top-bar h2 {
+            margin: 0;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            background: linear-gradient(to right, #fff, var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Stats Cards */
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
             margin-bottom: 30px;
         }
 
         .stat-card {
-            background: var(--white);
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            background: var(--bg-card);
+            padding: 24px;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            transition: transform 0.2s ease;
             text-align: center;
         }
 
+        .stat-card:hover { transform: translateY(-5px); }
+
         .stat-card h3 {
             margin: 0;
-            font-size: 0.9em;
-            color: #6b7280;
+            font-size: 0.85rem;
+            color: var(--text-dim);
             text-transform: uppercase;
+            letter-spacing: 1.5px;
         }
 
         .stat-card p {
-            margin: 10px 0 0;
-            font-size: 1.8em;
-            font-weight: bold;
-            color: var(--primary);
+            margin: 12px 0 0;
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--accent);
         }
 
+        /* Charts Section */
         .charts-section {
             display: grid;
-            grid-template-columns: 2fr 1fr;
+            grid-template-columns: 1.5fr 1fr;
             gap: 20px;
             margin-bottom: 30px;
         }
 
         .chart-container {
-            background: var(--white);
+            background: var(--bg-card);
             padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            /* Fixed height prevents the "growing chart" bug */
-            height: 350px; 
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            height: 400px;
             display: flex;
             flex-direction: column;
         }
 
         .chart-container h3 {
-            margin-top: 0;
-            margin-bottom: 20px;
-            font-size: 1.1em;
-            color: var(--dark);
+            margin: 0 0 10px 0;
+            font-size: 1.1rem;
+            font-weight: 600;
         }
 
-        .chart-wrapper {
-            flex-grow: 1;
-            position: relative;
-            width: 100%;
-            height: 100%;
+        .chart-container p {
+            font-size: 0.8rem;
+            color: var(--text-dim);
+            margin: 0 0 15px 0;
         }
 
+        .chart-wrapper { flex-grow: 1; position: relative; }
+
+        /* Filters Section */
         .filter-section {
-            background: var(--white);
-            padding: 20px;
-            border-radius: 12px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            background: var(--bg-card);
+            padding: 25px;
+            border-radius: 16px;
+            margin-bottom: 25px;
+            border: 1px solid var(--border);
         }
 
         .filter-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 15px;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
         }
 
-        .filter-group {
-            display: flex;
-            flex-direction: column;
-        }
+        .filter-group { display: flex; flex-direction: column; }
 
         label {
-            font-size: 0.85em;
+            font-size: 0.8rem;
             font-weight: 600;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
+            color: var(--text-dim);
         }
 
         select, input {
-            padding: 8px;
-            border-radius: 6px;
+            background: rgba(255,255,255,0.05);
             border: 1px solid var(--border);
+            color: white;
+            padding: 12px;
+            border-radius: 8px;
             outline: none;
+            transition: border-color 0.2s;
         }
 
-        .btn-group {
-            display: flex;
-            gap: 10px;
-            margin-top: 20px;
-        }
+        select:focus, input:focus { border-color: var(--primary); }
 
+        /* Buttons */
+        .btn-group { display: flex; gap: 12px; margin-top: 20px; }
+        
         button {
-            padding: 10px 18px;
-            border-radius: 6px;
+            padding: 12px 20px;
+            border-radius: 8px;
             border: none;
             cursor: pointer;
             font-weight: 600;
-            transition: opacity 0.2s;
+            font-size: 0.9rem;
+            transition: all 0.2s;
         }
 
         .btn-primary { background: var(--primary); color: white; }
+        .btn-primary:hover { opacity: 0.9; transform: scale(0.98); }
         .btn-success { background: var(--success); color: white; }
-        .btn-warning { background: var(--warning); color: white; }
-        .btn-outline { background: transparent; border: 1px solid var(--border); }
+        .btn-warning { background: var(--accent); color: white; }
+        .btn-outline { background: transparent; border: 1px solid var(--border); color: white; }
+        .btn-outline:hover { background: rgba(255,255,255,0.05); }
+        .btn-danger { background: #ef4444; color: white; padding: 6px 12px; font-size: 0.75rem; }
 
+        /* Table Section */
         .table-container {
-            background: var(--white);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            background: var(--bg-card);
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            overflow-x: auto;
             margin-bottom: 50px;
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
-            text-align: left;
-        }
-
-        th, td {
-            padding: 12px 15px;
-            border-bottom: 1px solid var(--light);
+            min-width: 800px;
         }
 
         th {
-            background-color: #f9fafb;
-            font-weight: 600;
+            text-align: left;
+            padding: 18px 20px;
+            background: rgba(255,255,255,0.03);
+            color: var(--text-dim);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        .no-data {
-            text-align: center;
-            padding: 40px;
-            color: #6b7280;
+        td {
+            padding: 15px 20px;
+            border-top: 1px solid var(--border);
+            font-size: 0.95rem;
         }
 
-        /* Modal Styling for Upload */
-        #uploadModal {
+        tr:hover td { background: rgba(255,255,255,0.02); }
+
+        /* Modals */
+        .modal {
             display: none;
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.5);
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(4px);
             z-index: 1000;
             justify-content: center;
             align-items: center;
         }
 
         .modal-content {
-            background: white;
-            padding: 25px;
-            border-radius: 12px;
-            width: 500px;
-            max-width: 90%;
+            background: var(--bg-card);
+            padding: 35px;
+            border-radius: 20px;
+            width: 550px;
+            max-width: 95%;
+            border: 1px solid var(--border);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
         }
 
         textarea {
             width: 100%;
-            height: 200px;
-            margin: 15px 0;
-            border-radius: 6px;
+            height: 250px;
+            background: rgba(0,0,0,0.2);
+            color: #10b981;
+            font-family: 'Courier New', monospace;
             border: 1px solid var(--border);
-            padding: 10px;
-            font-family: monospace;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
         }
 
-        @media (max-width: 900px) {
+        /* Action Buttons */
+        .action-cell { display: flex; gap: 8px; }
+        .edit-btn { background: var(--secondary); color: white; padding: 6px 12px; font-size: 0.75rem; border-radius: 6px; }
+
+        @media (max-width: 1024px) {
             .charts-section { grid-template-columns: 1fr; }
-            .chart-container { height: 300px; }
+            .chart-container { height: 350px; }
         }
     </style>
 </head>
@@ -223,39 +261,37 @@
 
 <div class="dashboard-container">
     <div class="top-bar">
-        <h2 style="margin:0;">Fee Analysis Dashboard</h2>
+        <h2>Fee Analysis Pro</h2>
         <div style="display: flex; gap: 10px;">
-            <button class="btn-warning" onclick="openUploadModal()">Upload JSON Array</button>
-            <button class="btn-success" onclick="downloadJSON()">Download JSON</button>
+            <button class="btn-outline" onclick="openUploadModal()">Import JSON</button>
+            <button class="btn-warning" onclick="downloadJSON()">Export JSON</button>
         </div>
     </div>
 
     <div class="stats-grid">
         <div class="stat-card">
-            <h3>Total Revenue</h3>
+            <h3>Total Revenue (Filtered)</h3>
             <p id="totalRevenue">LKR 0</p>
         </div>
         <div class="stat-card">
-            <h3>Total Payments</h3>
-            <p id="totalCount">0</p>
-        </div>
-        <div class="stat-card">
-            <h3>Unique Students</h3>
+            <h3>Active Students</h3>
             <p id="uniqueStudents">0</p>
         </div>
     </div>
 
     <div class="charts-section">
         <div class="chart-container">
-            <h3>Revenue Growth (By Month)</h3>
+            <h3>Monthly Growth & Performance</h3>
+            <p>Trends across current months for strategic planning.</p>
             <div class="chart-wrapper">
                 <canvas id="revenueChart"></canvas>
             </div>
         </div>
         <div class="chart-container">
-            <h3>Student Split (By Grade)</h3>
+            <h3>Revenue Composition</h3>
+            <p>Share of income by specific subject groups.</p>
             <div class="chart-wrapper">
-                <canvas id="gradeChart"></canvas>
+                <canvas id="subjectChart"></canvas>
             </div>
         </div>
     </div>
@@ -263,13 +299,19 @@
     <div class="filter-section">
         <div class="filter-grid">
             <div class="filter-group">
-                <label>Name Search</label>
-                <input type="text" id="searchName" placeholder="Type student name..." oninput="applyFilters()">
+                <label>Student Name</label>
+                <input type="text" id="searchName" placeholder="Filter by name..." oninput="applyFilters()">
             </div>
             <div class="filter-group">
-                <label>Grade</label>
+                <label>Grade Level</label>
                 <select id="filterGrade" onchange="applyFilters()">
                     <option value="all">All Grades</option>
+                    <option value="6">Grade 6</option>
+                    <option value="7">Grade 7</option>
+                    <option value="8">Grade 8</option>
+                    <option value="9">Grade 9</option>
+                    <option value="10">Grade 10</option>
+                    <option value="11">Grade 11</option>
                 </select>
             </div>
             <div class="filter-group">
@@ -283,14 +325,13 @@
                 </select>
             </div>
             <div class="filter-group">
-                <label>Subject</label>
+                <label>Target Subject</label>
                 <select id="filterSubject" onchange="applyFilters()">
                     <option value="all">All Subjects</option>
+                    <option value="History">History</option>
+                    <option value="Geography">Geography</option>
+                    <option value="Paper">History Paper</option>
                 </select>
-            </div>
-            <div class="filter-group">
-                <label>Year</label>
-                <input type="number" id="filterYear" placeholder="2026" oninput="applyFilters()">
             </div>
         </div>
         <div class="btn-group">
@@ -303,26 +344,28 @@
             <thead>
                 <tr>
                     <th>Date</th>
-                    <th>Name</th>
+                    <th>Student Name</th>
                     <th>Grade</th>
                     <th>Month</th>
                     <th>Subjects</th>
                     <th>Amount</th>
-                    <th>Ref No.</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody id="tableBody"></tbody>
         </table>
-        <div id="emptyState" class="no-data">No data found.</div>
+        <div id="emptyState" style="text-align: center; padding: 40px; color: var(--text-dim); display: none;">
+            No transactions found matching the filters.
+        </div>
     </div>
 </div>
 
 <!-- Upload Modal -->
-<div id="uploadModal">
+<div id="uploadModal" class="modal">
     <div class="modal-content">
-        <h3>Import Transaction Data</h3>
-        <p style="font-size: 0.85em; color: #666;">Paste your JSON array below to add it to the history.</p>
-        <textarea id="jsonInput" placeholder='[{"name": "student", ...}, ...]'></textarea>
+        <h3 style="margin-top:0">Import Transactions</h3>
+        <p style="font-size: 0.85rem; color: var(--text-dim);">Paste your history JSON array here to sync data.</p>
+        <textarea id="jsonInput" placeholder='[{"name": "John", "grade": 10, ...}]'></textarea>
         <div class="btn-group" style="justify-content: flex-end;">
             <button class="btn-outline" onclick="closeUploadModal()">Cancel</button>
             <button class="btn-primary" onclick="importJSON()">Import Data</button>
@@ -330,34 +373,69 @@
     </div>
 </div>
 
-<script src="../js/user.js"></script>
+<!-- Edit Modal -->
+<div id="editModal" class="modal">
+    <div class="modal-content">
+        <h3 style="margin-top:0">Edit Transaction</h3>
+        <div class="filter-grid" style="grid-template-columns: 1fr 1fr;">
+            <input type="hidden" id="editRef">
+            <div class="filter-group">
+                <label>Name</label>
+                <input type="text" id="editName">
+            </div>
+            <div class="filter-group">
+                <label>Amount (LKR)</label>
+                <input type="number" id="editAmount">
+            </div>
+            <div class="filter-group">
+                <label>Grade</label>
+                <input type="number" id="editGrade">
+            </div>
+            <div class="filter-group">
+                <label>Month</label>
+                <select id="editMonth">
+                    <option>January</option><option>February</option><option>March</option>
+                    <option>April</option><option>May</option><option>June</option>
+                    <option>July</option><option>August</option><option>September</option>
+                    <option>October</option><option>November</option><option>December</option>
+                </select>
+            </div>
+        </div>
+        <div class="btn-group" style="justify-content: flex-end;">
+            <button class="btn-outline" onclick="closeEditModal()">Cancel</button>
+            <button class="btn-primary" onclick="saveEdit()">Save Changes</button>
+        </div>
+    </div>
+</div>
 
 <script>
     let rawData = [];
     let revenueChartInstance = null;
-    let gradeChartInstance = null;
+    let subjectChartInstance = null;
 
-    // Load Filter Options from user.js (credentials)
-    function initializeFilters() {
-        const userCredentials = typeof credentials !== 'undefined' ? credentials : {};
+    // Pricing rules and subject mapping
+    function getSubjectBreakdown(item) {
+        const grade = parseInt(item.grade);
+        const subjects = item.subjects || [];
+        const breakdown = { history: 0, geo: 0, paper: 0 };
         
-        // Populate Grades
-        const grades = [...new Set(Object.values(userCredentials).flatMap(s => s.subjects.map(sub => sub.grade)))].sort((a,b) => a-b);
-        const gradeSelect = document.getElementById('filterGrade');
-        grades.forEach(g => {
-            const opt = document.createElement('option');
-            opt.value = g; opt.textContent = `Grade ${g}`;
-            gradeSelect.appendChild(opt);
+        subjects.forEach(sub => {
+            const s = sub.toLowerCase();
+            if (s.includes("history") && s.includes("paper")) {
+                if (grade >= 10) breakdown.paper += 400;
+            } else if (s.includes("history")) {
+                if (grade >= 6 && grade <= 9) breakdown.history += 700;
+                else if (grade >= 10) breakdown.history += 800;
+            } else if (s.includes("geography")) {
+                if (grade >= 6 && grade <= 9) breakdown.geo += 700;
+                else if (grade >= 10) breakdown.geo += 800;
+            } else {
+                // Fallback for any other subject in 6-9
+                if (grade >= 6 && grade <= 9) breakdown.history += 700; 
+            }
         });
-
-        // Populate Subjects (Case Insensitive deduplication)
-        const subjects = [...new Set(Object.values(userCredentials).flatMap(s => s.subjects.map(sub => sub.name.trim().toLowerCase())))].sort();
-        const subjectSelect = document.getElementById('filterSubject');
-        subjects.forEach(s => {
-            const opt = document.createElement('option');
-            opt.value = s; opt.textContent = s.charAt(0).toUpperCase() + s.slice(1);
-            subjectSelect.appendChild(opt);
-        });
+        
+        return breakdown;
     }
 
     function loadData() {
@@ -365,8 +443,7 @@
         if (stored) {
             rawData = JSON.parse(stored);
             rawData.forEach(item => {
-                // Ensure date object is available
-                item.dateObj = item.timestamp ? new Date(item.timestamp) : new Date();
+                item._breakdown = getSubjectBreakdown(item);
             });
         }
         applyFilters();
@@ -376,21 +453,15 @@
         const nameVal = document.getElementById('searchName').value.toLowerCase();
         const gradeVal = document.getElementById('filterGrade').value;
         const monthVal = document.getElementById('filterMonth').value;
-        const subjectVal = document.getElementById('filterSubject').value.toLowerCase();
-        const yearVal = document.getElementById('filterYear').value;
+        const subVal = document.getElementById('filterSubject').value.toLowerCase();
 
         const filtered = rawData.filter(item => {
             const matchesName = item.name.toLowerCase().includes(nameVal);
             const matchesGrade = gradeVal === 'all' || item.grade.toString() === gradeVal;
             const matchesMonth = monthVal === 'all' || item.month === monthVal;
-            
-            // Fix: Check subjects case-insensitively
-            const matchesSubject = subjectVal === 'all' || 
-                item.subjects.some(s => s.toLowerCase() === subjectVal);
-            
-            const matchesYear = !yearVal || item.dateObj.getFullYear().toString() === yearVal;
+            const matchesSub = subVal === 'all' || item.subjects.some(s => s.toLowerCase().includes(subVal));
 
-            return matchesName && matchesGrade && matchesMonth && matchesSubject && matchesYear;
+            return matchesName && matchesGrade && matchesMonth && matchesSub;
         });
 
         updateUI(filtered);
@@ -403,11 +474,14 @@
     }
 
     function renderStats(data) {
-        const total = data.reduce((sum, item) => sum + (item.totalFee || 0), 0);
+        let total = 0;
+        data.forEach(item => {
+            total += item.totalFee;
+        });
+
         const unique = new Set(data.map(i => i.name.toLowerCase())).size;
 
         document.getElementById('totalRevenue').textContent = `LKR ${total.toLocaleString()}`;
-        document.getElementById('totalCount').textContent = data.length;
         document.getElementById('uniqueStudents').textContent = unique;
     }
 
@@ -422,85 +496,139 @@
         }
         emptyState.style.display = 'none';
         
-        // Sort descending by date
         data.sort((a,b) => b.timestamp - a.timestamp);
 
         data.forEach(item => {
             const row = document.createElement('tr');
             row.innerHTML = `
-                <td>${item.formattedDateTime || item.dateObj.toLocaleDateString()}</td>
-                <td style="text-transform: capitalize;">${item.name}</td>
-                <td>G-${item.grade}</td>
+                <td>${item.formattedDateTime || new Date(item.timestamp).toLocaleDateString()}</td>
+                <td style="text-transform: capitalize; font-weight:600;">${item.name}</td>
+                <td><span style="background:var(--secondary); padding: 4px 8px; border-radius:4px; font-size:0.8rem">G-${item.grade}</span></td>
                 <td>${item.month}</td>
-                <td style="font-size: 0.8em; color: #666;">${item.subjects.join(', ')}</td>
-                <td style="font-weight: 600;">${item.totalFee}</td>
-                <td style="font-family: monospace;">${item.referenceNumber}</td>
+                <td>
+                    <div style="font-size: 0.85rem;">${item.subjects.join(', ')}</div>
+                </td>
+                <td style="font-weight: 800; color: var(--accent);">LKR ${item.totalFee.toLocaleString()}</td>
+                <td>
+                    <div class="action-cell">
+                        <button class="edit-btn" onclick="openEditModal('${item.referenceNumber}')">Edit</button>
+                        <button class="btn-danger" onclick="deleteTransaction('${item.referenceNumber}')">Delete</button>
+                    </div>
+                </td>
             `;
             tbody.appendChild(row);
         });
     }
 
     function updateCharts(data) {
-        const monthOrder = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-        
-        // Revenue per Month logic
-        const monthTotals = {};
-        data.forEach(i => {
-            monthTotals[i.month] = (monthTotals[i.month] || 0) + i.totalFee;
+        const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        const monthlyTotals = months.map(m => {
+            return data.filter(i => i.month === m).reduce((sum, i) => sum + i.totalFee, 0);
         });
-        const labels = monthOrder.filter(m => monthTotals[m] !== undefined);
-        const chartData = labels.map(m => monthTotals[m]);
 
+        // Revenue Trend Chart
         if (revenueChartInstance) revenueChartInstance.destroy();
         const ctxRev = document.getElementById('revenueChart').getContext('2d');
         revenueChartInstance = new Chart(ctxRev, {
+            type: 'line',
+            data: {
+                labels: months,
+                datasets: [{
+                    label: 'Total Revenue',
+                    data: monthlyTotals,
+                    borderColor: '#EA2264',
+                    backgroundColor: 'rgba(234, 34, 100, 0.1)',
+                    fill: true,
+                    tension: 0.3,
+                    pointRadius: 4,
+                    pointBackgroundColor: '#F78D60'
+                }]
+            },
+            options: { 
+                responsive: true, 
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: {
+                    y: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#b4b6d1' } },
+                    x: { grid: { display: false }, ticks: { color: '#b4b6d1' } }
+                }
+            }
+        });
+
+        // Subject Distribution Chart
+        let hSum = 0, gSum = 0, pSum = 0;
+        data.forEach(i => {
+            hSum += i._breakdown.history;
+            gSum += i._breakdown.geo;
+            pSum += i._breakdown.paper;
+        });
+
+        if (subjectChartInstance) subjectChartInstance.destroy();
+        const ctxSub = document.getElementById('subjectChart').getContext('2d');
+        subjectChartInstance = new Chart(ctxSub, {
             type: 'bar',
             data: {
-                labels: labels,
+                labels: ['History', 'Geography', 'Paper'],
                 datasets: [{
-                    label: 'Revenue (LKR)',
-                    data: chartData,
-                    backgroundColor: '#3b82f6',
-                    borderRadius: 4
+                    label: 'Income by Subject',
+                    data: [hSum, gSum, pSum],
+                    backgroundColor: ['#EA2264', '#640D5F', '#F78D60'],
+                    borderRadius: 8
                 }]
             },
             options: { 
                 responsive: true, 
                 maintainAspectRatio: false,
-                plugins: {
-                    legend: { display: false }
+                plugins: { legend: { display: false } },
+                scales: {
+                    y: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#b4b6d1' } },
+                    x: { grid: { display: false }, ticks: { color: '#b4b6d1' } }
                 }
             }
         });
+    }
 
-        // Grade Split logic
-        const gradeCounts = {};
-        data.forEach(i => {
-            gradeCounts[`Grade ${i.grade}`] = (gradeCounts[`Grade ${i.grade}`] || 0) + 1;
-        });
+    // CRUD Handlers
+    function deleteTransaction(ref) {
+        if(!confirm("Are you sure you want to delete this transaction?")) return;
+        rawData = rawData.filter(i => i.referenceNumber !== ref);
+        saveAndReload();
+    }
 
-        if (gradeChartInstance) gradeChartInstance.destroy();
-        const ctxGrade = document.getElementById('gradeChart').getContext('2d');
-        gradeChartInstance = new Chart(ctxGrade, {
-            type: 'doughnut',
-            data: {
-                labels: Object.keys(gradeCounts),
-                datasets: [{
-                    data: Object.values(gradeCounts),
-                    backgroundColor: ['#3b82f6', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6']
-                }]
-            },
-            options: { 
-                responsive: true, 
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: {
-                        position: 'bottom',
-                        labels: { boxWidth: 12, padding: 15 }
-                    }
-                }
-            }
-        });
+    function openEditModal(ref) {
+        const item = rawData.find(i => i.referenceNumber === ref);
+        if(!item) return;
+        
+        document.getElementById('editRef').value = ref;
+        document.getElementById('editName').value = item.name;
+        document.getElementById('editAmount').value = item.totalFee;
+        document.getElementById('editGrade').value = item.grade;
+        document.getElementById('editMonth').value = item.month;
+        
+        document.getElementById('editModal').style.display = 'flex';
+    }
+
+    function closeEditModal() { document.getElementById('editModal').style.display = 'none'; }
+
+    function saveEdit() {
+        const ref = document.getElementById('editRef').value;
+        const index = rawData.findIndex(i => i.referenceNumber === ref);
+        
+        if(index !== -1) {
+            rawData[index].name = document.getElementById('editName').value;
+            rawData[index].totalFee = parseFloat(document.getElementById('editAmount').value);
+            rawData[index].grade = parseInt(document.getElementById('editGrade').value);
+            rawData[index].month = document.getElementById('editMonth').value;
+            rawData[index]._breakdown = getSubjectBreakdown(rawData[index]);
+            
+            saveAndReload();
+            closeEditModal();
+        }
+    }
+
+    function saveAndReload() {
+        localStorage.setItem('paymentHistory', JSON.stringify(rawData));
+        applyFilters();
     }
 
     function resetFilters() {
@@ -508,47 +636,40 @@
         document.getElementById('filterGrade').value = 'all';
         document.getElementById('filterMonth').value = 'all';
         document.getElementById('filterSubject').value = 'all';
-        document.getElementById('filterYear').value = '';
         applyFilters();
     }
 
-    // Modal & Import Functions
     function openUploadModal() { document.getElementById('uploadModal').style.display = 'flex'; }
     function closeUploadModal() { document.getElementById('uploadModal').style.display = 'none'; }
 
     function importJSON() {
-        const input = document.getElementById('jsonInput').value;
         try {
-            const newArray = JSON.parse(input);
-            if (!Array.isArray(newArray)) throw new Error("Not an array");
+            const inputText = document.getElementById('jsonInput').value;
+            const input = JSON.parse(inputText);
+            if (!Array.isArray(input)) throw new Error();
             
             const existing = JSON.parse(localStorage.getItem('paymentHistory') || '[]');
-            const merged = [...existing, ...newArray];
+            const merged = [...existing, ...input];
+            // Remove duplicates based on referenceNumber
+            const unique = Array.from(new Map(merged.map(item => [item.referenceNumber, item])).values());
             
-            // Simple de-duplication based on referenceNumber
-            const uniqueMerged = Array.from(new Map(merged.map(item => [item.referenceNumber, item])).values());
-            
-            localStorage.setItem('paymentHistory', JSON.stringify(uniqueMerged));
-            alert(`Imported ${newArray.length} items successfully!`);
+            localStorage.setItem('paymentHistory', JSON.stringify(unique));
             closeUploadModal();
             loadData();
-        } catch (e) {
-            alert("Error parsing JSON. Please check formatting.");
-        }
+        } catch (e) { alert("Invalid JSON format. Ensure you paste a valid JSON array."); }
     }
 
     function downloadJSON() {
         const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(rawData, null, 2));
-        const dlAnchor = document.createElement('a');
-        dlAnchor.setAttribute("href", dataStr);
-        dlAnchor.setAttribute("download", `fees_export_${new Date().toLocaleDateString()}.json`);
-        dlAnchor.click();
+        const downloadAnchorNode = document.createElement('a');
+        downloadAnchorNode.setAttribute("href", dataStr);
+        downloadAnchorNode.setAttribute("download", `fee_data_export_${new Date().toISOString().split('T')[0]}.json`);
+        document.body.appendChild(downloadAnchorNode);
+        downloadAnchorNode.click();
+        downloadAnchorNode.remove();
     }
 
-    window.onload = () => {
-        initializeFilters();
-        loadData();
-    };
+    window.onload = loadData;
 </script>
 
 </body>
