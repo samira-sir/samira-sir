@@ -4041,6 +4041,33 @@ const videoLinks = [
       },
 
       
+      { 
+        class: '11', 
+        subject: 'History', 
+        date: '2026-04-11', 
+        month: 'April', 
+        video: 'https://drive.google.com/file/d/1VlqhCJ72h4kOSBpO9jE9-D_F3WY-zReI/preview', 
+        title: '2026-04-11 - Grade 11 History  Class Part 1' 
+      },
+
+      { 
+        class: '11', 
+        subject: 'History', 
+        date: '2026-04-11', 
+        month: 'April', 
+        video: 'https://drive.google.com/file/d/1Z_sTHe9kzh63MlX3pdXF_ERFm-1QtXLI/preview', 
+        title: '2026-04-11 - Grade 11 History  Class Part 2' 
+      },
+
+      { 
+        class: '11', 
+        subject: 'History', 
+        date: '2026-04-11', 
+        month: 'April', 
+        video: 'https://drive.google.com/file/d/1vrypxsCdUdkULtZFDmIYTt2aiGrSjMh_/preview', 
+        title: '2026-04-11 - Grade 11 History  Class Part 3' 
+      },
+
      ];
   
 
