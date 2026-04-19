@@ -312,6 +312,8 @@
     { username: 'nithuki', months: ['Jan'] },
   { username: 'nithuki', months: ['mar'] },
   { username: 'nithuki', months: ['Feb'] },
+   { username: 'yashen', months: ['Apr'] },
+   { username: 'pawan', months: ['Apr'] },
   ];
 
 
