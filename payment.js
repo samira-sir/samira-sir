@@ -314,6 +314,12 @@
   { username: 'nithuki', months: ['Feb'] },
    { username: 'yashen', months: ['Apr'] },
    { username: 'pawan', months: ['Apr'] },
+  { username: 'senuli', months: ['Apr'] },
+  { username: 'yenuli', months: ['Apr'] },
+  { username: 'hashini', months: ['Apr'] },
+   { username: 'manuka', months: ['Apr'] },
+   { username: 'ihansa', months: ['Apr'] },
+  { username: 'indunet', months: ['May'] },
   ];
 
 
