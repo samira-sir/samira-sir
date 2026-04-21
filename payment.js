@@ -321,6 +321,7 @@
    { username: 'ihansa', months: ['Apr'] },
   { username: 'indunet', months: ['May'] },
    { username: 'pabudu', months: ['Apr'] },
+  { username: 'thashigi', months: ['Apr'] },
   ];
 
 
