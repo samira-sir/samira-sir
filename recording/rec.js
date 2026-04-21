@@ -4203,6 +4203,33 @@ const videoLinks = [
         title: '2026-04-20 - Grade 10 Geography  Class Part 3' 
       },
 
+      { 
+        class: '6', 
+        subject: 'History', 
+        date: '2026-04-21', 
+        month: 'April', 
+        video: 'https://drive.google.com/file/d/1CalHtXHVmUrQboV81CsiyfWjlLGBbJdA/preview', 
+        title: '2026-04-21 - Grade 6 History  Class Part 1' 
+      },
+
+      { 
+        class: '6', 
+        subject: 'History', 
+        date: '2026-04-21', 
+        month: 'April', 
+        video: 'https://drive.google.com/file/d/1poJvqUzHvUKtJc9EcOCtfMgUzkps0pDO/preview', 
+        title: '2026-04-21 - Grade 6 History  Class Part 2' 
+      },
+
+      { 
+        class: '6', 
+        subject: 'History', 
+        date: '2026-04-21', 
+        month: 'April', 
+        video: 'https://drive.google.com/file/d/1RUxH_igPuMuVP__4Ndvmt0t3fDK3BMx2/preview', 
+        title: '2026-04-21 - Grade 6 History  Class Part 3' 
+      },
+
      ];
   
 
