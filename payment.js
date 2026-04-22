@@ -322,6 +322,11 @@
   { username: 'indunet', months: ['May'] },
    { username: 'pabudu', months: ['Apr'] },
   { username: 'thashigi', months: ['Apr'] },
+  { username: 'dehan', months: ['Mar'] },
+   { username: 'dulansa', months: ['Apr'] },
+   { username: 'kenuli', months: ['Mar'] },
+   { username: 'niduka', months: ['Mar'] },
+   { username: 'niduka', months: ['Apr'] },
   ];
 
 
