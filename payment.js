@@ -327,6 +327,15 @@
    { username: 'kenuli', months: ['Mar'] },
    { username: 'niduka', months: ['Mar'] },
    { username: 'niduka', months: ['Apr'] },
+  { username: 'indula', months: ['Apr'] },
+  { username: 'silma', months: ['Apr'] },
+   { username: 'praveen', months: ['Apr'] },
+   { username: 'imandi', months: ['Apr'] },
+  { username: 'dulneth', months: ['Apr'] },
+   { username: 'damindu', months: ['Jan'] },
+  { username: 'damindu', months: ['Feb'] },
+  { username: 'damindu', months: ['Mar'] },
+    { username: 'shanudi', months: ['Apr'] },
   ];
 
 
