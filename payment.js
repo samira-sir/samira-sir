@@ -336,6 +336,7 @@
   { username: 'damindu', months: ['Feb'] },
   { username: 'damindu', months: ['Mar'] },
     { username: 'shanudi', months: ['Apr'] },
+  { username: 'danuli', months: ['Apr'] },
   ];
 
 
