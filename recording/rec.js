@@ -4635,6 +4635,33 @@ const videoLinks = [
         title: '2026-04-28 - Grade 9 History  Class Part 3' 
       },
 
+      { 
+        class: '10', 
+        subject: 'History', 
+        date: '2026-04-30', 
+        month: 'April', 
+        video: 'https://drive.google.com/file/d/1BcyFLL5B52qoukii8pxvifmIFJ_M5q0e/preview', 
+        title: '2026-04-30 - Grade 10 History  Class Part 1' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'History', 
+        date: '2026-04-30', 
+        month: 'April', 
+        video: 'https://drive.google.com/file/d/1UGFhIR37HnGCdhiLH-y7eOqtnT028aAi/preview', 
+        title: '2026-04-30 - Grade 10 History  Class Part 2' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'History', 
+        date: '2026-04-30', 
+        month: 'April', 
+        video: 'https://drive.google.com/file/d/1ppiGvSwfCcgXM_4sHnKHHQ1kuhjKGtr8/preview', 
+        title: '2026-04-30 - Grade 10 History  Class Part 3' 
+      },
+
      ];
   
 
