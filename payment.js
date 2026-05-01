@@ -338,6 +338,11 @@
     { username: 'shanudi', months: ['Apr'] },
   { username: 'danuli', months: ['Apr'] },
   { username: 'vinudi', months: ['Apr'] },
+   { username: 'ketmin', months: ['Apr'] },
+  { username: 'dilakshana', months: ['Apr'] },
+  { username: 'sadil', months: ['Apr'] },
+   { username: 'niven', months: ['Apr'] },
+   { username: 'chiranya', months: ['May'] },
   ];
 
 
