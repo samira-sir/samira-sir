@@ -343,6 +343,17 @@
   { username: 'sadil', months: ['Apr'] },
    { username: 'niven', months: ['Apr'] },
    { username: 'chiranya', months: ['May'] },
+   { username: 'binuga', months: ['May'] },
+    { username: 'thisumi', months: ['May'] },
+  { username: 'senuka', months: ['Apr'] },
+   { username: 'sayuni', months: ['May'] },
+     { username: 'januni', months: ['May'] },
+     { username: 'savin', months: ['May'] },
+   { username: 'vinulya', months: ['May'] },
+   { username: 'inudi', months: ['May'] },
+   { username: 'ranudi', months: ['May'] },
+  
+  
   ];
 
 
