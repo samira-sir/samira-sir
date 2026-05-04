@@ -4770,6 +4770,33 @@ const videoLinks = [
         title: '2026-05-02 - Grade 6 Geography  Class Part 3' 
       },
 
+      { 
+        class: '7', 
+        subject: 'History', 
+        date: '2026-05-03', 
+        month: 'May', 
+        video: 'https://drive.google.com/file/d/14-nLnpLuRHDZVBi4W-QmslDmOhk4msFX/preview', 
+        title: '2026-05-03 - Grade 7 History  Class Part 1' 
+      },
+
+      { 
+        class: '7', 
+        subject: 'History', 
+        date: '2026-05-03', 
+        month: 'May', 
+        video: 'https://drive.google.com/file/d/1S1sMJ34Oh9zlUiqmyzqANOXlC-x7bIeA/preview', 
+        title: '2026-05-03 - Grade 7 History  Class Part 2' 
+      },
+
+      { 
+        class: '7', 
+        subject: 'History', 
+        date: '2026-05-03', 
+        month: 'May', 
+        video: 'https://drive.google.com/file/d/1w0vgDjD_aiY0XpAcwQsplqXIVCLUrOsd/preview', 
+        title: '2026-05-03 - Grade 7 History  Class Part 3' 
+      },
+
      ];
   
 
