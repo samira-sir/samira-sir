@@ -352,6 +352,8 @@
    { username: 'vinulya', months: ['May'] },
    { username: 'inudi', months: ['May'] },
    { username: 'ranudi', months: ['May'] },
+   { username: 'omashi', months: ['May'] },
+   { username: 'thambara', months: ['Apr'] },
   
   
   ];
