@@ -354,6 +354,11 @@
    { username: 'ranudi', months: ['May'] },
    { username: 'omashi', months: ['May'] },
    { username: 'thambara', months: ['Apr'] },
+   { username: 'thambara', months: ['May'] },
+   { username: 'senula', months: ['May'] },
+     { username: 'amra', months: ['Apr'] },
+   { username: 'dinura', months: ['May'] },
+    { username: 'akein', months: ['May'] },
   
   
   ];
