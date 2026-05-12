@@ -5094,6 +5094,33 @@ const videoLinks = [
         title: '2026-05-08 - Grade 10 History Paper  Class Part 3' 
       },
 
+      { 
+        class: '8', 
+        subject: 'History', 
+        date: '2026-05-09', 
+        month: 'May', 
+        video: 'https://drive.google.com/file/d/1S0c6QXuAYDLkB1QET2RshQMBoEffC-Bs/preview', 
+        title: '2026-05-09 - Grade 8 History  Class Part 1' 
+      },
+
+      { 
+        class: '8', 
+        subject: 'History', 
+        date: '2026-05-09', 
+        month: 'May', 
+        video: 'https://drive.google.com/file/d/1Aq0l3WtljC04GskRDyIE5PERdgne7VgY/preview', 
+        title: '2026-05-09 - Grade 8 History  Class Part 2' 
+      },
+
+      { 
+        class: '8', 
+        subject: 'History', 
+        date: '2026-05-09', 
+        month: 'May', 
+        video: 'https://drive.google.com/file/d/1Us9h9zXA3PW5LCpYui1pllH51dFsBCFb/preview', 
+        title: '2026-05-09 - Grade 8 History  Class Part 3' 
+      },
+
      ];
   
 
