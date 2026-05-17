@@ -404,6 +404,8 @@
      { username: 'ruwhena', months: ['May'] },
    { username: 'thinara', months: ['May'] },
   { username: 'poojani', months: ['May'] },
+  { username: 'kenuli', months: ['Apr'] },
+  { username: 'osadee', months: ['Apr'] },
   
   
 
