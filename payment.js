@@ -402,6 +402,7 @@
      { username: 'sadil', months: ['May'] },
    { username: 'ovindu', months: ['May'] },
      { username: 'ruwhena', months: ['May'] },
+   { username: 'thinara', months: ['May'] },
   
   
 
