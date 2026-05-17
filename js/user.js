@@ -114,6 +114,7 @@ const credentials = {
     pamudu: { password: 'pamu@gtrx', subjects: [{ name: 'history', grade: 11 }] },
     ruwhena: { password: 'qwerty', subjects: [{ name: 'history', grade: 11 }] },
     thinara: { password: '2010', subjects: [{name:'history',grade:11},{ name: 'History Paper', grade: 11 }] },
+    poojani: { password: '123456', subjects: [{name:'history',grade:11},{ name: 'History Paper', grade: 11 }] },
     };
 
 
