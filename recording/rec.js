@@ -5418,6 +5418,33 @@ const videoLinks = [
         title: '2026-05-14 - Grade 8 Geography  Class Part 3' 
       },
 
+      { 
+        class: '8', 
+        subject: 'History', 
+        date: '2026-05-16', 
+        month: 'May', 
+        video: 'https://drive.google.com/file/d/1rcQa4M0UzAd9aPEL4AbJOyO0bMq9s8VP/preview', 
+        title: '2026-05-16 - Grade 8 History  Class Part 1' 
+      },
+
+      { 
+        class: '8', 
+        subject: 'History', 
+        date: '2026-05-16', 
+        month: 'May', 
+        video: 'https://drive.google.com/file/d/1zjdzew07p-lkWCiYLYsNZjKmpqBM3BB4/preview', 
+        title: '2026-05-16 - Grade 8 History  Class Part 2' 
+      },
+
+      { 
+        class: '8', 
+        subject: 'History', 
+        date: '2026-05-16', 
+        month: 'May', 
+        video: 'https://drive.google.com/file/d/1_Aig5pCWeT-nPITwiJEEEIEiM9X3Cmn0/preview', 
+        title: '2026-05-16 - Grade 8 History  Class Part 3' 
+      },
+
      
      ];
   
