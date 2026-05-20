@@ -411,7 +411,7 @@
   { username: 'ruhara', months: ['Mar'] },
   { username: 'ruhara', months: ['Apr'] },
   { username: 'ruhara', months: ['May'] },
-  { username: 'pramudi', months: ['Apr'] },
+  { username: 'pramudi', months: ['May'] },
   
   
 
