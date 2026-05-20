@@ -408,6 +408,9 @@
   { username: 'osadee', months: ['Apr'] },
   { username: 'thashigi', months: ['May'] },
   { username: 'pramudi', months: ['Jun'] },
+  { username: 'ruhara', months: ['Mar'] },
+  { username: 'ruhara', months: ['Apr'] },
+  { username: 'ruhara', months: ['May'] },
   
   
 
