@@ -153,8 +153,8 @@
    { username: 'vinulya', months: ['Mar'] },
   { username: 'shevin', months: ['Feb'] },
   { username: 'kethmin', months: ['Feb'] },
-  { username: 'kavith', months: ['Feb'] },
-  { username: 'kavith', months: ['Mar'] },
+  { username: 'kavitha', months: ['Feb'] },
+  { username: 'kavitha', months: ['Mar'] },
   { username: 'inudi', months: ['Mar'] },
   { username: 'r', months: ['Mar'] },
   { username: 'ashvini', months: ['Jan'] },
@@ -412,6 +412,8 @@
   { username: 'ruhara', months: ['Apr'] },
   { username: 'ruhara', months: ['May'] },
   { username: 'pramudi', months: ['May'] },
+  { username: 'kavitha', months: ['May'] },
+  { username: 'kavitha', months: ['Apr'] },
  
   
   
