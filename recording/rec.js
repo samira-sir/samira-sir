@@ -5725,6 +5725,33 @@ const videoLinks = [
         title: '2026-05-22 - Grade 10 History Paper  Class Part 3' 
       },
 
+      { 
+        class: '11', 
+        subject: 'History Paper', 
+        date: '2026-05-22', 
+        month: 'May', 
+        video: 'https://drive.google.com/file/d/1mtldIMkUXi2_e5V34JP7K9G6RfKYR9Up/preview', 
+        title: '2026-05-22 - Grade 11 History Paper  Class Part 1' 
+      },
+
+      { 
+        class: '11', 
+        subject: 'History Paper', 
+        date: '2026-05-22', 
+        month: 'May', 
+        video: 'https://drive.google.com/file/d/1Jds8FY3-zrF3tVSlSTcoQRctulBetYvL/preview', 
+        title: '2026-05-22 - Grade 11 History Paper  Class Part 2' 
+      },
+
+      { 
+        class: '11', 
+        subject: 'History Paper', 
+        date: '2026-05-22', 
+        month: 'May', 
+        video: 'https://drive.google.com/file/d/1wxGgjxPYbEg52NrcA5XxM3wJ2V4Ap0I9/preview', 
+        title: '2026-05-22 - Grade 11 History Paper  Class Part 3' 
+      },
+
      ];
   
 
