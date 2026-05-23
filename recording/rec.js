@@ -5698,6 +5698,33 @@ const videoLinks = [
         title: '2026-05-19 - Grade 6 History  Class Part 3' 
       },
 
+      { 
+        class: '10', 
+        subject: 'History Paper', 
+        date: '2026-05-22', 
+        month: 'May', 
+        video: 'https://drive.google.com/file/d/1EnHCF8iXIPANp4W8Xf3ypTOJW8UV3Xp2/preview', 
+        title: '2026-05-22 - Grade 10 History Paper  Class Part 1' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'History Paper', 
+        date: '2026-05-22', 
+        month: 'May', 
+        video: 'https://drive.google.com/file/d/13n7qmabFGPB1Tl7CrV4Vy-7ZNogeXOzm/preview', 
+        title: '2026-05-22 - Grade 10 History Paper  Class Part 2' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'History Paper', 
+        date: '2026-05-22', 
+        month: 'May', 
+        video: 'https://drive.google.com/file/d/1cYenJmwD58ygHGKG1rBSYZprIc0HXpDj/preview', 
+        title: '2026-05-22 - Grade 10 History Paper  Class Part 3' 
+      },
+
      ];
   
 
