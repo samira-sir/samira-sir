@@ -417,6 +417,8 @@
    { username: 'silma', months: ['May'] },
    { username: 'pamudu', months: ['May'] },
    { username: 'nethsara', months: ['May'] },
+  { username: 'vinudi', months: ['May'] },
+  { username: 'thisandi', months: ['May'] },
   
  
   
