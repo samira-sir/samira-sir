@@ -5887,6 +5887,33 @@ const videoLinks = [
         title: '2026-05-25 - Grade 11 Geography  Class Part 3' 
       },
 
+      { 
+        class: '10', 
+        subject: 'Geography', 
+        date: '2026-05-25', 
+        month: 'May', 
+        video: 'https://drive.google.com/file/d/11E2cyVRTokp4TADISOM98wECZQZhvnSt/preview', 
+        title: '2026-05-25 - Grade 10 Geography  Class Part 1' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'Geography', 
+        date: '2026-05-25', 
+        month: 'May', 
+        video: 'https://drive.google.com/file/d/1AXmVUqHW97uUaXLaswAo8-__EkIO8s1M/preview', 
+        title: '2026-05-25 - Grade 10 Geography  Class Part 2' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'Geography', 
+        date: '2026-05-25', 
+        month: 'May', 
+        video: 'https://drive.google.com/file/d/1pzHJcOZxy8Bi5_xHNk0V2JKxFrORpB6F/preview', 
+        title: '2026-05-25 - Grade 10 Geography  Class Part 3' 
+      },
+
      ];
   
 
