@@ -73,6 +73,7 @@ const credentials = {
     devja: { password: '1234', subjects: [{ name: 'history', grade: 9}] },
      adeesha : { password: '8585', subjects: [{ name: 'history', grade: 9 }] },
      thambara : { password: '2012udithma', subjects: [{ name: 'history', grade: 9 }] },
+     roshell : { password: '6300214', subjects: [{ name: 'history', grade: 9 }] },
     senuka: { password: '123123', subjects: [{ name: 'history', grade: 10 },{ name: 'geography', grade: 10 },{ name: 'History Paper', grade: 10 }] },
     sadil: { password: '123456', subjects: [{ name: 'history', grade: 10 },{ name: 'geography', grade: 10 },{ name: 'History Paper', grade: 10 }] },
     damindu: { password: 'Damindu', subjects:  [{ name: 'history', grade: 10 },{ name: 'History Paper', grade: 10 }] },
