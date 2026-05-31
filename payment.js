@@ -424,7 +424,14 @@
   { username: 'nadun', months: ['Apr'] },
   { username: 'roshell', months: ['May'] },
   { username: 'isandu', months: ['Jun'] },
- 
+  { username: 'seneth', months: ['May'] },
+  { username: 'amra', months: ['May'] },
+   { username: 'nawodya', months: ['Apr'] },
+   { username: 'nawodya', months: ['May'] },
+   { username: 'nawodya', months: ['Jun'] },
+  { username: 'hashini', months: ['May'] },
+   { username: 'praveen', months: ['May'] },
+   { username: 'imandi', months: ['May'] },
   
   
 
