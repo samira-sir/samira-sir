@@ -432,6 +432,9 @@
   { username: 'hashini', months: ['May'] },
    { username: 'praveen', months: ['May'] },
    { username: 'imandi', months: ['May'] },
+   { username: 'manaram', months: ['May'] },
+   { username: 'manaram', months: ['Apr'] },
+   { username: 'manaram', months: ['Jun'] },
   
   
 
