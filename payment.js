@@ -449,6 +449,16 @@
    { username: 'sethumli', months: ['May'] },
    { username: 'omashi', months: ['Jun'] },
    { username: 'senuka', months: ['May'] },
+   { username: 'senuli', months: ['May'] },
+  { username: 'niduka', months: ['May'] },
+  { username: 'niduka', months: ['Jun'] },
+  { username: 'dinura', months: ['Jun'] },
+  { username: 'senula', months: ['Jun'] },
+   { username: 'januni', months: ['Jun'] },
+   { username: 'zuha', months: ['Jun'] },
+    { username: 'radheesha', months: ['Jun'] },
+  { username: 'chiranya', months: ['Jun'] },
+    { username: 'radheesha', months: ['May'] },
 
   
   
