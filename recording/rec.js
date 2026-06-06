@@ -6184,6 +6184,33 @@ const videoLinks = [
         title: '2026-06-04 - Grade 8 Geography  Class Part 2' 
       },
 
+      { 
+        class: '10', 
+        subject: 'History Paper', 
+        date: '2026-06-05', 
+        month: 'June', 
+        video: 'https://drive.google.com/file/d/13lSnhGhbToYaV8EYQIR7l1YosmHFdScQ/preview', 
+        title: '2026-06-05 - Grade 10 History Paper  Class Part 1' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'History Paper', 
+        date: '2026-06-05', 
+        month: 'June', 
+        video: 'https://drive.google.com/file/d/1SXD7SN81SOUJhR0VBsv1nJWy1zwmNPpJ/preview', 
+        title: '2026-06-05 - Grade 10 History Paper  Class Part 2' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'History Paper', 
+        date: '2026-06-05', 
+        month: 'June', 
+        video: 'https://drive.google.com/file/d/1wFwzaQGj9_QGaJwaJ8Aht5jxA_hai82c/preview', 
+        title: '2026-06-05 - Grade 10 History Paper  Class Part 3' 
+      },
+
      ];
   
 
