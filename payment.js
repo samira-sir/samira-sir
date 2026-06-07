@@ -480,6 +480,7 @@
   { username: 'ranul', months: ['May'] },
   { username: 'savain', months: ['June'] },
    { username: 'yashen', months: ['June'] },
+  { username: 'senuth', months: ['June'] },
   
   ];
 
