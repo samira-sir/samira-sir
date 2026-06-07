@@ -471,6 +471,15 @@
    { username: ''dulansa, months: ['Jun'] },
    { username: 'dulansa', months: ['May'] },
   { username: 'harishadi', months: ['May'] },
+   { username: 'udamna', months: ['July'] },
+   { username: 'udamna', months: ['June'] },
+   { username: 'udamna', months: ['Aug'] },
+  { username: 'andrea', months: ['June'] },
+  { username: 'adrianna', months: ['June'] },
+  { username: 'anudi', months: ['May'] },
+  { username: 'ranul', months: ['May'] },
+  { username: 'savain', months: ['June'] },
+   { username: 'yashen', months: ['June'] },
   
   ];
 
