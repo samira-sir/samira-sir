@@ -492,6 +492,7 @@
     { username: 'yenumi', months: ['Jun'] },
   { username: 'yenuli', months: ['Jun'] },
     { username: 'ahasna', months: ['Jun'] },
+  { username: 'shanudi', months: ['May'] },
   
   ];
 
