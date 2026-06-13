@@ -481,6 +481,17 @@
   { username: 'savain', months: ['June'] },
    { username: 'yashen', months: ['June'] },
   { username: 'senuth', months: ['June'] },
+  { username: 'senuji', months: ['June'] },
+  { username: 'thushmini', months: ['June'] },
+  { username: 'nishad', months: ['June'] },
+   { username: 'upadhya', months: ['June'] },
+   { username: 'ovindu', months: ['June'] },
+   { username: 'pajana', months: ['May'] },
+    { username: 'menara', months: ['Jun'] },
+   { username: 'nethsara', months: ['Jun'] },
+    { username: 'yenumi', months: ['Jun'] },
+  { username: 'yenuli', months: ['Jun'] },
+    { username: 'ahasna', months: ['Jun'] },
   
   ];
 
