@@ -6517,6 +6517,24 @@ const videoLinks = [
         title: '2026-06-11 - Grade 8 Geography  Class Part 2' 
       },
 
+      { 
+        class: '10', 
+        subject: 'History', 
+        date: '2026-06-11', 
+        month: 'June', 
+        video: 'https://drive.google.com/file/d/154Il2RVMWcjXUNQepkpxy74LD4b6nH6S/preview', 
+        title: '2026-06-11 - Grade 10 History  Class Part 1' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'History', 
+        date: '2026-06-11', 
+        month: 'June', 
+        video: 'https://drive.google.com/file/d/1PVVvNFGSuZXscN_Nm48WeTOIyws8aseU/preview', 
+        title: '2026-06-11 - Grade 10 History  Class Part 2' 
+      },
+
      ];
   
 
