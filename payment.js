@@ -495,7 +495,14 @@
   { username: 'shanudi', months: ['May'] },
     { username: 'ishan', months: ['May'] },
     { username: 'pranami', months: ['May'] },
-  
+  { username: 'kethmin', months: ['May'] },
+  { username: 'ashleigh', months: ['May'] },
+  { username: 'thambara', months: ['Jun'] },
+   { username: 'ishan', months: ['Jun'] },
+   { username: 'pranami', months: ['Jun'] },
+   { username: 'damindu', months: ['Apr'] },
+   { username: 'damindu', months: ['May'] },
+  { username: 'osadee', months: ['Jun'] },
   ];
 
 
