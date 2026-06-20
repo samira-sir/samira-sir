@@ -503,6 +503,11 @@
    { username: 'damindu', months: ['Apr'] },
    { username: 'damindu', months: ['May'] },
   { username: 'osadee', months: ['Jun'] },
+   { username: 'hashini', months: ['Jun'] },
+     { username: 'ushana', months: ['Jun'] },
+   { username: 'tisara', months: ['Jun'] },
+  { username: 'thisandi', months: ['Jun'] },
+
   ];
 
 
