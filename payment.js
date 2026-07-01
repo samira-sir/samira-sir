@@ -520,6 +520,7 @@
    { username: 'shanudi', months: ['Jun'] },
    { username: 'roshell', months: ['Jun'] },
    { username: 'senuka6', months: ['Jul'] },
+  { username: 'ositha', months: ['Jul'] },
 
 
   ];
