@@ -513,6 +513,13 @@
    { username: 'minudi6', months: ['Apr'] },
   { username: 'minudi6', months: ['May'] },
    { username: 'senumitha', months: ['Jul'] },
+  { username: 'pawan', months: ['May'] },
+  { username: 'pawan', months: ['Jun'] },
+  { username: 'praveen', months: ['Jun'] },
+  { username: 'imandi', months: ['Jun'] },
+   { username: 'shanudi', months: ['Jun'] },
+   { username: 'roshell', months: ['Jun'] },
+   { username: 'senuka6', months: ['Jul'] },
 
 
   ];
