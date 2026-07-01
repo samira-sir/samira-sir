@@ -521,6 +521,8 @@
    { username: 'roshell', months: ['Jun'] },
    { username: 'senuka6', months: ['Jul'] },
   { username: 'ositha', months: ['Jul'] },
+   { username: 'kavitha', months: ['Jun'] },
+   { username: 'kavitha', months: ['Jul'] },
 
 
   ];
