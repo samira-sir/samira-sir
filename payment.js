@@ -523,6 +523,7 @@
   { username: 'ositha', months: ['Jul'] },
    { username: 'kavitha', months: ['Jun'] },
    { username: 'kavitha', months: ['Jul'] },
+   { username: 'bovindi', months: ['Jun'] },
 
 
   ];
