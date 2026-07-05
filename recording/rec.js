@@ -7183,6 +7183,42 @@ const videoLinks = [
         title: '2026-07-02 - Grade 10 History  Class Part 3' 
       },
 
+      { 
+        class: '8', 
+        subject: 'Geography', 
+        date: '2026-07-02', 
+        month: 'July', 
+        video: 'https://drive.google.com/file/d/15cmZISbyK_8RJIuuRN18q8bhCXo4WJ7C/preview', 
+        title: '2026-07-02 - Grade 8 Geography  Class Part 1' 
+      },
+
+      { 
+        class: '8', 
+        subject: 'Geography', 
+        date: '2026-07-02', 
+        month: 'July', 
+        video: 'https://drive.google.com/file/d/16pabmzuxnRrxYeUJtc_FKnjeCzegdARO/preview', 
+        title: '2026-07-02 - Grade 8 Geography  Class Part 2' 
+      },
+
+      { 
+        class: '8', 
+        subject: 'Geography', 
+        date: '2026-07-02', 
+        month: 'July', 
+        video: 'https://drive.google.com/file/d/1-i6oI9vKtzuQAdX38udBfqfPLyXuMk4i/preview', 
+        title: '2026-07-02 - Grade 8 Geography  Class Part 3' 
+      },
+
+      { 
+        class: '8', 
+        subject: 'Geography', 
+        date: '2026-07-02', 
+        month: 'July', 
+        video: 'https://drive.google.com/file/d/1btEx4fzG7wz05RO-h9PO1OXvXQ9vJ6IQ/preview', 
+        title: '2026-07-02 - Grade 8 Geography  Class Part 4' 
+      },
+
      ];
   
 
