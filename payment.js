@@ -534,6 +534,9 @@
   { username: 'indula', months: ['Jul'] },
   { username: 'shevin', months: ['Jun'] },
   { username: 'chiranya', months: ['Jul'] },
+  { username: 'savain', months: ['Jul'] },
+   { username: 'omashi', months: ['Jul'] },
+   { username: 'silma', months: ['Jul'] },
  
 
 
