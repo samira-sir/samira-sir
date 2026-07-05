@@ -57,7 +57,6 @@ const credentials = {
      hemsara : { password: '2013', subjects: [{ name: 'history', grade: 8 }] },
       dilki: { password: 'gopal', subjects: [{ name: 'history', grade: 8 }] },
      gihansa: { password: '2004', subjects: [{ name: 'history', grade:8 },{ name: 'geography', grade:8 }] }, 
-     dasun: { password: '2013', subjects: [{ name: 'history', grade:8 },{ name: 'geography', grade:8 }] }, 
      senuth: { password: '1234', subjects: [{ name: 'history', grade: 8 }] },
     dinura: { password: 'Bd7@Lr2%', subjects: [{ name: 'history', grade: 9 },{ name: 'geography', grade: 9 }] },
     pranami: { password: 'Pranami123', subjects: [{ name: 'geography', grade: 9 }] },
@@ -126,6 +125,7 @@ const credentials = {
     thinara: { password: '2010', subjects: [{name:'history',grade:11},{ name: 'History Paper', grade: 11 }] },
     poojani: { password: '123456', subjects: [{name:'history',grade:11},{ name: 'History Paper', grade: 11 }] },
     bovindi: { password: '31102', subjects: [{ name: 'history Paper', grade: 11 }] }, 
+    thesanya : { password: 'Thesanya1002', subjects: [{ name: 'geography', grade: 11 }] }, 
     };
 
 
