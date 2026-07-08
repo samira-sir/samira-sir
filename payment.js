@@ -551,6 +551,9 @@
   { username: 'pramudi', months: ['Jul'] },
   { username: 'zuha', months: ['Jul'] },
   { username: 'dishani', months: ['Jul'] },
+  { username: 'bovindi', months: ['Jul'] },
+  { username: 'manuka', months: ['Jul'] },
+  { username: 'ihansa', months: ['Jul'] },
   
 
   
