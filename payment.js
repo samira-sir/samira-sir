@@ -554,6 +554,7 @@
   { username: 'bovindi', months: ['Jul'] },
   { username: 'manuka', months: ['Jul'] },
   { username: 'ihansa', months: ['Jul'] },
+   { username: 'nimuthu', months: ['Jul'] },
   
 
   
