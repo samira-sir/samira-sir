@@ -568,7 +568,15 @@
    { username: 'sasen', months: ['Jul'] },
    { username: 'thinara', months: ['Jun'] },
    { username: 'thinara', months: ['Jul'] },
-
+  { username: 'linuka', months: ['May'] },
+  { username: 'dehan', months: ['May'] },
+  { username: 'dehan', months: ['Jun'] },
+  { username: 'nadun', months: ['Jun'] },
+  { username: 'yenumi', months: ['Jul'] },
+    { username: 'dinura', months: ['Jul'] },
+  { username: 'ushana', months: ['Jul'] },
+ { username: 'osadee', months: ['Jul'] },
+  { username: 'thisumi', months: ['Jul'] },
   
   
 
