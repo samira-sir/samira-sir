@@ -577,6 +577,15 @@
   { username: 'ushana', months: ['Jul'] },
  { username: 'osadee', months: ['Jul'] },
   { username: 'thisumi', months: ['Jul'] },
+  { username: 'poojana', months: ['Jun'] },
+    { username: 'linuka', months: ['Jun'] },
+    { username: 'linuka', months: ['Jul'] },
+    { username: 'januni', months: ['Jul'] },
+  { username: 'senuka', months: ['Jul'] },
+   { username: 'binuga', months: ['Jul'] },
+   { username: 'sadil', months: ['Jul'] },
+  { username: 'gihansa', months: ['Jun'] },
+  
   
   
 
