@@ -591,6 +591,12 @@
    { username: 'ashleigh', months: ['Jun'] },
   { username: 'ashleigh', months: ['Jul'] },
   { username: 'dulneth', months: ['Jul'] },
+  { username: 'nishini', months: ['Mar'] },
+  { username: 'nishini', months: ['Apr'] },
+  { username: 'nishini', months: ['May'] },
+  { username: 'nishini', months: ['Jun'] },
+  { username: 'pamudu', months: ['Jun'] },
+  
   
   
   
