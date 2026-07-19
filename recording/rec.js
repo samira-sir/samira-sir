@@ -8092,6 +8092,33 @@ const videoLinks = [
         title: '2026-07-18 - Grade 8 History  Class Part 3' 
       },
 
+      { 
+        class: '7', 
+        subject: 'History', 
+        date: '2026-07-19', 
+        month: 'July', 
+        video: 'https://drive.google.com/file/d/14CLXWkbRv6b-dH_WchSK1neWoPdCLnS9/preview', 
+        title: '2026-07-19 - Grade 7 History  Class Part 1' 
+      },
+
+      { 
+        class: '7', 
+        subject: 'History', 
+        date: '2026-07-19', 
+        month: 'July', 
+        video: 'https://drive.google.com/file/d/1K5Hh7b_YlgiVy24rIEQyR4ubVVDu-o_s/preview', 
+        title: '2026-07-19 - Grade 7 History  Class Part 2' 
+      },
+
+      { 
+        class: '7', 
+        subject: 'History', 
+        date: '2026-07-19', 
+        month: 'July', 
+        video: 'https://drive.google.com/file/d/1izlzfYjc2CAxEufjwUrJ9ciXmkiIbnao/preview', 
+        title: '2026-07-19 - Grade 7 History  Class Part 3' 
+      },
+
      ];
   
 
