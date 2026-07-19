@@ -7921,6 +7921,15 @@ const videoLinks = [
         title: '2026-07-14 - Grade 6 History  Class Part 3' 
       },
 
+      { 
+        class: '8', 
+        subject: 'Geography', 
+        date: '2026-07-16', 
+        month: 'July', 
+        video: 'https://drive.google.com/file/d/1yu13piDe1N1bjyl7PfHPHhI0JIDg6erj/preview', 
+        title: '2026-07-16 - Grade 8 Geography  Class Part 1' 
+      },
+
      ];
   
 
