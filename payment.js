@@ -600,6 +600,12 @@
   { username: 'kavishka', months: ['Aug'] },
    { username: 'dilakshana', months: ['Jun'] },
    { username: 'dilakshana', months: ['Jul'] },
+  { username: 'senuji', months: ['Jul'] },
+  { username: 'thushmini', months: ['Jul'] },
+   { username: 'thambara', months: ['Jul'] },
+   { username: 'roshell', months: ['Jul'] },
+   { username: 'ketmin', months: ['Jun'] },
+   { username: 'ketmin', months: ['Jul'] },
   
   
   
