@@ -8335,6 +8335,33 @@ const videoLinks = [
         title: '2026-07-25 - Grade 11 History  Class Part 3' 
       },
 
+      { 
+        class: '10', 
+        subject: 'History', 
+        date: '2026-07-23', 
+        month: 'July', 
+        video: 'https://drive.google.com/file/d/12xEmuZlJytr0ydNFmvwRyVdjia5HMe6L/preview', 
+        title: '2026-07-23 - Grade 10 History  Class Part 1' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'History', 
+        date: '2026-07-23', 
+        month: 'July', 
+        video: 'https://drive.google.com/file/d/1XPs1bwzMCAI-jjL127uUVB_n_g4kyWIN/preview', 
+        title: '2026-07-23 - Grade 10 History  Class Part 2' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'History', 
+        date: '2026-07-23', 
+        month: 'July', 
+        video: 'https://drive.google.com/file/d/1lKeHQ8IpNl6AHxzMCaq7LJZHQt1bZYi0/preview', 
+        title: '2026-07-23 - Grade 10 History  Class Part 3' 
+      },
+
      ];
   
 
