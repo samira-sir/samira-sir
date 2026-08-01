@@ -160,6 +160,11 @@
   { username: 'ashvini', months: ['Jan'] },
   { username: 'ashvini', months: ['Feb'] },
   { username: 'ashvini', months: ['Mar'] },
+  { username: 'ashvini', months: ['Apr'] },
+  { username: 'ashvini', months: ['May'] },
+  { username: 'ashvini', months: ['Jun'] },
+  { username: 'ashvini', months: ['Jul'] },
+  { username: 'ashvini', months: ['Aug'] },
   { username: 'silma', months: ['Mar'] },
    { username: 'manuka', months: ['Mar'] },
    { username: 'ihansa', months: ['Mar'] },
@@ -610,7 +615,12 @@
    { username: 'reema', months: ['Jun'] },
    { username: 'reema', months: ['Jul'] },
    { username: 'reema', months: ['Aug'] },
- 
+  { username: 'nawodya', months: ['Jul'] },
+  { username: 'januni', months: ['Aug'] },
+ { username: 'shanudi', months: ['Jul'] },
+  { username: 'januni', months: ['Aug'] },
+  { username: 'tisara', months: ['Aug'] },
+  
   
   
   
