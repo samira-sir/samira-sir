@@ -8740,6 +8740,24 @@ const videoLinks = [
         title: '2026-07-31 - Grade 10 History Paper  Class Part 2' 
       },
 
+      { 
+        class: '10', 
+        subject: 'History', 
+        date: '2026-07-30', 
+        month: 'July', 
+        video: 'https://drive.google.com/file/d/17Rum78tuDByg35vCrploJY6G8d5eZbNM/preview', 
+        title: '2026-07-30 - Grade 10 History  Class Part 1' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'History', 
+        date: '2026-07-30', 
+        month: 'July', 
+        video: 'https://drive.google.com/file/d/1MqSJwqPVF9YdGoCAUZK2s2iufj3ZEoTT/preview', 
+        title: '2026-07-30 - Grade 10 History  Class Part 2' 
+      },
+
      ];
   
 
