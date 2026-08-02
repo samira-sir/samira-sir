@@ -622,6 +622,13 @@
   { username: 'tisara', months: ['Aug'] },
   { username: 'vinulya', months: ['Aug'] },
    { username: 'yethum', months: ['Jul'] },
+   { username: 'hasaru', months: ['Aug'] },
+  { username: 'andrea', months: ['Aug'] },
+  { username: 'adrianna', months: ['Aug'] },
+  { username: 'yashan', months: ['Aug'] },
+   { username: 'savin', months: ['Aug'] },
+  
+  
   
   
   
