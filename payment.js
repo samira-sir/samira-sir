@@ -620,6 +620,8 @@
  { username: 'shanudi', months: ['Jul'] },
   { username: 'januni', months: ['Aug'] },
   { username: 'tisara', months: ['Aug'] },
+  { username: 'vinulya', months: ['Aug'] },
+   { username: 'yethum', months: ['Jul'] },
   
   
   
