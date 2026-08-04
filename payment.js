@@ -632,6 +632,10 @@
   { username: 'sethumli', months: ['Jul'] },
   { username: 'sethumli', months: ['Aug'] },
    { username: 'ositha', months: ['Aug'] },
+  { username: 'praveen', months: ['Jul'] },
+  { username: 'imandi', months: ['Jul'] },
+   { username: 'charuni', months: ['Aug'] },
+  { username: 'Kavishka', months: ['Jul'] },
   
   
   
