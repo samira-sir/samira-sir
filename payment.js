@@ -511,7 +511,7 @@
   { username: 'osadee', months: ['Jun'] },
    { username: 'hashini', months: ['Jun'] },
      { username: 'ushana', months: ['Jun'] },
-   { username: 'tisara', months: ['Jun'] },
+   { username: 'tisara', months: ['Jul'] },
   { username: 'thisandi', months: ['Jun'] },
   { username: 'indunith', months: ['Jun'] },
     { username: 'anusara', months: ['May'] },
@@ -628,6 +628,11 @@
   { username: 'yashan', months: ['Aug'] },
    { username: 'savin', months: ['Aug'] },
    { username: 'chiranya', months: ['Aug'] },
+   { username: 'dinsara', months: ['Aug'] },
+  { username: 'sethumli', months: ['Jul'] },
+  { username: 'sethumli', months: ['Aug'] },
+   { username: 'ositha', months: ['Aug'] },
+  
   
   
   
