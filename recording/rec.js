@@ -8866,6 +8866,33 @@ const videoLinks = [
         title: '2026-08-03 - Grade 9 Geography  Class Part 3' 
       },
 
+      { 
+        class: '9', 
+        subject: 'History', 
+        date: '2026-08-04', 
+        month: 'August', 
+        video: 'https://drive.google.com/file/d/1cpPsShUEuOXrkZDSDB-U-L_8WO5gHipk/preview', 
+        title: '2026-08-04 - Grade 9 History  Class Part 1' 
+      },
+
+      { 
+        class: '9', 
+        subject: 'History', 
+        date: '2026-08-04', 
+        month: 'August', 
+        video: 'https://drive.google.com/file/d/1Pko7M3aL5j5agKYL0A2YMCEzT-1PMOeO/preview', 
+        title: '2026-08-04 - Grade 9 History  Class Part 2' 
+      },
+
+      { 
+        class: '9', 
+        subject: 'History', 
+        date: '2026-08-04', 
+        month: 'August', 
+        video: 'https://drive.google.com/file/d/1MWkGXvAlItDG4PIptC-ZIUBrv5XZKvSc/preview', 
+        title: '2026-08-04 - Grade 9 History  Class Part 3' 
+      },
+
      ];
   
 
