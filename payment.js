@@ -665,6 +665,12 @@
    { username: 'menara', months: ['May'] },
    { username: 'menara', months: ['Jun'] },
    { username: 'menara', months: ['Jul'] },
+  { username: 'inudi', months: ['Aug'] },
+  { username: 'ranudi', months: ['Aug'] },
+  { username: 'silma', months: ['Aug'] },
+  { username: 'nishad', months: ['Aug'] },
+  { username: 'nethsara', months: ['Aug'] },
+ 
    
   
   
