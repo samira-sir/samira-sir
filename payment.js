@@ -673,6 +673,8 @@
    { username: 'minudi6', months: ['Jun'] },
    { username: 'danidu', months: ['Aug'] },
   { username: 'gihansa', months: ['Jul'] },
+  { username: 'thisandi', months: ['Jul'] },
+  { username: 'thisandi', months: ['Aug'] },
  
    
   
