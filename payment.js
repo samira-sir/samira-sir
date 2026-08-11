@@ -684,6 +684,7 @@
   { username: 'shavidya', months: ['Aug'] },
   { username: 'shavidya', months: ['Jul'] },
   { username: 'shavidya', months: ['Jun'] },
+   { username: 'minudi6', months: ['Jul'] },
  
    
   
