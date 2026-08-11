@@ -9154,6 +9154,33 @@ const videoLinks = [
         title: '2026-08-10 - Grade 11 Geography  Class Part 3' 
       },
 
+      { 
+        class: '11', 
+        subject: 'Geography', 
+        date: '2026-08-10', 
+        month: 'August', 
+        video: 'https://drive.google.com/file/d/173SZM6v6bhEk9jSQzsUGyy_V0ydvlZ3k/preview', 
+        title: '2026-08-10 - Grade 11 Geography  Class Part 1' 
+      },
+
+      { 
+        class: '11', 
+        subject: 'Geography', 
+        date: '2026-08-10', 
+        month: 'August', 
+        video: 'https://drive.google.com/file/d/1rHHfcdSuLkaLsffb9BJX0GgNzEGcfmzh/preview', 
+        title: '2026-08-10 - Grade 11 Geography  Class Part 2' 
+      },
+
+      { 
+        class: '11', 
+        subject: 'Geography', 
+        date: '2026-08-10', 
+        month: 'August', 
+        video: 'https://drive.google.com/file/d/1MCf75-sKPTrwlJhax4TIq5SApyMD6lDl/preview', 
+        title: '2026-08-10 - Grade 11 Geography  Class Part 3' 
+      },
+
      ];
   
 
