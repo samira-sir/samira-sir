@@ -677,6 +677,13 @@
   { username: 'thisandi', months: ['Aug'] },
   { username: 'naveesha', months: ['Aug'] },
   { username: 'thisandi', months: ['Aug'] },
+  { username: 'amra', months: ['Jul'] },
+  { username: 'shevin', months: ['Jul'] },
+  { username: 'thisumi', months: ['Aug'] },
+  { username: 'yenumi', months: ['Aug'] },
+  { username: 'shavidya', months: ['Aug'] },
+  { username: 'shavidya', months: ['Jul'] },
+  { username: 'shavidya', months: ['Jun'] },
  
    
   
