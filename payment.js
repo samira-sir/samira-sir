@@ -691,8 +691,14 @@
   { username: 'chenul', months: ['Jul'] },
   { username: 'chenul', months: ['Aug'] },
    { username: 'sesandu', months: ['Aug'] },
-   
-  
+  { username: 'manaram', months: ['Aug'] },
+  { username: 'manaram', months: ['Jul'] },
+   { username: 'poojana', months: ['Jul'] },
+   { username: 'yenuli', months: ['Aug'] },
+   { username: 'dinura', months: ['Aug'] },
+   { username: 'adheesha', months: ['Aug'] },
+   { username: 'senulya', months: ['Jul'] },
+   { username: 'senulya', months: ['Aug'] },
   
   
   
