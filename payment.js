@@ -717,6 +717,17 @@
    { username: 'isara', months: ['May'] },
    { username: 'isara', months: ['Jun'] },
    { username: 'isara', months: ['Jul'] },
+  { username: 'dehan', months: ['Jul'] },
+  { username: 'dishani', months: ['Aug'] },
+  { username: 'osadee', months: ['Aug'] },
+   { username: 'shenya', months: ['May'] },
+   { username: 'shenya', months: ['Jun'] },
+   { username: 'shenya', months: ['Jul'] },
+   { username: 'shenya', months: ['Aug'] },
+   { username: 'sadew', months: ['May'] },
+  { username: 'sadew', months: ['Jun'] },
+  { username: 'sadew', months: ['Jul'] },
+  { username: 'sadew', months: ['Aug'] },
   
   
   
