@@ -138,6 +138,7 @@ const credentials = {
     nimuthu: { password: '200935', subjects: [{ name: 'history Paper', grade: 11 }] }, 
     hasaru: { password: 'Has&1018', subjects: [{ name: 'history', grade: 11 }] },  
     danidu: { password: '8514', subjects: [{ name: 'history', grade: 11 }] }, 
+    yunali: { password: '123456789', subjects: [{ name: 'history', grade: 11 },{ name: 'geography', grade: 11 },{ name: 'geography', grade: 10 },{ name: 'History Paper', grade: 11 }] },
     };
 
 
