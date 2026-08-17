@@ -729,6 +729,11 @@
   { username: 'sadew', months: ['Jul'] },
   { username: 'sadew', months: ['Aug'] },
   { username: 'kaveen', months: ['Aug'] },
+  { username: 'manuka', months: ['Aug'] },
+  { username: 'ihansa', months: ['Aug'] },
+  { username: 'hemsara', months: ['Jul'] },
+  { username: 'hemsara', months: ['Aug'] },
+  { username: 'linuka', months: ['Aug'] },
   
   
   
