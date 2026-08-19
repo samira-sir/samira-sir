@@ -9433,6 +9433,24 @@ const videoLinks = [
         title: '2026-08-08 - Grade 11 History  Class Part 2' 
       },
 
+      { 
+        class: '9', 
+        subject: 'Geography', 
+        date: '2026-08-17', 
+        month: 'August', 
+        video: 'https://drive.google.com/file/d/11v7-vR3hGp_zKh74u5pIqGnxCNn9BW5V/preview', 
+        title: '2026-08-17 - Grade 9 Geography  Class Part 1' 
+      },
+
+      { 
+        class: '9', 
+        subject: 'Geography', 
+        date: '2026-08-17', 
+        month: 'August', 
+        video: 'https://drive.google.com/file/d/1DCSeZbibocVOr5Yb0O566qFXkVwYm5Be/preview', 
+        title: '2026-08-17 - Grade 9 Geography  Class Part 2' 
+      },
+
      ];
   
 
