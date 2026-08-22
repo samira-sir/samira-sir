@@ -9595,32 +9595,7 @@ const videoLinks = [
         title: '2026-08-17 - Grade 9 Geography  Class Part 2' 
       },
 
-      { 
-        class: '9', 
-        subject: 'History', 
-        date: '2026-08-18', 
-        month: 'August', 
-        video: 'https://drive.google.com/file/d/1zfe2MysfbPNP_Qr3Wmxi7yeAbdCQ7Sl0/preview', 
-        title: '2026-08-18 - Grade 9 History  Class Part 1' 
-      },
 
-      { 
-        class: '9', 
-        subject: 'History', 
-        date: '2026-08-18', 
-        month: 'August', 
-        video: 'https://drive.google.com/file/d/1FG_4snL9aLD9LaEYrQIE65lNZwUqgml0/preview', 
-        title: '2026-08-18 - Grade 9 History  Class Part 2' 
-      },
-
-      { 
-        class: '9', 
-        subject: 'History', 
-        date: '2026-08-18', 
-        month: 'August', 
-        video: 'https://drive.google.com/file/d/1_4a5hVXNP15PHoLqC7u198y8fqPhF7N6/preview', 
-        title: '2026-08-18 - Grade 9 History  Class Part 3' 
-      },
 
       { 
         class: '10', 
@@ -9647,6 +9622,242 @@ const videoLinks = [
         month: 'August', 
         video: 'https://drive.google.com/file/d/1e1nHTayYMre0Ks2HBvKcBUVqsGWtH2lU/preview', 
         title: '2026-08-17 - Grade 10 Geography  Class Part 3' 
+      },
+
+      { 
+        class: '11', 
+        subject: 'Geography', 
+        date: '2026-08-17', 
+        month: 'August', 
+        video: 'https://drive.google.com/file/d/1dp4bEQEZNRYCT08XqyPGt0PbuKXX_aix/preview', 
+        title: '2026-08-17 - Grade 11 Geography  Class Part 1' 
+      },
+
+      { 
+        class: '11', 
+        subject: 'Geography', 
+        date: '2026-08-17', 
+        month: 'August', 
+        video: 'https://drive.google.com/file/d/1igP9GcIY3o9cVLhu9dHTUH0ty6F08Uba/preview', 
+        title: '2026-08-17 - Grade 11 Geography  Class Part 2' 
+      },
+
+      { 
+        class: '11', 
+        subject: 'Geography', 
+        date: '2026-08-17', 
+        month: 'August', 
+        video: 'https://drive.google.com/file/d/10Q03LYpNwhQh9xn2fCCjJPyzh0qyITuX/preview', 
+        title: '2026-08-17 - Grade 11 Geography  Class Part 3' 
+      },
+
+      { 
+        class: '9', 
+        subject: 'History', 
+        date: '2026-08-18', 
+        month: 'August', 
+        video: 'https://drive.google.com/file/d/1NMLcbtapA6H5k3sQVl-GPL4CaQrd1UjG/preview', 
+        title: '2026-08-18 - Grade 9 History  Class Part 1' 
+      },
+
+      { 
+        class: '9', 
+        subject: 'History', 
+        date: '2026-08-18', 
+        month: 'August', 
+        video: 'https://drive.google.com/file/d/1VUGQTwAqYkbi-g0A86HLgvzho0y1-7dd/preview', 
+        title: '2026-08-18 - Grade 9 History  Class Part 2' 
+      },
+
+      { 
+        class: '7', 
+        subject: 'History', 
+        date: '2026-08-16', 
+        month: 'August', 
+        video: 'https://drive.google.com/file/d/1fNvnK0Enp13_V_jQz-zAY4mp2wFWBp9N/preview', 
+        title: '2026-08-16 - Grade 7 History  Class Part 1' 
+      },
+
+      { 
+        class: '7', 
+        subject: 'History', 
+        date: '2026-08-16', 
+        month: 'August', 
+        video: 'https://drive.google.com/file/d/1ZOTtpDiRzVqJYqifUl3dKlQAdlGTlAE2/preview', 
+        title: '2026-08-16 - Grade 7 History  Class Part 2' 
+      },
+
+      { 
+        class: '7', 
+        subject: 'History', 
+        date: '2026-08-16', 
+        month: 'August', 
+        video: 'https://drive.google.com/file/d/14qXNdCRGHqejFvquk20oR0zfLjr0beGh/preview', 
+        title: '2026-08-16 - Grade 7 History  Class Part 3' 
+      },
+
+      { 
+        class: '8', 
+        subject: 'Geography', 
+        date: '2026-08-20', 
+        month: 'August', 
+        video: 'https://drive.google.com/file/d/1Hso3f77zAggLE1LbdetM3GiM1pKCv6Ev/preview', 
+        title: '2026-08-20 - Grade 8 Geography  Class Part 1' 
+      },
+
+      { 
+        class: '8', 
+        subject: 'Geography', 
+        date: '2026-08-20', 
+        month: 'August', 
+        video: 'https://drive.google.com/file/d/1ca8lAA0fHPLT14Qm6JBafsGs3p3XrK5r/preview', 
+        title: '2026-08-20 - Grade 8 Geography  Class Part 2' 
+      },
+
+      { 
+        class: '8', 
+        subject: 'Geography', 
+        date: '2026-08-20', 
+        month: 'August', 
+        video: 'https://drive.google.com/file/d/1GgdpuTvE29sRnShGznPH75AegWjuaxSz/preview', 
+        title: '2026-08-20 - Grade 8 Geography  Class Part 3' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'History', 
+        date: '2026-08-20', 
+        month: 'August', 
+        video: 'https://drive.google.com/file/d/12F2nQ3qi5D8dWOINaWZBQHus5LROEduh/preview', 
+        title: '2026-08-20 - Grade 10 History  Class Part 1' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'History', 
+        date: '2026-08-20', 
+        month: 'August', 
+        video: 'https://drive.google.com/file/d/1jo8FKlMsIYrH9Kg7ua531gzQstENjwLG/preview', 
+        title: '2026-08-20 - Grade 10 History  Class Part 2' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'History', 
+        date: '2026-08-20', 
+        month: 'August', 
+        video: 'https://drive.google.com/file/d/1tpmP6xAqRSrDRoTy3zzxfo5YLEdjUE5w/preview', 
+        title: '2026-08-20 - Grade 10 History  Class Part 3' 
+      },
+
+
+
+      { 
+        class: '7', 
+        subject: 'Geography', 
+        date: '2026-08-16', 
+        month: 'August', 
+        video: 'https://drive.google.com/file/d/105z3D6aLMZ1zwNQHt5kdQ0p-i7MZbsU9/preview', 
+        title: '2026-08-16 - Grade 7 Geography  Class Part 1' 
+      },
+
+      { 
+        class: '7', 
+        subject: 'Geography', 
+        date: '2026-08-16', 
+        month: 'August', 
+        video: 'https://drive.google.com/file/d/1EUAtA23WhD-x_Z4k0lK0-1ysPK7Z7_cr/preview', 
+        title: '2026-08-16 - Grade 7 Geography  Class Part 2' 
+      },
+
+      { 
+        class: '7', 
+        subject: 'Geography', 
+        date: '2026-08-16', 
+        month: 'August', 
+        video: 'https://drive.google.com/file/d/1mbCRXxMcHs7ppheqNqT4wTg9m--qhxpx/preview', 
+        title: '2026-08-16 - Grade 7 Geography  Class Part 3' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'History Paper', 
+        date: '2026-08-21', 
+        month: 'August', 
+        video: 'https://drive.google.com/file/d/1XXRmaFNTUbdr5T1eUonUUL4pck9Fc_1N/preview', 
+        title: '2026-08-21 - Grade 10 History Paper  Class Part 1' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'History Paper', 
+        date: '2026-08-21', 
+        month: 'August', 
+        video: 'https://drive.google.com/file/d/1GRTN3JgqhkmSt5tWqXnlq2jX0UFx6Kbb/preview', 
+        title: '2026-08-21 - Grade 10 History Paper  Class Part 2' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'History Paper', 
+        date: '2026-08-21', 
+        month: 'August', 
+        video: 'https://drive.google.com/file/d/1YBBZfFybxMfm-gvo3Yb5r87_AW_s2eFn/preview', 
+        title: '2026-08-21 - Grade 10 History Paper  Class Part 3' 
+      },
+
+      { 
+        class: '11', 
+        subject: 'History Paper', 
+        date: '2026-08-21', 
+        month: 'August', 
+        video: 'https://drive.google.com/file/d/187gqhrAQs9NEDPzyhp19YdmLSXEhennn/preview', 
+        title: '2026-08-21 - Grade 11 History Paper  Class Part 1' 
+      },
+
+      { 
+        class: '11', 
+        subject: 'History Paper', 
+        date: '2026-08-21', 
+        month: 'August', 
+        video: 'https://drive.google.com/file/d/14LLkR34dX0rgBLBMYZLaBkAxdWnOLDlO/preview', 
+        title: '2026-08-21 - Grade 11 History Paper  Class Part 2' 
+      },
+
+      { 
+        class: '11', 
+        subject: 'History Paper', 
+        date: '2026-08-21', 
+        month: 'August', 
+        video: 'https://drive.google.com/file/d/1t52Ds7OYkpSAmGFIZikiMr5LRViFsoGD/preview', 
+        title: '2026-08-21 - Grade 11 History Paper  Class Part 3' 
+      },
+
+      { 
+        class: '11', 
+        subject: 'History', 
+        date: '2026-08-22', 
+        month: 'August', 
+        video: 'https://drive.google.com/file/d/1tjjopATXUTrn9mX0cspKMoBA-YDLUFh6/preview', 
+        title: '2026-08-22 - Grade 11 History  Class Part 1' 
+      },
+
+      { 
+        class: '11', 
+        subject: 'History', 
+        date: '2026-08-22', 
+        month: 'August', 
+        video: 'https://drive.google.com/file/d/1yzWU5l0BHOhCmF4G0VjwAJr21hiux8GQ/preview', 
+        title: '2026-08-22 - Grade 11 History  Class Part 2' 
+      },
+
+      { 
+        class: '11', 
+        subject: 'History', 
+        date: '2026-08-22', 
+        month: 'August', 
+        video: 'https://drive.google.com/file/d/1ijU-CQVfQwxxVx324t-iwZjWYVqQ9d9Z/preview', 
+        title: '2026-08-22 - Grade 11 History  Class Part 3' 
       },
 
      ];
