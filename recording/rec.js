@@ -9577,6 +9577,78 @@ const videoLinks = [
         title: '2026-08-18 - Grade 9 History  Class Part 3' 
       },
 
+      { 
+        class: '9', 
+        subject: 'Geography', 
+        date: '2026-08-17', 
+        month: 'August', 
+        video: 'https://drive.google.com/file/d/11v7-vR3hGp_zKh74u5pIqGnxCNn9BW5V/preview', 
+        title: '2026-08-17 - Grade 9 Geography  Class Part 1' 
+      },
+
+      { 
+        class: '9', 
+        subject: 'Geography', 
+        date: '2026-08-17', 
+        month: 'August', 
+        video: 'https://drive.google.com/file/d/1DCSeZbibocVOr5Yb0O566qFXkVwYm5Be/preview', 
+        title: '2026-08-17 - Grade 9 Geography  Class Part 2' 
+      },
+
+      { 
+        class: '9', 
+        subject: 'History', 
+        date: '2026-08-18', 
+        month: 'August', 
+        video: 'https://drive.google.com/file/d/1zfe2MysfbPNP_Qr3Wmxi7yeAbdCQ7Sl0/preview', 
+        title: '2026-08-18 - Grade 9 History  Class Part 1' 
+      },
+
+      { 
+        class: '9', 
+        subject: 'History', 
+        date: '2026-08-18', 
+        month: 'August', 
+        video: 'https://drive.google.com/file/d/1FG_4snL9aLD9LaEYrQIE65lNZwUqgml0/preview', 
+        title: '2026-08-18 - Grade 9 History  Class Part 2' 
+      },
+
+      { 
+        class: '9', 
+        subject: 'History', 
+        date: '2026-08-18', 
+        month: 'August', 
+        video: 'https://drive.google.com/file/d/1_4a5hVXNP15PHoLqC7u198y8fqPhF7N6/preview', 
+        title: '2026-08-18 - Grade 9 History  Class Part 3' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'Geography', 
+        date: '2026-08-17', 
+        month: 'August', 
+        video: 'https://drive.google.com/file/d/1p2DwH9VnDT7RrS-9qlZxWu0MiSLRCTM0/preview', 
+        title: '2026-08-17 - Grade 10 Geography  Class Part 1' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'Geography', 
+        date: '2026-08-17', 
+        month: 'August', 
+        video: 'https://drive.google.com/file/d/1uM55ZKzUJuDcprm0Rmech9L1YO1i74oz/preview', 
+        title: '2026-08-17 - Grade 10 Geography  Class Part 2' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'Geography', 
+        date: '2026-08-17', 
+        month: 'August', 
+        video: 'https://drive.google.com/file/d/1e1nHTayYMre0Ks2HBvKcBUVqsGWtH2lU/preview', 
+        title: '2026-08-17 - Grade 10 Geography  Class Part 3' 
+      },
+
      ];
   
 
