@@ -739,16 +739,17 @@
   { username: 'sasen', months: ['Aug'] },
   { username: 'kasun', months: ['Aug'] },
    { username: 'chaluni', months: ['Sep'] },
-  
-  
-  
-  
-  
-  
-  
-  
-  
-
+     { username: 'lakni', months: ['Aug'] },
+      { username: 'nadun', months: ['Aug'] }, 
+     { username: 'nadun', months: ['Jul'] }, 
+     { username: 'senumitha', months: ['Aug'] }, 
+     { username: 'indunith', months: ['Jul'] },     
+      { username: 'hashini', months: ['Aug'] },      
+        { username: 'pamudu', months: ['Jul'] },  
+          { username: 'minduni', months: ['Aug'] },  
+           { username: 'ruhara', months: ['Aug'] },   
+          { username: 'ruhara', months: ['Jul'] },    
+          { username: 'ruhara', months: ['Jun'] },  
   
   ];
 
