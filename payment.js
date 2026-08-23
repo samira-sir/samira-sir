@@ -749,7 +749,8 @@
           { username: 'minduni', months: ['Aug'] },  
            { username: 'ruhara', months: ['Aug'] },   
           { username: 'ruhara', months: ['Jul'] },    
-          { username: 'ruhara', months: ['Jun'] },  
+          { username: 'ruhara', months: ['Jun'] }, 
+      { username: 'sanuka', months: ['Aug'] },
   
   ];
 
