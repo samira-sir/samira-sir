@@ -753,6 +753,11 @@
       { username: 'sanuka', months: ['Aug'] },
         { username: 'sadil', months: ['Aug'] },
         { username: 'sadil', months: ['Jun'] },
+      { username: 'imandi', months: ['Aug'] },
+  { username: 'praveen', months: ['Aug'] },
+   { username: 'indunith', months: ['Aug'] },
+  { username: 'senuji', months: ['Aug'] },
+  { username: 'thushmini', months: ['Aug'] },
   ];
 
 
