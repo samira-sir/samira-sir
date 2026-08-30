@@ -770,6 +770,7 @@
   { username: 'sasuli', months: ['Aug'] },
   { username: 'sasuli', months: ['Sep'] },
    { username: 'kenuli', months: ['Aug'] },
+  { username: 'kenuli', months: ['May'] },
   ];
 
 
