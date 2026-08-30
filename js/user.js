@@ -114,6 +114,7 @@ const credentials = {
     reema: { password: '1360', subjects: [{ name: 'history', grade: 10 },{ name: 'geography', grade: 10 },{ name: 'History Paper', grade: 10 }] },  
     shavidya: { password: 'shavidya27', subjects: [{ name: 'geography', grade: 10 }] },
     chaluni: { password: 'Chaluni123', subjects: [{ name: 'history', grade: 10 },{ name: 'History Paper', grade: 10 }] },
+     sasuli : { password: 'Nevergiveup', subjects: [{ name: 'history', grade: 10 }] },  
     ishan: { password: '2010', subjects: [{ name: 'history', grade: 11 },{ name: 'History Paper', grade: 11 }] },
     udula: { password: 'udula123', subjects: [{ name: 'history', grade: 11 },{ name: 'History Paper', grade: 11 }] },
     praveen: { password: 'Nw8%Fu3@', subjects: [{ name: 'history', grade: 11 },{ name: 'geography', grade: 11 },{ name: 'History Paper', grade: 11 }] },
