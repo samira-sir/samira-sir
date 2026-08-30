@@ -758,6 +758,8 @@
    { username: 'indunith', months: ['Aug'] },
   { username: 'senuji', months: ['Aug'] },
   { username: 'thushmini', months: ['Aug'] },
+  { username: 'kemitha', months: ['Aug'] },
+   { username: 'kemitha', months: ['Sep'] },
   ];
 
 
