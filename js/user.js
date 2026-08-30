@@ -38,6 +38,7 @@ const credentials = {
     isandu : { password: 'isandu123', subjects: [{ name: 'geography', grade: 7 }] },
     anusara : { password: '2014', subjects: [{ name: 'history', grade: 7 }] }, 
     kasun : { password: '0774830553abc', subjects: [{ name: 'history', grade: 7 }] }, 
+    kemitha : { password: 'Inoka@123', subjects: [{ name: 'geography', grade: 7 }, { name: 'history', grade: 7 }] },       
     kavitha: { password: 'kavitha123', subjects: [{ name: 'geography', grade: 8 }, { name: 'history', grade: 8 }] },
     imandi: { password: 'Gw7@Eh5%', subjects: [{ name: 'history', grade: 8 }, { name: 'geography', grade: 8 }] },
     danula: { password: 'danula123', subjects: [{ name: 'history', grade: 8 }, { name: 'geography', grade: 8 }] },
