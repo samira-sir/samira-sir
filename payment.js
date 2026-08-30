@@ -762,6 +762,12 @@
    { username: 'kemitha', months: ['Sep'] },
     { username: 'shenon', months: ['Aug'] },
    { username: 'shenon', months: ['Sep'] },
+  { username: 'senuka', months: ['Aug'] },
+  { username: 'ovindu', months: ['Aug'] },
+    { username: 'dulneth', months: ['Aug'] },
+   { username: 'kenuli', months: ['Jun'] },
+   { username: 'Kenuli', months: ['Jul'] },
+   { username: 'suragi', months: ['sep'] },
   ];
 
 
