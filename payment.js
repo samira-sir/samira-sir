@@ -760,6 +760,8 @@
   { username: 'thushmini', months: ['Aug'] },
   { username: 'kemitha', months: ['Aug'] },
    { username: 'kemitha', months: ['Sep'] },
+    { username: 'shenon', months: ['Aug'] },
+   { username: 'shenon', months: ['Sep'] },
   ];
 
 
