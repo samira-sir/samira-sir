@@ -765,8 +765,8 @@
   { username: 'senuka', months: ['Aug'] },
   { username: 'ovindu', months: ['Aug'] },
     { username: 'dulneth', months: ['Aug'] },
-   { username: 'kenuli', months: ['Jun'] },
-   { username: 'Kenuli', months: ['Jul'] },
+   { username: 'kenuli', months: ['Jul'] },
+   { username: 'Kenuli', months: ['Aug'] },
    { username: 'suragi', months: ['sep'] },
   ];
 
