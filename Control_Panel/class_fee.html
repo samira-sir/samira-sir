@@ -1,160 +1,270 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-full bg-slate-50">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Class Fee Management System</title>
-    <link rel="icon" type="image/x-icon" href="../images/coffee_logo.png">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
 
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            900: '#1e3a8a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        /* Styling */
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f3f4f6;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
         }
-        .container {
-            background-color: #fff;
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-            width: 340px;
+        .toast-enter {
+            animation: slideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
-        h2 {
-            text-align: center;
-            color: #1f2937;
-            margin-top: 0;
-        }
-        .select-box, .fee-summary, .month-box {
-            margin: 15px 0;
-        }
-        label {
-            font-weight: 600;
-            font-size: 0.9em;
-            color: #4b5563;
-        }
-        select, .add-fee, .custom-fee-input, .custom-fee-button {
-            width: 100%;
-            padding: 10px;
-            margin-top: 5px;
-            border-radius: 6px;
-            border: 1px solid #d1d5db;
-            box-sizing: border-box;
-            font-size: 14px;
-        }
-        .fee-summary {
-            text-align: center;
-            color: #374151;
-            padding: 15px;
-            background-color: #f9fafb;
-            border-radius: 8px;
-            border: 1px dashed #d1d5db;
-        }
-        #calculatedFee {
-            font-size: 1.1em;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-        .add-fee, .custom-fee-button {
-            background-color: #10b981;
-            color: #fff;
-            border: none;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background 0.2s;
-        }
-        .add-fee {
-            background-color: #3b82f6;
-            margin-top: 20px;
-            padding: 12px;
-        }
-        .add-fee:hover {
-            background-color: #2563eb;
-        }
-        .custom-fee-button:hover {
-            background-color: #059669;
-        }
-        .success-msg {
-            font-size: 12px;
-            color: #059669;
-            margin-top: 5px;
-            display: none;
+        @keyframes slideIn {
+            from { transform: translateY(100%) scale(0.9); opacity: 0; }
+            to { transform: translateY(0) scale(1); opacity: 1; }
         }
     </style>
 </head>
-<body>
-    <div class="container">
-        <h2>Fee Management</h2>
+<body class="font-sans text-slate-800 antialiased min-h-full flex flex-col justify-between">
 
-        <div class="select-box">
-            <label for="grade">Select Grade:</label>
-            <select id="grade" onchange="populateStudents()">
-                <option value="" disabled selected>Select a grade</option>
-            </select>
+    <header class="bg-slate-900 text-white border-b border-slate-800 sticky top-0 z-40 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="bg-blue-600 p-2 rounded-xl text-white shadow-lg shadow-blue-500/30">
+                    <i data-lucide="graduation-cap" class="w-6 h-6"></i>
+                </div>
+                <div>
+                    <h1 class="font-bold text-lg leading-tight">Learn with Samira Sir</h1>
+                    <p class="text-xs text-slate-400">Geography, History & Civics Tuition Center</p>
+                </div>
+            </div>
+            <div class="flex items-center space-x-2">
+                <span class="inline-flex items-center gap-x-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                    Fee Calculator Active
+                </span>
+            </div>
         </div>
+    </header>
 
-        <div class="select-box">
-            <label for="student">Select Student:</label>
-            <select id="student" onchange="calculateFee()">
-                <option value="" disabled selected>Select a student</option>
-            </select>
-        </div>
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1 w-full grid grid-cols-1 lg:grid-cols-12 gap-8">
+        
+        <!-- Left Section: Fee Calculation Form -->
+        <section class="lg:col-span-7 space-y-6">
+            <div class="glass-card rounded-2xl p-6 sm:p-8 shadow-xl shadow-slate-200/50">
+                <div class="flex items-center justify-between mb-6 pb-4 border-b border-slate-100">
+                    <div>
+                        <h2 class="text-xl font-bold text-slate-900">Fee Calculation</h2>
+                        <p class="text-sm text-slate-500">Calculate tuition fees based on enrolled subjects & grade rules.</p>
+                    </div>
+                    <div class="bg-blue-50 text-blue-700 p-2 rounded-lg">
+                        <i data-lucide="calculator" class="w-5 h-5"></i>
+                    </div>
+                </div>
 
-        <div class="fee-summary" id="feeSummary">
-            <div id="calculatedFee">Calculated Fee: LKR 0</div>
-            <input type="number" class="custom-fee-input" id="customFee" placeholder="Enter custom total fee" />
-            <button class="custom-fee-button" onclick="applyCustomFee()">Apply Custom Total Fee</button>
-            <div id="feeStatus" class="success-msg">Custom fee applied!</div>
-        </div>
+                <form id="feeForm" onsubmit="event.preventDefault();" class="space-y-5">
+                    <!-- Grade Selection -->
+                    <div>
+                        <label for="grade" class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">
+                            Select Grade
+                        </label>
+                        <div class="relative">
+                            <select id="grade" onchange="populateStudents()" class="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl font-semibold text-slate-800 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all">
+                                <option value="" disabled selected>Select a Grade</option>
+                            </select>
+                            <i data-lucide="layers" class="w-5 h-5 absolute left-3 top-3.5 text-slate-400"></i>
+                        </div>
+                    </div>
 
-        <div class="month-box">
-            <label for="month">Select Month:</label>
-            <select id="month">
-                <option value="" disabled selected>Select a month</option>
-                <option>January</option>
-                <option>February</option>
-                <option>March</option>
-                <option>April</option>
-                <option>May</option>
-                <option>June</option>
-                <option>July</option>
-                <option>August</option>
-                <option>September</option>
-                <option>October</option>
-                <option>November</option>
-                <option>December</option>
-            </select>
-        </div>
+                    <!-- Student Selection -->
+                    <div>
+                        <label for="student" class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">
+                            Select Student
+                        </label>
+                        <div class="relative">
+                            <select id="student" onchange="calculateFee()" disabled class="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl font-semibold text-slate-800 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all disabled:opacity-50 disabled:cursor-not-allowed">
+                                <option value="" disabled selected>Select Grade First</option>
+                            </select>
+                            <i data-lucide="user" class="w-5 h-5 absolute left-3 top-3.5 text-slate-400"></i>
+                        </div>
+                    </div>
 
-        <button class="add-fee" onclick="generateBill()">Add Fee & Send WhatsApp</button>
-    </div>
+                    <!-- Month Selection -->
+                    <div>
+                        <label for="month" class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">
+                            Billing Month
+                        </label>
+                        <div class="relative">
+                            <select id="month" class="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl font-semibold text-slate-800 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all">
+                                <option value="" disabled>Select Month</option>
+                                <option>January</option>
+                                <option>February</option>
+                                <option>March</option>
+                                <option>April</option>
+                                <option>May</option>
+                                <option>June</option>
+                                <option>July</option>
+                                <option>August</option>
+                                <option>September</option>
+                                <option>October</option>
+                                <option>November</option>
+                                <option>December</option>
+                            </select>
+                            <i data-lucide="calendar" class="w-5 h-5 absolute left-3 top-3.5 text-slate-400"></i>
+                        </div>
+                    </div>
 
-    <!-- External JavaScript for user data -->
-    <script src="../js/user.js"></script>
+                    <div class="mt-6 bg-slate-900 rounded-2xl p-6 text-white shadow-xl relative overflow-hidden">
+                        <div class="absolute -right-8 -bottom-8 w-32 h-32 bg-blue-600/20 rounded-full blur-2xl pointer-events-none"></div>
 
-    <!-- Internal JavaScript -->
+                        <div class="flex items-center justify-between border-b border-slate-800 pb-4 mb-4">
+                            <span class="text-xs uppercase font-bold tracking-wider text-slate-400">Total Calculated Fee</span>
+                            <span id="feeRuleBadge" class="text-xs px-2.5 py-1 rounded-md font-semibold bg-slate-800 text-slate-300 border border-slate-700">
+                                Standby
+                            </span>
+                        </div>
+
+                        <div class="flex items-baseline space-x-2">
+                            <span class="text-slate-400 font-semibold text-lg">LKR</span>
+                            <span id="calculatedFee" class="text-4xl font-extrabold tracking-tight text-white">0</span>
+                        </div>
+
+                        <!-- Breakdown Pills Container -->
+                        <div class="mt-4 pt-4 border-t border-slate-800/80">
+                            <span class="text-xs text-slate-400 block mb-2 font-medium">Enrolled Subjects Breakdown:</span>
+                            <div id="feeBreakdown" class="flex flex-wrap gap-2 text-xs">
+                                <span class="text-slate-500 italic">No student selected</span>
+                            </div>
+                        </div>
+
+                        <!-- Custom Fee Input -->
+                        <div class="mt-5 pt-4 border-t border-slate-800/80 space-y-3">
+                            <label class="block text-xs font-semibold text-slate-300">Custom Fee Adjustment (Optional)</label>
+                            <div class="flex gap-2">
+                                <input type="number" id="customFee" placeholder="Enter custom amount (LKR)" class="flex-1 px-4 py-2.5 bg-slate-800 border border-slate-700 rounded-xl text-white placeholder-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <button type="button" onclick="applyCustomFee()" class="px-4 py-2.5 bg-emerald-600 hover:bg-emerald-500 font-semibold text-xs rounded-xl transition-all shadow-md shadow-emerald-900/40">
+                                    Apply Custom
+                                </button>
+                            </div>
+                            <div id="feeStatus" class="hidden text-xs text-emerald-400 font-medium flex items-center gap-1.5 mt-1">
+                                <i data-lucide="check-circle-2" class="w-4 h-4"></i> Custom total fee overrides calculated fee!
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Action Button -->
+                    <button type="button" onclick="generateBill()" class="w-full py-4 bg-blue-600 hover:bg-blue-500 active:bg-blue-700 text-white font-bold rounded-xl shadow-lg shadow-blue-500/25 transition-all flex items-center justify-center gap-2 text-base">
+                        <i data-lucide="send" class="w-5 h-5"></i>
+                        <span>Add Fee & Send WhatsApp Receipt</span>
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <section class="lg:col-span-5 space-y-6">
+            <!-- Fee Logic Information Box -->
+            <div class="bg-gradient-to-br from-blue-950 to-slate-900 rounded-2xl p-6 text-white border border-blue-900/50 shadow-xl">
+                <h3 class="font-bold text-sm text-blue-300 uppercase tracking-wider mb-3 flex items-center gap-2">
+                    <i data-lucide="info" class="w-4 h-4"></i> Pricing Rules & Guidelines
+                </h3>
+                <ul class="text-xs space-y-2 text-slate-300">
+                    <li class="flex items-start gap-2">
+                        <i data-lucide="check" class="w-4 h-4 text-blue-400 shrink-0 mt-0.5"></i>
+                        <span><strong>Grades 6–9:</strong> LKR 700 per subject.</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <i data-lucide="check" class="w-4 h-4 text-blue-400 shrink-0 mt-0.5"></i>
+                        <span><strong>Grades 10–11 Regular Subject:</strong> LKR 800 per subject.</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <i data-lucide="sparkles" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
+                        <span><strong>Grades 10–11 Paper Class Only:</strong> LKR 800 (if attending <em>only</em> paper class).</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <i data-lucide="sparkles" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
+                        <span><strong>Paper Class Bundle:</strong> LKR 400 when combined with 1+ other subject(s).</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Recent Invoice History Drawer -->
+            <div class="glass-card rounded-2xl p-6 shadow-xl shadow-slate-200/50">
+                <div class="flex items-center justify-between mb-4 pb-3 border-b border-slate-100">
+                    <h3 class="font-bold text-slate-900 flex items-center gap-2">
+                        <i data-lucide="history" class="w-4 h-4 text-blue-600"></i> Recent Saved Bills
+                    </h3>
+                    <button onclick="clearHistory()" class="text-xs text-rose-500 hover:text-rose-700 font-semibold transition-colors">
+                        Clear Log
+                    </button>
+                </div>
+                <div id="historyList" class="space-y-3 max-h-80 overflow-y-auto pr-1">
+                    <p class="text-xs text-slate-400 italic text-center py-6">No recent receipts generated yet.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="toastContainer" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2 pointer-events-none"></div>
+<script src="../js/user.js"></script>
     <script>
-       const feeRates = { 
+        // Default Mock Data for standalone testing when user.js is absent
+
+
+        // Fee structure definitions
+        const feeRates = { 
             '6-9': 700, 
             '10-11-normal': 800,
-            '10-11-paper': 400 
+            '10-11-paper-solo': 800,
+            '10-11-paper-bundle': 400
         };
 
         let currentTotalFee = 0;
+        let isCustomFeeActive = false;
         let activeSubjects = [];
+        let userCredentials = {};
 
-
-
-        // Initialize UI
         window.onload = () => {
-            const userCredentials = typeof credentials !== 'undefined' ? credentials : {};
-            const gradeSelect = document.getElementById("grade");
-            const grades = [...new Set(Object.values(userCredentials).flatMap(student => student.subjects.map(subject => subject.grade)))].sort((a,b) => a - b);
+            // Check if external credentials (from user.js) exists, else fallback to mock data
+            userCredentials = (typeof credentials !== 'undefined') ? credentials : defaultCredentials;
+            
+            // Render Lucide Icons
+            if (window.lucide) lucide.createIcons();
 
+            const gradeSelect = document.getElementById("grade");
+            
+            // Extract distinct grades from user subjects
+            const grades = [...new Set(
+                Object.values(userCredentials).flatMap(student => 
+                    (student.subjects || []).map(subject => subject.grade)
+                )
+            )].sort((a,b) => a - b);
+
+            gradeSelect.innerHTML = '<option value="" disabled selected>Select Grade</option>';
             grades.forEach(grade => {
                 const option = document.createElement("option");
                 option.value = grade;
@@ -162,106 +272,182 @@
                 gradeSelect.appendChild(option);
             });
 
-            // Set current month as default
+            // Set current month as default selector
             const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
             document.getElementById("month").value = monthNames[new Date().getMonth()];
+
+            // Load saved history
+            renderHistory();
         };
 
         function populateStudents() {
             const selectedGrade = parseInt(document.getElementById("grade").value);
             const studentSelect = document.getElementById("student");
+            
             studentSelect.innerHTML = '<option value="" disabled selected>Select a student</option>';
+            studentSelect.disabled = false;
 
-            Object.keys(credentials).forEach(student => {
-                const subjects = credentials[student].subjects;
-                if (subjects.some(subject => subject.grade === selectedGrade)) {
+            Object.keys(userCredentials).forEach(studentKey => {
+                const student = userCredentials[studentKey];
+                const hasGradeSubject = student.subjects && student.subjects.some(sub => Number(sub.grade) === selectedGrade);
+                
+                if (hasGradeSubject) {
                     const option = document.createElement("option");
-                    option.value = student;
-                    option.textContent = student.charAt(0).toUpperCase() + student.slice(1);
+                    option.value = studentKey;
+                    // Format student display name nicely
+                    option.textContent = studentKey.charAt(0).toUpperCase() + studentKey.slice(1);
                     studentSelect.appendChild(option);
                 }
             });
-            
-            // Reset fee display
-            document.getElementById("calculatedFee").textContent = `Calculated Fee: LKR 0`;
-            document.getElementById("feeBreakdown").textContent = "";
+
+            // Reset Fee Display state
+            resetFeeDisplay();
         }
 
         function calculateFee() {
-            const selectedStudent = document.getElementById("student").value;
+            const selectedStudentKey = document.getElementById("student").value;
             const selectedGrade = parseInt(document.getElementById("grade").value);
 
-            if (!selectedStudent || isNaN(selectedGrade)) return;
+            if (!selectedStudentKey || isNaN(selectedGrade)) return;
 
-            const subjects = credentials[selectedStudent].subjects.filter(subject => subject.grade === selectedGrade);
-            activeSubjects = subjects;
+            const studentObj = userCredentials[selectedStudentKey];
+            if (!studentObj) return;
+
+            // Filter subjects enrolled by student for the chosen grade
+            const gradeSubjects = studentObj.subjects.filter(sub => Number(sub.grade) === selectedGrade);
+            activeSubjects = gradeSubjects;
             
             let total = 0;
-            let breakdown = [];
+            let breakdownList = [];
+            const totalSubjectCount = gradeSubjects.length;
 
-            subjects.forEach(sub => {
+            gradeSubjects.forEach(sub => {
                 let cost = 0;
-                const subName = sub.name.toLowerCase();
+                const subNameLower = sub.name.toLowerCase();
+                const isPaperClass = subNameLower.includes('paper');
 
                 if (selectedGrade >= 6 && selectedGrade <= 9) {
+                    // Grades 6 to 9 fixed rate
                     cost = feeRates['6-9'];
+                    breakdownList.push({ name: sub.name, cost: cost, note: 'Normal Rate' });
                 } else if (selectedGrade >= 10 && selectedGrade <= 11) {
-                    // Check if it's a paper class
-                    if (subName.includes('paper')) {
-                        cost = feeRates['10-11-paper']; // 400
+                    // Grades 10 & 11 logic
+                    if (isPaperClass) {
+                        /* 
+                            Rule:
+                            - If student ONLY attends paper class (totalSubjectCount === 1), fee = LKR 800.
+                            - If student attends > 1 subject (e.g. History + Paper class), paper class fee = LKR 400.
+                        */
+                        if (totalSubjectCount > 1) {
+                            cost = feeRates['10-11-paper-bundle']; // 400
+                            breakdownList.push({ name: sub.name, cost: cost, note: 'Paper Class (Bundled)' });
+                        } else {
+                            cost = feeRates['10-11-paper-solo']; // 800
+                            breakdownList.push({ name: sub.name, cost: cost, note: 'Paper Class Only' });
+                        }
                     } else {
+                        // Regular subject (e.g., History, Geography, Civics)
                         cost = feeRates['10-11-normal']; // 800
+                        breakdownList.push({ name: sub.name, cost: cost, note: 'Standard Subject' });
                     }
+                } else {
+                    // Fallback default cost if any other grade
+                    cost = 800;
+                    breakdownList.push({ name: sub.name, cost: cost, note: 'Standard Rate' });
                 }
-                
+
                 total += cost;
-                breakdown.push(`${sub.name}: ${cost}`);
             });
 
             currentTotalFee = total;
-            document.getElementById("calculatedFee").textContent = `Calculated Fee: LKR ${currentTotalFee}`;
-            document.getElementById("feeBreakdown").textContent = breakdown.join(" + ");
-            document.getElementById("customFee").value = ''; 
-            document.getElementById("feeStatus").style.display = "none";
+            isCustomFeeActive = false;
+
+            // Update UI elements
+            document.getElementById("calculatedFee").textContent = currentTotalFee.toLocaleString();
+            document.getElementById("customFee").value = '';
+            document.getElementById("feeStatus").classList.add("hidden");
+
+            // Update Breakdown UI
+            const breakdownContainer = document.getElementById("feeBreakdown");
+            breakdownContainer.innerHTML = '';
+
+            breakdownList.forEach(item => {
+                const badge = document.createElement("span");
+                badge.className = "px-2.5 py-1.5 rounded-lg bg-slate-800 text-slate-200 border border-slate-700 flex items-center gap-1.5 font-medium";
+                badge.innerHTML = `<span class="text-blue-400 font-bold">${item.name}:</span> LKR ${item.cost} <span class="text-[10px] opacity-60">(${item.note})</span>`;
+                breakdownContainer.appendChild(badge);
+            });
+
+            // Update rule badge
+            const ruleBadge = document.getElementById("feeRuleBadge");
+            if (selectedGrade >= 10 && selectedGrade <= 11) {
+                if (totalSubjectCount > 1) {
+                    ruleBadge.textContent = "Multi-Subject Discount Applied";
+                    ruleBadge.className = "text-xs px-2.5 py-1 rounded-md font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30";
+                } else {
+                    ruleBadge.textContent = "Single Subject Standard Rate";
+                    ruleBadge.className = "text-xs px-2.5 py-1 rounded-md font-semibold bg-blue-500/20 text-blue-300 border border-blue-500/30";
+                }
+            } else {
+                ruleBadge.textContent = "Grade 6-9 Standard Rate";
+                ruleBadge.className = "text-xs px-2.5 py-1 rounded-md font-semibold bg-slate-800 text-slate-300 border border-slate-700";
+            }
         }
 
         function applyCustomFee() {
-            const customFeeInput = document.getElementById("customFee").value;
-            const customFee = parseInt(customFeeInput);
+            const customInput = document.getElementById("customFee").value;
+            const customFeeVal = parseInt(customInput, 10);
 
-            if (isNaN(customFee) || customFee < 0) {
-                return; // Simple fail silently or UI feedback
-            }
-
-            currentTotalFee = customFee;
-            document.getElementById("calculatedFee").textContent = `Total Fee (Custom): LKR ${currentTotalFee}`;
-            document.getElementById("feeStatus").style.display = "block";
-        }
-
-        function saveBillToLocalStorage(billObj) {
-            try {
-                const history = JSON.parse(localStorage.getItem('paymentHistory') || '[]');
-                history.push(billObj);
-                localStorage.setItem('paymentHistory', JSON.stringify(history));
-            } catch (e) {
-                console.error("Storage Error:", e);
-            }
-        }
-
-        function generateBill() {
-            const studentName = document.getElementById("student").value;
-            const selectedGrade = document.getElementById("grade").value;
-            const selectedMonth = document.getElementById("month").value;
-
-            if (!studentName || !selectedGrade || !selectedMonth) {
-                alert("Please select grade, student, and month");
+            if (isNaN(customFeeVal) || customFeeVal < 0) {
+                showToast("Please enter a valid custom fee amount.", "warning");
                 return;
             }
 
+            currentTotalFee = customFeeVal;
+            isCustomFeeActive = true;
+            document.getElementById("calculatedFee").textContent = `${currentTotalFee.toLocaleString()} (Custom)`;
+            document.getElementById("feeStatus").classList.remove("hidden");
+            
+            const ruleBadge = document.getElementById("feeRuleBadge");
+            ruleBadge.textContent = "Custom Overridden Fee";
+            ruleBadge.className = "text-xs px-2.5 py-1 rounded-md font-semibold bg-amber-500/20 text-amber-300 border border-amber-500/30";
+
+            showToast(`Applied custom fee of LKR ${currentTotalFee}`, "success");
+        }
+
+        function resetFeeDisplay() {
+            currentTotalFee = 0;
+            isCustomFeeActive = false;
+            document.getElementById("calculatedFee").textContent = "0";
+            document.getElementById("feeBreakdown").innerHTML = '<span class="text-slate-500 italic">Select a student</span>';
+            document.getElementById("customFee").value = '';
+            document.getElementById("feeStatus").classList.add("hidden");
+            const ruleBadge = document.getElementById("feeRuleBadge");
+            ruleBadge.textContent = "Standby";
+            ruleBadge.className = "text-xs px-2.5 py-1 rounded-md font-semibold bg-slate-800 text-slate-300 border border-slate-700";
+        }
+
+        function generateBill() {
+            const studentKey = document.getElementById("student").value;
+            const selectedGrade = document.getElementById("grade").value;
+            const selectedMonth = document.getElementById("month").value;
+
+            if (!studentKey || !selectedGrade || !selectedMonth) {
+                showToast("Please select Grade, Student, and Month before generating bill.", "error");
+                return;
+            }
+
+            const formattedStudentName = studentKey.charAt(0).toUpperCase() + studentKey.slice(1);
             const referenceNumber = `REF${Math.floor(100000 + Math.random() * 900000)}`;
             const dateTime = new Date();
-            const formattedDateTime = dateTime.toLocaleString();
+            const formattedDateTime = dateTime.toLocaleString('en-US', {
+                dateStyle: 'medium',
+                timeStyle: 'short'
+            });
 
+            const subjectsListText = activeSubjects.map(s => s.name).join(", ");
+
+            // Formatted receipt text message for WhatsApp
             const billText = 
 `*Learn*
 *Geography, History & Civic*
@@ -270,17 +456,17 @@
 *___Payment Invoice___*
 
 Confirmed Date & Time: ${formattedDateTime}
-Name: ${studentName.charAt(0).toUpperCase() + studentName.slice(1)}
+Name: ${formattedStudentName}
 Grade: ${selectedGrade}
-Subjects: ${activeSubjects.map(s => s.name).join(", ")}
+Subjects: ${subjectsListText}
 Month: ${selectedMonth}
-Paid Fee: LKR ${currentTotalFee}
+Paid Fee: LKR ${currentTotalFee}${isCustomFeeActive ? ' (Custom)' : ''}
 *Reference Number: ${referenceNumber}*
 
 *Noted With Thanks*`;
 
             const billObject = {
-                name: studentName,
+                name: formattedStudentName,
                 grade: selectedGrade,
                 subjects: activeSubjects.map(s => s.name),
                 month: selectedMonth,
@@ -290,12 +476,12 @@ Paid Fee: LKR ${currentTotalFee}
                 formattedDateTime: formattedDateTime
             };
 
+            // Save transaction record to LocalStorage
             saveBillToLocalStorage(billObject);
 
-            // Copy data to clipboard as JSON
+            // Copy JSON structured bill data to clipboard
             const billString = JSON.stringify(billObject, null, 2) + ",";
             
-            // Using modern clipboard API with fallback
             if (navigator.clipboard && navigator.clipboard.writeText) {
                 navigator.clipboard.writeText(billString).finally(() => {
                     openWhatsApp(billText);
@@ -308,7 +494,86 @@ Paid Fee: LKR ${currentTotalFee}
         function openWhatsApp(text) {
             const whatsappLink = `https://wa.me/?text=${encodeURIComponent(text)}`;
             window.open(whatsappLink, '_blank');
+            showToast("Receipt copied & WhatsApp opened!", "success");
+        }
+
+        function saveBillToLocalStorage(billObj) {
+            try {
+                const history = JSON.parse(localStorage.getItem('paymentHistory') || '[]');
+                history.unshift(billObj); // Add newest first
+                // Keep max 20 recent items
+                if (history.length > 20) history.pop();
+                localStorage.setItem('paymentHistory', JSON.stringify(history));
+                renderHistory();
+            } catch (e) {
+                console.error("LocalStorage Save Error:", e);
+            }
+        }
+
+        function renderHistory() {
+            const historyContainer = document.getElementById("historyList");
+            try {
+                const history = JSON.parse(localStorage.getItem('paymentHistory') || '[]');
+                if (history.length === 0) {
+                    historyContainer.innerHTML = `<p class="text-xs text-slate-400 italic text-center py-6">No recent receipts generated yet.</p>`;
+                    return;
+                }
+
+                historyContainer.innerHTML = history.map(item => `
+                    <div class="p-3 bg-slate-50 border border-slate-200 rounded-xl text-xs flex justify-between items-center hover:bg-white hover:border-slate-300 transition-all">
+                        <div>
+                            <div class="font-bold text-slate-800">${item.name} (Grade ${item.grade})</div>
+                            <div class="text-slate-500 font-medium">${item.month} • ${item.subjects.join(", ")}</div>
+                            <div class="text-[10px] text-slate-400 mt-0.5">${item.formattedDateTime}</div>
+                        </div>
+                        <div class="text-right">
+                            <div class="font-extrabold text-blue-600">LKR ${item.totalFee}</div>
+                            <div class="text-[10px] text-slate-400 font-mono">${item.referenceNumber}</div>
+                        </div>
+                    </div>
+                `).join('');
+            } catch (e) {
+                historyContainer.innerHTML = `<p class="text-xs text-rose-400">Error loading history.</p>`;
+            }
+        }
+
+        function clearHistory() {
+            localStorage.removeItem('paymentHistory');
+            renderHistory();
+            showToast("Payment history cleared", "info");
+        }
+
+        function showToast(message, type = "info") {
+            const container = document.getElementById("toastContainer");
+            const toast = document.createElement("div");
+            
+            let bgClass = "bg-slate-900 text-white";
+            let icon = "info";
+            
+            if (type === "success") {
+                bgClass = "bg-emerald-600 text-white shadow-emerald-600/30";
+                icon = "check-circle";
+            } else if (type === "warning") {
+                bgClass = "bg-amber-600 text-white shadow-amber-600/30";
+                icon = "alert-triangle";
+            } else if (type === "error") {
+                bgClass = "bg-rose-600 text-white shadow-rose-600/30";
+                icon = "x-circle";
+            }
+
+            toast.className = `toast-enter pointer-events-auto px-4 py-3 rounded-xl shadow-lg flex items-center gap-2.5 text-xs font-semibold ${bgClass}`;
+            toast.innerHTML = `<i data-lucide="${icon}" class="w-4 h-4"></i> <span>${message}</span>`;
+            
+            container.appendChild(toast);
+            if (window.lucide) lucide.createIcons();
+
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                toast.style.transform = 'translateY(10px)';
+                toast.style.transition = 'all 0.3s ease';
+                setTimeout(() => toast.remove(), 300);
+            }, 3500);
         }
     </script>
 </body>
-</html>   
+</html>
