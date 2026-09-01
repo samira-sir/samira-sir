@@ -772,6 +772,10 @@
    { username: 'kenuli', months: ['Aug'] },
   { username: 'kenuli', months: ['May'] },
   { username: 'yethum', months: ['Aug'] },
+  { username: 'danuka', months: ['Aug'] },
+  { username: 'danuka', months: ['Sep'] },
+  { username: 'vinulya', months: ['Sep'] },
+  
   ];
 
 
