@@ -775,6 +775,8 @@
   { username: 'danuka', months: ['Aug'] },
   { username: 'danuka', months: ['Sep'] },
   { username: 'vinulya', months: ['Sep'] },
+  { username: 'disanma', months: ['Aug'] },
+  { username: 'disanma', months: ['Sep'] },
   
   ];
 
