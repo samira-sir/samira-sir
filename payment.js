@@ -777,6 +777,20 @@
   { username: 'vinulya', months: ['Sep'] },
   { username: 'disanma', months: ['Aug'] },
   { username: 'disanma', months: ['Sep'] },
+  { username: 'kethmin', months: ['Aug'] },
+   { username: 'danidu', months: ['Sep'] },
+   { username: 'poojana', months: ['Aug'] },
+   { username: 'senula', months: ['Sep'] },
+   { username: 'nithuki', months: ['Apr'] },
+   { username: 'nithuki', months: ['May'] },
+   { username: 'nithuki', months: ['Jun'] },
+   { username: 'nithuki', months: ['Jul'] },
+   { username: 'nithuki', months: ['Aug'] },
+     { username: 'thinuki', months: ['Apr'] },
+   { username: 'thinuki', months: ['May'] },
+   { username: 'thinuki', months: ['Jun'] },
+   { username: 'thinuki', months: ['Jul'] },
+   { username: 'thinuki', months: ['Aug'] },
   
   ];
 
