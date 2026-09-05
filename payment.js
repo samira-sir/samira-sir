@@ -791,7 +791,22 @@
    { username: 'thinuki', months: ['Jun'] },
    { username: 'thinuki', months: ['Jul'] },
    { username: 'thinuki', months: ['Aug'] },
-  
+  { username: 'dilakshana', months: ['Aug'] },
+   { username: 'radheesha', months: ['Sep'] },
+   { username: 'chenul', months: ['Sep'] },
+   { username: 'tisara', months: ['Sep'] },
+   { username: 'chiranya', months: ['Sep'] },
+  { username: 'sayuni', months: ['Sep'] },
+  { username: 'yenuli', months: ['Sep'] },
+  { username: 'silma', months: ['Sep'] },
+   { username: 'ishan', months: ['Sep'] },
+   { username: 'pranami', months: ['Sep'] },
+   { username: 'manuka', months: ['Sep'] },
+   { username: 'ihansa', months: ['Sep'] },
+  { username: 'kulsum', months: ['Aug'] },
+   { username: 'shevin', months: ['Aug'] },
+  { username: 'dilki', months: ['Aug'] },
+   { username: ''zuha', months: ['Sep'] },
   ];
 
 
