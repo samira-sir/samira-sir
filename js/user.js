@@ -144,6 +144,7 @@ const credentials = {
     yunali: { password: '123456789', subjects: [{ name: 'history', grade: 11 },{ name: 'geography', grade: 11 },{ name: 'geography', grade: 10 },{ name: 'History Paper', grade: 11 }] },
     shenon: { password: '1234', subjects: [{ name: 'history Paper', grade: 11 }] },
     disanma: { password: '1985', subjects: [{ name: 'history', grade: 11 }] }, 
+    amasha: { password: 'amasha123', subjects: [{ name: 'history', grade: 11 }] }, 
     };
 
 
