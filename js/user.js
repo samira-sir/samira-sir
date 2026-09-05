@@ -69,7 +69,7 @@ const credentials = {
     radheesha: { password: 'rmr712', subjects: [{ name: 'history', grade: 9 }] },
     sadew: { password: 'sa@#dew', subjects: [{ name: 'history', grade: 9 },{ name: 'geography', grade: 9 }] },    
     kulsum: { password: 'MKM2812', subjects: [{ name: 'geography', grade: 9 },{ name: 'history', grade: 9 }] },
-    chenul: { password: 'Me7%Pq3@', subjects: [{ name: 'geography', grade: 9 },{ name: 'history', grade: 9 }] },        
+    chenul: { password: 'Me7%Pq3@', subjects: [{ name: 'history', grade: 9 }] },       
     nawodya: { password: '1234', subjects: [{ name: 'history', grade: 9 }] },
     senuli: { password: 'senu', subjects: [{ name: 'geography', grade: 9 }] },
     thaveesha: { password: 'Indunil@123', subjects: [{name:'geography',grade:9}] },
