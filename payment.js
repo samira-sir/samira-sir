@@ -808,6 +808,15 @@
   { username: 'dilki', months: ['Aug'] },
    { username: ''zuha', months: ['Sep'] },
    { username: ''amasha', months: ['Sep'] },
+    { username: ''anudi', months: ['Aug'] },
+   { username: ''ranul', months: ['Aug'] },
+  { username: ''arunodi', months: ['Sep'] },
+   { username: ''amra', months: ['Aug'] },
+  { username: ''gihansa', months: ['Aug'] },
+  { username: ''yashen', months: ['Sep'] },
+  { username: ''savin', months: ['Sep'] },
+   { username: ''linuka', months: ['Sep'] },
+  
   ];
 
 
