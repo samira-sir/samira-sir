@@ -10213,6 +10213,24 @@ const videoLinks = [
         title: '2026-09-06 - Grade 7 Geography  Class Part 2' 
       },
 
+      { 
+        class: '9', 
+        subject: 'Geography', 
+        date: '2026-09-07', 
+        month: 'September', 
+        video: 'https://drive.google.com/file/d/1JDbw3xyQOKidQ0JDJibGBwfVyqfxRrRB/preview', 
+        title: '2026-09-07 - Grade 9 Geography  Class Part 1' 
+      },
+
+      { 
+        class: '9', 
+        subject: 'Geography', 
+        date: '2026-09-07', 
+        month: 'September', 
+        video: 'https://drive.google.com/file/d/1SaEUOHQA1l3vgrjJ2Qb-Co_UOMfkWGZj/preview', 
+        title: '2026-09-07 - Grade 9 Geography  Class Part 2' 
+      },
+
      ];
   
 
