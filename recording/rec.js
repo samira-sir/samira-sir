@@ -10339,6 +10339,33 @@ const videoLinks = [
         title: '2026-09-08 - Grade 9 History  Class Part 3' 
       },
 
+      { 
+        class: '6', 
+        subject: 'History', 
+        date: '2026-09-08', 
+        month: 'September', 
+        video: 'https://drive.google.com/file/d/1YtKxDwTGhDaiTvA9mKKXqE2ahZRG1GaC/preview', 
+        title: '2026-09-08 - Grade 6 History  Class Part 1' 
+      },
+
+      { 
+        class: '6', 
+        subject: 'History', 
+        date: '2026-09-08', 
+        month: 'September', 
+        video: 'https://drive.google.com/file/d/1xm10s4Nj2uy_E1uG1g1pxzR9fkn6Jxbd/preview', 
+        title: '2026-09-08 - Grade 6 History  Class Part 2' 
+      },
+
+      { 
+        class: '6', 
+        subject: 'History', 
+        date: '2026-09-08', 
+        month: 'September', 
+        video: 'https://drive.google.com/file/d/1jubhO1GYcHEuStuGGgHfMwBHXjWrpABA/preview', 
+        title: '2026-09-08 - Grade 6 History  Class Part 3' 
+      },
+
      ];
   
 
