@@ -1,0 +1,1205 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ශ්‍රී ලංකා ස්ථාන නාම Quiz - Student Portal</title>
+
+<!-- Leaflet CSS -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com"></script>
+<!-- FontAwesome Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+    * { box-sizing: border-box; }
+
+    html, body {
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        font-family: "Noto Sans Sinhala", sans-serif;
+        background: #f5f9fc;
+        color: #102a43;
+    }
+
+    body {
+        display: flex;
+        flex-direction: column;
+    }
+
+    header {
+        height: 60px;
+        flex-shrink: 0;
+        background: white;
+        border-bottom: 2px solid #d9eef8;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 8px 16px;
+        gap: 12px;
+        z-index: 1000;
+    }
+
+    .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .brand-icon {
+        width: 38px;
+        height: 38px;
+        border-radius: 10px;
+        background: linear-gradient(135deg, #30afff, #0284c7);
+        display: grid;
+        place-items: center;
+        color: white;
+        font-size: 20px;
+        font-weight: 800;
+    }
+
+    .brand h1 {
+        margin: 0;
+        font-size: 16px;
+        font-weight: 800;
+    }
+
+    .brand p {
+        margin: 0;
+        font-size: 11px;
+        color: #718096;
+    }
+
+    .score-area {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .score-box {
+        background: #e9f8ff;
+        border: 1px solid #bfeaff;
+        border-radius: 10px;
+        padding: 4px 12px;
+        text-align: center;
+        min-width: 80px;
+    }
+
+    .score-box span {
+        display: block;
+        font-size: 9px;
+        color: #668096;
+        font-weight: 600;
+    }
+
+    .score-box strong {
+        font-size: 15px;
+        color: #0284c7;
+    }
+
+    #map {
+        width: 100%;
+        flex: 1;
+        min-height: 0;
+        background: white;
+    }
+
+    .quiz-panel {
+        position: fixed;
+        left: 50%;
+        bottom: 38px;
+        transform: translateX(-50%);
+        width: min(480px, calc(100% - 24px));
+        background: rgba(255, 255, 255, 0.96);
+        backdrop-filter: blur(10px);
+        border: 1.5px solid #c8edff;
+        border-radius: 16px;
+        box-shadow: 0 10px 30px rgba(16, 42, 67, 0.15);
+        padding: 12px 14px;
+        z-index: 900;
+    }
+
+    .question-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        margin-bottom: 8px;
+    }
+
+    .question-number {
+        font-size: 12px;
+        font-weight: 800;
+        color: #0284c7;
+    }
+
+    .theme-badge {
+        font-size: 11px;
+        font-weight: 700;
+        color: #0369a1;
+        background: #e0f2fe;
+        border: 1px solid #bae6fd;
+        border-radius: 14px;
+        padding: 2px 10px;
+        display: inline-block;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 200px;
+    }
+
+    .answers {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
+
+    .answer {
+        border: 1.5px solid #d9eef8;
+        background: #fff;
+        color: #17324d;
+        border-radius: 10px;
+        padding: 8px 8px;
+        font-family: inherit;
+        font-size: 13px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all .15s ease;
+        min-height: 42px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        line-height: 1.25;
+    }
+
+    .answer:hover {
+        border-color: #30afff;
+        background: #f1fbff;
+    }
+
+    .answer.selected {
+        background: #e0f2fe;
+        border-color: #0284c7;
+        color: #0369a1;
+        box-shadow: 0 0 0 2px rgba(2, 132, 199, 0.2);
+    }
+
+    .action-btn {
+        width: 100%;
+        margin-top: 10px;
+        border: 0;
+        border-radius: 10px;
+        padding: 10px;
+        background: linear-gradient(135deg, #0284c7, #0369a1);
+        color: white;
+        font-family: inherit;
+        font-size: 13px;
+        font-weight: 800;
+        cursor: pointer;
+        transition: opacity .2s ease, transform 0.1s ease;
+    }
+
+    .action-btn:active {
+        transform: scale(0.99);
+    }
+
+    .action-btn:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+
+    .quiz-marker {
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background: #ef4444;
+        border: 1.5px solid #ffffff;
+        box-shadow: 0 0 6px rgba(239, 68, 68, 0.9), 0 0 2px rgba(0,0,0,0.5);
+    }
+
+    .modal-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(16, 42, 67, 0.7);
+        backdrop-filter: blur(6px);
+        z-index: 2000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 16px;
+    }
+
+    .modal-card {
+        background: white;
+        border-radius: 20px;
+        width: min(520px, 100%);
+        max-height: 90vh;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+        overflow: hidden;
+        animation: popIn 0.25s ease-out;
+    }
+
+    @keyframes popIn {
+        from { transform: scale(0.92); opacity: 0; }
+        to { transform: scale(1); opacity: 1; }
+    }
+
+    .modal-header {
+        padding: 18px 20px;
+        background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+        border-bottom: 1.5px solid #bae6fd;
+        text-align: center;
+    }
+
+    .modal-header h2 {
+        margin: 0 0 4px 0;
+        font-size: 18px;
+        color: #0369a1;
+        font-weight: 800;
+    }
+
+    .modal-header p {
+        margin: 0;
+        font-size: 12px;
+        color: #0284c7;
+    }
+
+    .modal-body {
+        padding: 20px;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .form-group label {
+        font-size: 13px;
+        font-weight: 700;
+        color: #334155;
+    }
+
+    .form-select, .form-input {
+        width: 100%;
+        padding: 10px 12px;
+        border-radius: 10px;
+        border: 1.5px solid #cbd5e1;
+        font-family: inherit;
+        font-size: 13px;
+        background: #f8fafc;
+        outline: none;
+        transition: border-color 0.2s ease;
+    }
+
+    .form-select:focus, .form-input:focus {
+        border-color: #0284c7;
+        background: #fff;
+    }
+
+    .q-count-options {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 8px;
+    }
+
+    .q-count-btn {
+        padding: 8px;
+        border: 1.5px solid #cbd5e1;
+        background: #f8fafc;
+        border-radius: 10px;
+        font-family: inherit;
+        font-size: 13px;
+        font-weight: 700;
+        color: #334155;
+        cursor: pointer;
+        transition: all 0.15s ease;
+    }
+
+    .q-count-btn.active {
+        background: #0284c7;
+        color: white;
+        border-color: #0284c7;
+    }
+
+    .results-summary {
+        text-align: center;
+        background: #f0f9ff;
+        border: 1.5px solid #bae6fd;
+        border-radius: 14px;
+        padding: 16px;
+    }
+
+    .results-score {
+        font-size: 32px;
+        font-weight: 800;
+        color: #0284c7;
+        margin-top: 4px;
+    }
+
+    .results-percentage {
+        font-size: 14px;
+        font-weight: 700;
+        color: #0369a1;
+    }
+
+    .review-list {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 8px;
+    }
+
+    .review-item {
+        border: 1px solid #e2e8f0;
+        border-radius: 12px;
+        padding: 10px 12px;
+        background: #fff;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .review-item.is-correct {
+        border-left: 5px solid #22c55e;
+        background: #f0fdf4;
+    }
+
+    .review-item.is-wrong {
+        border-left: 5px solid #ef4444;
+        background: #fef2f2;
+    }
+
+    .review-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 12px;
+        font-weight: 700;
+    }
+
+    .review-top .badge-correct { color: #16a34a; }
+    .review-top .badge-wrong { color: #dc2626; }
+
+    .review-details {
+        font-size: 12px;
+        color: #475569;
+        line-height: 1.4;
+    }
+
+    .marquee-container {
+        background: #0f172a;
+        border-top: 2px solid #38bdf8;
+        color: white;
+    }
+
+    @media (max-width: 600px) {
+        header { height: 54px; padding: 6px 10px; }
+        .brand-icon { width: 32px; height: 32px; font-size: 16px; }
+        .brand h1 { font-size: 13px; }
+        .brand p { display: none; }
+        .score-box { min-width: 64px; padding: 3px 6px; }
+        .answer { font-size: 12px; padding: 6px 4px; min-height: 38px; }
+        .quiz-panel { bottom: 28px; padding: 10px; width: calc(100% - 16px); }
+        .q-count-options { grid-template-columns: repeat(2, 1fr); }
+    }
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="brand">
+        <div class="brand-icon"><i class="fa-solid fa-map-location-dot"></i></div>
+        <div>
+            <h1>ශ්‍රී ලංකා ස්ථාන Quiz</h1>
+            <p>සිතියමේ පෙන්වන ස්ථානය හඳුනාගන්න</p>
+        </div>
+    </div>
+
+    <div class="score-area">
+        <!-- Logged-in User Badge -->
+        <div id="user-badge" class="hidden sm:flex items-center gap-2 bg-blue-50 border border-blue-200 text-blue-800 px-3 py-1 rounded-lg text-xs font-bold">
+            <i class="fa-solid fa-user-graduate text-blue-600"></i>
+            <span id="logged-user-name">Student</span>
+            <button onclick="handleLogout()" class="text-xs text-red-500 hover:text-red-700 ml-1 underline" title="ලොග් අවුට් වන්න">
+                <i class="fa-solid fa-right-from-bracket"></i>
+            </button>
+        </div>
+
+        <div class="score-box">
+            <span>ප්‍රශ්නය</span>
+            <strong id="question-count">0 / 0</strong>
+        </div>
+    </div>
+</header>
+
+<!-- Map Container -->
+<div id="map"></div>
+
+<!-- Quiz Interactive Overlay Panel -->
+<div class="quiz-panel" id="quiz-panel" style="display: none;">
+    <div class="question-top">
+        <span class="question-number" id="question-label">ප්‍රශ්නය 1</span>
+        <span class="theme-badge" id="theme-badge">තේමාව</span>
+    </div>
+
+    <div class="answers" id="answers"></div>
+
+    <button id="next-btn" class="action-btn" onclick="handleNextClick()" disabled>
+        ඊළඟ ප්‍රශ්නය →
+    </button>
+</div>
+
+<!-- LOGIN MODAL DIALOG (Shown First) -->
+<div id="login-modal" class="modal-overlay">
+    <div class="modal-card border-2 border-sky-400">
+        <div class="modal-header bg-gradient-to-r from-sky-50 to-blue-100 border-b border-sky-200">
+            <div class="w-12 h-12 bg-sky-600 text-white rounded-full flex items-center justify-center mx-auto mb-2 text-xl shadow-md">
+                <i class="fa-solid fa-user-lock"></i>
+            </div>
+            <h2 class="text-xl font-extrabold text-sky-800">ශිෂ්‍ය ප්‍රවේශය (Student Login)</h2>
+            <p class="text-xs text-sky-600 font-semibold mt-1">
+                <i class="fa-solid fa-circle-info mr-1"></i>
+                Login is strictly for students attending to classes.
+            </p>
+        </div>
+
+        <div class="modal-body">
+            <!-- Notice Banner -->
+            <div class="bg-amber-50 border-l-4 border-amber-400 p-3 rounded-r-lg text-xs text-amber-800 font-medium leading-relaxed">
+                <p class="font-bold flex items-center gap-1.5 text-amber-900 mb-0.5">
+                    <i class="fa-solid fa-triangle-exclamation text-amber-600"></i> විශේෂ දැනුම්දීමයි:
+                </p>
+                මෙම යෙදුම භාවිතා කළ හැක්කේ පන්ති සඳහා ලියාපදිංචි වී සිටින සිසුන්ට පමණි. කරුණාකර ඔබගේ පරිශීලක නාමය (Username) සහ මුරපදය (Password) ඇතුළත් කරන්න.
+            </div>
+
+            <!-- Error Feedback Container -->
+            <div id="login-error" class="hidden bg-red-50 border border-red-200 text-red-700 px-3 py-2 rounded-lg text-xs font-semibold flex items-center gap-2">
+                <i class="fa-solid fa-circle-xmark text-red-500 text-base"></i>
+                <span id="login-error-text">ඇතුළත් කළ තොරතුරු වැරදියි!</span>
+            </div>
+
+            <!-- Login Form -->
+            <form onsubmit="handleLoginSubmit(event)" class="space-y-3">
+                <div class="form-group">
+                    <label for="login-username" class="flex items-center gap-1.5">
+                        <i class="fa-solid fa-user text-sky-600"></i> පරිශීලක නාමය (Username)
+                    </label>
+                    <input type="text" id="login-username" class="form-input" placeholder="උදා: samira" required autocomplete="username">
+                </div>
+
+                <div class="form-group">
+                    <label for="login-password" class="flex items-center gap-1.5">
+                        <i class="fa-solid fa-key text-sky-600"></i> මුරපදය (Password)
+                    </label>
+                    <div class="relative">
+                        <input type="password" id="login-password" class="form-input pr-10" placeholder="••••••••" required autocomplete="current-password">
+                        <button type="button" onclick="togglePasswordVisibility()" class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600">
+                            <i id="toggle-pwd-icon" class="fa-solid fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <button type="submit" class="action-btn py-3 mt-2 text-sm shadow-md flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-right-to-bracket"></i> ඇතුළු වන්න (Login)
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- QUIZ SETUP MODAL -->
+<div id="setup-modal" class="modal-overlay" style="display: none;">
+    <div class="modal-card">
+        <div class="modal-header">
+            <h2>ප්‍රශ්නාවලිය සකසන්න</h2>
+            <p>තේමාව සහ ප්‍රශ්න ගණන තෝරා ආරම්භ කරන්න</p>
+        </div>
+        <div class="modal-body">
+            <div class="form-group">
+                <label for="theme-select">තේමාව තෝරන්න:</label>
+                <select id="theme-select" class="form-select">
+                    <option value="ALL">සියලුම තේමා (All Themes)</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>ප්‍රශ්න සංඛ්‍යාව තෝරන්න:</label>
+                <div class="q-count-options">
+                    <button class="q-count-btn active" onclick="setQuestionCount(5, this)">5</button>
+                    <button class="q-count-btn" onclick="setQuestionCount(10, this)">10</button>
+                    <button class="q-count-btn" onclick="setQuestionCount(15, this)">15</button>
+                    <button class="q-count-btn" onclick="setQuestionCount('ALL', this)">සියල්ල</button>
+                </div>
+            </div>
+
+            <button class="action-btn" style="margin-top: 10px;" onclick="startQuiz()">
+                පරීක්ෂණය ආරම්භ කරන්න ▶
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- RESULTS MODAL -->
+<div id="results-modal" class="modal-overlay" style="display: none;">
+    <div class="modal-card">
+        <div class="modal-header">
+            <h2>පරීක්ෂණ ප්‍රතිඵල</h2>
+            <p>ඔබ ලබාගත් ලකුණු ප්‍රමාණය මෙන්න</p>
+        </div>
+        <div class="modal-body">
+            <div class="results-summary">
+                <div style="font-size: 13px; color: #475569; font-weight: 600;">අවසන් ලකුණු සංඛ්‍යාව</div>
+                <div class="results-score" id="final-score-text">0 / 0</div>
+                <div class="results-percentage" id="final-percentage-text">0%</div>
+            </div>
+
+            <div style="font-size: 14px; font-weight: 700; color: #1e293b; margin-top: 6px;">
+                ප්‍රශ්න විග්‍රහය:
+            </div>
+
+            <div id="review-list" class="review-list"></div>
+
+            <button class="action-btn" style="margin-top: 10px;" onclick="openSetupModal()">
+                නව පරීක්ෂණයක් ආරම්භ කරන්න 🔄
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Custom Message Modal Alert (Replaces window.alert) -->
+<div id="custom-alert-modal" class="modal-overlay" style="display: none; z-index: 3000;">
+    <div class="modal-card max-w-sm text-center p-5">
+        <div class="w-12 h-12 bg-sky-100 text-sky-600 rounded-full flex items-center justify-center mx-auto mb-3 text-2xl">
+            <i class="fa-solid fa-circle-info"></i>
+        </div>
+        <p id="custom-alert-message" class="text-sm font-bold text-slate-800 mb-4 leading-relaxed"></p>
+        <button onclick="closeCustomAlert()" class="action-btn py-2 text-xs">
+            තහවුරුයි (OK)
+        </button>
+    </div>
+</div>
+
+<!-- Footer Marquee -->
+<footer class="fixed bottom-0 left-0 w-full z-30 marquee-container text-white text-xs py-2 px-4 shadow-xl flex items-center">
+    <i class="fa-solid fa-graduation-cap text-[#92EEFF] mr-2 text-sm flex-shrink-0"></i>
+    <marquee behavior="scroll" direction="left" scrollamount="4" class="font-normal tracking-wide">
+        Learn History & Geography with Samira Sir. All rights reserved. 2026 &copy; 
+        <a href="https://samira-sir.github.io/samira-sir/" target="_blank" class="underline font-bold text-[#92EEFF] hover:text-[#D8FFC5] transition-colors ml-1">Visit Official Website</a>. 
+        Interactive Sri Lanka History Map - Student Access Edition.
+    </marquee>
+</footer>
+<script src="js/user.js"></script>
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script>
+/* Credentials Array database as specified (js/user.js model) */
+
+let currentUser = null;
+
+// Handle Student Login Submission
+function handleLoginSubmit(event) {
+    event.preventDefault();
+    const usernameInput = document.getElementById("login-username").value.trim().toLowerCase();
+    const passwordInput = document.getElementById("login-password").value.trim();
+    const errorBox = document.getElementById("login-error");
+
+    errorBox.classList.add("hidden");
+
+    if (!usernameInput || !passwordInput) {
+        showLoginError("කරුණාකර පරිශීලක නාමය සහ මුරපදය ඇතුළත් කරන්න.");
+        return;
+    }
+
+    // Validate credentials against user object
+    if (credentials.hasOwnProperty(usernameInput)) {
+        const userObj = credentials[usernameInput];
+        if (userObj.password === passwordInput) {
+            // Authentication Success
+            currentUser = {
+                username: usernameInput,
+                data: userObj
+            };
+
+            // Update UI elements for logged-in state
+            document.getElementById("logged-user-name").textContent = usernameInput;
+            document.getElementById("user-badge").classList.remove("hidden");
+
+            // Hide login modal & show game setup
+            document.getElementById("login-modal").style.display = "none";
+            document.getElementById("quiz-panel").style.display = "block";
+            openSetupModal();
+            return;
+        }
+    }
+
+    // If username or password failed
+    showLoginError("පරිශීලක නාමය හෝ මුරපදය වැරදියි! (Login is only for enrolled students).");
+}
+
+function showLoginError(msg) {
+    const errorBox = document.getElementById("login-error");
+    document.getElementById("login-error-text").textContent = msg;
+    errorBox.classList.remove("hidden");
+}
+
+function togglePasswordVisibility() {
+    const pwdInput = document.getElementById("login-password");
+    const pwdIcon = document.getElementById("toggle-pwd-icon");
+    if (pwdInput.type === "password") {
+        pwdInput.type = "text";
+        pwdIcon.className = "fa-solid fa-eye-slash";
+    } else {
+        pwdInput.type = "password";
+        pwdIcon.className = "fa-solid fa-eye";
+    }
+}
+
+function handleLogout() {
+    currentUser = null;
+    document.getElementById("user-badge").classList.add("hidden");
+    document.getElementById("quiz-panel").style.display = "none";
+    document.getElementById("setup-modal").style.display = "none";
+    document.getElementById("results-modal").style.display = "none";
+
+    // Reset login inputs
+    document.getElementById("login-username").value = "";
+    document.getElementById("login-password").value = "";
+    document.getElementById("login-error").classList.add("hidden");
+
+    // Re-display login modal
+    document.getElementById("login-modal").style.display = "flex";
+}
+
+function showCustomAlert(msg) {
+    document.getElementById("custom-alert-message").textContent = msg;
+    document.getElementById("custom-alert-modal").style.display = "flex";
+}
+
+function closeCustomAlert() {
+    document.getElementById("custom-alert-modal").style.display = "none";
+}
+</script>
+
+<script>
+var places = [
+    { sinhala: "කනගරායන් ආරු", english: "Kanagarayan Aru", titles: ["ශ්‍රී ලංකාවේ ගංගා"], coords: [1914.12, 876.00] },
+    { sinhala: "මල්වතු ඔය", english: "Malwathu Oya", titles: ["ශ්‍රී ලංකාවේ ගංගා"], coords: [1725.06, 703.00] },
+    { sinhala: "කලා ඔය", english: "Kala Oya", titles: ["ශ්‍රී ලංකාවේ ගංගා"], coords: [1437.87, 678.00] },
+    { sinhala: "දැදුරු ඔය", english: "Daduru Oya", titles: ["ශ්‍රී ලංකාවේ ගංගා"], coords: [1186.98, 643.00] },
+    { sinhala: "මහ ඔය/මා ඔය", english: "Maha Oya/Ma Oya", titles: ["ශ්‍රී ලංකාවේ ගංගා"], coords: [972.07, 673.00] },
+    { sinhala: "කැලණි ගඟ", english: "Kelani River", titles: ["ශ්‍රී ලංකාවේ ගංගා"], coords: [790.14, 671.00] },
+    { sinhala: "කළු ගඟ", english: "Kalu Gaga", titles: ["ශ්‍රී ලංකාවේ ගංගා"], coords: [624.21, 659.00] },
+    { sinhala: "ගිං ගඟ", english: "Gin Gaga", titles: ["ශ්‍රී ලංකාවේ ගංගා"], coords: [390.68, 723.00] },
+    { sinhala: "නිල්වලා ගඟ", english: "Nilwala Ganga", titles: ["ශ්‍රී ලංකාවේ ගංගා"], coords: [299.22, 912.00] },
+    { sinhala: "වලවේ ගඟ", english: "Walawe Ganga", titles: ["ශ්‍රී ලංකාවේ ගංගා"], coords: [579.50, 1082.00] },
+    { sinhala: "කිරිඳි ඔය", english: "Kiridi Oya", titles: ["ශ්‍රී ලංකාවේ ගංගා"], coords: [568.50, 1235.00] },
+    { sinhala: "මැණික් ගඟ", english: "Menik Ganga", titles: ["ශ්‍රී ලංකාවේ ගංගා"], coords: [633.47, 1414.50] },
+    { sinhala: "ගල්ඔය", english: "Gal Oya", titles: ["ශ්‍රී ලංකාවේ ගංගා"], coords: [944.85, 1522.50] },
+    { sinhala: "මාදුරු ඔය", english: "Maduru Oya", titles: ["ශ්‍රී ලංකාවේ ගංගා"], coords: [1304.70, 1300.00] },
+    { sinhala: "මහවැලි ගඟ", english: "Mahaweli River", titles: ["ශ්‍රී ලංකාවේ ගංගා"], coords: [1344.18, 1230.00] },
+    { sinhala: "අඹන් ගඟ", english: "Aban Ganga", titles: ["ශ්‍රී ලංකාවේ ගංගා"], coords: [1224.23, 1084.00] },
+    { sinhala: "යාන් ඔය", english: "Yan Oya", titles: ["ශ්‍රී ලංකාවේ ගංගා"], coords: [1624.06, 1082.00] },
+    { sinhala: "මා ඔය", english: "Ma Oya", titles: ["ශ්‍රී ලංකාවේ ගංගා"], coords: [1819.98, 1032.00] },
+    { sinhala: "යෝධ වැව", english: "Yoda Wewa", titles: ["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"], coords: [1777.19, 627.89] },
+    { sinhala: "මහකනදරා වැව", english: "Mahakanadara Wewa", titles: ["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"], coords: [1539.32, 907.81] },
+    { sinhala: "නුවර වැව", english: "Nuwara Wewa", titles: ["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"], coords: [1508.72, 847.00] },
+    { sinhala: "තිසා වැව", english: "Thisa Wewa", titles: ["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"], coords: [1496.71, 810.00] },
+    { sinhala: "නාච්චාදූව වැව", english: "Nachchaduwa Wewa", titles: ["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"], coords: [1459.69, 882.00] },
+    { sinhala: "රාජාංගනය ජලාශය", english: "Rajanganaya Jalashaya", titles: ["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"], coords: [1407.67, 746.00] },
+    { sinhala: "කලා වැව", english: "Kala Wewa", titles: ["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"], coords: [1336.63, 912.00] },
+    { sinhala: "කන්ඩලම වැව", english: "Kandalama Wewa", titles: ["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"], coords: [1273.60, 993.00] },
+    { sinhala: "පොල්ගොල්ල වේල්ල", english: "Polgolla Wella", titles: ["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"], coords: [977.44, 969.00] },
+    { sinhala: "සමනල වැව", english: "Samanala Wewa", titles: ["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"], coords: [638.19, 1043.00] },
+    { sinhala: "චන්ද්‍රිකා වැව", english: "Chandrika Wewa", titles: ["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"], coords: [461.10, 1082.00] },
+    { sinhala: "මිණිපේ අමුණ", english: "Minipe Amuna", titles: ["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"], coords: [940.34, 1172.00] },
+    { sinhala: "සොරබොර වැව", english: "Sorabora Wewa", titles: ["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"], coords: [976.36, 1179.00] },
+    { sinhala: "ඇළහැර අමුණ", english: "Elahera Amuna", titles: ["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"], coords: [1261.51, 1108.00] },
+    { sinhala: "පරාක්‍රම සමුද්‍රය", english: "Parakrama Samudraya", titles: ["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"], coords: [1297.53, 1145.00] },
+    { sinhala: "මින්නේරිය වැව", english: "Minneriya Wewa", titles: ["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"], coords: [1361.56, 1092.00] },
+    { sinhala: "කවුඩුල්ල වැව", english: "Kawdulla Wewa", titles: ["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"], coords: [1421.59, 1114.00] },
+    { sinhala: "හුරුළු වැව", english: "Hurulu Wewa", titles: ["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"], coords: [1438.60, 1012.00] },
+    { sinhala: "කන්තලේ වැව", english: "Kanthale Wewa", titles: ["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"], coords: [1538.65, 1148.00] },
+    { sinhala: "පදවිය වැව", english: "Padawiya Wewa", titles: ["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"], coords: [1752.77, 1027.00] },
+    { sinhala: "ඉරණමඩු වැව", english: "Iranamadu Wewa", titles: ["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"], coords: [2005.90, 854.00] },
+    { sinhala: "ඉරණමඩු වැව", english: "Iranamadu Wewa", titles: ["ප්‍රාග් ඓතිහාසික ස්ථාන"], coords: [2005.90, 854.00] },
+    { sinhala: "වික්ටෝරියා ජලාශය", english: "Victoria Reservoir", titles: ["ශ්‍රී ලංකාවේ ජලාශ"], coords: [945.76, 1033.00] },
+    { sinhala: "කොත්මලේ ජලාශය", english: "Kothmale Reservoir", titles: ["ශ්‍රී ලංකාවේ ජලාශ"], coords: [831.70, 969.00] },
+    { sinhala: "උඩවලව ජලාශය", english: "Udawalawa Reservoir", titles: ["ශ්‍රී ලංකාවේ ජලාශ"], coords: [535.54, 1080.00] },
+    { sinhala: "රන්දෙනිගල ජලාශය", english: "Randenigala Reservoir", titles: ["ශ්‍රී ලංකාවේ ජලාශ"], coords: [896.73, 1103.00] },
+    { sinhala: "රන්ටැබේ ජලාශය", english: "Rantebe Reservoir", titles: ["ශ්‍රී ලංකාවේ ජලාශ"], coords: [920.74, 1139.00] },
+    { sinhala: "සේනානායක සමුද්‍රය", english: "Senanayaka Samudraya", titles: ["ශ්‍රී ලංකාවේ ජලාශ"], coords: [906.74, 1449.00] },
+    { sinhala: "මාදුරු ඔය ජලාශය", english: "Maduruoya Reservoir", titles: ["ශ්‍රී ලංකාවේ ජලාශ"], coords: [1118.85, 1275.00] },
+    { sinhala: "පුනරීන්", english: "Punarin", titles: ["ප්‍රාග් ඓතිහාසික ස්ථාන"], coords: [2081.51, 721.96] },
+    { sinhala: "ඉරණමඩු", english: "Iranamadu", titles: ["ප්‍රාග් ඓතිහාසික ස්ථාන"], coords: [2022.48, 819.94] },
+    { sinhala: "මන්නාරම", english: "Mannar", titles: ["ප්‍රාග් ඓතිහාසික ස්ථාන"], coords: [1812.40, 583.00] },
+    { sinhala: "පොම්පරිප්පු", english: "Pomparippu", titles: ["ප්‍රාග් ඓතිහාසික ස්ථාන","පූර්ව ඓතිහාසික ස්ථාන"], coords: [1527.28, 525.01] },
+    { sinhala: "ඉබ්බන්කටුව", english: "Ibbankatuwa", titles: ["ප්‍රාග් ඓතිහාසික ස්ථාන","පූර්ව ඓතිහාසික ස්ථාන"], coords: [1236.16, 956.90] },
+    { sinhala: "අත්තනගොඩ අළුලෙන", english: "Aththanagoda Alu Lena", titles: ["ප්‍රාග් ඓතිහාසික ස්ථාන"], coords: [894.03, 818.94] },
+    { sinhala: "කිතුල්ගල බෙලිලෙන", english: "Kithulgala Belilena", titles: ["ප්‍රාග් ඓතිහාසික ස්ථාන"], coords: [807.99, 873.92] },
+    { sinhala: "මානියම්ගම", english: "Maniyangama", titles: ["ප්‍රාග් ඓතිහාසික ස්ථාන"], coords: [761.97, 754.95] },
+    { sinhala: "කුරුවිට බටදොඹ ලෙන", english: "Kuruvita Batadombalena", titles: ["ප්‍රාග් ඓතිහාසික ස්ථාන"], coords: [662.93, 819.94] },
+    { sinhala: "පාහියන්ගල", english: "Pahiyangala", titles: ["ප්‍රාග් ඓතිහාසික ස්ථාන"], coords: [613.91, 718.96] },
+    { sinhala: "අළුගල්ගෙ", english: "Alugalge", titles: ["ප්‍රාග් ඓතිහාසික ස්ථාන"], coords: [380.82, 1200.84] },
+    { sinhala: "උඩමළල", english: "Udamalala", titles: ["ප්‍රාග් ඓතිහාසික ස්ථාන"], coords: [400.83, 1247.82] },
+    { sinhala: "බූන්දල/පතිරාජවල", english: "Bundala/Pathirajawela", titles: ["ප්‍රාග් ඓතිහාසික ස්ථාන"], coords: [418.83, 1309.81] },
+    { sinhala: "මිනිහාගල්කන්ද", english: "Minihagal Kanda", titles: ["ප්‍රාග් ඓතිහාසික ස්ථාන"], coords: [523.88, 1479.76] },
+    { sinhala: "හෝර්ටන්තැන්න", english: "Hortn Place", titles: ["ප්‍රාග් ඓතිහාසික ස්ථාන"], coords: [716.95, 1022.88] },
+    { sinhala: "රාවණා ඇල්ල", english: "Rawana Falls", titles: ["ප්‍රාග් ඓතිහාසික ස්ථාන"], coords: [735.96, 1178.84] },
+    { sinhala: "බණ්ඩාරවෙල", english: "Bandarawela", titles: ["ප්‍රාග් ඓතිහාසික ස්ථාන"], coords: [767.98, 1150.85] },
+    { sinhala: "පොතාන/අලිගල/සීගිරිය අලකොළවැව/දෙහිගහඇළකන්ද", english: "Pothana/Aligala/Sigiriya Alakolawewa/Dehigahaelakanda", titles: ["ප්‍රාග් ඓතිහාසික ස්ථාන"], coords: [1362.43, 1023.87] },
+    { sinhala: "අලිමංකඩ", english: "Elephant Pass", titles: ["ප්‍රාග් ඓතිහාසික ස්ථාන"], coords: [2122.74, 821.93] },
+    { sinhala: "ගල්සොහොන්කනත්ත", english: "Galsohonkanaththa", titles: ["පූර්ව ඓතිහාසික ස්ථාන"], coords: [1344.72, 595.85] },
+    { sinhala: "යටිගල්පොත්ත", english: "Yatigalpoththa", titles: ["පූර්ව ඓතිහාසික ස්ථාන"], coords: [1242.68, 935.76] },
+    { sinhala: "හැවෙනිවෙළ", english: "Haveniwela", titles: ["පූර්ව ඓතිහාසික ස්ථාන"], coords: [1152.64, 917.76] },
+    { sinhala: "දුම්මලසූරිය", english: "Dummalasuriya", titles: ["පූර්ව ඓතිහාසික ස්ථාන"], coords: [1092.62, 579.85] },
+    { sinhala: "නිකවලමුල්ල", english: "Nikawalamulla", titles: ["පූර්ව ඓතිහාසික ස්ථාන"], coords: [784.49, 775.80] },
+    { sinhala: "හල්දුම්මුල්ල", english: "Haldummulla", titles: ["පූර්ව ඓතිහාසික ස්ථාන"], coords: [712.46, 901.77] },
+    { sinhala: "බණ්ඩත්තර", english: "Bandaththara", titles: ["පූර්ව ඓතිහාසික ස්ථාන"], coords: [294.27, 933.76] },
+    { sinhala: "හබරත්තාව", english: "Habaraththawa", titles: ["පූර්ව ඓතිහාසික ස්ථාන"], coords: [386.31, 1215.68] },
+    { sinhala: "උඩරංචාමඩම/රංචාමඩව", english: "Udaranchamadama/Ranchamadama", titles: ["පූර්ව ඓතිහාසික ස්ථාන"], coords: [490.35, 1011.74] },
+    { sinhala: "බෙරගල", english: "Beragala", titles: ["පූර්ව ඓතිහාසික ස්ථාන"], coords: [688.43, 1117.71] },
+    { sinhala: "දියවින්න", english: "Diyawinna", titles: ["ප්‍රාග් ඓතිහාසික ස්ථාන"], coords: [632.41, 1111.86] },
+    { sinhala: "බෙල්ලන්බැදිපැලැස්ස", english: "Bellanbedipalassa", titles: ["ප්‍රාග් ඓතිහාසික ස්ථාන"], coords: [660.40, 924.91] },
+    { sinhala: "මහාතිත්ත/මාතොට", english: "Mahathiththa/Mathota", titles: ["ප්‍රාග් ඓතිහාසික ස්ථාන"], coords: [1832.96, 603.99] },
+    { sinhala: "අලිමංකඩ", english: "Alimankada", titles: ["ප්‍රාග් ඓතිහාසික ස්ථාන"], coords: [2122.86, 822.94] },
+    { sinhala: "පොළොන්නරුව", english: "Polonnaruwa", titles: ["ශ්‍රී ලංකාවේ අග නගර"], coords: [1553.07, 1176.84] },
+    { sinhala: "මහනුවර", english: "Mahanuwara", titles: ["ශ්‍රී ලංකාවේ අග නගර"], coords: [981.28, 960.90] },
+    { sinhala: "කතරගම/කාචරගම", english: "Katharagama/Kacharagama", titles: ["ශ්‍රී ලංකාවේ අග නගර"], coords: [538.44, 1312.81] },
+    { sinhala: "මාගම", english: "Magama", titles: ["ශ්‍රී ලංකාවේ අග නගර"], coords: [449.47, 1320.81] },
+    { sinhala: "දෙවි නුවර/දේව නගර", english: "Devi Nuwara/Deva Nagar", titles: ["ශ්‍රී ලංකාවේ අග නගර"], coords: [279.53, 938.91] },
+    { sinhala: "මාතර", english: "Mathara", titles: ["ශ්‍රී ලංකාවේ අග නගර"], coords: [283.53, 905.92] },
+    { sinhala: "ගාල්ල", english: "Galle", titles: ["ශ්‍රී ලංකාවේ අග නගර"], coords: [342.51, 714.96] },
+    { sinhala: "රයිගම", english: "Raigama", titles: ["ශ්‍රී ලංකාවේ අග නගර"], coords: [646.40, 608.99] },
+    { sinhala: "කෝට්ටේ", english: "Kotte", titles: ["ශ්‍රී ලංකාවේ අග නගර"], coords: [780.35, 536.01] },
+    { sinhala: "ගම්පොළ", english: "Gampola", titles: ["ශ්‍රී ලංකාවේ අග නගර"], coords: [885.31, 919.91] },
+    { sinhala: "දඹදෙණිය", english: "Dabadeniya", titles: ["ශ්‍රී ලංකාවේ අග නගර"], coords: [982.28, 685.97] },
+    { sinhala: "සල්වතොට/හලාවත", english: "Chillaw/Salwathota", titles: ["ශ්‍රී ලංකාවේ අග නගර"], coords: [1107.23, 497.02] },
+    { sinhala: "කුරුණෑගල", english: "Kurunegala", titles: ["ශ්‍රී ලංකාවේ අග නගර"], coords: [1090.12, 838.89] },
+    { sinhala: "පරාක්‍රමපුර/පඬුවස්නුවර", english: "Parakramapura/Paduwasnuwara", titles: ["ශ්‍රී ලංකාවේ අග නගර"], coords: [1127.10, 642.94] },
+    { sinhala: "යාපහුව", english: "Yapahuwa", titles: ["ශ්‍රී ලංකාවේ අග නගර"], coords: [1270.05, 841.89] },
+    { sinhala: "අනුරාධපුරය", english: "Anuradhapuraya", titles: ["ශ්‍රී ලංකාවේ අග නගර"], coords: [1511.96, 822.89] },
+    { sinhala: "යාපනය/නකදිව", english: "Jaffna/Nakadiwa", titles: ["ශ්‍රී ලංකාවේ අග නගර"], coords: [2191.71, 625.94] },
+    { sinhala: "කුඹුක්කන් ඔය", english: "Kubukkan Oya", titles: ["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"], coords: [625.85, 1451.72] },
+    { sinhala: "මැණික් ගඟ", english: "Manik Ganga", titles: ["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"], coords: [523.89, 1393.74] },
+    { sinhala: "කිරිඳිඔය", english: "Kiridi Oya", titles: ["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"], coords: [573.87, 1235.78] },
+    { sinhala: "කනදරා ඔය", english: "Kanadara Oya", titles: ["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"], coords: [1583.66, 871.77] },
+    { sinhala: "සීතාවක", english: "Sethawaka", titles: ["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"], coords: [777.96, 729.81] },
+    { sinhala: "දඹකොළපටුන", english: "Dambakolapatuna", titles: ["ශ්‍රී ලංකාවේ වරායන්"], coords: [2261.81, 593.00] },
+    { sinhala: "පල්ලවංකය", english: "Pallawankaya", titles: ["ශ්‍රී ලංකාවේ වරායන්"], coords: [1778.99, 1173.84] },
+    { sinhala: "ත්‍රිකුණාමලය/ගෝකන්නතිත්ත", english: "Trincomalee/Gokannathiththta", titles: ["ශ්‍රී ලංකාවේ වරායන්"], coords: [1645.04, 1258.82] },
+    { sinhala: "ලංකා පටුන", english: "Lankapatuna", titles: ["ශ්‍රී ලංකාවේ වරායන්"], coords: [1564.06, 1343.80] },
+    { sinhala: "කසාතොට", english: "Kasathota", titles: ["ශ්‍රී ලංකාවේ වරායන්"], coords: [1298.01, 1204.63] },
+    { sinhala: "මඩකලපුව", english: "Batticaloa", titles: ["ශ්‍රී ලංකාවේ වරායන්"], coords: [1206.04, 1535.90] },
+    { sinhala: "තොටලුතොට/කිරිඳ වරාය", english: "Thotaluthota/Kirinda Habour", titles: ["ශ්‍රී ලංකාවේ වරායන්"], coords: [450.21, 1364.94] },
+    { sinhala: "කළුතර/කාලාතිත්ත", english: "Kaluthara/Kalathiththa", titles: ["ශ්‍රී ලංකාවේ වරායන්"], coords: [590.16, 586.14] },
+    { sinhala: "මීගමුව", english: "Negambo", titles: ["ශ්‍රී ලංකාවේ වරායන්"], coords: [892.05, 513.16] },
+    { sinhala: "කල්පිටිය", english: "Kalpitya", titles: ["ශ්‍රී ලංකාවේ වරායන්"], coords: [1451.85, 458.18] },
+    { sinhala: "උරුවෙල", english: "Uruwela", titles: ["ශ්‍රී ලංකාවේ වරායන්"], coords: [1468.84, 501.17] },
+    { sinhala: "මගන", english: "Magana", titles: ["ශ්‍රී ලංකාවේ වරායන්"], coords: [1604.79, 540.16] },
+    { sinhala: "මන්නාරම", english: "Mannar", titles: ["ශ්‍රී ලංකාවේ වරායන්"], coords: [1840.70, 547.15] },
+    { sinhala: "සූකරතිත්ත/ඌරාතොට/හැමන්හිල්", english: "Sukarathiththa/Urathota/Hamanhill", titles: ["ශ්‍රී ලංකාවේ වරායන්"], coords: [2204.57, 538.16] },
+    { sinhala: "කයිට්ස්", english: "Kytes", titles: ["ශ්‍රී ලංකාවේ වරායන්"], coords: [2185.58, 549.15] },
+    { sinhala: "ගිරිතලේ වැව", english: "Girithale Wewa", titles: ["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"], coords: [1335.89, 1117.01] },
+    { sinhala: "ඇළහැර අමුණ", english: "Alahera Amuna", titles: ["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"], coords: [1209.73, 1050.95] },
+    { sinhala: "වල්ලිපුරම්", english: "Wallipuram", titles: ["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"], coords: [2257.35, 723.03] },
+    { sinhala: "නල්ලූර්", english: "Nallur", titles: ["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"], coords: [2188.37, 623.06] },
+    { sinhala: "තිරියාය", english: "Thiriyaya", titles: ["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"], coords: [1782.47, 1145.78] },
+    { sinhala: "තිරුකෝනේෂ්වර/ම්ෆෙඩ්රික්කොටුව/ගෝකන්න විහාරය", english: "Thirukoneshwaram/Fedric Fort/Gokanna Viharaya", titles: ["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"], coords: [1629.79, 1276.97] },
+    { sinhala: "සේරුවාවිල", english: "Seruwawila", titles: ["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"], coords: [1605.03, 1320.88] },
+    { sinhala: "මැදිරිගිරිය", english: "Medirigiriya", titles: ["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"], coords: [1396.10, 1099.94] },
+    { sinhala: "දඹුල්ල", english: "Dambulla", titles: ["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"], coords: [1263.18, 963.96] },
+    { sinhala: "මාතලේ අලු විහාරය", english: "Mathale Alu WIharaya", titles: ["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"], coords: [1117.23, 927.97] },
+    { sinhala: "මහියංගණය", english: "Mahiyanganaya", titles: ["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"], coords: [963.29, 1180.90] },
+    { sinhala: "දීඝවාපිය", english: "digawapiya", titles: ["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"], coords: [947.29, 1589.89] },
+    { sinhala: "බදුල්ල", english: "Badulla", titles: ["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"], coords: [829.19, 1169.93] },
+    { sinhala: "රන්දෙනිවෙල", english: "Randeniwela", titles: ["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"], coords: [825.19, 1255.90] },
+    { sinhala: "බුත්තල", english: "Buththala", titles: ["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"], coords: [700.23, 1287.90] },
+    { sinhala: "සිතුල්පව්ව", english: "Sithulpawwa", titles: ["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"], coords: [517.30, 1323.89] },
+    { sinhala: "මහානාගහුළ", english: "Mahanagahula", titles: ["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"], coords: [418.34, 1110.94] },
+    { sinhala: "සමන්තකූටය", english: "Samanthakutaya", titles: ["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"], coords: [731.22, 999.97] },
+    { sinhala: "තලවකැලේ", english: "Thalawakale", titles: ["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"], coords: [755.03, 966.86] },
+    { sinhala: "අගලවත්ත", english: "Agalawaththa", titles: ["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"], coords: [554.12, 675.94] },
+    { sinhala: "කැලණිය", english: "Kelaniya", titles: ["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"], coords: [789.03, 563.97] },
+    { sinhala: "බලන", english: "Balana", titles: ["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"], coords: [915.25, 922.86] },
+    { sinhala: "දන්තුරේ", english: "Danthure", titles: ["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"], coords: [964.49, 894.11] },
+    { sinhala: "පේරාදෙණිය /ගන්නෝරුව", english: "Peradeniya/Gannoruwa", titles: ["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"], coords: [988.48, 936.10] },
+    { sinhala: "මුතුරාජවෙල", english: "Muthurajawela", titles: ["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"], coords: [858.94, 532.88] },
+    { sinhala: "ලුණුවිල", english: "Lunuwila", titles: ["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"], coords: [1051.87, 504.89] },
+    { sinhala: "මුන්නේශ්වරම", english: "Munneshwaram", titles: ["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"], coords: [1116.84, 515.88] },
+    { sinhala: "තෝනිගල", english: "Thonigala", titles: ["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"], coords: [1331.76, 580.87] },
+    { sinhala: "රිටිගල", english: "Ritigala", titles: ["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"], coords: [1421.73, 878.79] },
+    { sinhala: "මිහින්තලය", english: "Mihinthalaya", titles: ["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"], coords: [1497.70, 906.78] },
+    { sinhala: "තන්තිරිමලේ", english: "Thanthirimale", titles: ["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"], coords: [1626.66, 754.82] },
+    { sinhala: "තිරුකේෂ්වරම", english: "Thirukeshwaram", titles: ["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"], coords: [1819.05, 586.97] },
+    { sinhala: "නාගදීපය", english: "Nagadeepaya", titles: ["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"], coords: [2161.92, 475.99] },
+    { sinhala: "කඳුරුගොඩ/කන්තරෝඩය", english: "Kadurugoda/Kanttharodaya", titles: ["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"], coords: [2237.89, 620.96] },
+    { sinhala: "ගෝවින්දමලය", english: "Govindamalaya", titles: ["ශ්‍රී ලංකාවේ පැරණි රාජධානි සහ බලකොටු"], coords: [836.04, 1533.87] },
+    { sinhala: "යාපහුව/සුබපබ්බත", english: "Yapahuwa/Suba Pabbatha", titles: ["ශ්‍රී ලංකාවේ පැරණි රාජධානි සහ බලකොටු"], coords: [1202.06, 769.90] },
+    { sinhala: "මුලතිව්", english: "Mulathiv", titles: ["යටත්විජිත යුගයේ ස්ථාන"], coords: [1986.77, 1050.83] },
+    { sinhala: "මාතලේ", english: "Mathale", titles: ["යටත්විජිත යුගයේ ස්ථාන"], coords: [1096.10, 923.86] },
+    { sinhala: "මුල්ලේරියාව", english: "Mulleriyawa", titles: ["යටත්විජිත යුගයේ ස්ථාන"], coords: [1115.09, 517.97] },
+    { sinhala: "මන්නාරම් දූපත", english: "Mannar Island", titles: ["යටත්විජිත යුගයේ ස්ථාන"], coords: [1889.78, 497.97] },
+    { sinhala: "කන්කසන්තුරේ", english: "Kankasanthurai", titles: ["ලන්දේසි බලකොටු"], coords: [2262.70, 599.77] },
+    { sinhala: "පේදුරුතුඩුව", english: "Peduruthuduwa", titles: ["ලන්දේසි බලකොටු"], coords: [2272.70, 727.48] },
+    { sinhala: "කොඩ්ඩියාර් බලකොටුව/ලන්දේසි බලකොටුව", english: "Koddiyar Fort/Dutch Fort", titles: ["ලන්දේසි බලකොටු"], coords: [1581.45, 1291.45] },
+    { sinhala: "තංගල්ල", english: "Thangalla", titles: ["ලන්දේසි බලකොටු"], coords: [336.37, 1059.82] },
+    { sinhala: "කටුවන", english: "Katuwana", titles: ["ලන්දේසි බලකොටු"], coords: [428.07, 991.94] },
+    { sinhala: "අකුරැස්ස", english: "Akuressa", titles: ["ලන්දේසි බලකොටු"], coords: [353.09, 863.97] },
+    { sinhala: "බෙන්තොට", english: "Benthota", titles: ["ලන්දේසි බලකොටු"], coords: [484.28, 616.10] },
+    { sinhala: "අඟුරුවාතොට", english: "Aguruwathota", titles: ["ලන්දේසි බලකොටු"], coords: [622.62, 662.52] },
+    { sinhala: "බිබිලේගම", english: "Bibilegama", titles: ["ලන්දේසි බලකොටු"], coords: [699.59, 860.47] },
+    { sinhala: "මල්වාන", english: "Malwana", titles: ["ලන්දේසි බලකොටු"], coords: [766.06, 591.04] },
+    { sinhala: "රුවන්වැල්ල", english: "Ruwanwella", titles: ["ලන්දේසි බලකොටු"], coords: [840.54, 762.50] },
+    { sinhala: "අන්දර", english: "Andara", titles: ["ලන්දේසි බලකොටු"], coords: [882.54, 767.43] },
+    { sinhala: "පුත්තලම", english: "Puththalama", titles: ["ලන්දේසි බලකොටු"], coords: [1377.36, 505.50] },
+    { sinhala: "අරිප්පු", english: "Arippu", titles: ["ලන්දේසි බලකොටු"], coords: [1736.73, 589.98] }
+];
+
+let map;
+let mapBounds = [[0, 0], [2400, 1800]];
+let marker = null;
+
+let quizQueue = [];
+let quizAnswers = [];
+let currentQuestionIndex = 0;
+
+let selectedTheme = "ALL";
+let selectedQuestionLimit = 5;
+
+const MIN_OPTION_DISTANCE = 180;
+
+// Initialize on window load
+window.onload = function () {
+    initializeMap();
+    populateThemeDropdown();
+};
+
+function initializeMap() {
+    map = L.map("map", {
+        crs: L.CRS.Simple,
+        minZoom: -1.5,
+        maxZoom: 3,
+        zoomSnap: 0.25,
+        attributionControl: false,
+        zoomControl: true
+    }).setView([1200, 900], 0);
+
+    const imageUrl = "your-map-image.webp";
+    const img = new Image();
+
+    img.onload = function () {
+        mapBounds = [[0, 0], [img.height, img.width]];
+        L.imageOverlay(imageUrl, mapBounds).addTo(map);
+        map.fitBounds(mapBounds);
+        map.setMaxBounds(mapBounds);
+    };
+
+    img.onerror = function () {
+        createFallbackMap();
+    };
+
+    img.src = imageUrl;
+}
+
+function createFallbackMap() {
+    const canvas = document.createElement("canvas");
+    canvas.width = 1800;
+    canvas.height = 2400;
+
+    const ctx = canvas.getContext("2d");
+    ctx.fillStyle = "#ffffff";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    ctx.strokeStyle = "#d8f3ff";
+    ctx.lineWidth = 1;
+
+    for (let x = 0; x <= canvas.width; x += 75) {
+        ctx.beginPath();
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x, canvas.height);
+        ctx.stroke();
+    }
+
+    for (let y = 0; y <= canvas.height; y += 75) {
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.lineTo(canvas.width, y);
+        ctx.stroke();
+    }
+
+    ctx.fillStyle = "#d8ffc5";
+    ctx.strokeStyle = "#c4f7ca";
+    ctx.lineWidth = 10;
+    ctx.beginPath();
+    ctx.ellipse(980, 1200, 480, 820, 0, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.stroke();
+
+    const fallbackUrl = canvas.toDataURL();
+    L.imageOverlay(fallbackUrl, mapBounds).addTo(map);
+    map.fitBounds(mapBounds);
+    map.setMaxBounds(mapBounds);
+}
+
+function populateThemeDropdown() {
+    const themeSelect = document.getElementById("theme-select");
+    const themes = new Set();
+
+    places.forEach(place => {
+        if (place.titles) {
+            place.titles.forEach(t => themes.add(t));
+        }
+    });
+
+    themes.forEach(theme => {
+        const option = document.createElement("option");
+        option.value = theme;
+        option.textContent = theme;
+        themeSelect.appendChild(option);
+    });
+}
+
+function setQuestionCount(count, button) {
+    selectedQuestionLimit = count;
+    document.querySelectorAll(".q-count-btn").forEach(btn => btn.classList.remove("active"));
+    button.classList.add("active");
+}
+
+function openSetupModal() {
+    // Only allow setup if user is logged in
+    if (!currentUser) {
+        document.getElementById("login-modal").style.display = "flex";
+        return;
+    }
+    document.getElementById("results-modal").style.display = "none";
+    document.getElementById("setup-modal").style.display = "flex";
+}
+
+function shuffle(array) {
+    const copy = [...array];
+    for (let i = copy.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [copy[i], copy[j]] = [copy[j], copy[i]];
+    }
+    return copy;
+}
+
+function coordinateDistance(a, b) {
+    const dx = a.coords[0] - b.coords[0];
+    const dy = a.coords[1] - b.coords[1];
+    return Math.sqrt(dx * dx + dy * dy);
+}
+
+function createOptions(correctPlace, theme) {
+    let sameThemeFar = places.filter(place =>
+        place.sinhala !== correctPlace.sinhala &&
+        place.titles && place.titles.includes(theme) &&
+        coordinateDistance(place, correctPlace) >= MIN_OPTION_DISTANCE
+    );
+
+    let sameThemeAny = places.filter(place =>
+        place.sinhala !== correctPlace.sinhala &&
+        place.titles && place.titles.includes(theme)
+    );
+
+    let otherFar = places.filter(place =>
+        place.sinhala !== correctPlace.sinhala &&
+        coordinateDistance(place, correctPlace) >= MIN_OPTION_DISTANCE
+    );
+
+    let anyOther = places.filter(place => place.sinhala !== correctPlace.sinhala);
+
+    const uniqueCandidates = [];
+    const seenNames = new Set([correctPlace.sinhala]);
+
+    function addCandidates(list) {
+        for (const place of shuffle(list)) {
+            if (!seenNames.has(place.sinhala)) {
+                seenNames.add(place.sinhala);
+                uniqueCandidates.push(place);
+            }
+            if (uniqueCandidates.length === 3) break;
+        }
+    }
+
+    addCandidates(sameThemeFar);
+    if (uniqueCandidates.length < 3) addCandidates(sameThemeAny);
+    if (uniqueCandidates.length < 3) addCandidates(otherFar);
+    if (uniqueCandidates.length < 3) addCandidates(anyOther);
+
+    return shuffle([
+        correctPlace,
+        ...uniqueCandidates
+    ]);
+}
+
+function startQuiz() {
+    if (!currentUser) {
+        showCustomAlert("කරුණාකර පළමුව ලොග් වන්න!");
+        handleLogout();
+        return;
+    }
+
+    selectedTheme = document.getElementById("theme-select").value;
+
+    let filteredPlaces = places;
+    if (selectedTheme !== "ALL") {
+        filteredPlaces = places.filter(p => p.titles && p.titles.includes(selectedTheme));
+    }
+
+    if (filteredPlaces.length === 0) {
+        showCustomAlert("තෝරාගත් තේමාව සඳහා ප්‍රශ්න නොමැත.");
+        return;
+    }
+
+    let count = selectedQuestionLimit === "ALL" ? filteredPlaces.length : parseInt(selectedQuestionLimit, 10);
+    count = Math.min(count, filteredPlaces.length);
+
+    quizQueue = shuffle(filteredPlaces).slice(0, count);
+    quizAnswers = [];
+    currentQuestionIndex = 0;
+
+    document.getElementById("setup-modal").style.display = "none";
+    renderQuestion();
+}
+
+function renderQuestion() {
+    const place = quizQueue[currentQuestionIndex];
+    let theme = "තේමාව";
+
+    if (selectedTheme !== "ALL") {
+        theme = selectedTheme;
+    } else if (place.titles && place.titles.length > 0) {
+        theme = place.titles[Math.floor(Math.random() * place.titles.length)];
+    }
+
+    const options = createOptions(place, theme);
+
+    document.getElementById("question-count").textContent = (currentQuestionIndex + 1) + " / " + quizQueue.length;
+    document.getElementById("question-label").textContent = "ප්‍රශ්නය " + (currentQuestionIndex + 1);
+    document.getElementById("theme-badge").textContent = theme;
+
+    const nextBtn = document.getElementById("next-btn");
+    nextBtn.disabled = true;
+    nextBtn.textContent = (currentQuestionIndex === quizQueue.length - 1) ? "පරීක්ෂණය අවසන් කරන්න 🏁" : "ඊළඟ ප්‍රශ්නය →";
+
+    showPlaceOnMap(place);
+    renderOptions(options, place, theme);
+}
+
+function showPlaceOnMap(place) {
+    if (marker) {
+        map.removeLayer(marker);
+    }
+
+    const icon = L.divIcon({
+        className: "",
+        html: '<div class="quiz-marker"></div>',
+        iconSize: [18, 18],
+        iconAnchor: [9, 9]
+    });
+
+    marker = L.marker(place.coords, {
+        icon: icon,
+        interactive: false
+    }).addTo(map);
+
+    map.flyTo(place.coords, 0, {
+        duration: 0.4
+    });
+}
+
+function renderOptions(options, correctPlace, theme) {
+    const container = document.getElementById("answers");
+    container.innerHTML = "";
+
+    options.forEach((optionPlace) => {
+        const button = document.createElement("button");
+        button.className = "answer";
+        button.textContent = optionPlace.sinhala;
+
+        button.onclick = function () {
+            document.querySelectorAll(".answer").forEach(b => b.classList.remove("selected"));
+            button.classList.add("selected");
+
+            quizAnswers[currentQuestionIndex] = {
+                questionPlace: correctPlace,
+                selectedPlace: optionPlace,
+                theme: theme,
+                isCorrect: optionPlace.sinhala === correctPlace.sinhala
+            };
+
+            document.getElementById("next-btn").disabled = false;
+        };
+
+        container.appendChild(button);
+    });
+}
+
+function handleNextClick() {
+    if (currentQuestionIndex < quizQueue.length - 1) {
+        currentQuestionIndex++;
+        renderQuestion();
+    } else {
+        finishTest();
+    }
+}
+
+function finishTest() {
+    let score = 0;
+    quizAnswers.forEach(ans => {
+        if (ans && ans.isCorrect) score++;
+    });
+
+    const total = quizQueue.length;
+    const percentage = Math.round((score / total) * 100);
+
+    document.getElementById("final-score-text").textContent = score + " / " + total;
+    document.getElementById("final-percentage-text").textContent = percentage + "% නිවැරදියි!";
+
+    const reviewList = document.getElementById("review-list");
+    reviewList.innerHTML = "";
+
+    quizAnswers.forEach((ans, index) => {
+        const item = document.createElement("div");
+        const isCorrect = ans && ans.isCorrect;
+
+        item.className = "review-item " + (isCorrect ? "is-correct" : "is-wrong");
+
+        item.innerHTML = `
+            <div class="review-top">
+                <span>ප්‍රශ්නය ${index + 1}: ${ans.questionPlace.titles ? ans.questionPlace.titles[0] : ''}</span>
+                <span class="${isCorrect ? 'badge-correct' : 'badge-wrong'}">
+                    ${isCorrect ? '✓ නිවැරදියි' : '✗ වැරදියි'}
+                </span>
+            </div>
+            <div class="review-details">
+                <b>තෝරාගත් පිළිතුර:</b> ${ans.selectedPlace ? ans.selectedPlace.sinhala : 'පිළිතුරු දී නැත'}<br>
+                ${!isCorrect ? `<b>නිවැරදි පිළිතුර:</b> ${ans.questionPlace.sinhala}` : ''}
+            </div>
+        `;
+
+        reviewList.appendChild(item);
+    });
+
+    document.getElementById("results-modal").style.display = "flex";
+}
+</script>
+
+</body>
+</html>
