@@ -174,53 +174,67 @@
 
         /* Footer Marquee styling */
         .marquee-container {
-            background: #836FFF;
+            background: black;
             border-top: 2px solid var(--color-sky-blue);
+        }
+
+        /* Modal Pop Animations */
+        .modal-pop-in {
+            animation: modalPopIn 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+        @keyframes modalPopIn {
+            0% { opacity: 0; transform: scale(0.85) translateY(20px); }
+            100% { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        /* Progress Bar pulse for Ad countdown */
+        .ad-timer-bar {
+            transition: width 1s linear;
         }
     </style>
 </head>
 <body class="flex flex-col h-screen w-screen overflow-hidden bg-white">
 
     <!-- TOP NAVIGATION & SEARCH HEADER -->
-    <header class="fixed top-0 left-0 w-full z-30 px-4 py-3 glass-panel border-b border-[#92EEFF]/60 flex flex-wrap items-center justify-between gap-3 shadow-sm">
+    <header class="fixed top-0 left-0 w-full z-30 px-3 md:px-4 py-2.5 glass-panel border-b border-[#92EEFF]/60 flex flex-wrap items-center justify-between gap-2.5 shadow-sm">
         
         <!-- Logo & Branding -->
         <div class="flex items-center space-x-3">
-            <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-[#92EEFF] to-[#D8FFC5] border border-[#30AFFF]/30 flex items-center justify-center text-[#30AFFF] shadow-md transform hover:rotate-6 transition-transform">
-                <i class="fa-solid fa-map-location-dot text-2xl text-[#0f2942]"></i>
+            <div class="w-10 h-10 md:w-11 md:h-11 rounded-2xl bg-gradient-to-br from-[#92EEFF] to-[#D8FFC5] border border-[#30AFFF]/30 flex items-center justify-center text-[#30AFFF] shadow-md transform hover:rotate-6 transition-transform">
+                <i class="fa-solid fa-map-location-dot text-xl md:text-2xl text-[#0f2942]"></i>
             </div>
             <div>
                 <div class="flex items-center gap-2">
-                    <h1 class="font-bold text-base md:text-lg text-[#0f2942] tracking-tight leading-tight">Sri Lanka History Map</h1>
-                    <span class="text-[11px] px-2.5 py-0.5 rounded-full gradient-header-badge font-bold uppercase tracking-wider shadow-xs">Trial</span>
+                    <h1 class="font-bold text-sm md:text-lg text-[#0f2942] tracking-tight leading-tight">Sri Lanka History Map</h1>
+                    <span class="text-[10px] md:text-[11px] px-2 py-0.5 rounded-full gradient-header-badge font-bold uppercase tracking-wider shadow-xs">Trial</span>
                 </div>
-                <p class="text-xs text-slate-500 hidden sm:block font-medium">ශ්‍රී ලංකා ඓතිහාසික හා භූගෝලීය ස්ථාන නාමාවලිය</p>
+                <p class="text-[11px] text-slate-500 hidden sm:block font-medium">ශ්‍රී ලංකා ඓතිහාසික හා භූගෝලීය ස්ථාන නාමාවලිය</p>
             </div>
         </div>
 
         <!-- Search Bar with Dynamic Suggestions Dropdown -->
-        <div class="relative flex-1 max-w-md">
+        <div class="relative flex-1 max-w-xs md:max-w-md">
             <div class="relative flex items-center">
-                <i class="fa-solid fa-magnifying-glass absolute left-3.5 text-[#30AFFF] pointer-events-none text-sm"></i>
+                <i class="fa-solid fa-magnifying-glass absolute left-3.5 text-[#30AFFF] pointer-events-none text-xs md:text-sm"></i>
                 <input 
                     type="text" 
                     id="location-input" 
-                    placeholder="Search place (eg: කැලණි ගඟ, Mahaweli, Colombo)..." 
-                    class="w-full pl-10 pr-24 py-2.5 text-sm bg-white border-2 border-[#92EEFF] focus:border-[#30AFFF] focus:ring-4 focus:ring-[#92EEFF]/40 rounded-xl outline-none transition-all shadow-inner text-[#0f2942] placeholder-slate-400 font-medium"
+                    placeholder="Search place (eg: කැලණි ගඟ, Mahaweli)..." 
+                    class="w-full pl-9 pr-20 md:pl-10 md:pr-24 py-2 text-xs md:text-sm bg-white border-2 border-[#92EEFF] focus:border-[#30AFFF] focus:ring-4 focus:ring-[#92EEFF]/40 rounded-xl outline-none transition-all shadow-inner text-[#0f2942] placeholder-slate-400 font-medium"
                     onkeyup="handleKeyUp(event)"
                     oninput="showSuggestions()"
                 >
                 <button 
                     onclick="clearSearch()" 
                     id="clear-btn" 
-                    class="hidden absolute right-16 text-slate-400 hover:text-[#30AFFF] text-xs p-1 transition-colors"
+                    class="hidden absolute right-14 md:right-16 text-slate-400 hover:text-[#30AFFF] text-xs p-1 transition-colors"
                     title="Clear text"
                 >
                     <i class="fa-solid fa-circle-xmark text-sm"></i>
                 </button>
                 <button 
                     onclick="searchLocation()" 
-                    class="absolute right-1.5 top-1.5 bottom-1.5 px-4 gradient-btn text-white text-xs font-bold rounded-lg flex items-center justify-center gap-1.5 shadow-sm"
+                    class="absolute right-1 top-1 bottom-1 px-3 md:px-4 gradient-btn text-white text-xs font-bold rounded-lg flex items-center justify-center gap-1.5 shadow-sm"
                 >
                     <span>Search</span>
                 </button>
@@ -232,15 +246,27 @@
             </div>
         </div>
 
-        <!-- Explore Themes Action Button -->
-        <button 
-            onclick="toggleThemeDrawer()" 
-            class="px-4 py-2.5 bg-gradient-to-r from-[#D8FFC5] to-[#C4F7CA] hover:from-[#C4F7CA] hover:to-[#92EEFF] border border-[#30AFFF]/30 text-[#0f2942] text-xs md:text-sm font-bold rounded-xl flex items-center gap-2 transition-all shadow-sm active:scale-95"
-        >
-            <i class="fa-solid fa-layer-group text-[#30AFFF] text-base"></i>
-            <span>Explore Themes</span>
-            <span id="theme-badge" class="ml-1 px-2 py-0.5 text-xs bg-[#30AFFF] text-white rounded-full font-black shadow-xs">0</span>
-        </button>
+        <!-- Right Side Header Controls: Ad Status Indicator & Theme Drawer Button -->
+        <div class="flex items-center gap-2">
+            <!-- Ad Timer Status Widget -->
+            <div class="hidden lg:flex items-center gap-2 px-3 py-1.5 bg-[#D8FFC5]/40 border border-[#92EEFF] rounded-xl text-xs text-[#0f2942] font-semibold" title="Next Ad Countdown">
+                <i class="fa-solid fa-[#30AFFF] fa-bullhorn text-[#30AFFF] animate-pulse"></i>
+                <span>Next Ad: <strong id="ad-countdown-display" class="text-[#30AFFF]">60s</strong></span>
+                <button onclick="triggerNextAdManually()" class="ml-1 px-1.5 py-0.5 bg-white hover:bg-[#92EEFF] border border-[#30AFFF]/30 rounded text-[10px] font-bold transition-colors" title="Preview Next Ad Now">
+                    <i class="fa-solid fa-forward"></i>
+                </button>
+            </div>
+
+            <!-- Explore Themes Action Button -->
+            <button 
+                onclick="toggleThemeDrawer()" 
+                class="px-3 md:px-4 py-2 bg-gradient-to-r from-[#D8FFC5] to-[#C4F7CA] hover:from-[#C4F7CA] hover:to-[#92EEFF] border border-[#30AFFF]/30 text-[#0f2942] text-xs md:text-sm font-bold rounded-xl flex items-center gap-2 transition-all shadow-sm active:scale-95"
+            >
+                <i class="fa-solid fa-layer-group text-[#30AFFF] text-sm md:text-base"></i>
+                <span class="hidden sm:inline">Explore Themes</span>
+                <span id="theme-badge" class="px-2 py-0.5 text-xs bg-[#30AFFF] text-white rounded-full font-black shadow-xs">0</span>
+            </button>
+        </div>
     </header>
 
     <!-- MAIN MAP DISPLAY CONTAINER -->
@@ -265,6 +291,70 @@
             </button>
         </div>
     </main>
+
+    <!-- ADVERTISEMENT POPUP MODAL CONTAINER -->
+    <div id="ad-modal-overlay" class="hidden fixed inset-0 bg-slate-900/60 backdrop-blur-md z-50 flex items-center justify-center p-4 transition-opacity duration-300">
+        <div id="ad-modal-box" class="relative w-full max-w-lg bg-white rounded-3xl border-2 border-[#92EEFF] shadow-2xl overflow-hidden modal-pop-in">
+            
+            <!-- Modal Header Bar -->
+            <div class="px-5 py-3 bg-gradient-to-r from-[#D8FFC5] via-[#C4F7CA] to-[#92EEFF] border-b border-[#30AFFF]/20 flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                    <span id="ad-badge-type" class="px-2.5 py-0.5 bg-[#30AFFF] text-white text-[11px] font-extrabold uppercase rounded-full shadow-xs">
+                        Welcome Ad
+                    </span>
+                    <span id="ad-index-indicator" class="text-xs font-bold text-[#0f2942]">
+                        Ad 1 / 5
+                    </span>
+                </div>
+
+                <div class="flex items-center gap-2">
+                    <button 
+                        onclick="closeAdModal()" 
+                        class="w-8 h-8 rounded-full bg-white text-[#0f2942] hover:bg-[#30AFFF] hover:text-white flex items-center justify-center border border-[#92EEFF] transition-all shadow-xs active:scale-95"
+                        title="Close Advertisement"
+                    >
+                        <i class="fa-solid fa-xmark text-sm"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Ad Progress Bar Indicator -->
+            <div class="w-full bg-[#D8FFC5]/50 h-1.5 overflow-hidden">
+                <div id="ad-modal-progress" class="bg-[#30AFFF] h-full ad-timer-bar" style="width: 100%;"></div>
+            </div>
+
+            <!-- Modal Body - Image Box with Dynamic Fallback -->
+            <div class="p-4 bg-slate-50 flex flex-col items-center justify-center min-h-[260px] max-h-[75vh] overflow-hidden">
+                <a id="ad-image-link" href="https://samira-sir.github.io/samira-sir/" target="_blank" class="w-full flex justify-center group relative overflow-hidden rounded-2xl border border-[#92EEFF] bg-white shadow-sm">
+                    <img 
+                        id="ad-img-element" 
+                        src="ad/1.jpg" 
+                        alt="Samira Sir Advertisement" 
+                        class="w-full max-h-[360px] object-contain transition-transform duration-500 group-hover:scale-105"
+                        onerror="handleAdImageError(this)"
+                    />
+                </a>
+            </div>
+
+            <!-- Modal Footer Action Bar -->
+            <div class="px-5 py-3.5 bg-white border-t border-[#92EEFF] flex items-center justify-between gap-3">
+                <a 
+                    href="https://samira-sir.github.io/samira-sir/" 
+                    target="_blank" 
+                    class="flex-1 py-2.5 px-4 gradient-btn text-white text-xs md:text-sm font-bold rounded-xl text-center shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2"
+                >
+                    <i class="fa-solid fa-graduation-cap text-base"></i>
+                    <span>Visit Samira Sir Official Site</span>
+                </a>
+                <button 
+                    onclick="closeAdModal()" 
+                    class="py-2.5 px-4 bg-slate-100 hover:bg-slate-200 border border-slate-300 text-[#0f2942] text-xs md:text-sm font-bold rounded-xl transition-colors"
+                >
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
 
     <!-- THEMES & PLACES SLIDE-OVER DRAWER -->
     <div id="drawer-backdrop" onclick="toggleThemeDrawer()" class="hidden fixed inset-0 bg-slate-900/40 backdrop-blur-xs z-40 transition-opacity"></div>
@@ -358,7 +448,7 @@ var places = [
     { sinhala: "පොල්ගොල්ල වේල්ල", english: "Polgolla Wella", titles: ["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"], coords: [977.44, 969.00] },
     { sinhala: "සමනල වැව", english: "Samanala Wewa", titles: ["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"], coords: [638.19, 1043.00] },
     { sinhala: "චන්ද්‍රිකා වැව", english: "Chandrika Wewa", titles: ["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"], coords: [461.10, 1082.00] },
-    { sinhala: "මිණිපේ අමුණ", english: "Minipe Amuna", titles: ["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"], coords: [940.34, 1172.00] },
+    { sinhala: "මිණිපේ අමුණ", english: "Minipe Amuna", titles: ["ශ්‍රී ලංකාවේ පැරණි රාජධානි සහ බලකොටු","ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"], coords: [940.34, 1172.00] },
     { sinhala: "සොරබොර වැව", english: "Sorabora Wewa", titles: ["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"], coords: [976.36, 1179.00] },
     { sinhala: "ඇළහැර අමුණ", english: "Elahera Amuna", titles: ["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"], coords: [1261.51, 1108.00] },
     { sinhala: "පරාක්‍රම සමුද්‍රය", english: "Parakrama Samudraya", titles: ["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"], coords: [1297.53, 1145.00] },
@@ -393,7 +483,7 @@ var places = [
     { sinhala: "හෝර්ටන්තැන්න", english: "Hortn Place", titles: ["ප්‍රාග් ඓතිහාසික ස්ථාන"], coords: [716.95, 1022.88] },
     { sinhala: "රාවණා ඇල්ල", english: "Rawana Falls", titles: ["ප්‍රාග් ඓතිහාසික ස්ථාන"], coords: [735.96, 1178.84] },
     { sinhala: "බණ්ඩාරවෙල", english: "Bandarawela", titles: ["ප්‍රාග් ඓතිහාසික ස්ථාන"], coords: [767.98, 1150.85] },
-    { sinhala: "පොතාන/අලිගල/සීගිරිය අලකොළවැව/දෙහිගහඇළකන්ද", english: "Pothana/Aligala/Sigiriya Alakolawewa/Dehigahaelakanda", titles: ["ප්‍රාග් ඓතිහාසික ස්ථාන"], coords: [1362.43, 1023.87] },
+    { sinhala: "පොතාන/අලිගල/සීගිරිය අලකොළවැව/දෙහිගහඇළකන්ද", english: "Pothana/Aligala/Sigiriya Alakolawewa/Dehigahaelakanda", titles: ["ශ්‍රී ලංකාවේ පැරණි රාජධානි සහ බලකොටු","ප්‍රාග් ඓතිහාසික ස්ථාන"], coords: [1362.43, 1023.87] },
     { sinhala: "අලිමංකඩ", english: "Elephant Pass", titles: ["ප්‍රාග් ඓතිහාසික ස්ථාන"], coords: [2122.74, 821.93] },
     { sinhala: "ගල්සොහොන්කනත්ත", english: "Galsohonkanaththa", titles: ["පූර්ව ඓතිහාසික ස්ථාන"], coords: [1344.72, 595.85] },
     { sinhala: "යටිගල්පොත්ත", english: "Yatigalpoththa", titles: ["පූර්ව ඓතිහාසික ස්ථාන"], coords: [1242.68, 935.76] },
@@ -409,28 +499,28 @@ var places = [
     { sinhala: "බෙල්ලන්බැදිපැලැස්ස", english: "Bellanbedipalassa", titles: ["ප්‍රාග් ඓතිහාසික ස්ථාන"], coords: [660.40, 924.91] },
     { sinhala: "මහාතිත්ත/මාතොට", english: "Mahathiththa/Mathota", titles: ["ප්‍රාග් ඓතිහාසික ස්ථාන"], coords: [1832.96, 603.99] },
     { sinhala: "අලිමංකඩ", english: "Alimankada", titles: ["ප්‍රාග් ඓතිහාසික ස්ථාන"], coords: [2122.86, 822.94] },
-    { sinhala: "පොළොන්නරුව", english: "Polonnaruwa", titles: ["ශ්‍රී ලංකාවේ අග නගර"], coords: [1553.07, 1176.84] },
-    { sinhala: "මහනුවර", english: "Mahanuwara", titles: ["ශ්‍රී ලංකාවේ අග නගර"], coords: [981.28, 960.90] },
+    { sinhala: "පොළොන්නරුව", english: "Polonnaruwa", titles: ["ශ්‍රී ලංකාවේ පැරණි රාජධානි සහ බලකොටු","ශ්‍රී ලංකාවේ අග නගර"], coords: [1553.07, 1176.84] },
+    { sinhala: "මහනුවර", english: "Mahanuwara", titles: ["ශ්‍රී ලංකාවේ පැරණි රාජධානි සහ බලකොටු","ශ්‍රී ලංකාවේ අග නගර"], coords: [981.28, 960.90] },
     { sinhala: "කතරගම/කාචරගම", english: "Katharagama/Kacharagama", titles: ["ශ්‍රී ලංකාවේ අග නගර"], coords: [538.44, 1312.81] },
-    { sinhala: "මාගම", english: "Magama", titles: ["ශ්‍රී ලංකාවේ අග නගර"], coords: [449.47, 1320.81] },
+    { sinhala: "මාගම", english: "Magama", titles: ["ශ්‍රී ලංකාවේ පැරණි රාජධානි සහ බලකොටු","ශ්‍රී ලංකාවේ අග නගර"], coords: [449.47, 1320.81] },
     { sinhala: "දෙවි නුවර/දේව නගර", english: "Devi Nuwara/Deva Nagar", titles: ["ශ්‍රී ලංකාවේ අග නගර"], coords: [279.53, 938.91] },
     { sinhala: "මාතර", english: "Mathara", titles: ["ශ්‍රී ලංකාවේ අග නගර"], coords: [283.53, 905.92] },
     { sinhala: "ගාල්ල", english: "Galle", titles: ["ශ්‍රී ලංකාවේ අග නගර"], coords: [342.51, 714.96] },
-    { sinhala: "රයිගම", english: "Raigama", titles: ["ශ්‍රී ලංකාවේ අග නගර"], coords: [646.40, 608.99] },
-    { sinhala: "කෝට්ටේ", english: "Kotte", titles: ["ශ්‍රී ලංකාවේ අග නගර"], coords: [780.35, 536.01] },
-    { sinhala: "ගම්පොළ", english: "Gampola", titles: ["ශ්‍රී ලංකාවේ අග නගර"], coords: [885.31, 919.91] },
-    { sinhala: "දඹදෙණිය", english: "Dabadeniya", titles: ["ශ්‍රී ලංකාවේ අග නගර"], coords: [982.28, 685.97] },
+    { sinhala: "රයිගම", english: "Raigama", titles: ["ශ්‍රී ලංකාවේ පැරණි රාජධානි සහ බලකොටු","ශ්‍රී ලංකාවේ අග නගර"], coords: [646.40, 608.99] },
+    { sinhala: "කෝට්ටේ", english: "Kotte", titles: ["ශ්‍රී ලංකාවේ පැරණි රාජධානි සහ බලකොටු","ශ්‍රී ලංකාවේ අග නගර"], coords: [780.35, 536.01] },
+    { sinhala: "ගම්පොළ", english: "Gampola", titles: ["ශ්‍රී ලංකාවේ පැරණි රාජධානි සහ බලකොටු","ශ්‍රී ලංකාවේ අග නගර"], coords: [885.31, 919.91] },
+    { sinhala: "දඹදෙණිය", english: "Dabadeniya", titles: ["ශ්‍රී ලංකාවේ පැරණි රාජධානි සහ බලකොටු","ශ්‍රී ලංකාවේ අග නගර"], coords: [982.28, 685.97] },
     { sinhala: "සල්වතොට/හලාවත", english: "Chillaw/Salwathota", titles: ["ශ්‍රී ලංකාවේ අග නගර"], coords: [1107.23, 497.02] },
-    { sinhala: "කුරුණෑගල", english: "Kurunegala", titles: ["ශ්‍රී ලංකාවේ අග නගර"], coords: [1090.12, 838.89] },
-    { sinhala: "පරාක්‍රමපුර/පඬුවස්නුවර", english: "Parakramapura/Paduwasnuwara", titles: ["ශ්‍රී ලංකාවේ අග නගර"], coords: [1127.10, 642.94] },
+    { sinhala: "කුරුණෑගල", english: "Kurunegala", titles: ["ශ්‍රී ලංකාවේ පැරණි රාජධානි සහ බලකොටු","ශ්‍රී ලංකාවේ අග නගර"], coords: [1090.12, 838.89] },
+    { sinhala: "පරාක්‍රමපුර/පඬුවස්නුවර", english: "Parakramapura/Paduwasnuwara", titles: ["ශ්‍රී ලංකාවේ පැරණි රාජධානි සහ බලකොටු","ශ්‍රී ලංකාවේ අග නගර"], coords: [1127.10, 642.94] },
     { sinhala: "යාපහුව", english: "Yapahuwa", titles: ["ශ්‍රී ලංකාවේ අග නගර"], coords: [1270.05, 841.89] },
-    { sinhala: "අනුරාධපුරය", english: "Anuradhapuraya", titles: ["ශ්‍රී ලංකාවේ අග නගර"], coords: [1511.96, 822.89] },
-    { sinhala: "යාපනය/නකදිව", english: "Jaffna/Nakadiwa", titles: ["ශ්‍රී ලංකාවේ අග නගර"], coords: [2191.71, 625.94] },
+    { sinhala: "අනුරාධපුරය", english: "Anuradhapuraya", titles: ["ශ්‍රී ලංකාවේ පැරණි රාජධානි සහ බලකොටු","ශ්‍රී ලංකාවේ අග නගර"], coords: [1511.96, 822.89] },
+    { sinhala: "යාපනය/නකදිව", english: "Jaffna/Nakadiwa", titles: ["ශ්‍රී ලංකාවේ පැරණි රාජධානි සහ බලකොටු","ශ්‍රී ලංකාවේ අග නගර"], coords: [2191.71, 625.94] },
     { sinhala: "කුඹුක්කන් ඔය", english: "Kubukkan Oya", titles: ["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"], coords: [625.85, 1451.72] },
     { sinhala: "මැණික් ගඟ", english: "Manik Ganga", titles: ["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"], coords: [523.89, 1393.74] },
     { sinhala: "කිරිඳිඔය", english: "Kiridi Oya", titles: ["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"], coords: [573.87, 1235.78] },
     { sinhala: "කනදරා ඔය", english: "Kanadara Oya", titles: ["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"], coords: [1583.66, 871.77] },
-    { sinhala: "සීතාවක", english: "Sethawaka", titles: ["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"], coords: [777.96, 729.81] },
+    { sinhala: "සීතාවක", english: "Sethawaka", titles: ["ශ්‍රී ලංකාවේ පැරණි රාජධානි සහ බලකොටු","ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"], coords: [777.96, 729.81] },
     { sinhala: "දඹකොළපටුන", english: "Dambakolapatuna", titles: ["ශ්‍රී ලංකාවේ වරායන්"], coords: [2261.81, 593.00] },
     { sinhala: "පල්ලවංකය", english: "Pallawankaya", titles: ["ශ්‍රී ලංකාවේ වරායන්"], coords: [1778.99, 1173.84] },
     { sinhala: "ත්‍රිකුණාමලය/ගෝකන්නතිත්ත", english: "Trincomalee/Gokannathiththta", titles: ["ශ්‍රී ලංකාවේ වරායන්"], coords: [1645.04, 1258.82] },
@@ -480,7 +570,7 @@ var places = [
     { sinhala: "තිරුකේෂ්වරම", english: "Thirukeshwaram", titles: ["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"], coords: [1819.05, 586.97] },
     { sinhala: "නාගදීපය", english: "Nagadeepaya", titles: ["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"], coords: [2161.92, 475.99] },
     { sinhala: "කඳුරුගොඩ/කන්තරෝඩය", english: "Kadurugoda/Kanttharodaya", titles: ["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"], coords: [2237.89, 620.96] },
-    { sinhala: "ගෝවින්දමලය", english: "Govindamalaya", titles: ["ශ්‍රී ලංකාවේ පැරණි රාජධානි සහ බලකොටු"], coords: [836.04, 1533.87] },
+    { sinhala: "ගෝවින්දමලය", english: "Govindamalaya", titles: ["ශ්‍රී ලංකාවේ පැරණි රාජධානි සහ බලකොටු",], coords: [836.04, 1533.87] },
     { sinhala: "යාපහුව/සුබපබ්බත", english: "Yapahuwa/Suba Pabbatha", titles: ["ශ්‍රී ලංකාවේ පැරණි රාජධානි සහ බලකොටු"], coords: [1202.06, 769.90] },
     { sinhala: "මුලතිව්", english: "Mulathiv", titles: ["යටත්විජිත යුගයේ ස්ථාන"], coords: [1986.77, 1050.83] },
     { sinhala: "මාතලේ", english: "Mathale", titles: ["යටත්විජිත යුගයේ ස්ථාන"], coords: [1096.10, 923.86] },
@@ -501,11 +591,26 @@ var places = [
     { sinhala: "පුත්තලම", english: "Puththalama", titles: ["ලන්දේසි බලකොටු"], coords: [1377.36, 505.50] },
     { sinhala: "අරිප්පු", english: "Arippu", titles: ["ලන්දේසි බලකොටු"], coords: [1736.73, 589.98] }
 ];
+
         /* Global Map State Variables */
         var map;
         var marker;
         var imageBounds = [[0, 0], [2400, 1800]];
         var fallbackCanvasUrl = '';
+
+        /* ADVERTISEMENT ENGINE CONFIGURATION */
+        var adList = [
+            'ad/1.jpg',
+            'ad/2.jpg',
+            'ad/3.jpg',
+            'ad/4.jpg',
+            'ad/5.jpg'
+        ];
+        var currentAdIndex = 0;
+        var adTimerSeconds = 60; // 1 minute interval
+        var currentCountdown = 60;
+        var adCountdownInterval = null;
+        var isModalOpen = false;
 
         window.onload = function() {
             document.getElementById('total-places-count').innerText = places.length;
@@ -543,7 +648,115 @@ var places = [
 
             // Build Theme drawer options
             renderThemesList();
+
+            /* Launch Welcome Advertisement shortly after page initialization */
+            setTimeout(function() {
+                showAdModal(true); // Welcome Ad (Uses ad/1.jpg)
+            }, 1200);
+
+            // Start 1-minute ad cycle timer
+            startAdCountdownTimer();
         };
+
+        /* AD ENGINE FUNCTIONS */
+        function startAdCountdownTimer() {
+            if (adCountdownInterval) clearInterval(adCountdownInterval);
+
+            currentCountdown = adTimerSeconds;
+            updateCountdownUI();
+
+            adCountdownInterval = setInterval(function() {
+                if (!isModalOpen) {
+                    currentCountdown--;
+                    updateCountdownUI();
+
+                    if (currentCountdown <= 0) {
+                        currentAdIndex = (currentAdIndex + 1) % adList.length;
+                        showAdModal(false); // 1-min Pop-Up Ad
+                        currentCountdown = adTimerSeconds;
+                    }
+                }
+            }, 1000);
+        }
+
+        function updateCountdownUI() {
+            var display = document.getElementById('ad-countdown-display');
+            if (display) {
+                display.innerText = currentCountdown + 's';
+            }
+        }
+
+        function showAdModal(isWelcome) {
+            isModalOpen = true;
+
+            var adImgElem = document.getElementById('ad-img-element');
+            var adBadgeElem = document.getElementById('ad-badge-type');
+            var adIndexElem = document.getElementById('ad-index-indicator');
+            var adProgressElem = document.getElementById('ad-modal-progress');
+            var overlay = document.getElementById('ad-modal-overlay');
+
+            if (isWelcome) {
+                currentAdIndex = 0; // First ad ad/1.jpg for Welcome
+                adBadgeElem.innerText = "Welcome Special";
+                adBadgeElem.className = "px-2.5 py-0.5 bg-[#30AFFF] text-white text-[11px] font-extrabold uppercase rounded-full shadow-xs";
+            } else {
+                adBadgeElem.innerText = "Sponsored Ad";
+                adBadgeElem.className = "px-2.5 py-0.5 bg-emerald-500 text-white text-[11px] font-extrabold uppercase rounded-full shadow-xs";
+            }
+
+            adIndexElem.innerText = `Ad ${currentAdIndex + 1} / ${adList.length}`;
+            
+            // Set image source to current ad path (e.g., ad/1.jpg, ad/2.jpg, etc.)
+            adImgElem.src = adList[currentAdIndex];
+
+            // Reset progress animation
+            adProgressElem.style.width = '100%';
+
+            overlay.classList.remove('hidden');
+
+            showToast(isWelcome ? "Welcome to Sri Lanka History Map!" : `Advertisement ${currentAdIndex + 1} shown`);
+        }
+
+        function closeAdModal() {
+            var overlay = document.getElementById('ad-modal-overlay');
+            overlay.classList.add('hidden');
+            isModalOpen = false;
+
+            // Reset countdown for next 1-minute cycle
+            currentCountdown = adTimerSeconds;
+            updateCountdownUI();
+        }
+
+        function triggerNextAdManually() {
+            currentAdIndex = (currentAdIndex + 1) % adList.length;
+            showAdModal(false);
+        }
+
+        /* Dynamic SVG Banner Fallback if ad/1.jpg ... ad/5.jpg missing */
+        function handleAdImageError(img) {
+            var adNumber = currentAdIndex + 1;
+            
+            // Create visually attractive dynamic SVG advertisement placeholder
+            var svgData = `
+            <svg xmlns="http://www.w3.org/2000/svg" width="500" height="300" viewBox="0 0 500 300">
+                <defs>
+                    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#30AFFF" />
+                        <stop offset="50%" stop-color="#92EEFF" />
+                        <stop offset="100%" stop-color="#D8FFC5" />
+                    </linearGradient>
+                </defs>
+                <rect width="500" height="300" rx="16" fill="url(#bg)" />
+                <circle cx="250" cy="90" r="45" fill="#ffffff" opacity="0.9" />
+                <path d="M250 60 L260 80 L280 85 L265 100 L270 120 L250 110 L230 120 L235 100 L220 85 L240 80 Z" fill="#30AFFF" />
+                <text x="250" y="170" font-family="sans-serif" font-weight="900" font-size="22" fill="#0f2942" text-anchor="middle">SAMIRA SIR CLASSES #${adNumber}</text>
+                <text x="250" y="200" font-family="sans-serif" font-weight="700" font-size="14" fill="#0f2942" text-anchor="middle">Sri Lanka History &amp; Geography Masterclass</text>
+                <rect x="150" y="225" width="200" height="40" rx="20" fill="#0f2942" />
+                <text x="250" y="250" font-family="sans-serif" font-weight="bold" font-size="14" fill="#ffffff" text-anchor="middle">JOIN NOW • 2026</text>
+            </svg>`;
+
+            img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svgData);
+        }
 
         function generateFallbackMapImage() {
             var canvas = document.createElement('canvas');
@@ -622,7 +835,7 @@ var places = [
                 <div class="p-2.5 min-w-[210px]">
                     <div class="text-[#0f2942] font-extrabold text-base mb-1">${place.sinhala}</div>
                     <div class="text-xs font-bold text-[#30AFFF] mb-2 flex items-center gap-1">
-                        <i class="fa-solid fa-[#30AFFF] fa-font text-[#30AFFF]"></i>
+                        <i class="fa-solid fa-font text-[#30AFFF]"></i>
                         <span>${place.english}</span>
                     </div>
                     <div class="flex flex-wrap gap-1 mt-2">
