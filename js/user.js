@@ -106,7 +106,6 @@ const credentials = {
     nadun: { password: '1234', subjects: [{ name: 'history', grade: 10 },{ name: 'History Paper', grade: 10 }] },
     niduka: { password: 'nidu1212', subjects: [{ name: 'history', grade: 10 }] },
     kenuli : { password: '1520', subjects: [{ name: 'geography', grade: 10 }] },
-    vinudi : { password: '2011', subjects: [{ name: 'history', grade: 10 }] }, 
     arham : { password: 'arham2011', subjects: [{ name: 'history', grade: 10 }] }, 
     senumitha: { password: 'senumitha123', subjects: [{ name: 'history', grade: 10 },{ name: 'geography', grade: 10 },{ name: 'History Paper', grade: 10 }] },  
     kavishka: { password: 'Kavishka@2011', subjects: [{ name: 'history', grade: 10 },{ name: 'History Paper', grade: 10 }] },
@@ -144,6 +143,7 @@ const credentials = {
     shenon: { password: '1234', subjects: [{ name: 'history Paper', grade: 11 }] },
     disanma: { password: '1985', subjects: [{ name: 'history', grade: 11 }] }, 
     amasha: { password: 'amasha123', subjects: [{name:'history',grade:11},{ name: 'History Paper', grade: 11 }] },
+   vinudi : { password: '12345', subjects: [{ name: 'geography', grade: 11 }] }, 
     };
 
 
