@@ -10816,6 +10816,33 @@ const videoLinks = [
         title: '2026-09-18 - Grade 10 History Paper  Class Part 3' 
       },
 
+      { 
+        class: '6', 
+        subject: 'Geography', 
+        date: '2026-09-19', 
+        month: 'September', 
+        video: 'https://drive.google.com/file/d/1Gk-SCuaEzcOSCPywve4epmCWGIoNG7W5/preview', 
+        title: '2026-09-19 - Grade 6 Geography  Class Part 1' 
+      },
+
+      { 
+        class: '6', 
+        subject: 'Geography', 
+        date: '2026-09-19', 
+        month: 'September', 
+        video: 'https://drive.google.com/file/d/1YRIM9PYFJI7Ja6uqxkvG_2mxk7txr4Vr/preview', 
+        title: '2026-09-19 - Grade 6 Geography  Class Part 2' 
+      },
+
+      { 
+        class: '6', 
+        subject: 'Geography', 
+        date: '2026-09-19', 
+        month: 'September', 
+        video: 'https://drive.google.com/file/d/1lLZmfwnICc1SdPz_ZBCcm7z872BeY-vC/preview', 
+        title: '2026-09-19 - Grade 6 Geography  Class Part 3' 
+      },
+
      ];
   
 
