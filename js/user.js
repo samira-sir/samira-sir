@@ -19,6 +19,7 @@ const credentials = {
     mahiru: { password: 'mahiru2016', subjects: [{ name: 'geography', grade: 6 }, { name: 'history', grade: 6 }] }, 
     manuthi: { password: '2016', subjects: [{ name: 'history', grade: 6 }] },
     thiven: { password: 'thiven123', subjects: [{ name: 'history', grade: 6 }] },
+    amiru: { password: 'amiru123', subjects: [{ name: 'history', grade: 6 }] },
     senuji: { password: 'shiran', subjects: [{ name: 'geography', grade: 7 }, { name: 'history', grade: 7 }] },
     amra: { password: '2014', subjects: [{ name: 'geography', grade: 7 }, { name: 'history', grade: 7 }] },
     nithuki: { password: '2014', subjects: [{ name: 'geography', grade: 7 }, { name: 'history', grade: 7 }] },
