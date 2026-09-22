@@ -1,0 +1,1494 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samira sie Exams</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Chart.js for Performance Visualization -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Firebase Compat SDKs (v10.8.0) -->
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+    <script src="js/user.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans Sinhala"', '"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#eef2ff',
+                            100: '#e0e7ff',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                            900: '#1e1b4b',
+                        },
+                        amberBrand: {
+                            500: '#f59e0b',
+                            600: '#d97706',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0f172a;
+            color: #f8fafc;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.15) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(217, 119, 6, 0.12) 0px, transparent 50%);
+            background-attachment: fixed;
+        }
+
+        .glass-panel {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .glass-card {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 5px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: rgba(15, 23, 42, 0.6);
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #475569;
+        }
+    </style>
+
+    <script>
+        // Firebase Configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyBQKMwz35ENTODrbqgFkuHj2p7mtLAB6jw",
+            authDomain: "mothly-tests.firebaseapp.com",
+            projectId: "mothly-tests",
+            storageBucket: "mothly-tests.firebasestorage.app",
+            messagingSenderId: "481065382276",
+            appId: "1:481065382276:web:df25dc4eb04016ca9eadd1",
+            measurementId: "G-R2QQ0KJSN7"
+        };
+
+        let db = null;
+        let isFirebaseConnected = false;
+        let firestoreUnsubscribe = null;
+
+        try {
+            if (typeof firebase !== 'undefined') {
+                firebase.initializeApp(firebaseConfig);
+                db = firebase.firestore();
+                isFirebaseConnected = true;
+                console.log("Firebase initialized successfully!");
+            }
+        } catch (e) {
+            console.warn("Firebase initialization error. Operating in offline mode.", e);
+        }
+
+        function getTodayDateString() {
+            const today = new Date();
+            const yyyy = today.getFullYear();
+            const mm = String(today.getMonth() + 1).padStart(2, '0');
+            const dd = String(today.getDate()).padStart(2, '0');
+            return `${yyyy}-${mm}-${dd}`;
+        }
+
+        const examSchedules = [
+            // Grade 6
+            { examNo: 1, key: "6-history-1", subject: "history", grade: 6, displayName: "පරීක්ෂණය #1: 6 ශ්‍රේණිය ඉතිහාසය", description: "", date: "2026-09-22", startTime: "08:00", endTime: "22:00", durationMinutes: 60 },
+
+        ];
+
+        const questionBank = {
+"6-history-1": [
+    { id: 1, question: "මෙරට ලියවුණු ප්‍රථම සාහිත්‍ය මූලාශ්‍රය වන්නේ", choices: ["මහාවංසය", "ථූපවංසය", "දීපවංසය", "බෝධිවංසය"], correctAnswer: 2, explanation: "දීපවංසය මෙරට ලියවුණු ප්‍රථම සාහිත්‍ය මූලාශ්‍රය වේ." },
+    { id: 2, question: "පුරාවිද්‍යාත්මක මූලාශ්‍රයන්ට අයත් නොවන්නේ?", choices: ["මිනිස් ඇටසැකිලි", "මිනිසා ආහාරයට ගෙන ඉතිරි වූ දේ", "පැරණි භාණ්ඩ", "පැරණි පොත්පත්"], correctAnswer: 3, explanation: "පැරණි පොත්පත් සාහිත්‍ය හෝ ලිඛිත මූලාශ්‍රවලට අයත් වේ." },
+    { id: 3, question: "ක්‍රිස්තුස් වහන්සේගේ උපතට පෙර යුගය ගණනය කරනු ලබන වර්ෂ ක්‍රමය වන්නේ,", choices: ["ක්‍රිස්තු වර්ෂ යනුවෙනි", "ක්‍රිස්තු පූර්ව යනුවෙනි", "ශක වර්ෂ යනුවෙනි", "බුද්ධ වර්ෂ යනුවෙනි"], correctAnswer: 1, explanation: "ක්‍රිස්තුස් වහන්සේගේ උපතට පෙර කාලය ක්‍රිස්තු පූර්ව ලෙස ගණනය කෙරේ." },
+    { id: 4, question: "ශ්‍රී ලංකාවට නිදහස ලැබුනු වර්ෂය වන්නේ,", choices: ["ක්‍රි.ව 1505", "ක්‍රි.ව 1948", "ක්‍රි.ව 1815", "කි.ව 1956"], correctAnswer: 1, explanation: "ශ්‍රී ලංකාවට බ්‍රිතාන්‍යයන්ගෙන් නිදහස ලැබුණේ ක්‍රි.ව 1948 වසරේදීය." },
+    { id: 5, question: "ඉතිහාසය ඉගෙනීමෙන් ලද හැකි ප්‍රයෝජනයක් වන්නේ,", choices: ["හොදින් ඉගෙනීමට හැකිවීමය", "චාරිකා යාමේදී ප්‍රයෝජනවත් වීමය", "වර්තමානයේ සිදුවන දෑ තේරුම්ගැනීමට හැකිවීමය", "තම ජීවිතය සතුටින් ගතකළ හැකිවීමය"], correctAnswer: 2, explanation: "අතීතය හැදෑරීමෙන් වර්තමානයේ සිදුවන දෑ මනාව තේරුම් ගත හැක." },
+    { id: 6, question: "පෘථිවිය නිර්මාණය වි ඇත්තේ මීට අවුරුදු,", choices: ["දසලක්ෂ විසිපන්දහසකට පෙර", "දසලක්ෂ හාරදහස් පන්සියහතලිහකට පෙර", "දසලක්ෂ හාරදහස් පන්සියයකට පෙර", "දසලක්ෂ විසිපන්දහස් පන්සියයකට පෙර"], correctAnswer: 1, explanation: "පෘථිවිය නිර්මාණය වී ඇත්තේ මීට අවුරුදු දසලක්ෂ හාරදහස් පන්සියහතලිහකට පෙරය." },
+    { id: 7, question: "නිහාරිකාවක් යනු", choices: ["තාරකාවකි", "වායු වළාවකි", "දූවිලි වලාවකි", "ග්‍රහලෝකයකි"], correctAnswer: 2, explanation: "නිහාරිකාවක් යනු දැවැන්ත දූවිලි හා වායු වලාවකි." },
+    { id: 8, question: "පෘථිවිය මධ්‍යයේ උෂ්ණත්වය", choices: ["6000°c කි", "4000°cකි", "60000°c කි", "40000°c කි."], correctAnswer: 0, explanation: "පෘථිවි හරයේ මධ්‍යස්ථ උෂ්ණත්වය දළ වශයෙන් 6000°C පමණ වේ." },
+    { id: 9, question: "පෘථිවියේ මුල්ම ජීවියා", choices: ["ඔපබීනියා", "හැකරැල්ලා", "ප්‍රොකායෝටි බැක්ටීරියා", "දිලීර විශේශයක්"], correctAnswer: 2, explanation: "පෘථිවියේ මුලින්ම බිහි වූ සරලම ජීවියා ප්‍රොකායෝටි බැක්ටීරියා වේ." },
+    { id: 10, question: "පළමු වරට ගොඩබිමෙහි ජීවීන් පහළ වන්නේ,", choices: ["සිලුරියන් යුගයේදීය", "හොලෝසීන යුගයේදීය", "මහා හිම යුගයේදීය", "ප්‍රාග් ඓතිහාසික යුගයේදී ය."], correctAnswer: 0, explanation: "පළමු වරට ගොඩබිම ජීවීන් පහළ වූයේ සිලුරියන් යුගයේදීය." },
+    { id: 11, question: "ලෝකයේ මුලින්ම ජීවීන් බිහිවන්නේ,", choices: ["ගොඩබිමෙහිය", "වායුගෝලයේය", "පසෙහිය", "ජලයෙහිය"], correctAnswer: 3, explanation: "ප්‍රථම ජීවීන් බිහි වූයේ ජලීය පරිසරයේය." },
+    { id: 12, question: "මහා හිම යුගයේදී ජීවත් වූ සත්ත්වයෙකු වන්නේ,", choices: ["හිම වළසා", "මැමත් අලියා", "ඩයිනෝසිරස්", "ගවයා"], correctAnswer: 1, explanation: "මහා හිම යුගයේ ජීවත් වූ ප්‍රධාන සතෙකි මැමත් අලියා." },
+    { id: 13, question: "මිනිස් වර්ගයා බිහිවීමට අවශ්‍ය පසුබිම සකස් වූයේ", choices: ["අලු වදුරා", "චිම්පන්සියාගෙනි", "කලු වදුරාගෙනි", "රිලවාගෙනි"], correctAnswer: 1, explanation: "මිනිසාගේ පරිණාමීය පසුබිම සකස් වූයේ ප්‍රයිමේටාවන් හරහා චිම්පන්සියා වැනි විශේෂයන්ගෙනි." },
+    { id: 14, question: "මුල්ම මානවයා හදුන්වන නාමය වන්නේ,", choices: ["හෝමෝසාපියන්", "හෝමෝ ඉරෙක්ටස්", "ඔස්ට්‍රලෝපිතිකස්", "හෝමෝ නියැන්ඩතාලින්සිස්"], correctAnswer: 2, explanation: "මුල්ම මානව πρόγονයා ලෙස ඔස්ට්‍රලෝපිතිකස් හඳුන්වනු ලැබේ." },
+    { id: 15, question: "ගින්දර භාවිතයට මිනිසා මුලින්ම යොමු වූ බවට සාක්ෂි හමුවන්නේ,", choices: ["ඉන්දියාවෙනි", "ශ්‍රී ලංකාවෙනි", "අප්‍රිකාවෙනි", "ඊශ්‍රායලයෙනි"], correctAnswer: 3, explanation: "ගින්දර භාවිතය පිළිබඳ මුල්ම පුරාවිද්‍යාත්මක සාක්ෂි හමුවන්නේ ඊශ්‍රායලයෙනි." },
+    { id: 16, question: "හැකි මිනිසා ලෙස නම් කරනු ලැබුවේ,", choices: ["හොමෝ හැබිලිස්", "හෝමෝ ඉරෙක්ටස්", "හෝමෝ සාපියන්", "හෝමෝ නියැන්ඩතාලෙන්සිස්"], correctAnswer: 0, explanation: "'Homo habilis' යනු මෙවලම් තැනීමට හැකි වූ මිනිසා හෙවත් හැකි මිනිසා වේ." },
+    { id: 17, question: "ආදි මානවයා මුලින්ම භාවිතයට ගනු ලැබූ උපකරණ වන්නේ", choices: ["යකඩ මෙවලම්", "මැටි මෙවලම්", "ගල් මෙවලම්", "රන් මෙවලම්"], correctAnswer: 2, explanation: "ආදි මානවයා මුල්ම යුගයේදී භාවිත කළේ ගල් මෙවලම්ය." },
+    { id: 18, question: "මිනිසුන් කණ්ඩායම් වශයෙන් තැන් තැන්වල කදවුරු බැද ජිවත් වූයේ,", choices: ["මධ්‍ය ශිලා යුගයේ", "පූර්ව ශිලා යුගයේ", "නව ශිලා යුගයේ", "මුල් ඓතිහාසික යුගයේ"], correctAnswer: 1, explanation: "පූර්ව ශිලා යුගයේ මිනිසුන් කණ්ඩායම් වශයෙන් තැන් තැන්වල කඳවුරු බැඳ ජීවත් විය." },
+    { id: 19, question: "පූර්ව ශිලා යුගයේ පැවති අවමංගල්‍ය චාරිත්‍රයක් වන්නේ,", choices: ["මළ සිරුරු පිළිස්සීම", "ඇටසැකිලි වළදැමීම", "ඇටසැකිලි පිළිස්සීම", "ඇටසැකිලිවල ගුරුගල් ආලේප කිරීම"], correctAnswer: 3, explanation: "පූර්ව ශිලා යුගයේ මළ සිරුරු හෝ ඇටසැකිලිවල ගුරුගල් ආලේප කිරීමේ සිරිතක් පැවතුණි." },
+    { id: 20, question: "නව ශිලා යුගයේ සිදු වූ කැපී පෙනෙන ලක්ෂණයක් වූයේ,", choices: ["ගින්දර සොයා ගැනීම", "මැටි භාණ්ඩ තැනීම", "ගොවිතැනට යොමුවීම", "වෙළෙඳාමට යොමු වීම"], correctAnswer: 2, explanation: "නව ශිලා යුගයේ සිදු වූ විශාලතම විප්ලවය වූයේ ගොවිතැනට (කෘෂිකර්මාන්තයට) යොමුවීමයි." }
+]
+        };
+
+        function getQuestionsForExam(examKey) {
+            if (questionBank[examKey]) return questionBank[examKey];
+            return [
+                { id: 1, question: `${examKey} සඳහා මූලික ආදර්ශ ප්‍රශ්නය 01?`, choices: ["පිළිතුර A", "පිළිතුර B", "පිළිතුර C", "පිළිතුර D"], correctAnswer: 0, explanation: "සම්මත විෂය නිර්දේශයේ නිවැරදි පිළිතුර A වේ." },
+                { id: 2, question: `${examKey} සඳහා මූලික ආදර්ශ ප්‍රශ්නය 02?`, choices: ["පිළිතුර A", "පිළිතුර B", "පිළිතුර C", "පිළිතුර D"], correctAnswer: 1, explanation: "සම්මත විෂය නිර්දේශයේ නිවැරදි පිළිතුර B වේ." },
+                { id: 3, question: `${examKey} සඳහා මූලික ආදර්ශ ප්‍රශ්නය 03?`, choices: ["පිළිතුර A", "පිළිතුර B", "පිළිතුර C", "පිළිතුර D"], correctAnswer: 2, explanation: "සම්මත විෂය නිර්දේශයේ නිවැරදි පිළිතුර C වේ." },
+                { id: 4, question: `${examKey} සඳහා මූලික ආදර්ශ ප්‍රශ්නය 04?`, choices: ["පිළිතුර A", "පිළිතුර B", "පිළිතුර C", "පිළිතුර D"], correctAnswer: 3, explanation: "සම්මත විෂය නිර්දේශයේ නිවැරදි පිළිතුර D වේ." },
+                { id: 5, question: `${examKey} සඳහා මූලික ආදර්ශ ප්‍රශ්නය 05?`, choices: ["පිළිතුර A", "පිළිතුර B", "පිළිතුර C", "පිළිතුර D"], correctAnswer: 0, explanation: "සම්මත විෂය නිර්දේශයේ නිවැරදි පිළිතුර A වේ." }
+            ];
+        }
+
+        // Application State Variables
+        let currentUser = null;
+        let currentView = 'login';
+        let activeExamKey = null;
+        let examStartTime = null;
+        let examSessionEndTime = null;
+        let examTimerInterval = null;
+        let examAnswers = {}; 
+        let currentQuestionIndex = 0;
+        let globalResultsList = []; 
+        let pendingDeleteId = null;
+        let pendingResetScope = null;
+        let progressChartInstance = null;
+    </script>
+</head>
+
+<body class="font-sans antialiased min-h-screen flex flex-col justify-between">
+
+<!-- HEADER / NAVBAR -->
+<header class="glass-panel sticky top-0 z-30 border-b border-slate-800/80 shadow-2xl">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+        <div class="flex items-center space-x-3 cursor-pointer" onclick="if(currentUser) showView('dashboard')">
+            <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-brand-600 via-indigo-500 to-amber-500 p-0.5 shadow-lg shadow-indigo-500/20">
+                <div class="w-full h-full bg-slate-900 rounded-[14px] flex items-center justify-center">
+                    <i class="fa-solid fa-earth-americas text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-amber-400 text-xl"></i>
+                </div>
+            </div>
+            <div>
+                <span class="font-extrabold text-lg sm:text-xl tracking-tight block leading-tight text-white font-sans">
+                    Exam Dashboard<span class="text-xs font-normal text-amber-400 bg-amber-400/10 px-2 py-0.5 rounded-full border border-amber-400/20 ml-1">Geography & History</span>
+                </span>
+                <span class="text-xs text-slate-400 font-medium">6 - 11 History & Geography</span>
+            </div>
+        </div>
+
+        <div class="flex items-center space-x-4">
+            <div id="firebaseStatusBadge" class="hidden sm:flex items-center space-x-2 bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-3 py-1 rounded-full text-xs">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span class="font-semibold text-[11px]">Database Online</span>
+            </div>
+
+            <div class="hidden md:flex items-center space-x-2 bg-slate-800/80 px-3.5 py-1.5 rounded-xl border border-slate-700/60 text-xs text-slate-300">
+                <i class="fa-regular fa-clock text-amber-400"></i>
+                <strong id="liveClockText" class="text-white font-mono">--:--:--</strong>
+            </div>
+
+            <div id="userHeaderProfile" class="hidden items-center space-x-3 border-l border-slate-800 pl-4">
+                <div class="text-right hidden sm:block">
+                    <div id="headerUserName" class="text-xs font-bold text-white">සිසුවා</div>
+                    <div id="headerUserGrade" class="text-[10px] text-indigo-400">6 ශ්‍රේණිය</div>
+                </div>
+                <button onclick="logout()" title="වර්ගනය වන්න" class="bg-slate-800/80 hover:bg-rose-600/20 border border-slate-700/50 hover:border-rose-500/30 text-slate-300 hover:text-rose-400 p-2.5 rounded-xl transition text-xs">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- MAIN CONTAINER -->
+<main class="flex-grow max-w-7xl w-full mx-auto p-4 sm:p-6 lg:p-8 flex flex-col justify-center">
+
+    <!-- VIEW: LOGIN -->
+    <section id="viewLogin" class="max-w-md mx-auto w-full my-8">
+        <div class="glass-panel rounded-3xl shadow-2xl overflow-hidden border border-slate-700/50">
+            <div class="p-8 text-center relative overflow-hidden bg-gradient-to-b from-indigo-950/80 to-transparent border-b border-slate-800">
+                <div class="w-16 h-16 mx-auto rounded-2xl bg-indigo-600/20 border border-indigo-500/30 flex items-center justify-center mb-4 text-indigo-400 text-2xl shadow-inner">
+                    <i class="fa-solid fa-user-graduate"></i>
+                </div>
+                <h1 class="text-2xl font-extrabold text-white tracking-tight">Login</h1>
+                <p class="text-slate-400 text-xs mt-2">Login For Online Exam Dashboard</p>
+            </div>
+
+            <div id="loginAlert" class="hidden m-6 mb-0 p-3.5 rounded-xl bg-rose-500/10 border border-rose-500/20 text-rose-300 text-xs flex items-center space-x-2">
+                <i class="fa-solid fa-circle-exclamation text-rose-400 text-base"></i>
+                <span id="loginAlertMsg">ඇතුළත් කළ තොරතුරු අසත්‍ය වේ.</span>
+            </div>
+
+            <form onsubmit="handleLogin(event)" class="p-8 space-y-5">
+                <div>
+                    <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">User name</label>
+                    <div class="relative">
+                        <i class="fa-solid fa-user absolute left-4 top-3.5 text-slate-500 text-sm"></i>
+                        <input type="text" id="usernameInput" required placeholder="Enter username"
+                            class="w-full pl-11 pr-4 py-3 bg-slate-900/80 border border-slate-700/80 rounded-xl text-sm text-white focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition placeholder:text-slate-600">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Password</label>
+                    <div class="relative">
+                        <i class="fa-solid fa-key absolute left-4 top-3.5 text-slate-500 text-sm"></i>
+                        <input type="password" id="passwordInput" required placeholder="••••••••"
+                            class="w-full pl-11 pr-4 py-3 bg-slate-900/80 border border-slate-700/80 rounded-xl text-sm text-white focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition placeholder:text-slate-600">
+                    </div>
+                </div>
+
+                <button type="submit" class="w-full bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-500 hover:to-indigo-600 text-white font-bold py-3.5 rounded-xl text-sm shadow-lg shadow-indigo-600/30 hover:shadow-indigo-600/50 transition flex items-center justify-center space-x-2 group">
+                    <span>Login</span>
+                    <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- VIEW: DASHBOARD -->
+    <section id="viewDashboard" class="hidden space-y-6">
+        
+        <!-- SUBJECT SELECTOR BAR -->
+        <div class="glass-panel rounded-2xl p-4 flex flex-col sm:flex-row items-center justify-between gap-4 border border-slate-800">
+            <div class="flex items-center space-x-3">
+                <div class="bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 p-3 rounded-xl font-bold">
+                    <i class="fa-solid fa-layer-group"></i>
+                </div>
+                <div>
+                    <h4 class="font-bold text-white text-sm">Active පන්තිය සහ විෂය තේරීම</h4>
+                    <p class="text-xs text-slate-400">ඔබේ ලකුණු සහ ප්‍රගතිය නැරඹීමට පන්තිය තෝරන්න</p>
+                </div>
+            </div>
+            <div class="flex items-center space-x-3 w-full sm:w-auto">
+                <select id="filterSubjectSelect" onchange="renderDashboardTables()" class="w-full sm:w-72 text-xs border border-slate-700 rounded-xl px-3.5 py-2.5 bg-slate-900 text-white font-bold focus:outline-none focus:border-indigo-500">
+                    <!-- Populated dynamically -->
+                </select>
+            </div>
+        </div>
+
+        <!-- Student Personal Rank Banner -->
+        <div id="studentRankHeaderCard" class="relative rounded-3xl p-6 sm:p-8 overflow-hidden glass-panel border border-indigo-500/20 bg-gradient-to-r from-indigo-950/40 via-slate-900/80 to-slate-900">
+            <div class="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
+                <div>
+                    <div class="flex items-center space-x-2 mb-3">
+                        <span class="bg-indigo-500/10 border border-indigo-500/30 text-indigo-300 text-xs px-3 py-1 rounded-full font-semibold">
+                            සිසු ප්‍රගති පුවරුව
+                        </span>
+                        <span id="dashRoleBadge" class="bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs px-3 py-1 rounded-full font-semibold">
+                            සිසුවා
+                        </span>
+                    </div>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight" id="dashWelcomeUser"></h2>
+                    <p class="text-slate-400 text-xs sm:text-sm mt-1 max-w-xl leading-relaxed">
+                        පරීක්ෂණ සියල්ල ලකුණු 100 සීමාවෙන් ඇගයීමට ලක්වේ. එක් පරීක්ෂණයක් සඳහා ලබාගත හැක්කේ එක් අවස්ථාවක් පමණි.
+                    </p>
+                </div>
+
+                <!-- Rank Stats Display Cards -->
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                    <div class="glass-card p-3.5 rounded-2xl text-center border border-slate-800">
+                        <div class="text-[10px] text-slate-400 font-semibold uppercase">අවසාන පරීක්ෂණ ශ්‍රේණිය</div>
+                        <div id="dashRankLastTest" class="text-2xl font-black text-amber-400 font-mono mt-0.5">--</div>
+                        <div class="text-[9px] text-slate-500" id="dashRankSubjectTag">විෂයය ශ්‍රේණිගත කිරීම</div>
+                    </div>
+                    <div class="glass-card p-3.5 rounded-2xl text-center border border-slate-800">
+                        <div class="text-[10px] text-slate-400 font-semibold uppercase">විෂයයේ සාමාන්‍යය</div>
+                        <div id="dashRankSubjectAvg" class="text-2xl font-black text-sky-400 font-mono mt-0.5">--</div>
+                        <div class="text-[9px] text-slate-500">මෙම පන්තිය සඳහා</div>
+                    </div>
+                    <div class="glass-card p-3.5 rounded-2xl text-center border border-slate-800">
+                        <div class="text-[10px] text-slate-400 font-semibold uppercase">මුළු සාමාන්‍යය</div>
+                        <div id="dashRankOverallAvg" class="text-2xl font-black text-emerald-400 font-mono mt-0.5">--</div>
+                        <div class="text-[9px] text-slate-500">සියලුම විෂයයන්</div>
+                    </div>
+                    <div class="glass-card p-3.5 rounded-2xl text-center border border-slate-800">
+                        <div class="text-[10px] text-slate-400 font-semibold uppercase">සාමාන්‍ය ලකුණ</div>
+                        <div id="dashMyAvgScore" class="text-2xl font-black text-indigo-400 font-mono mt-0.5">0 / 100</div>
+                        <div class="text-[9px] text-slate-500" id="dashTotalTestsCount">පරීක්ෂණ 0 අවසන්</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ADMIN ACTION BANNER WITH RESET AVERAGE CONTROLS -->
+        <div id="adminModeBanner" class="hidden glass-panel border border-amber-500/30 rounded-2xl p-4 flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="flex items-center space-x-3">
+                <div class="bg-amber-500/20 text-amber-400 border border-amber-500/30 p-2.5 rounded-xl font-bold text-lg">
+                    <i class="fa-solid fa-user-shield"></i>
+                </div>
+                <div>
+                    <h4 class="font-bold text-white text-sm">පරිපාලක පිවිසුම සක්‍රීයයි (<span id="adminNameText"></span>)</h4>
+                    <p class="text-xs text-slate-400">ඔබට පරීක්ෂණ පාලනයට, දත්ත මකාදැමීමට සහ ලකුණු නැවත සැකසීමට බලතල ඇත.</p>
+                </div>
+            </div>
+            
+            <div class="flex flex-wrap items-center gap-2">
+                <button onclick="openResetAvgModal('selected')" class="bg-amber-600/80 hover:bg-amber-600 text-white font-bold px-3 py-2 rounded-xl text-xs shadow transition flex items-center space-x-1.5 border border-amber-500/30">
+                    <i class="fa-solid fa-rotate-left"></i>
+                    <span>තෝරාගත් පන්තියේ ලකුණු රීසෙට් කරන්න</span>
+                </button>
+                <button onclick="openResetAvgModal('all')" class="bg-rose-600/80 hover:bg-rose-600 text-white font-bold px-3 py-2 rounded-xl text-xs shadow transition flex items-center space-x-1.5 border border-rose-500/30">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    <span>සියලුම පද්ධති ලකුණු රීසෙට් කරන්න</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Active Test Cards Header -->
+        <div class="flex items-center justify-between pt-2">
+            <div>
+                <h3 class="text-lg font-bold text-white">පැවැත්වෙන මාසික පරීක්ෂණ (Geography & History)</h3>
+                <p class="text-xs text-slate-400">6 සිට 11 ශ්‍රේණි සඳහා නියමිත පරීක්ෂණ මාලාව</p>
+            </div>
+            <div class="text-xs font-mono text-slate-400 glass-panel px-3 py-1.5 rounded-xl border border-slate-800">
+                Date: <span id="dashTodayDate" class="font-bold text-slate-200"></span>
+            </div>
+        </div>
+
+        <!-- Subject Cards Grid -->
+        <div id="subjectCardsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Dynamically populated -->
+        </div>
+
+        <!-- LEADERBOARDS GRID -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 pt-4">
+
+            <!-- Last Test Results Table -->
+            <div class="lg:col-span-2 glass-panel rounded-2xl p-5 space-y-4 border border-slate-800">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-800 pb-3 gap-2">
+                    <div class="flex items-center space-x-2">
+                        <i class="fa-solid fa-list-ol text-indigo-400 text-lg"></i>
+                        <div>
+                            <h4 class="font-bold text-white text-sm">Last test Leaderboard</h4>
+                            <p class="text-[11px] text-slate-400" id="lastTestSubtitle">තෝරාගත් පන්තියේ මෑතම පරීක්ෂණයේ ලකුණු</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse text-xs">
+                        <thead>
+                            <tr class="bg-slate-900/60 border-b border-slate-800 text-slate-400 font-semibold uppercase text-[10px]">
+                                <th class="py-2.5 px-3">ස්ථානය</th>
+                                <th class="py-2.5 px-3">සිසුවා</th>
+                                <th class="py-2.5 px-3">No of Corr. Answers</th>
+                                <th class="py-2.5 px-3">ගතවූ කාලය</th>
+                                <th class="py-2.5 px-3 text-right">අවසාන ලකුණ (/100)</th>
+                                <th id="thAdminAction" class="py-2.5 px-3 text-center hidden">ක්‍රියාමාර්ග</th>
+                            </tr>
+                        </thead>
+                        <tbody id="lastTestTableBody" class="divide-y divide-slate-800/60 text-slate-300">
+                            <tr><td colspan="6" class="py-6 text-center text-slate-500 italic">Connecting to the database...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Top 5 Students Leaderboard (Filtered by Selected Class-Subject) -->
+            <div class="glass-panel rounded-2xl p-5 border border-slate-800 flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center justify-between border-b border-slate-800 pb-3 mb-3">
+                        <h4 class="font-bold text-white text-sm flex items-center space-x-2">
+                            <i class="fa-solid fa-trophy text-amber-400"></i>
+                            <span>විෂයයේ දක්ශතම සිසුන් 05</span>
+                        </h4>
+                        <span class="text-[10px] bg-amber-500/10 text-amber-400 border border-amber-500/20 px-2 py-0.5 rounded-full font-bold">පන්තිය අනුව</span>
+                    </div>
+                    <div id="classTop5List" class="space-y-2 text-xs">
+                        <!-- Populated dynamically -->
+                    </div>
+                </div>
+                <div class="text-[10px] text-slate-500 text-center mt-4 pt-2 border-t border-slate-800" id="top5SubjLabel">
+                    තෝරාගත් පන්තිය සහ විෂය සඳහා පමණි
+                </div>
+            </div>
+
+        </div>
+
+        <!-- SECONDARY ROW: Global Top 5 & Subject Performance Metrics -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+            <!-- Global Top 5 -->
+            <div class="glass-panel rounded-2xl p-5 border border-slate-800">
+                <div class="flex items-center justify-between border-b border-slate-800 pb-3 mb-3">
+                    <h4 class="font-bold text-white text-sm flex items-center space-x-2">
+                        <i class="fa-solid fa-crown text-amber-400"></i>
+                        <span>සමස්ත පන්තිවල විශිෂ්ටතමයන් 05</span>
+                    </h4>
+                    <span class="text-[10px] bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-2 py-0.5 rounded-full font-bold">සියලු විෂයයන්</span>
+                </div>
+                <div id="globalTop5List" class="space-y-2 text-xs">
+                    <!-- Populated dynamically -->
+                </div>
+            </div>
+
+            <!-- Subject Performance Metrics -->
+            <div class="glass-panel rounded-2xl p-5 border border-slate-800 flex flex-col justify-between">
+                <div>
+                    <div class="border-b border-slate-800 pb-3 mb-3 flex items-center justify-between">
+                        <h4 class="font-bold text-white text-sm flex items-center space-x-2">
+                            <i class="fa-solid fa-chart-pie text-indigo-400"></i>
+                            <span>විෂයයේ සමස්ත විශ්ලේෂණය</span>
+                        </h4>
+                        <span class="text-[10px] text-indigo-300 font-semibold bg-indigo-500/10 px-2 py-0.5 rounded-full border border-indigo-500/20" id="metricsSubjBadge">තෝරාගත් විෂය</span>
+                    </div>
+                    <div id="classMetricsContainer" class="grid grid-cols-2 gap-3 text-xs">
+                        <!-- Populated dynamically -->
+                    </div>
+
+                    <div class="mt-4 pt-3 border-t border-slate-800">
+                        <div class="text-[10px] font-bold uppercase text-slate-400 mb-2">ලියාපදිංචි සිසුන්ගේ විෂය වාර්තාව</div>
+                        <div class="overflow-x-auto overflow-y-auto max-h-48 custom-scrollbar">
+                            <table class="w-full text-left border-collapse text-[11px]">
+                                <thead>
+                                    <tr class="text-slate-500 uppercase text-[9px] border-b border-slate-800">
+                                        <th class="py-1.5 pr-2">සිසුවා</th>
+                                        <th class="py-1.5 pr-2">පරීක්ෂණ</th>
+                                        <th class="py-1.5 pr-2">සාමාන්‍යය</th>
+                                        <th class="py-1.5 pr-2 text-right">ඉහළම</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="classMetricsStudentRows" class="divide-y divide-slate-800/50 text-slate-300">
+                                    <!-- Populated dynamically -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Linear Progress Chart (Class-Subject Marks Only) -->
+        <div class="glass-panel rounded-2xl p-6 border border-slate-800">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-800 pb-4 mb-4 gap-2">
+                <div>
+                    <h4 class="font-bold text-white text-base flex items-center space-x-2">
+                        <i class="fa-solid fa-chart-line text-indigo-400"></i>
+                        <span>මගේ ලකුණු ප්‍රගති රේඛීය ප්‍රස්ථාරය</span>
+                    </h4>
+                    <p class="text-xs text-slate-400" id="chartSubjectSubtitle">තෝරාගත් පන්තිය සඳහා ඔබේ ලකුණු වෙනස්වීම්</p>
+                </div>
+                <div class="text-xs bg-indigo-500/10 text-indigo-300 px-3 py-1 rounded-xl font-mono font-semibold border border-indigo-500/20">
+                    සිසුවා: <span id="chartStudentName" class="font-bold text-white"></span>
+                </div>
+            </div>
+            <div class="relative h-64 w-full">
+                <canvas id="userProgressChart"></canvas>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- VIEW: EXAM INTERFACE (NO SCROLL, FIXED DIV LAYOUT) -->
+    <section id="viewExam" class="hidden max-w-3xl mx-auto w-full my-auto">
+        <div class="glass-panel rounded-3xl shadow-2xl border border-slate-700/60 p-6 sm:p-8 space-y-5 flex flex-col justify-between min-h-[500px]">
+            
+            <!-- Exam Header -->
+            <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+                <div>
+                    <span id="examHeaderSubjectBadge" class="text-[11px] font-bold bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 px-3 py-1 rounded-full uppercase">
+                        6 ශ්‍රේණිය
+                    </span>
+                    <h2 id="examHeaderTitle" class="text-lg sm:text-xl font-extrabold text-white mt-1.5">පරීක්ෂණ මාතෘකාව</h2>
+                </div>
+
+                <!-- Timer -->
+                <div class="flex items-center space-x-2 bg-amber-500/10 border border-amber-500/30 text-amber-400 px-3.5 py-1.5 rounded-2xl">
+                    <i class="fa-solid fa-hourglass-half animate-spin text-sm"></i>
+                    <span id="examTimerDisplay" class="font-mono text-lg font-black">60:00</span>
+                </div>
+            </div>
+
+            <!-- Progress Bar -->
+            <div>
+                <div class="flex justify-between text-xs text-slate-400 mb-1.5 font-medium">
+                    <span id="examProgressLabel">ප්‍රශ්නය 1/10</span>
+                    <span id="examProgressPercent">0%</span>
+                </div>
+                <div class="w-full bg-slate-900 h-2 rounded-full overflow-hidden border border-slate-800">
+                    <div id="examProgressBar" class="bg-gradient-to-r from-indigo-500 to-amber-400 h-full w-0 transition-all duration-300"></div>
+                </div>
+            </div>
+
+            <!-- Question & Choices Area (Strict No Scroll Box) -->
+            <div class="space-y-4 my-auto">
+                <div class="flex items-start space-x-3">
+                    <span id="questionNumBadge" class="bg-indigo-600 text-white font-bold text-xs px-2.5 py-1 rounded-lg mt-0.5">Q1</span>
+                    <h3 id="questionText" class="text-base sm:text-lg font-bold text-white leading-snug">
+                        ප්‍රශ්නය මෙහි දැක්වේ?
+                    </h3>
+                </div>
+
+                <div id="choicesContainer" class="grid grid-cols-1 gap-2.5 pt-1">
+                    <!-- Dynamic Choices -->
+                </div>
+            </div>
+
+            <!-- Navigation Buttons -->
+            <div class="flex items-center justify-between pt-4 border-t border-slate-800">
+                <button onclick="prevQuestion()" id="btnPrevQuestion" class="px-4 py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-bold rounded-xl transition border border-slate-700 disabled:opacity-30 disabled:cursor-not-allowed">
+                    <i class="fa-solid fa-chevron-left mr-1"></i> පූර්ව ප්‍රශ්නය
+                </button>
+
+                <div class="flex space-x-2">
+                    <button onclick="nextQuestion()" id="btnNextQuestion" class="px-5 py-2.5 bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold rounded-xl shadow-lg transition">
+                        ඊළඟ ප්‍රශ්නය <i class="fa-solid fa-chevron-right ml-1"></i>
+                    </button>
+                    <button onclick="openSubmitConfirmModal()" id="btnSubmitExam" class="px-6 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold rounded-xl shadow-lg transition">
+                        පළමු බාරදීම <i class="fa-solid fa-paper-plane ml-1"></i>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- VIEW: RESULTS OVERVIEW -->
+    <section id="viewResults" class="hidden max-w-3xl mx-auto w-full space-y-6">
+        <div class="glass-panel rounded-3xl p-8 text-center space-y-5 border border-slate-800">
+            <div class="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 flex items-center justify-center mx-auto text-2xl shadow-inner">
+                <i class="fa-solid fa-check-double"></i>
+            </div>
+            <h2 class="text-2xl font-extrabold text-white">පරීක්ෂණය සාර්ථකව අවසන් කෙරිණි!</h2>
+            <p class="text-xs text-slate-400 max-w-md mx-auto">
+                ඔබගේ පිළිතුරු පද්ධතිය වෙත සාර්ථකව එක් විය.
+            </p>
+
+            <div class="glass-card border border-slate-800 rounded-2xl p-6 max-w-md mx-auto my-4 text-center">
+                <div class="text-xs font-bold uppercase text-slate-400 tracking-wider">අවසාන ලබාගත් ලකුණ</div>
+                <div class="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-amber-400 my-2 font-mono" id="resultsFinalScore">0 / 100</div>
+                <div class="inline-block px-3 py-1 rounded-full text-xs font-bold mb-2" id="resultsGradeBadge">සාමාර්ථය</div>
+            </div>
+
+            <button onclick="showView('dashboard')" class="px-6 py-3 bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold rounded-xl shadow-lg transition inline-flex items-center space-x-2">
+                <i class="fa-solid fa-house"></i>
+                <span>ප්‍රධාන පුවරුව වෙත යන්න</span>
+            </button>
+        </div>
+
+        <div class="glass-panel rounded-2xl p-6 space-y-4 border border-slate-800">
+            <h3 class="text-base font-bold text-white border-b border-slate-800 pb-3 flex items-center space-x-2">
+                <i class="fa-solid fa-list-check text-indigo-400"></i>
+                <span>ප්‍රශ්න විග්‍රහය සහ නිවැරදි පිළිතුරු</span>
+            </h3>
+            <div id="resultsBreakdownContainer" class="space-y-3">
+                <!-- Populated dynamically -->
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<!-- MODALS -->
+<!-- SUBMIT CONFIRMATION MODAL -->
+<div id="submitModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 flex items-center justify-center hidden p-4">
+    <div class="glass-panel border border-slate-800 rounded-3xl max-w-sm w-full p-6 text-center space-y-4">
+        <div class="w-12 h-12 bg-emerald-500/20 text-emerald-400 rounded-full flex items-center justify-center mx-auto text-xl border border-emerald-500/30">
+            <i class="fa-solid fa-paper-plane"></i>
+        </div>
+        <h3 class="font-extrabold text-white text-base">පිළිතුරු පත්‍රය බාරදෙන්නද?</h3>
+        <p class="text-xs text-slate-400">පිළිතුරු ලබාදීමෙන් පසු නැවත සංශෝධනය කළ නොහැක.</p>
+        <div class="flex space-x-2 pt-2">
+            <button onclick="closeSubmitConfirmModal()" class="w-1/2 py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-bold rounded-xl transition">
+                නැවත පරීක්ෂා කරන්න
+            </button>
+            <button onclick="confirmFinishExam()" class="w-1/2 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold rounded-xl transition">
+                ඔව්, බාරදෙන්න
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- ADMIN DELETE CONFIRMATION MODAL -->
+<div id="deleteModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 flex items-center justify-center hidden p-4">
+    <div class="glass-panel border border-rose-500/30 rounded-3xl max-w-sm w-full p-6 text-center space-y-4">
+        <div class="w-12 h-12 bg-rose-500/20 text-rose-400 rounded-full flex items-center justify-center mx-auto text-xl border border-rose-500/30">
+            <i class="fa-solid fa-trash-can"></i>
+        </div>
+        <h3 class="font-extrabold text-white text-base">ලකුණු සටහන මකා දමන්නද?</h3>
+        <p class="text-xs text-slate-400">මෙම ක්‍රියාව නැවත හැරවිය නොහැක.</p>
+        <div class="flex space-x-2 pt-2">
+            <button onclick="closeDeleteModal()" class="w-1/2 py-2.5 bg-slate-800 text-slate-300 text-xs font-bold rounded-xl">අවලංගු කරන්න</button>
+            <button onclick="executeDeleteRecord()" class="w-1/2 py-2.5 bg-rose-600 text-white text-xs font-bold rounded-xl">මකා දමන්න</button>
+        </div>
+    </div>
+</div>
+
+<!-- ADMIN RESET AVERAGES CONFIRMATION MODAL -->
+<div id="resetAvgModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 flex items-center justify-center hidden p-4">
+    <div class="glass-panel border border-amber-500/30 rounded-3xl max-w-md w-full p-6 text-center space-y-4">
+        <div class="w-12 h-12 bg-amber-500/20 text-amber-400 rounded-full flex items-center justify-center mx-auto text-xl border border-amber-500/30">
+            <i class="fa-solid fa-rotate-left"></i>
+        </div>
+        <h3 class="font-extrabold text-white text-base" id="resetModalTitle">ලකුණු නැවත සකසන්නද?</h3>
+        <p class="text-xs text-slate-400 leading-relaxed" id="resetModalMsg">
+            මෙමගින් සිසුන්ගේ පෙර වාර්තා මකා දමනු ඇත.
+        </p>
+        <div class="flex space-x-2 pt-2">
+            <button onclick="closeResetAvgModal()" class="w-1/2 py-2.5 bg-slate-800 text-slate-300 text-xs font-bold rounded-xl">අවලංගු කරන්න</button>
+            <button onclick="executeResetAverages()" class="w-1/2 py-2.5 bg-amber-600 text-white text-xs font-bold rounded-xl">තහවුරු කරන්න</button>
+        </div>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="glass-panel border-t border-slate-800 py-6 mt-12 text-center text-xs text-slate-400 space-y-2">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <div class="flex items-center space-x-2">
+            <i class="fa-solid fa-graduation-cap text-indigo-400 text-base"></i>
+            <span class="font-bold text-white">Learn Geography and History with Samira sir</span>
+        </div>
+        <div>
+            © 2026 Samira Ariyadasa - සියලුම හිමිකම් ඇවිරිණි.
+        </div>
+    </div>
+</footer>
+
+<script>
+    function getCurrentTime() {
+        return new Date();
+    }
+
+    function getExamWindow(exam) {
+        const start = new Date(`${exam.date}T${exam.startTime}:00`);
+        let end = new Date(`${exam.date}T${exam.endTime}:00`);
+        if (end <= start) {
+            end.setDate(end.getDate() + 1);
+        }
+        return { start, end };
+    }
+
+    function updateClock() {
+        const now = getCurrentTime();
+        document.getElementById('liveClockText').innerText = now.toLocaleTimeString();
+        document.getElementById('dashTodayDate').innerText = now.toLocaleDateString('si-LK', { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' });
+        
+        if (currentView === 'dashboard') {
+            renderSubjectCards();
+        }
+    }
+
+    setInterval(() => {
+        updateClock();
+    }, 1000);
+
+    function showView(viewName) {
+        currentView = viewName;
+        document.getElementById('viewLogin').classList.add('hidden');
+        document.getElementById('viewDashboard').classList.add('hidden');
+        document.getElementById('viewExam').classList.add('hidden');
+        document.getElementById('viewResults').classList.add('hidden');
+
+        if (viewName === 'login') document.getElementById('viewLogin').classList.remove('hidden');
+        if (viewName === 'dashboard') {
+            document.getElementById('viewDashboard').classList.remove('hidden');
+            renderDashboard();
+        }
+        if (viewName === 'exam') document.getElementById('viewExam').classList.remove('hidden');
+        if (viewName === 'results') document.getElementById('viewResults').classList.remove('hidden');
+    }
+
+    function handleLogin(e) {
+        if (e) e.preventDefault();
+        const u = document.getElementById('usernameInput').value.trim().toLowerCase();
+        const p = document.getElementById('passwordInput').value.trim();
+        const alertBox = document.getElementById('loginAlert');
+
+        if (typeof credentials !== 'undefined' && credentials[u] && credentials[u].password === p) {
+            currentUser = { 
+                username: u, 
+                role: credentials[u].role || 'student',
+                name: u.charAt(0).toUpperCase() + u.slice(1),
+                subjects: credentials[u].subjects || []
+            };
+            alertBox.classList.add('hidden');
+            document.getElementById('userHeaderProfile').classList.remove('hidden');
+            document.getElementById('userHeaderProfile').classList.add('flex');
+            document.getElementById('headerUserName').innerText = currentUser.name;
+            document.getElementById('headerUserGrade').innerText = currentUser.role === 'admin' ? 'පරිපාලක (Admin)' : `විෂයයන්: ${currentUser.subjects.length}`;
+            
+            showView('dashboard');
+            listenToFirebaseResults();
+        } else {
+            alertBox.classList.remove('hidden');
+            document.getElementById('loginAlertMsg').innerText = "ඇතුළත් කළ පරිශීලක නාමය හෝ මුරපදය වැරදිය.";
+        }
+    }
+
+    function logout() { 
+        currentUser = null;
+        if (firestoreUnsubscribe) firestoreUnsubscribe();
+        document.getElementById('userHeaderProfile').classList.add('hidden');
+        document.getElementById('userHeaderProfile').classList.remove('flex');
+        showView('login');
+    }
+
+    function normalizeResultRecord(r) {
+        const toFiniteNumber = (val) => {
+            const n = Number(val);
+            return Number.isFinite(n) ? n : 0;
+        };
+        return {
+            ...r,
+            finalScore: toFiniteNumber(r.finalScore),
+            rawScore: toFiniteNumber(r.rawScore),
+            timeTakenSec: toFiniteNumber(r.timeTakenSec)
+        };
+    }
+
+    function listenToFirebaseResults() {
+        if (isFirebaseConnected && db) {
+            if (firestoreUnsubscribe) firestoreUnsubscribe();
+
+            firestoreUnsubscribe = db.collection("exam_results")
+                .onSnapshot(snapshot => {
+                    globalResultsList = [];
+                    snapshot.forEach(doc => {
+                        globalResultsList.push(normalizeResultRecord({ id: doc.id, ...doc.data() }));
+                    });
+                    if (currentView === 'dashboard') {
+                        renderDashboard();
+                    }
+                }, error => {
+                    console.error("Firebase listener error:", error);
+                });
+        }
+    }
+
+    function renderDashboard() {
+        if (!currentUser) return;
+
+        document.getElementById('dashWelcomeUser').innerText = `Hello, ${currentUser.name}`;
+        document.getElementById('dashRoleBadge').innerText = currentUser.role === 'admin' ? 'පරිපාලක' : `ලියාපදිංචි සිසුවා`;
+        document.getElementById('chartStudentName').innerText = currentUser.name;
+
+        if (currentUser.role === 'admin') {
+            document.getElementById('adminModeBanner').classList.remove('hidden');
+            document.getElementById('adminNameText').innerText = currentUser.username;
+            document.getElementById('thAdminAction').classList.remove('hidden');
+        } else {
+            document.getElementById('adminModeBanner').classList.add('hidden');
+            document.getElementById('thAdminAction').classList.add('hidden');
+        }
+
+        renderSubjectCards();
+        populateSubjectFilterDropdown();
+        renderDashboardTables();
+    }
+
+    function populateSubjectFilterDropdown() {
+        const select = document.getElementById('filterSubjectSelect');
+        const previousValue = select.value;
+
+        const classSubjects = [];
+        
+        if (currentUser.role === 'admin') {
+            examSchedules.forEach(sch => {
+                const comboKey = `${sch.grade}-${sch.subject}`;
+                if (!classSubjects.some(cs => cs.key === comboKey)) {
+                    classSubjects.push({
+                        key: comboKey,
+                        grade: sch.grade,
+                        subject: sch.subject,
+                        label: `${sch.grade} ශ්‍රේණිය - ${sch.subject === 'geography' ? 'භූගෝල විද්‍යාව' : 'ඉතිහාසය'}`
+                    });
+                }
+            });
+        } else {
+            currentUser.subjects.forEach(sub => {
+                const comboKey = `${sub.grade}-${sub.name}`;
+                if (!classSubjects.some(cs => cs.key === comboKey)) {
+                    classSubjects.push({
+                        key: comboKey,
+                        grade: sub.grade,
+                        subject: sub.name,
+                        label: `${sub.grade} ශ්‍රේණිය - ${sub.name === 'geography' ? 'භූගෝල විද්‍යාව' : 'ඉතිහාසය'}`
+                    });
+                }
+            });
+        }
+
+        select.innerHTML = '';
+        classSubjects.forEach(cs => {
+            const opt = document.createElement('option');
+            opt.value = cs.key;
+            opt.innerText = cs.label;
+            select.appendChild(opt);
+        });
+
+        if (classSubjects.some(cs => cs.key === previousValue)) {
+            select.value = previousValue;
+        } else if (classSubjects.length > 0) {
+            select.value = classSubjects[0].key;
+        }
+    }
+
+    function getLatestPassedOrTodayExamForClassSubject(grade, subject) {
+        const todayStr = getTodayDateString();
+        const sittings = examSchedules.filter(s => s.grade === Number(grade) && s.subject === subject && s.date <= todayStr);
+        if (sittings.length === 0) {
+            const allSittings = examSchedules.filter(s => s.grade === Number(grade) && s.subject === subject);
+            if (allSittings.length === 0) return null;
+            return allSittings.sort((a, b) => b.date.localeCompare(a.date))[0];
+        }
+        sittings.sort((a, b) => {
+            if (a.date !== b.date) return b.date.localeCompare(a.date);
+            return b.examNo - a.examNo;
+        });
+        return sittings[0];
+    }
+
+    function renderSubjectCards() {
+        const container = document.getElementById('subjectCardsGrid');
+        container.innerHTML = '';
+
+        const now = getCurrentTime();
+
+        const allowedSchedules = examSchedules.filter(sch => {
+            if (currentUser.role === 'admin') return true;
+            return currentUser.subjects.some(sub => sub.grade === sch.grade && sub.name === sch.subject);
+        });
+
+        if (allowedSchedules.length === 0) {
+            container.innerHTML = `<div class="col-span-3 text-center py-8 text-slate-500 italic text-xs glass-panel rounded-2xl">ඔබගේ විෂයයන් සඳහා දැනට පරීක්ෂණ නියම කර නැත.</div>`;
+            return;
+        }
+
+        allowedSchedules.forEach(exam => {
+            const { start, end } = getExamWindow(exam);
+            const isOpenTime = now >= start && now <= end;
+            const isUpcoming = now < start;
+
+            const userSubmissionsForExam = globalResultsList.filter(r => r.username === currentUser.username && r.examKey === exam.key);
+            const hasCompleted = userSubmissionsForExam.length > 0;
+
+            let statusBadge = '';
+            let buttonState = '';
+
+            if (hasCompleted) {
+                const bestScore = Math.max(...userSubmissionsForExam.map(s => s.finalScore));
+                statusBadge = `<span class="bg-sky-500/10 text-sky-400 border border-sky-500/20 text-[10px] font-bold px-2.5 py-0.5 rounded-full flex items-center space-x-1"><i class="fa-solid fa-circle-check"></i><span>අවසන් කළා (${bestScore}/100)</span></span>`;
+                buttonState = `<button disabled class="w-full bg-slate-800 text-slate-500 font-bold py-2.5 rounded-xl text-xs cursor-not-allowed border border-slate-700/50">පිළිතුරු ලබාදී ඇත</button>`;
+            } else if (isOpenTime) {
+                statusBadge = `<span class="bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-[10px] font-bold px-2.5 py-0.5 rounded-full flex items-center space-x-1"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span><span>දැන් පැවැත්වේ</span></span>`;
+                buttonState = `<button onclick="startExam('${exam.key}')" class="w-full bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-500 hover:to-indigo-600 text-white font-bold py-2.5 rounded-xl text-xs shadow-lg transition flex items-center justify-center space-x-2"><span>පරීක්ෂණය ආරම්භ කරන්න</span><i class="fa-solid fa-play text-[10px]"></i></button>`;
+            } else if (isUpcoming) {
+                statusBadge = `<span class="bg-amber-500/10 text-amber-400 border border-amber-500/20 text-[10px] font-bold px-2.5 py-0.5 rounded-full">නියමිත පරීක්ෂණයකි</span>`;
+                buttonState = `<button disabled class="w-full bg-slate-800 text-slate-500 font-bold py-2.5 rounded-xl text-xs cursor-not-allowed border border-slate-700/50">ආරම්භය: ${exam.date}</button>`;
+            } else {
+                statusBadge = `<span class="bg-slate-800 text-slate-400 border border-slate-700 text-[10px] font-bold px-2.5 py-0.5 rounded-full">කාලය අවසන්</span>`;
+                buttonState = `<button disabled class="w-full bg-slate-800 text-slate-500 font-bold py-2.5 rounded-xl text-xs cursor-not-allowed border border-slate-700/50">පරීක්ෂණ කාලය අවසන්ය</button>`;
+            }
+
+            container.innerHTML += `
+                <div class="glass-panel rounded-2xl p-5 border border-slate-800 flex flex-col justify-between space-y-4 hover:border-slate-700 transition">
+                    <div>
+                        <div class="flex items-center justify-between mb-2">
+                            ${statusBadge}
+                            <span class="text-[10px] font-mono text-slate-500">පරීක්ෂණ අංක #${exam.examNo}</span>
+                        </div>
+                        <h4 class="font-bold text-white text-base">${exam.displayName}</h4>
+                        <p class="text-xs text-slate-400 mt-1 leading-relaxed">${exam.description}</p>
+                    </div>
+
+                    <div class="space-y-3 pt-2 border-t border-slate-800">
+                        <div class="grid grid-cols-2 gap-2 text-[11px] text-slate-400">
+                            <div class="flex items-center space-x-1.5">
+                                <i class="fa-regular fa-calendar text-indigo-400"></i>
+                                <span>${exam.date}</span>
+                            </div>
+                            <div class="flex items-center space-x-1.5">
+                                <i class="fa-regular fa-clock text-amber-400"></i>
+                                <span>${exam.startTime} - ${exam.endTime}</span>
+                            </div>
+                        </div>
+                        ${buttonState}
+                    </div>
+                </div>
+            `;
+        });
+    }
+
+    function renderDashboardTables() {
+        const selectVal = document.getElementById('filterSubjectSelect').value;
+        const tableBody = document.getElementById('lastTestTableBody');
+        tableBody.innerHTML = '';
+
+        if (!selectVal) {
+            tableBody.innerHTML = `<tr><td colspan="6" class="py-6 text-center text-slate-500 italic">කරුණාකර පන්තියක් සහ විෂයයක් තෝරන්න.</td></tr>`;
+            return;
+        }
+
+        const parts = selectVal.split('-');
+        const grade = parts[0];
+        const subject = parts.slice(1).join('-');
+
+        document.getElementById('metricsSubjBadge').innerText = `${grade} ශ්‍රේණිය ${subject === 'geography' ? 'භූගෝල විද්‍යාව' : 'ඉතිහාසය'}`;
+        document.getElementById('top5SubjLabel').innerText = `${grade} ශ්‍රේණිය ${subject === 'geography' ? 'භූගෝල විද්‍යාව' : 'ඉතිහාසය'} සඳහා පමණි`;
+
+        const latestExam = getLatestPassedOrTodayExamForClassSubject(grade, subject);
+
+        document.getElementById('lastTestSubtitle').innerText = latestExam
+            ? `මෑතම පරීක්ෂණය: ${latestExam.displayName} (${latestExam.date})`
+            : `පරීක්ෂණ වාර්තා නොමැත`;
+
+        const lastTestSubmissions = latestExam 
+            ? globalResultsList.filter(r => r.examKey === latestExam.key)
+            : [];
+
+        lastTestSubmissions.sort((a, b) => {
+            if (b.finalScore !== a.finalScore) return b.finalScore - a.finalScore;
+            if (b.rawScore !== a.rawScore) return b.rawScore - a.rawScore;
+            return a.timeTakenSec - b.timeTakenSec;
+        });
+
+        if (lastTestSubmissions.length === 0) {
+            tableBody.innerHTML = `<tr><td colspan="${currentUser.role === 'admin' ? 6 : 5}" class="py-6 text-center text-slate-500 italic">තවමත් පිළිතුරු සටහන් වී නොමැත.</td></tr>`;
+        } else {
+            lastTestSubmissions.forEach((res, index) => {
+                const isMe = currentUser && res.username === currentUser.username;
+                const rankStr = index === 0 ? `🥇 1 වන` : index === 1 ? `🥈 2 වන` : index === 2 ? `🥉 3 වන` : `#${index + 1}`;
+
+                let deleteBtn = '';
+                if (currentUser.role === 'admin') {
+                    deleteBtn = `
+                        <td class="py-2.5 px-3 text-center">
+                            <button onclick="openDeleteModal('${res.id}')" class="bg-rose-500/10 hover:bg-rose-600 text-rose-400 hover:text-white px-2 py-1 rounded-lg transition text-[11px] font-bold border border-rose-500/20">
+                                <i class="fa-solid fa-trash-can"></i> මකන්න
+                            </button>
+                        </td>
+                    `;
+                }
+
+                tableBody.innerHTML += `
+                    <tr class="${isMe ? 'bg-indigo-600/20 font-bold text-white' : 'hover:bg-slate-800/40'} transition">
+                        <td class="py-2.5 px-3 font-bold font-mono">${rankStr}</td>
+                        <td class="py-2.5 px-3 flex items-center space-x-2">
+                            <span class="capitalize">${res.username}</span>
+                            ${isMe ? '<span class="text-[9px] bg-indigo-600 text-white px-1.5 py-0.2 rounded font-bold">ඔබ</span>' : ''}
+                        </td>
+                        <td class="py-2.5 px-3 font-mono">${res.rawScore} / 10</td>
+                        <td class="py-2.5 px-3 font-mono">${res.timeTakenSec} තත්.</td>
+                        <td class="py-2.5 px-3 text-right font-mono font-bold text-indigo-400">${res.finalScore} / 100</td>
+                        ${deleteBtn}
+                    </tr>
+                `;
+            });
+        }
+
+        const myLastTestRankIndex = lastTestSubmissions.findIndex(r => r.username === currentUser.username);
+        document.getElementById('dashRankLastTest').innerText = myLastTestRankIndex >= 0 ? `#${myLastTestRankIndex + 1}` : '--';
+
+        const classSubjectSittingsKeys = examSchedules.filter(s => s.grade === Number(grade) && s.subject === subject).map(s => s.key);
+        const classSubjectSubmissions = globalResultsList.filter(r => classSubjectSittingsKeys.includes(r.examKey));
+        const subjectAverageList = buildAveragedLeaderboard(classSubjectSubmissions);
+
+        const mySubjectAvgRankIndex = subjectAverageList.findIndex(u => u.username === currentUser.username);
+        document.getElementById('dashRankSubjectAvg').innerText = mySubjectAvgRankIndex >= 0 ? `#${mySubjectAvgRankIndex + 1}` : '--';
+
+        renderTop5SubjectLeaderboard(subjectAverageList);
+        renderClassSubjectMetrics(classSubjectSubmissions);
+
+        const userSubmissions = globalResultsList.filter(r => {
+            if (r.username !== currentUser.username) return false;
+            if (currentUser.role === 'admin') return true;
+            const matchedExam = examSchedules.find(s => s.key === r.examKey);
+            if (!matchedExam) return false;
+            return currentUser.subjects.some(sub => sub.grade === matchedExam.grade && sub.name === matchedExam.subject);
+        });
+
+        if (userSubmissions.length > 0) {
+            const avg = Math.round(userSubmissions.reduce((acc, curr) => acc + curr.finalScore, 0) / userSubmissions.length);
+            document.getElementById('dashMyAvgScore').innerText = `${avg} / 100`;
+            document.getElementById('dashTotalTestsCount').innerText = `පරීක්ෂණ ${userSubmissions.length} අවසන්`;
+        } else {
+            document.getElementById('dashMyAvgScore').innerText = `0 / 100`;
+            document.getElementById('dashTotalTestsCount').innerText = `පරීක්ෂණ 0 අවසන්`;
+        }
+
+        renderGlobalTop5Leaderboard();
+        renderUserProgressChart();
+    }
+
+    function buildAveragedLeaderboard(submissions) {
+        const aggregates = {};
+        submissions.forEach(r => {
+            if (typeof r.finalScore !== 'number' || !Number.isFinite(r.finalScore)) return;
+            if (!aggregates[r.username]) {
+                aggregates[r.username] = { username: r.username, totalScore: 0, count: 0 };
+            }
+            aggregates[r.username].totalScore += r.finalScore;
+            aggregates[r.username].count += 1;
+        });
+
+        return Object.values(aggregates)
+            .map(u => ({ username: u.username, avgScore: Math.round(u.totalScore / u.count), testsCount: u.count }))
+            .sort((a, b) => b.avgScore - a.avgScore);
+    }
+
+    function renderTop5SubjectLeaderboard(averagedList) {
+        const container = document.getElementById('classTop5List');
+        container.innerHTML = '';
+
+        const top5 = averagedList.slice(0, 5);
+        if (top5.length === 0) {
+            container.innerHTML = `<div class="text-center text-slate-500 py-4 italic text-xs">තවම වාර්තා නොමැත.</div>`;
+            return;
+        }
+
+        top5.forEach((u, i) => {
+            const badgeColor = i === 0 ? 'bg-amber-400 text-slate-950 font-black' : i === 1 ? 'bg-slate-300 text-slate-950 font-bold' : i === 2 ? 'bg-amber-600 text-white font-bold' : 'bg-slate-800 text-slate-300';
+            container.innerHTML += `
+                <div class="flex items-center justify-between p-2.5 bg-slate-900/50 rounded-xl border border-slate-800">
+                    <div class="flex items-center space-x-2.5">
+                        <span class="w-6 h-6 rounded-lg ${badgeColor} text-xs flex items-center justify-center font-mono">
+                            ${i + 1}
+                        </span>
+                        <span class="font-bold text-white capitalize">${u.username}</span>
+                    </div>
+                    <div class="text-right font-mono">
+                        <span class="font-bold text-indigo-400 text-xs">${u.avgScore} avg</span>
+                    </div>
+                </div>
+            `;
+        });
+    }
+
+    function renderGlobalTop5Leaderboard() {
+        const container = document.getElementById('globalTop5List');
+        container.innerHTML = '';
+
+        const overallList = buildAveragedLeaderboard(globalResultsList);
+
+        if (currentUser) {
+            const myOverallIndex = overallList.findIndex(u => u.username === currentUser.username);
+            document.getElementById('dashRankOverallAvg').innerText = myOverallIndex >= 0 ? `#${myOverallIndex + 1}` : '--';
+        }
+
+        const top5Global = overallList.slice(0, 5);
+        if (top5Global.length === 0) {
+            container.innerHTML = `<div class="text-center text-slate-500 py-4 italic text-xs">වාර්තා නොමැත.</div>`;
+            return;
+        }
+
+        top5Global.forEach((u, i) => {
+            container.innerHTML += `
+                <div class="flex items-center justify-between p-2.5 bg-slate-900/50 rounded-xl border border-slate-800">
+                    <div class="flex items-center space-x-3">
+                        <span class="font-extrabold font-mono text-xs text-amber-400">#${i + 1}</span>
+                        <span class="font-bold text-white capitalize">${u.username}</span>
+                    </div>
+                    <div class="text-right font-mono">
+                        <span class="font-black text-emerald-400 text-xs">${u.avgScore} Avg</span>
+                    </div>
+                </div>
+            `;
+        });
+    }
+
+    function renderClassSubjectMetrics(submissions) {
+        const container = document.getElementById('classMetricsContainer');
+        const rowsBody = document.getElementById('classMetricsStudentRows');
+
+        const validSubmissions = submissions.filter(s => typeof s.finalScore === 'number' && Number.isFinite(s.finalScore));
+
+        if (validSubmissions.length === 0) {
+            container.innerHTML = `<div class="col-span-2 text-center text-slate-500 py-4 italic text-xs">දත්ත නොමැත.</div>`;
+            rowsBody.innerHTML = `<tr><td colspan="4" class="py-3 text-center text-slate-500 italic">ලියාපදිංචි සිසුන් නොමැත.</td></tr>`;
+            return;
+        }
+
+        const totalScoreSum = validSubmissions.reduce((acc, c) => acc + c.finalScore, 0);
+        const classAvg = Math.round(totalScoreSum / validSubmissions.length);
+        const highestScore = Math.max(...validSubmissions.map(s => s.finalScore));
+
+        container.innerHTML = `
+            <div class="glass-card p-3 rounded-xl border border-slate-800">
+                <div class="text-[10px] text-slate-400 uppercase font-bold">පන්තියේ සාමාන්‍යය</div>
+                <div class="text-xl font-mono font-black text-indigo-400 mt-1">${classAvg} / 100</div>
+            </div>
+            <div class="glass-card p-3 rounded-xl border border-slate-800">
+                <div class="text-[10px] text-slate-400 uppercase font-bold">ඉහළම ලකුණ</div>
+                <div class="text-xl font-mono font-black text-emerald-400 mt-1">${highestScore} / 100</div>
+            </div>
+        `;
+
+        const perStudent = {};
+        validSubmissions.forEach(s => {
+            if (!perStudent[s.username]) {
+                perStudent[s.username] = { username: s.username, total: 0, count: 0, best: -Infinity };
+            }
+            perStudent[s.username].total += s.finalScore;
+            perStudent[s.username].count += 1;
+            perStudent[s.username].best = Math.max(perStudent[s.username].best, s.finalScore);
+        });
+
+        const studentRows = Object.values(perStudent)
+            .map(u => ({ username: u.username, count: u.count, avg: Math.round(u.total / u.count), best: u.best }))
+            .sort((a, b) => b.avg - a.avg);
+
+        rowsBody.innerHTML = studentRows.map(u => `
+            <tr>
+                <td class="py-1.5 pr-2 capitalize font-semibold text-white">${u.username}</td>
+                <td class="py-1.5 pr-2 font-mono">${u.count}</td>
+                <td class="py-1.5 pr-2 font-mono font-bold text-indigo-400">${u.avg}</td>
+                <td class="py-1.5 pr-2 font-mono text-right text-emerald-400">${u.best}</td>
+            </tr>
+        `).join('');
+    }
+
+    function renderUserProgressChart() {
+        if (!currentUser) return;
+        const ctx = document.getElementById('userProgressChart').getContext('2d');
+        const selectElem = document.getElementById('filterSubjectSelect');
+        const selectVal = selectElem ? selectElem.value : null;
+
+        let mySubmissions = [];
+
+        if (selectVal) {
+            const parts = selectVal.split('-');
+            const grade = parts[0];
+            const subject = parts.slice(1).join('-');
+
+            const classSubjectSittingsKeys = examSchedules
+                .filter(s => s.grade === Number(grade) && s.subject === subject)
+                .map(s => s.key);
+
+            mySubmissions = globalResultsList.filter(r => {
+                if (r.username !== currentUser.username) return false;
+                return classSubjectSittingsKeys.includes(r.examKey);
+            });
+        }
+
+        mySubmissions.sort((a, b) => new Date(a.timestamp || 0) - new Date(b.timestamp || 0));
+
+        const labels = mySubmissions.map((s, i) => `පරීක්ෂණය #${i + 1}`);
+        const dataPoints = mySubmissions.map(s => s.finalScore);
+
+        if (progressChartInstance) {
+            progressChartInstance.destroy();
+        }
+
+        progressChartInstance = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: labels.length > 0 ? labels : ['පරීක්ෂණ නොමැත'],
+                datasets: [{
+                    label: 'ලබාගත් ලකුණ (/100)',
+                    data: dataPoints.length > 0 ? dataPoints : [0],
+                    borderColor: '#6366f1',
+                    backgroundColor: 'rgba(99, 102, 241, 0.15)',
+                    fill: true,
+                    tension: 0.3,
+                    pointBackgroundColor: '#818cf8',
+                    pointRadius: 5
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        min: 0,
+                        max: 100,
+                        grid: { color: 'rgba(255, 255, 255, 0.05)' },
+                        ticks: { color: '#94a3b8' }
+                    },
+                    x: {
+                        grid: { color: 'rgba(255, 255, 255, 0.05)' },
+                        ticks: { color: '#94a3b8' }
+                    }
+                },
+                plugins: {
+                    legend: { display: false }
+                }
+            }
+        });
+    }
+
+    function startExam(examKey) {
+        if (currentUser.role !== 'admin') {
+            const hasCompleted = globalResultsList.some(r => r.username === currentUser.username && r.examKey === examKey);
+            if (hasCompleted) {
+                alert("ඔබ දැනටමත් මෙම පරීක්ෂණයට පිළිතුරු ලබාදී ඇත.");
+                return;
+            }
+        }
+
+        activeExamKey = examKey;
+        examAnswers = {};
+        currentQuestionIndex = 0;
+        examStartTime = getCurrentTime();
+
+        const schedule = examSchedules.find(s => s.key === examKey);
+        document.getElementById('examHeaderSubjectBadge').innerText = schedule ? schedule.displayName : 'පරීක්ෂණය';
+        document.getElementById('examHeaderTitle').innerText = schedule ? schedule.description : 'මාසික පරීක්ෂණය';
+
+        const durationMs = (schedule ? schedule.durationMinutes : 60) * 60 * 1000;
+        examSessionEndTime = new Date(examStartTime.getTime() + durationMs);
+
+        if (examTimerInterval) clearInterval(examTimerInterval);
+        updateExamTimer();
+        examTimerInterval = setInterval(updateExamTimer, 1000);
+
+        renderQuestion();
+        showView('exam');
+    }
+
+    function updateExamTimer() {
+        const now = getCurrentTime();
+        const diffMs = examSessionEndTime - now;
+
+        if (diffMs <= 0) {
+            clearInterval(examTimerInterval);
+            document.getElementById('examTimerDisplay').innerText = "00:00";
+            confirmFinishExam();
+            return;
+        }
+
+        const totalSec = Math.floor(diffMs / 1000);
+        const m = String(Math.floor(totalSec / 60)).padStart(2, '0');
+        const s = String(totalSec % 60).padStart(2, '0');
+        document.getElementById('examTimerDisplay').innerText = `${m}:${s}`;
+    }
+
+    function renderQuestion() {
+        const questions = getQuestionsForExam(activeExamKey);
+        const q = questions[currentQuestionIndex];
+
+        document.getElementById('examProgressLabel').innerText = `ප්‍රශ්නය ${currentQuestionIndex + 1} / ${questions.length}`;
+        const pct = Math.round(((currentQuestionIndex + 1) / questions.length) * 100);
+        document.getElementById('examProgressPercent').innerText = `${pct}%`;
+        document.getElementById('examProgressBar').style.width = `${pct}%`;
+
+        document.getElementById('questionNumBadge').innerText = `Q${currentQuestionIndex + 1}`;
+        document.getElementById('questionText').innerText = q.question;
+
+        const choicesContainer = document.getElementById('choicesContainer');
+        choicesContainer.innerHTML = '';
+
+        q.choices.forEach((choice, idx) => {
+            const isSelected = examAnswers[q.id] === idx;
+            choicesContainer.innerHTML += `
+                <label onclick="selectAnswer(${q.id}, ${idx})" class="flex items-center p-3 rounded-xl cursor-pointer transition border ${isSelected ? 'border-indigo-500 bg-indigo-500/20 text-white' : 'border-slate-800 bg-slate-900/60 hover:border-slate-700 text-slate-300'}">
+                    <input type="radio" name="question_${q.id}" ${isSelected ? 'checked' : ''} class="w-4 h-4 text-indigo-600 focus:ring-0">
+                    <span class="ml-3 text-xs sm:text-sm font-medium">${choice}</span>
+                </label>
+            `;
+        });
+
+        document.getElementById('btnPrevQuestion').disabled = (currentQuestionIndex === 0);
+        if (currentQuestionIndex === questions.length - 1) {
+            document.getElementById('btnNextQuestion').classList.add('hidden');
+            document.getElementById('btnSubmitExam').classList.remove('hidden');
+        } else {
+            document.getElementById('btnNextQuestion').classList.remove('hidden');
+            document.getElementById('btnSubmitExam').classList.add('hidden');
+        }
+    }
+
+    function selectAnswer(qId, choiceIdx) {
+        examAnswers[qId] = choiceIdx;
+        renderQuestion();
+    }
+
+    function prevQuestion() {
+        if (currentQuestionIndex > 0) {
+            currentQuestionIndex--;
+            renderQuestion();
+        }
+    }
+
+    function nextQuestion() {
+        const questions = getQuestionsForExam(activeExamKey);
+        if (currentQuestionIndex < questions.length - 1) {
+            currentQuestionIndex++;
+            renderQuestion();
+        }
+    }
+
+    function openSubmitConfirmModal() {
+        document.getElementById('submitModal').classList.remove('hidden');
+    }
+
+    function closeSubmitConfirmModal() {
+        document.getElementById('submitModal').classList.add('hidden');
+    }
+
+    function confirmFinishExam() {
+        closeSubmitConfirmModal();
+        if (examTimerInterval) clearInterval(examTimerInterval);
+
+        const endTime = getCurrentTime();
+        const timeTakenSec = Math.max(1, Math.floor((endTime - examStartTime) / 1000));
+        const questions = getQuestionsForExam(activeExamKey);
+
+        let rawScore = 0;
+        questions.forEach(q => {
+            if (examAnswers[q.id] === q.correctAnswer) {
+                rawScore += 1;
+            }
+        });
+
+        const finalComputedScore = Math.round((rawScore / questions.length) * 100);
+        const schedule = examSchedules.find(s => s.key === activeExamKey);
+
+        const submissionRecord = {
+            username: currentUser.username,
+            examKey: activeExamKey,
+            examSubjectName: schedule ? schedule.displayName : activeExamKey,
+            rawScore: rawScore,
+            totalQuestions: questions.length,
+            timeTakenSec: timeTakenSec,
+            finalScore: finalComputedScore,
+            timestamp: new Date().toISOString()
+        };
+
+        if (isFirebaseConnected && db) {
+            db.collection("exam_results").add(submissionRecord)
+                .then(docRef => console.log("Firebase sync ID:", docRef.id))
+                .catch(err => console.error("Firebase error:", err));
+        } else {
+            submissionRecord.id = 'local_' + Date.now();
+            globalResultsList.push(submissionRecord);
+        }
+
+        renderResultsView(submissionRecord, questions);
+        showView('results');
+    }
+
+    function renderResultsView(res, questions) {
+        document.getElementById('resultsFinalScore').innerText = `${res.finalScore} / 100`;
+        
+        const badge = document.getElementById('resultsGradeBadge');
+        if (res.finalScore >= 75) {
+            badge.className = "inline-block px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30";
+            badge.innerText = "සාමාර්ථය: A (විශිෂ්ඨ)";
+        } else if (res.finalScore >= 65) {
+            badge.className = "inline-block px-3 py-1 rounded-full text-xs font-bold bg-indigo-500/20 text-indigo-400 border border-indigo-500/30";
+            badge.innerText = "සාමාර්ථය: B (මෙහෙයවුම්)";
+        } else if (res.finalScore >= 50) {
+            badge.className = "inline-block px-3 py-1 rounded-full text-xs font-bold bg-amber-500/20 text-amber-400 border border-amber-500/30";
+            badge.innerText = "සාමාර්ථය: C (සාමාන්‍ය)";
+        } else {
+            badge.className = "inline-block px-3 py-1 rounded-full text-xs font-bold bg-rose-500/20 text-rose-400 border border-rose-500/30";
+            badge.innerText = "සාමාර්ථය: S / F";
+        }
+
+        const breakdown = document.getElementById('resultsBreakdownContainer');
+        breakdown.innerHTML = '';
+
+        questions.forEach((q, idx) => {
+            const userAns = examAnswers[q.id];
+            const isCorrect = userAns === q.correctAnswer;
+
+            breakdown.innerHTML += `
+                <div class="p-3.5 rounded-xl border ${isCorrect ? 'border-emerald-500/30 bg-emerald-500/5' : 'border-rose-500/30 bg-rose-500/5'} space-y-1">
+                    <div class="flex items-center justify-between text-xs font-bold">
+                        <span class="text-white">ප්‍රශ්නය ${idx + 1}: ${q.question}</span>
+                        <span class="${isCorrect ? 'text-emerald-400' : 'text-rose-400'}">${isCorrect ? 'නිවැරදියි' : 'වැරදියි'}</span>
+                    </div>
+                    <div class="text-[11px] text-slate-400">ඔබගේ පිළිතුර: ${userAns !== undefined ? q.choices[userAns] : 'ලබාදී නොමැත'}</div>
+                    <div class="text-[11px] text-emerald-400 font-medium">නිවැරදි පිළිතුර: ${q.choices[q.correctAnswer]}</div>
+                </div>
+            `;
+        });
+    }
+
+    function openDeleteModal(id) {
+        pendingDeleteId = id;
+        document.getElementById('deleteModal').classList.remove('hidden');
+    }
+
+    function closeDeleteModal() {
+        pendingDeleteId = null;
+        document.getElementById('deleteModal').classList.add('hidden');
+    }
+
+    function executeDeleteRecord() {
+        if (!pendingDeleteId) return;
+        if (isFirebaseConnected && db) {
+            db.collection("exam_results").doc(pendingDeleteId).delete()
+                .then(() => closeDeleteModal())
+                .catch(err => console.error("Delete error:", err));
+        } else {
+            globalResultsList = globalResultsList.filter(r => r.id !== pendingDeleteId);
+            closeDeleteModal();
+            renderDashboard();
+        }
+    }
+
+    function openResetAvgModal(scope) {
+        pendingResetScope = scope;
+        const modal = document.getElementById('resetAvgModal');
+        const title = document.getElementById('resetModalTitle');
+        const msg = document.getElementById('resetModalMsg');
+
+        if (scope === 'selected') {
+            title.innerText = "තෝරාගත් පන්තියේ ලකුණු රීසෙට් කරන්නද?";
+            msg.innerText = "මෙමගින් මෙම පන්තියේ සිසුන් ලබාගත් සියලුම ලකුණු මකා දමනු ඇත.";
+        } else {
+            title.innerText = "සියලුම පද්ධති ලකුණු රීසෙට් කරන්නද?";
+            msg.innerText = "මෙමගින් පද්ධතියේ ඇති සියලුම විෂයයන්හි සිසුන්ගේ ලකුණු මකා දමනු ඇත.";
+        }
+        modal.classList.remove('hidden');
+    }
+
+    function closeResetAvgModal() {
+        pendingResetScope = null;
+        document.getElementById('resetAvgModal').classList.add('hidden');
+    }
+
+    function executeResetAverages() {
+        if (!pendingResetScope) return;
+
+        if (isFirebaseConnected && db) {
+            const selectVal = document.getElementById('filterSubjectSelect').value;
+            let targetKeys = [];
+
+            if (pendingResetScope === 'selected' && selectVal) {
+                const parts = selectVal.split('-');
+                const grade = parts[0];
+                const subject = parts.slice(1).join('-');
+                targetKeys = examSchedules.filter(s => s.grade === Number(grade) && s.subject === subject).map(s => s.key);
+            }
+
+            db.collection("exam_results").get().then(snapshot => {
+                const batch = db.batch();
+                snapshot.forEach(doc => {
+                    const data = doc.data();
+                    if (pendingResetScope === 'all' || targetKeys.includes(data.examKey)) {
+                        batch.delete(doc.ref);
+                    }
+                });
+                return batch.commit();
+            }).then(() => closeResetAvgModal());
+        } else {
+            if (pendingResetScope === 'all') {
+                globalResultsList = [];
+            }
+            closeResetAvgModal();
+            renderDashboard();
+        }
+    }
+</script>
+</body>
+</html>
