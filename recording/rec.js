@@ -11095,6 +11095,141 @@ const videoLinks = [
         title: '2026-09-22 - Grade 6 History  Class Part 3' 
       },
 
+      { 
+        class: '11', 
+        subject: 'History Paper', 
+        date: '2026-09-25', 
+        month: 'September', 
+        video: 'https://drive.google.com/file/d/1GyE-fL2NAOpx5hm3aimyVOAv4B951mI2/preview', 
+        title: '2026-09-25 - Grade 11 History Paper  Class Part 1' 
+      },
+
+      { 
+        class: '11', 
+        subject: 'History Paper', 
+        date: '2026-09-25', 
+        month: 'September', 
+        video: 'https://drive.google.com/file/d/1IxNeF8TyUxVLMZU0Kd57Ty03v4dudznV/preview', 
+        title: '2026-09-25 - Grade 11 History Paper  Class Part 2' 
+      },
+
+      { 
+        class: '11', 
+        subject: 'History Paper', 
+        date: '2026-09-25', 
+        month: 'September', 
+        video: 'https://drive.google.com/file/d/1q-n5A-vbdQwdviDgRMi599mypAZApP-D/preview', 
+        title: '2026-09-25 - Grade 11 History Paper  Class Part 3' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'History Paper', 
+        date: '2026-09-25', 
+        month: 'September', 
+        video: 'https://drive.google.com/file/d/1Ycx1c9IAJ61hK0-27UMv924Rj1nN9llx/preview', 
+        title: '2026-09-25 - Grade 10 History Paper  Class Part 1' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'History Paper', 
+        date: '2026-09-25', 
+        month: 'September', 
+        video: 'https://drive.google.com/file/d/1-kr-DKfmkoXPIrxLVf64zk0FMIh_RLwz/preview', 
+        title: '2026-09-25 - Grade 10 History Paper  Class Part 2' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'History Paper', 
+        date: '2026-09-25', 
+        month: 'September', 
+        video: 'https://drive.google.com/file/d/1iTWkFrebpeyX8XwonitqLoHzHruOzn03/preview', 
+        title: '2026-09-25 - Grade 10 History Paper  Class Part 3' 
+      },
+
+      { 
+        class: '8', 
+        subject: 'Geography', 
+        date: '2026-09-24', 
+        month: 'September', 
+        video: 'https://drive.google.com/file/d/1S3v11PkuHasug-TpUXfVlGElAgX6543B/preview', 
+        title: '2026-09-24 - Grade 8 Geography  Class Part 1' 
+      },
+
+      { 
+        class: '8', 
+        subject: 'Geography', 
+        date: '2026-09-24', 
+        month: 'September', 
+        video: 'https://drive.google.com/file/d/1XaG7ye5CxMFBH3FExgnC2nnBneJf-6CS/preview', 
+        title: '2026-09-24 - Grade 8 Geography  Class Part 2' 
+      },
+
+      { 
+        class: '8', 
+        subject: 'Geography', 
+        date: '2026-09-24', 
+        month: 'September', 
+        video: 'https://drive.google.com/file/d/1vShZupvyaeqQOainJCjaWCU9KilThhOA/preview', 
+        title: '2026-09-24 - Grade 8 Geography  Class Part 3' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'History', 
+        date: '2026-09-24', 
+        month: 'September', 
+        video: 'https://drive.google.com/file/d/1B-jiIddh7OvUe05_RftdynTkactGwURi/preview', 
+        title: '2026-09-24 - Grade 10 History  Class Part 1' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'History', 
+        date: '2026-09-24', 
+        month: 'September', 
+        video: 'https://drive.google.com/file/d/1ew58KC563krtXK32bO0TmR0mU0SeiDgk/preview', 
+        title: '2026-09-24 - Grade 10 History  Class Part 2' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'History', 
+        date: '2026-09-24', 
+        month: 'September', 
+        video: 'https://drive.google.com/file/d/1-2ABIAPe3uXbiECrJ5NuvzifVkXPcOcT/preview', 
+        title: '2026-09-24 - Grade 10 History  Class Part 3' 
+      },
+
+      { 
+        class: '7', 
+        subject: 'Geography', 
+        date: '2026-09-27', 
+        month: 'September', 
+        video: 'https://drive.google.com/file/d/11uEt1yIBv2Wyu_ifQkQndcDvzvdeMwUU/preview', 
+        title: '2026-09-27 - Grade 7 Geography  Class Part 1' 
+      },
+
+      { 
+        class: '7', 
+        subject: 'Geography', 
+        date: '2026-09-27', 
+        month: 'September', 
+        video: 'https://drive.google.com/file/d/1clX_THDUzYqGfRGqYQuF5tPxO86PcDQp/preview', 
+        title: '2026-09-27 - Grade 7 Geography  Class Part 2' 
+      },
+
+      { 
+        class: '7', 
+        subject: 'Geography', 
+        date: '2026-09-27', 
+        month: 'September', 
+        video: 'https://drive.google.com/file/d/1Xs8QBNXr76BGafsCWhQw0Y09hjEyCvLQ/preview', 
+        title: '2026-09-27 - Grade 7 Geography  Class Part 3' 
+      },
+
      ];
   
 
