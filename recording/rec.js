@@ -11248,6 +11248,78 @@ const videoLinks = [
         title: '2026-09-27 - Grade 7 History  Class Part 2' 
       },
 
+      { 
+        class: '9', 
+        subject: 'Geography', 
+        date: '2026-09-28', 
+        month: 'September', 
+        video: 'https://drive.google.com/file/d/1LiVHpCzUCBhmaASKv8hPpzZn8HlbJlEo/preview', 
+        title: '2026-09-28 - Grade 9 Geography  Class Part 1' 
+      },
+
+      { 
+        class: '9', 
+        subject: 'Geography', 
+        date: '2026-09-28', 
+        month: 'September', 
+        video: 'https://drive.google.com/file/d/17fbxAYV_o1lUBGUVAy23-n-qqllnQXHB/preview', 
+        title: '2026-09-28 - Grade 9 Geography  Class Part 2' 
+      },
+
+      { 
+        class: '9', 
+        subject: 'Geography', 
+        date: '2026-09-28', 
+        month: 'September', 
+        video: 'https://drive.google.com/file/d/1bhRtSUxS84zF1qlWqCuJPIXh_m8vEou4/preview', 
+        title: '2026-09-28 - Grade 9 Geography  Class Part 3' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'Geography', 
+        date: '2026-09-28', 
+        month: 'September', 
+        video: 'https://drive.google.com/file/d/1Dz98qNAPlZ6chy05QFQzZlHwE48ELZVf/preview', 
+        title: '2026-09-28 - Grade 10 Geography  Class Part 1' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'Geography', 
+        date: '2026-09-28', 
+        month: 'September', 
+        video: 'https://drive.google.com/file/d/1TGzuH4Rw-2Yq3qn739xwp9HXpzBDhwOB/preview', 
+        title: '2026-09-28 - Grade 10 Geography  Class Part 2' 
+      },
+
+      { 
+        class: '11', 
+        subject: 'Geography', 
+        date: '2026-09-28', 
+        month: 'September', 
+        video: 'https://drive.google.com/file/d/1dbna6p4bE53gNeq5UpjNuGpBtbjhysg2/preview', 
+        title: '2026-09-28 - Grade 11 Geography  Class Part 1' 
+      },
+
+      { 
+        class: '11', 
+        subject: 'Geography', 
+        date: '2026-09-28', 
+        month: 'September', 
+        video: 'https://drive.google.com/file/d/1KGUmuuj0pEOg8OEaRMxIo58Fm3pH4Wkz/preview', 
+        title: '2026-09-28 - Grade 11 Geography  Class Part 2' 
+      },
+
+      { 
+        class: '11', 
+        subject: 'Geography', 
+        date: '2026-09-28', 
+        month: 'September', 
+        video: 'https://drive.google.com/file/d/1mGi9Xq8roJnkbKtLHeZ-LSTzF8VBH_-c/preview', 
+        title: '2026-09-28 - Grade 11 Geography  Class Part 3' 
+      },
+
      ];
   
 
