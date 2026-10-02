@@ -11320,6 +11320,15 @@ const videoLinks = [
         title: '2026-09-28 - Grade 11 Geography  Class Part 3' 
       },
 
+      { 
+        class: '10', 
+        subject: 'History', 
+        date: '2026-10-01', 
+        month: 'October', 
+        video: 'https://drive.google.com/file/d/1AkH-BRURGNc3xZ2vDUKLQ3BABVHSMnMo/preview', 
+        title: '2026-10-01 - Grade 10 History  Class Part 1' 
+      },
+
      ];
   
 
