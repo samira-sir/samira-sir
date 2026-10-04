@@ -910,4 +910,6 @@ const userMonthData = [
    { username: "arunodi", months: ["Oct"] },
     { username: "amila", months: ["Sep"] },
    { username: "amila", months: ["Oct"] },
+    { username: "dilakshi", months: ["Sep"] },
+   { username: "dilakshi", months: ["Oct"] },
 ];
