@@ -11455,6 +11455,33 @@ const videoLinks = [
         title: '2026-10-03 - Grade 11 History  Class Part 3' 
       },
 
+      { 
+        class: '8', 
+        subject: 'History', 
+        date: '2026-10-03', 
+        month: 'October', 
+        video: 'https://drive.google.com/file/d/1Q-t83tQ6mSLAcXBRNxyQSBYB6fZTYfAq/preview', 
+        title: '2026-10-03 - Grade 8 History  Class Part 1' 
+      },
+
+      { 
+        class: '8', 
+        subject: 'History', 
+        date: '2026-10-03', 
+        month: 'October', 
+        video: 'https://drive.google.com/file/d/1rrP3TaiP-7WVuub74tSIU0fzhetoyvDC/preview', 
+        title: '2026-10-03 - Grade 8 History  Class Part 2' 
+      },
+
+      { 
+        class: '8', 
+        subject: 'History', 
+        date: '2026-10-03', 
+        month: 'October', 
+        video: 'https://drive.google.com/file/d/1h9a9Ov88U8DX5G66YHWlIOAK3EbBlQyX/preview', 
+        title: '2026-10-03 - Grade 8 History  Class Part 3' 
+      },
+
      ];
   
 
