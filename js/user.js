@@ -152,6 +152,7 @@ const credentials = {
     gayan: { password: 'gay@1234', subjects: [{name:'history',grade:11},{ name: 'history Paper', grade: 11 }] },
     udani: { password: 'udani@2011', subjects: [{name:'history',grade:11},{ name: 'history Paper', grade: 11 }] },
     amila: { password: 'ass123', subjects: [{name:'history',grade:11},{ name: 'history Paper', grade: 11 }] },
+    dilakshi: { password: '4321', subjects: [{name:'geography',grade:11},{ name: 'history Paper', grade: 11 },{name:'history',grade:11},] },
     };
 
 
