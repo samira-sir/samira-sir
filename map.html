@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sri Lanka History & Geography Map</title>
 
-    <!-- Tailwind CSS for modern utility layout -->
     <script src="https://cdn.tailwindcss.com"></script>
 
     <!-- Leaflet CSS & JS -->
@@ -58,7 +57,7 @@
         /* Leaflet Map Styling */
         #map {
             width: 100%;
-            height: calc(100vh - 110px);
+            height: 100%;
             background-color: #ffffff;
             z-index: 1;
         }
@@ -164,24 +163,50 @@
 </head>
 <body class="flex flex-col h-screen w-screen overflow-hidden bg-white">
 
-    <!-- TOP NAVIGATION & SEARCH HEADER -->
-    <header class="fixed top-0 left-0 w-full z-30 px-3 md:px-4 py-2.5 glass-panel border-b border-[#92EEFF]/60 flex flex-wrap items-center justify-between gap-2.5 shadow-sm">
+    <header class="fixed top-0 left-0 w-full z-30 px-3 md:px-4 py-2.5 glass-panel border-b border-[#92EEFF]/60 flex flex-col md:flex-row items-stretch md:items-center justify-between gap-2.5 shadow-sm">
         
-        <!-- Logo & Branding -->
-        <div class="flex items-center space-x-3">
-            <div class="w-10 h-10 md:w-11 md:h-11 rounded-2xl bg-gradient-to-br from-[#92EEFF] to-[#D8FFC5] border border-[#30AFFF]/30 flex items-center justify-center text-[#30AFFF] shadow-md transform hover:rotate-6 transition-transform">
-                <i class="fa-solid fa-map-location-dot text-xl md:text-2xl text-[#0f2942]"></i>
-            </div>
-            <div>
-                <div class="flex items-center gap-2">
-                    <h1 class="font-bold text-sm md:text-lg text-[#0f2942] tracking-tight leading-tight">Sri Lanka History Map</h1>
+        <!-- Top Row on Mobile: Logo/Branding + Quizzes & Explore Themes Buttons -->
+        <div class="flex items-center justify-between w-full md:w-auto">
+            <!-- Logo & Branding -->
+            <div class="flex items-center space-x-2.5">
+                <div class="w-9 h-9 md:w-11 md:h-11 rounded-2xl bg-gradient-to-br from-[#92EEFF] to-[#D8FFC5] border border-[#30AFFF]/30 flex items-center justify-center text-[#30AFFF] shadow-md transform hover:rotate-6 transition-transform">
+                    <i class="fa-solid fa-map-location-dot text-lg md:text-2xl text-[#0f2942]"></i>
                 </div>
-                <p class="text-[11px] text-slate-500 hidden sm:block font-medium">ශ්‍රී ලංකා ඓතිහාසික හා භූගෝලීය ස්ථාන නාමාවලිය</p>
+                <div>
+                    <div class="flex items-center gap-2">
+                        <h1 class="font-bold text-xs sm:text-sm md:text-lg text-[#0f2942] tracking-tight leading-tight">Sri Lanka History Map</h1>
+                    </div>
+                    <p class="text-[10px] md:text-[11px] text-slate-500 hidden sm:block font-medium">ශ්‍රී ලංකා ඓතිහාසික හා භූගෝලීය ස්ථාන නාමාවලිය</p>
+                </div>
+            </div>
+
+            <!-- Right Side Header Controls (Moved along with the title in mobile) -->
+            <div class="flex items-center gap-2 md:hidden">
+                <!-- Quiz Hyperlink Button -->
+                <a 
+                    href="https://samira-sir.github.io/samira-sir/map_quiz.html" 
+                    target="_blank" 
+                    class="px-2.5 py-1.5 bg-gradient-to-r from-amber-300 to-amber-400 hover:from-amber-400 hover:to-amber-500 border border-amber-500/35 text-amber-950 text-xs font-bold rounded-xl flex items-center gap-1.5 transition-all shadow-sm active:scale-95"
+                    title="Sri Lanka History Map Quizzes"
+                >
+                    <i class="fa-solid fa-trophy text-amber-900 text-xs"></i>
+                    <span>Quizzes</span>
+                </a>
+
+                <!-- Explore Themes Action Button -->
+                <button 
+                    onclick="toggleThemeDrawer()" 
+                    class="px-2.5 py-1.5 bg-gradient-to-r from-[#D8FFC5] to-[#C4F7CA] hover:from-[#C4F7CA] hover:to-[#92EEFF] border border-[#30AFFF]/30 text-[#0f2942] text-xs font-bold rounded-xl flex items-center gap-1.5 transition-all shadow-sm active:scale-95"
+                >
+                    <i class="fa-solid fa-layer-group text-[#30AFFF] text-xs"></i>
+                    <span>Themes</span>
+                    <span id="theme-badge-mobile" class="px-1.5 py-0.2 text-[10px] bg-[#30AFFF] text-white rounded-full font-black shadow-xs">0</span>
+                </button>
             </div>
         </div>
 
         <!-- Search Bar with Dynamic Suggestions Dropdown -->
-        <div class="relative flex-1 max-w-xs md:max-w-md">
+        <div class="relative w-full md:max-w-md">
             <div class="relative flex items-center">
                 <i class="fa-solid fa-magnifying-glass absolute left-3.5 text-[#30AFFF] pointer-events-none text-xs md:text-sm"></i>
                 <input 
@@ -214,32 +239,53 @@
             </div>
         </div>
 
-        <!-- Right Side Header Controls -->
-        <div class="flex items-center gap-2">
-            <!-- Ad Timer Status Widget -->
-            <div class="hidden lg:flex items-center gap-2 px-3 py-1.5 bg-[#D8FFC5]/40 border border-[#92EEFF] rounded-xl text-xs text-[#0f2942] font-semibold" title="Next Ad Countdown">
-                <i class="fa-solid fa-bullhorn text-[#30AFFF] animate-pulse"></i>
-                <span>Next Ad: <strong id="ad-countdown-display" class="text-[#30AFFF]">60s</strong></span>
-                <button onclick="triggerNextAdManually()" class="ml-1 px-1.5 py-0.5 bg-white hover:bg-[#92EEFF] border border-[#30AFFF]/30 rounded text-[10px] font-bold transition-colors" title="Preview Next Ad Now">
-                    <i class="fa-solid fa-forward"></i>
-                </button>
-            </div>
+        <!-- Desktop Right Side Controls -->
+        <div class="hidden md:flex items-center gap-2">
+            <!-- Quiz Hyperlink Button -->
+            <a 
+                href="https://samira-sir.github.io/samira-sir/map_quiz.html" 
+                target="_blank" 
+                class="px-4 py-2 bg-gradient-to-r from-amber-300 to-amber-400 hover:from-amber-400 hover:to-amber-500 border border-amber-500/35 text-amber-950 text-sm font-bold rounded-xl flex items-center gap-2 transition-all shadow-sm active:scale-95"
+                title="Sri Lanka History Map Quizzes"
+            >
+                <i class="fa-solid fa-trophy text-amber-900 text-base"></i>
+                <span>Map Quizzes</span>
+            </a>
 
             <!-- Explore Themes Action Button -->
             <button 
                 onclick="toggleThemeDrawer()" 
-                class="px-3 md:px-4 py-2 bg-gradient-to-r from-[#D8FFC5] to-[#C4F7CA] hover:from-[#C4F7CA] hover:to-[#92EEFF] border border-[#30AFFF]/30 text-[#0f2942] text-xs md:text-sm font-bold rounded-xl flex items-center gap-2 transition-all shadow-sm active:scale-95"
+                class="px-4 py-2 bg-gradient-to-r from-[#D8FFC5] to-[#C4F7CA] hover:from-[#C4F7CA] hover:to-[#92EEFF] border border-[#30AFFF]/30 text-[#0f2942] text-sm font-bold rounded-xl flex items-center gap-2 transition-all shadow-sm active:scale-95"
             >
-                <i class="fa-solid fa-layer-group text-[#30AFFF] text-sm md:text-base"></i>
-                <span class="hidden sm:inline">Explore Themes</span>
+                <i class="fa-solid fa-layer-group text-[#30AFFF] text-base"></i>
+                <span>Explore Themes</span>
                 <span id="theme-badge" class="px-2 py-0.5 text-xs bg-[#30AFFF] text-white rounded-full font-black shadow-xs">0</span>
             </button>
         </div>
     </header>
 
-    <!-- MAIN MAP DISPLAY CONTAINER -->
-    <main class="relative w-full flex-1 mt-16 mb-9">
+    <main class="relative w-full flex-1 mt-24 md:mt-20 mb-9">
         <div id="map"></div>
+
+        <!-- Zoom In / Zoom Out Toggle Control Panel (Appears after searching/pointing a location) -->
+        <div id="zoom-control-panel" class="hidden absolute top-4 left-4 z-20 flex items-center gap-2 bg-white/90 backdrop-blur-md p-1.5 rounded-2xl border-2 border-[#92EEFF] shadow-xl animate-fade-in">
+            <button 
+                onclick="zoomInSpot()" 
+                class="px-3 py-2 bg-gradient-to-r from-[#30AFFF] to-[#158bdb] text-white text-xs font-bold rounded-xl flex items-center gap-1.5 shadow-md hover:scale-105 active:scale-95 transition-all"
+                title="Zoom in clearly to the searched spot"
+            >
+                <i class="fa-solid fa-magnifying-glass-plus"></i>
+                <span>Zoom In</span>
+            </button>
+            <button 
+                onclick="zoomOutSpot()" 
+                class="px-3 py-2 bg-white hover:bg-slate-100 border border-[#92EEFF] text-[#0f2942] text-xs font-bold rounded-xl flex items-center gap-1.5 shadow-sm hover:scale-105 active:scale-95 transition-all"
+                title="Zoom out (-2 zoom levels)"
+            >
+                <i class="fa-solid fa-magnifying-glass-minus text-[#30AFFF]"></i>
+                <span>Zoom Out (-2)</span>
+            </button>
+        </div>
 
         <!-- Quick Map Floating Control Buttons -->
         <div class="absolute bottom-5 right-5 z-20 flex flex-col gap-2.5">
@@ -260,7 +306,6 @@
         </div>
     </main>
 
-    <!-- ADVERTISEMENT POPUP MODAL CONTAINER -->
     <div id="ad-modal-overlay" class="hidden fixed inset-0 bg-slate-900/60 backdrop-blur-md z-50 flex items-center justify-center p-4 transition-opacity duration-300">
         <div id="ad-modal-box" class="relative w-full max-w-lg bg-white rounded-3xl border-2 border-[#92EEFF] shadow-2xl overflow-hidden modal-pop-in">
             
@@ -324,7 +369,6 @@
         </div>
     </div>
 
-    <!-- THEMES & PLACES SLIDE-OVER DRAWER -->
     <div id="drawer-backdrop" onclick="toggleThemeDrawer()" class="hidden fixed inset-0 bg-slate-900/40 backdrop-blur-xs z-40 transition-opacity"></div>
     
     <aside id="theme-drawer" class="drawer-slide fixed top-0 right-0 h-full w-full sm:w-96 bg-white z-50 shadow-2xl flex flex-col border-l-2 border-[#92EEFF] transform translate-x-full">
@@ -362,8 +406,7 @@
         </div>
     </aside>
 
-    <!-- TOAST NOTIFICATION BOX -->
-    <div id="toast-container" class="fixed top-20 right-4 z-50 transform translate-x-full opacity-0 transition-all duration-300 pointer-events-none">
+    <div id="toast-container" class="fixed top-24 right-4 z-50 transform translate-x-full opacity-0 transition-all duration-300 pointer-events-none">
         <div class="glass-panel border-l-4 border-l-[#30AFFF] px-4 py-3 rounded-2xl shadow-2xl flex items-center space-x-3 bg-white">
             <div class="w-8 h-8 rounded-full bg-[#D8FFC5] flex items-center justify-center text-[#30AFFF]">
                 <i class="fa-solid fa-circle-info text-base"></i>
@@ -374,628 +417,51 @@
         </div>
     </div>
 
-    <!-- FOOTER MARQUEE BAR -->
-    <footer class="fixed bottom-0 left-0 w-full z-30 marquee-container text-white text-xs py-2 px-4 shadow-xl flex items-center">
-        <i class="fa-solid fa-graduation-cap text-[#92EEFF] mr-2 text-sm flex-shrink-0"></i>
-        <marquee behavior="scroll" direction="left" scrollamount="4" class="font-normal tracking-wide">
-            Learn History & Geography with Samira Sir. All rights reserved. 2026 &copy; 
-            <a href="https://samira-sir.github.io/samira-sir/" target="_blank" class="underline font-bold text-[#92EEFF] hover:text-[#D8FFC5] transition-colors ml-1">Visit Official Website</a>. 
-            Interactive Sri Lanka History Map.
-        </marquee>
+    <footer class="fixed bottom-0 left-0 w-full z-30 marquee-container text-white text-xs py-2 px-4 shadow-xl flex items-center justify-between gap-4">
+        <div class="flex items-center overflow-hidden flex-1">
+            <i class="fa-solid fa-graduation-cap text-[#92EEFF] mr-2 text-sm flex-shrink-0"></i>
+            <marquee behavior="scroll" direction="left" scrollamount="4" class="font-normal tracking-wide">
+                Learn History & Geography with Samira Sir. All rights reserved. 2026 &copy; 
+                <a href="https://samira-sir.github.io/samira-sir/" target="_blank" class="underline font-bold text-[#92EEFF] hover:text-[#D8FFC5] transition-colors ml-1">Visit Official Website</a>. 
+                Interactive Sri Lanka History Map.
+            </marquee>
+        </div>
+        <!-- Firebase Visitor Counter Badge (Starts at 0 and increments +1 per refresh) -->
+        <div class="flex items-center gap-1.5 px-2.5 py-1 bg-slate-900 border border-[#30AFFF]/50 rounded-lg text-emerald-400 font-mono text-[11px] flex-shrink-0 shadow-inner">
+            <i class="fa-solid fa-users text-[#30AFFF]"></i>
+            <span>Visitors:</span>
+            <strong id="visitor-count-display" class="text-white">...</strong>
+        </div>
     </footer>
 
     <script>
-        /* Database of Historical & Geographical Places */
-        var places = [
-            { sinhala: "කනගරායන් ආරු", english: "Kanagarayan Aru", titles: ["ශ්‍රී ලංකාවේ ගංගා"], coords: [1914.12, 876.00] },
-            { sinhala: "මල්වතු ඔය", english: "Malwathu Oya", titles: ["ශ්‍රී ලංකාවේ ගංගා"], coords: [1725.06, 703.00] },
-            { sinhala: "කලා ඔය", english: "Kala Oya", titles: ["ශ්‍රී ලංකාවේ ගංගා"], coords: [1437.87, 678.00] },
-            { sinhala: "දැදුරු ඔය", english: "Daduru Oya", titles: ["ශ්‍රී ලංකාවේ ගංගා"], coords: [1186.98, 643.00] },
-            { sinhala: "මහ ඔය/මා ඔය", english: "Maha Oya/Ma Oya", titles: ["ශ්‍රී ලංකාවේ ගංගා"], coords: [972.07, 673.00] },
-            { sinhala: "කැලණි ගඟ", english: "Kelani River", titles: ["ශ්‍රී ලංකාවේ ගංගා"], coords: [790.14, 671.00] },
-            { sinhala: "කළු ගඟ", english: "Kalu Gaga", titles: ["ශ්‍රී ලංකාවේ ගංගා"], coords: [624.21, 659.00] },
-            { sinhala: "ගිං ගඟ", english: "Gin Gaga", titles: ["ශ්‍රී ලංකාවේ ගංගා"], coords: [390.68, 723.00] },
-            { sinhala: "නිල්වලා ගඟ", english: "Nilwala Ganga", titles: ["ශ්‍රී ලංකාවේ ගංගා"], coords: [299.22, 912.00] },
-            { sinhala: "වලවේ ගඟ", english: "Walawe Ganga", titles: ["ශ්‍රී ලංකාවේ ගංගා"], coords: [579.50, 1082.00] },
-            { sinhala: "කිරිඳි ඔය", english: "Kiridi Oya", titles: ["ශ්‍රී ලංකාවේ ගංගා"], coords: [568.50, 1235.00] },
-            { sinhala: "මැණික් ගඟ", english: "Menik Ganga", titles: ["ශ්‍රී ලංකාවේ ගංගා"], coords: [633.47, 1414.50] },
-            { sinhala: "ගල්ඔය", english: "Gal Oya", titles: ["ශ්‍රී ලංකාවේ ගංගා"], coords: [944.85, 1522.50] },
-            { sinhala: "මාදුරු ඔය", english: "Maduru Oya", titles: ["ශ්‍රී ලංකාවේ ගංගා"], coords: [1304.70, 1300.00] },
-            { sinhala: "මහවැලි ගඟ", english: "Mahaweli River", titles: ["ශ්‍රී ලංකාවේ ගංගා"], coords: [1344.18, 1230.00] },
-            { sinhala: "අඹන් ගඟ", english: "Aban Ganga", titles: ["ශ්‍රී ලංකාවේ ගංගා"], coords: [1224.23, 1084.00] },
-            { sinhala: "යාන් ඔය", english: "Yan Oya", titles: ["ශ්‍රී ලංකාවේ ගංගා"], coords: [1624.06, 1082.00] },
-            { sinhala: "මා ඔය", english: "Ma Oya", titles: ["ශ්‍රී ලංකාවේ ගංගා"], coords: [1819.98, 1032.00] },
-            { sinhala: "යෝධ වැව", english: "Yoda Wewa", titles: ["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"], coords: [1777.19, 627.89] },
-            { sinhala: "මහකනදරා වැව", english: "Mahakanadara Wewa", titles: ["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"], coords: [1539.32, 907.81] },
-            { sinhala: "නුවර වැව", english: "Nuwara Wewa", titles: ["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"], coords: [1508.72, 847.00] },
-            { sinhala: "තිසා වැව", english: "Thisa Wewa", titles: ["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"], coords: [1496.71, 810.00] },
-            { sinhala: "නාච්චාදූව වැව", english: "Nachchaduwa Wewa", titles: ["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"], coords: [1459.69, 882.00] },
-            { sinhala: "රාජාංගනය ජලාශය", english: "Rajanganaya Jalashaya", titles: ["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"], coords: [1407.67, 746.00] },
-            { sinhala: "කලා වැව", english: "Kala Wewa", titles: ["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"], coords: [1336.63, 912.00] },
-            { sinhala: "කන්ඩලම වැව", english: "Kandalama Wewa", titles: ["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"], coords: [1273.60, 993.00] },
-            { sinhala: "පොල්ගොල්ල වේල්ල", english: "Polgolla Wella", titles: ["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"], coords: [977.44, 969.00] },
-            { sinhala: "සමනල වැව", english: "Samanala Wewa", titles: ["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"], coords: [638.19, 1043.00] },
-            { sinhala: "චන්ද්‍රිකා වැව", english: "Chandrika Wewa", titles: ["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"], coords: [461.10, 1082.00] },
-            { sinhala: "මිණිපේ අමුණ", english: "Minipe Amuna", titles: ["ශ්‍රී ලංකාවේ පැරණි රාජධානි සහ බලකොටු","ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"], coords: [940.34, 1172.00] },
-            { sinhala: "සොරබොර වැව", english: "Sorabora Wewa", titles: ["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"], coords: [976.36, 1179.00] },
-            { sinhala: "ඇළහැර අමුණ", english: "Elahera Amuna", titles: ["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"], coords: [1261.51, 1108.00] },
-            { sinhala: "පරාක්‍රම සමුද්‍රය", english: "Parakrama Samudraya", titles: ["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"], coords: [1297.53, 1145.00] },
-            { sinhala: "මින්නේරිය වැව", english: "Minneriya Wewa", titles: ["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"], coords: [1361.56, 1092.00] },
-            { sinhala: "කවුඩුල්ල වැව", english: "Kawdulla Wewa", titles: ["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"], coords: [1421.59, 1114.00] },
-            { sinhala: "හුරුළු වැව", english: "Hurulu Wewa", titles: ["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"], coords: [1438.60, 1012.00] },
-            { sinhala: "කන්තලේ වැව", english: "Kanthale Wewa", titles: ["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"], coords: [1538.65, 1148.00] },
-            { sinhala: "පදවිය වැව", english: "Padawiya Wewa", titles: ["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"], coords: [1752.77, 1027.00] },
-            { sinhala: "ඉරණමඩු වැව", english: "Iranamadu Wewa", titles: ["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"], coords: [2005.90, 854.00] },
-            { sinhala: "වික්ටෝරියා ජලාශය", english: "Victoria Reservoir", titles: ["ශ්‍රී ලංකාවේ ජලාශ"], coords: [945.76, 1033.00] },
-            { sinhala: "කොත්මලේ ජලාශය", english: "Kothmale Reservoir", titles: ["ශ්‍රී ලංකාවේ ජලාශ"], coords: [831.70, 969.00] },
-            { sinhala: "උඩවලව ජලාශය", english: "Udawalawa Reservoir", titles: ["ශ්‍රී ලංකාවේ ජලාශ"], coords: [535.54, 1080.00] },
-            { sinhala: "රන්දෙනිගල ජලාශය", english: "Randenigala Reservoir", titles: ["යටත්විජිත යුගයේ ස්ථාන","ශ්‍රී ලංකාවේ ජලාශ"], coords: [896.73, 1103.00] },
-            { sinhala: "රන්ටැබේ ජලාශය", english: "Rantebe Reservoir", titles: ["ශ්‍රී ලංකාවේ ජලාශ"], coords: [920.74, 1139.00] },
-            { sinhala: "සේනානායක සමුද්‍රය", english: "Senanayaka Samudraya", titles: ["ශ්‍රී ලංකාවේ ජලාශ"], coords: [906.74, 1449.00] },
-            { sinhala: "මාදුරු ඔය ජලාශය", english: "Maduruoya Reservoir", titles: ["ශ්‍රී ලංකාවේ ජලාශ"], coords: [1118.85, 1275.00] },
-            { sinhala: "පුනරීන්", english: "Punarin", titles: ["ප්‍රාග් ඓතිහාසික ස්ථාන"], coords: [2081.51, 721.96] },
-            { sinhala: "ඉරණමඩු", english: "Iranamadu", titles: ["ප්‍රාග් ඓතිහාසික ස්ථාන"], coords: [2022.48, 819.94] },
-            { sinhala: "මන්නාරම", english: "Mannar", titles: ["ප්‍රාග් ඓතිහාසික ස්ථාන"], coords: [1812.40, 583.00] },
-            { sinhala: "පොම්පරිප්පු", english: "Pomparippu", titles: ["ප්‍රාග් ඓතිහාසික ස්ථාන","පූර්ව ඓතිහාසික ස්ථාන"], coords: [1527.28, 525.01] },
-            { sinhala: "ඉබ්බන්කටුව", english: "Ibbankatuwa", titles: ["ප්‍රාග් ඓතිහාසික ස්ථාන","පූර්ව ඓතිහාසික ස්ථාන"], coords: [1236.16, 956.90] },
-            { sinhala: "අත්තනගොඩ අළුලෙන", english: "Aththanagoda Alu Lena", titles: ["ප්‍රාග් ඓතිහාසික ස්ථාන"], coords: [894.03, 818.94] },
-            { sinhala: "කිතුල්ගල බෙලිලෙන", english: "Kithulgala Belilena", titles: ["ප්‍රාග් ඓතිහාසික ස්ථාන"], coords: [807.99, 873.92] },
-            { sinhala: "මානියම්ගම", english: "Maniyangama", titles: ["ප්‍රාග් ඓතිහාසික ස්ථාන"], coords: [761.97, 754.95] },
-            { sinhala: "කුරුවිට බටදොඹ ලෙන", english: "Kuruvita Batadombalena", titles: ["ප්‍රාග් ඓතිහාසික ස්ථාන"], coords: [662.93, 819.94] },
-            { sinhala: "පාහියන්ගල", english: "Pahiyangala", titles: ["ප්‍රාග් ඓතිහාසික ස්ථාන"], coords: [613.91, 718.96] },
-            { sinhala: "අළුගල්ගෙ", english: "Alugalge", titles: ["ප්‍රාග් ඓතිහාසික ස්ථාන"], coords: [380.82, 1200.84] },
-            { sinhala: "උඩමළල", english: "Udamalala", titles: ["ප්‍රාග් ඓතිහාසික ස්ථාන"], coords: [400.83, 1247.82] },
-            { sinhala: "බූන්දල/පතිරාජවල", english: "Bundala/Pathirajawela", titles: ["ප්‍රාග් ඓතිහාසික ස්ථාන"], coords: [418.83, 1309.81] },
-            { sinhala: "මිනිහාගල්කන්ද", english: "Minihagal Kanda", titles: ["ප්‍රාග් ඓතිහාසික ස්ථාන"], coords: [523.88, 1479.76] },
-            { sinhala: "හෝර්ටන්තැන්න", english: "Hortn Place", titles: ["ප්‍රාග් ඓතිහාසික ස්ථාන"], coords: [716.95, 1022.88] },
-            { sinhala: "රාවණා ඇල්ල", english: "Rawana Falls", titles: ["ප්‍රාග් ඓතිහාසික ස්ථාන"], coords: [735.96, 1178.84] },
-            { sinhala: "බණ්ඩාරවෙල", english: "Bandarawela", titles: ["ප්‍රාග් ඓතිහාසික ස්ථාන"], coords: [767.98, 1150.85] },
-            { sinhala: "පොතාන/අලිගල/සීගිරිය අලකොළවැව/දෙහිගහඇළකන්ද", english: "Pothana/Aligala/Sigiriya Alakolawewa/Dehigahaelakanda", titles: ["ශ්‍රී ලංකාවේ පැරණි රාජධානි සහ බලකොටු","ප්‍රාග් ඓතිහාසික ස්ථාන"], coords: [1362.43, 1023.87] },
-            { sinhala: "අලිමංකඩ", english: "Elephant Pass", titles: ["යටත්විජිත යුගයේ ස්ථාන","ලන්දේසි බලකොටු","ප්‍රාග් ඓතිහාසික ස්ථාන"], coords: [2122.74, 821.93] },
-            { sinhala: "ගල්සොහොන්කනත්ත", english: "Galsohonkanaththa", titles: ["පූර්ව ඓතිහාසික ස්ථාන"], coords: [1344.72, 595.85] },
-            { sinhala: "යටිගල්පොත්ත", english: "Yatigalpoththa", titles: ["පූර්ව ඓතිහාසික ස්ථාන"], coords: [1242.68, 935.76] },
-            { sinhala: "හැවෙනිවෙළ", english: "Haveniwela", titles: ["පූර්ව ඓතිහාසික ස්ථාන"], coords: [1152.64, 917.76] },
-            { sinhala: "දුම්මලසූරිය", english: "Dummalasuriya", titles: ["පූර්ව ඓතිහාසික ස්ථාන"], coords: [1092.62, 579.85] },
-            { sinhala: "නිකවලමුල්ල", english: "Nikawalamulla", titles: ["පූර්ව ඓතිහාසික ස්ථාන"], coords: [784.49, 775.80] },
-            { sinhala: "හල්දුම්මුල්ල", english: "Haldummulla", titles: ["පූර්ව ඓතිහාසික ස්ථාන"], coords: [712.46, 901.77] },
-            { sinhala: "බණ්ඩත්තර", english: "Bandaththara", titles: ["පූර්ව ඓතිහාසික ස්ථාන"], coords: [294.27, 933.76] },
-            { sinhala: "හබරත්තාව", english: "Habaraththawa", titles: ["පූර්ව ඓතිහාසික ස්ථාන"], coords: [386.31, 1215.68] },
-            { sinhala: "උඩරංචාමඩම/රංචාමඩව", english: "Udaranchamadama/Ranchamadama", titles: ["පූර්ව ඓතිහාසික ස්ථාන"], coords: [490.35, 1011.74] },
-            { sinhala: "බෙරගල", english: "Beragala", titles: ["පූර්ව ඓතිහාසික ස්ථාන"], coords: [688.43, 1117.71] },
-            { sinhala: "දියවින්න", english: "Diyawinna", titles: ["ප්‍රාග් ඓතිහාසික ස්ථාන"], coords: [632.41, 1111.86] },
-            { sinhala: "බෙල්ලන්බැදිපැලැස්ස", english: "Bellanbedipalassa", titles: ["ප්‍රාග් ඓතිහාසික ස්ථාන"], coords: [660.40, 924.91] },
-            { sinhala: "මහාතිත්ත/මාතොට", english: "Mahathiththa/Mathota", titles: ["ප්‍රාග් ඓතිහාසික ස්ථාන"], coords: [1832.96, 603.99] },
-            { sinhala: "පොළොන්නරුව", english: "Polonnaruwa", titles: ["ශ්‍රී ලංකාවේ පැරණි රාජධානි සහ බලකොටු","ශ්‍රී ලංකාවේ අග නගර"], coords: [1553.07, 1176.84] },
-            { sinhala: "මහනුවර", english: "Mahanuwara", titles: ["ශ්‍රී ලංකාවේ පැරණි රාජධානි සහ බලකොටු","ශ්‍රී ලංකාවේ අග නගර"], coords: [981.28, 960.90] },
-            { sinhala: "කතරගම/කාචරගම", english: "Katharagama/Kacharagama", titles: ["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන","ශ්‍රී ලංකාවේ අග නගර"], coords: [538.44, 1312.81] },
-            { sinhala: "මාගම", english: "Magama", titles: ["ශ්‍රී ලංකාවේ පැරණි රාජධානි සහ බලකොටු","ශ්‍රී ලංකාවේ අග නගර"], coords: [449.47, 1320.81] },
-            { sinhala: "දෙවි නුවර/දේව නගර", english: "Devi Nuwara/Deva Nagar", titles: ["ශ්‍රී ලංකාවේ අග නගර"], coords: [279.53, 938.91] },
-            { sinhala: "මාතර", english: "Mathara", titles: ["ලන්දේසි බලකොටු","ශ්‍රී ලංකාවේ අග නගර"], coords: [283.53, 905.92] },
-            { sinhala: "ගාල්ල", english: "Galle", titles: ["ලන්දේසි බලකොටු","ශ්‍රී ලංකාවේ අග නගර"], coords: [342.51, 714.96] },
-            { sinhala: "රයිගම", english: "Raigama", titles: ["ශ්‍රී ලංකාවේ පැරණි රාජධානි සහ බලකොටු","ශ්‍රී ලංකාවේ අග නගර"], coords: [646.40, 608.99] },
-            { sinhala: "කෝට්ටේ", english: "Kotte", titles: ["ශ්‍රී ලංකාවේ පැරණි රාජධානි සහ බලකොටු","ශ්‍රී ලංකාවේ අග නගර"], coords: [780.35, 536.01] },
-            { sinhala: "ගම්පොළ", english: "Gampola", titles: ["ශ්‍රී ලංකාවේ පැරණි රාජධානි සහ බලකොටු","ශ්‍රී ලංකාවේ අග නගර"], coords: [885.31, 919.91] },
-            { sinhala: "දඹදෙණිය", english: "Dabadeniya", titles: ["ශ්‍රී ලංකාවේ පැරණි රාජධානි සහ බලකොටු","ශ්‍රී ලංකාවේ අග නගර"], coords: [982.28, 685.97] },
-            { sinhala: "සල්වතොට/හලාවත", english: "Chillaw/Salwathota", titles: ["යටත්විජිත යුගයේ ස්ථාන","ලන්දේසි බලකොටු","ශ්‍රී ලංකාවේ අග නගර"], coords: [1107.23, 497.02] },
-            { sinhala: "කුරුණෑගල", english: "Kurunegala", titles: ["ශ්‍රී ලංකාවේ පැරණි රාජධානි සහ බලකොටු","ශ්‍රී ලංකාවේ අග නගර"], coords: [1090.12, 838.89] },
-            { sinhala: "පරාක්‍රමපුර/පඬුවස්නුවර", english: "Parakramapura/Paduwasnuwara", titles: ["ශ්‍රී ලංකාවේ පැරණි රාජධානි සහ බලකොටු","ශ්‍රී ලංකාවේ අග නගර"], coords: [1127.10, 642.94] },
-            { sinhala: "යාපහුව", english: "Yapahuwa", titles: ["ශ්‍රී ලංකාවේ අග නගර"], coords: [1270.05, 841.89] },
-            { sinhala: "අනුරාධපුරය", english: "Anuradhapuraya", titles: ["ශ්‍රී ලංකාවේ පැරණි රාජධානි සහ බලකොටු","ශ්‍රී ලංකාවේ අග නගර"], coords: [1511.96, 822.89] },
-            { sinhala: "යාපනය/නකදිව", english: "Jaffna/Nakadiwa", titles: ["ශ්‍රී ලංකාවේ පැරණි රාජධානි සහ බලකොටු","ශ්‍රී ලංකාවේ අග නගර"], coords: [2191.71, 625.94] },
-            { sinhala: "කුඹුක්කන් ඔය", english: "Kubukkan Oya", titles: ["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"], coords: [625.85, 1451.72] },
-            { sinhala: "මැණික් ගඟ", english: "Manik Ganga", titles: ["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"], coords: [523.89, 1393.74] },
-            { sinhala: "කිරිඳිඔය", english: "Kiridi Oya", titles: ["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"], coords: [573.87, 1235.78] },
-            { sinhala: "කනදරා ඔය", english: "Kanadara Oya", titles: ["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"], coords: [1583.66, 871.77] },
-            { sinhala: "සීතාවක", english: "Sethawaka", titles: ["ලන්දේසි බලකොටු","ශ්‍රී ලංකාවේ පැරණි රාජධානි සහ බලකොටු","ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"], coords: [777.96, 729.81] },
-            { sinhala: "දඹකොළපටුන", english: "Dambakolapatuna", titles: ["ශ්‍රී ලංකාවේ වරායන්"], coords: [2261.81, 593.00] },
-            { sinhala: "පල්ලවංකය", english: "Pallawankaya", titles: ["ශ්‍රී ලංකාවේ වරායන්"], coords: [1778.99, 1173.84] },
-            { sinhala: "ත්‍රිකුණාමලය/ගෝකන්නතිත්ත", english: "Trincomalee/Gokannathiththta", titles: ["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන","ශ්‍රී ලංකාවේ වරායන්"], coords: [1645.04, 1258.82] },
-            { sinhala: "ලංකා පටුන", english: "Lankapatuna", titles: ["ශ්‍රී ලංකාවේ වරායන්"], coords: [1564.06, 1343.80] },
-            { sinhala: "කසාතොට", english: "Kasathota", titles: ["ශ්‍රී ලංකාවේ වරායන්"], coords: [1298.01, 1204.63] },
-            { sinhala: "මඩකලපුව", english: "Batticaloa", titles: ["යටත්විජිත යුගයේ ස්ථාන","ලන්දේසි බලකොටු","ශ්‍රී ලංකාවේ වරායන්"], coords: [1206.04, 1535.90] },
-            { sinhala: "තොටලුතොට/කිරිඳ වරාය", english: "Thotaluthota/Kirinda Habour", titles: ["ශ්‍රී ලංකාවේ වරායන්"], coords: [450.21, 1364.94] },
-            { sinhala: "කළුතර/කාලාතිත්ත", english: "Kaluthara/Kalathiththa", titles: ["ලන්දේසි බලකොටු","ශ්‍රී ලංකාවේ වරායන්"], coords: [590.16, 586.14] },
-            { sinhala: "මීගමුව", english: "Negambo", titles: ["යටත්විජිත යුගයේ ස්ථාන","ලන්දේසි බලකොටු","ශ්‍රී ලංකාවේ වරායන්"], coords: [892.05, 513.16] },
-            { sinhala: "කල්පිටිය", english: "Kalpitya", titles: ["යටත්විජිත යුගයේ ස්ථාන","ලන්දේසි බලකොටු","ශ්‍රී ලංකාවේ වරායන්"], coords: [1451.85, 458.18] },
-            { sinhala: "උරුවෙල", english: "Uruwela", titles: ["ශ්‍රී ලංකාවේ වරායන්"], coords: [1468.84, 501.17] },
-            { sinhala: "මගන", english: "Magana", titles: ["ශ්‍රී ලංකාවේ වරායන්"], coords: [1604.79, 540.16] },
-            { sinhala: "මන්නාරම", english: "Mannar", titles: ["යටත්විජිත යුගයේ ස්ථාන","ලන්දේසි බලකොටු","ශ්‍රී ලංකාවේ වරායන්"], coords: [1840.70, 547.15] },
-            { sinhala: "සූකරතිත්ත/ඌරාතොට/හැමන්හිල්", english: "Sukarathiththa/Urathota/Hamanhill", titles: ["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන","ශ්‍රී ලංකාවේ වරායන්"], coords: [2204.57, 538.16] },
-            { sinhala: "කයිට්ස්", english: "Kytes", titles: ["ශ්‍රී ලංකාවේ වරායන්"], coords: [2185.58, 549.15] },
-            { sinhala: "ගිරිතලේ වැව", english: "Girithale Wewa", titles: ["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"], coords: [1335.89, 1117.01] },
-            { sinhala: "වල්ලිපුරම්", english: "Wallipuram", titles: ["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"], coords: [2257.35, 723.03] },
-            { sinhala: "නල්ලූර්", english: "Nallur", titles: ["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"], coords: [2188.37, 623.06] },
-            { sinhala: "තිරියාය", english: "Thiriyaya", titles: ["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"], coords: [1782.47, 1145.78] },
-            { sinhala: "තිරුකෝනේෂ්වර/ම්ෆෙඩ්රික්කොටුව/ගෝකන්න විහාරය", english: "Thirukoneshwaram/Fedric Fort/Gokanna Viharaya", titles: ["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන","යටත්විජිත යුගයේ ස්ථාන","ලන්දේසි බලකොටු"], coords: [1629.79, 1276.97] },
-            { sinhala: "සේරුවාවිල", english: "Seruwawila", titles: ["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"], coords: [1605.03, 1320.88] },
-            { sinhala: "මැදිරිගිරිය", english: "Medirigiriya", titles: ["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"], coords: [1396.10, 1099.94] },
-            { sinhala: "දඹුල්ල", english: "Dambulla", titles: ["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"], coords: [1263.18, 963.96] },
-            { sinhala: "මාතලේ අලු විහාරය", english: "Mathale Alu WIharaya", titles: ["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"], coords: [1117.23, 927.97] },
-            { sinhala: "මහියංගණය", english: "Mahiyanganaya", titles: ["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"], coords: [963.29, 1180.90] },
-            { sinhala: "දීඝවාපිය", english: "digawapiya", titles: ["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"], coords: [947.29, 1589.89] },
-            { sinhala: "බදුල්ල", english: "Badulla", titles: ["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"], coords: [829.19, 1169.93] },
-            { sinhala: "රන්දෙනිවෙල", english: "Randeniwela", titles: ["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"], coords: [825.19, 1255.90] },
-            { sinhala: "බුත්තල", english: "Buththala", titles: ["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"], coords: [700.23, 1287.90] },
-            { sinhala: "සිතුල්පව්ව", english: "Sithulpawwa", titles: ["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"], coords: [517.30, 1323.89] },
-            { sinhala: "මහානාගහුළ", english: "Mahanagahula", titles: ["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"], coords: [418.34, 1110.94] },
-            { sinhala: "සමන්තකූටය", english: "Samanthakutaya", titles: ["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"], coords: [731.22, 999.97] },
-            { sinhala: "තලවකැලේ", english: "Thalawakale", titles: ["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"], coords: [755.03, 966.86] },
-            { sinhala: "අගලවත්ත", english: "Agalawaththa", titles: ["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"], coords: [554.12, 675.94] },
-            { sinhala: "කැලණිය", english: "Kelaniya", titles: ["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"], coords: [789.03, 563.97] },
-            { sinhala: "බලන", english: "Balana", titles: ["යටත්විජිත යුගයේ ස්ථාන","ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"], coords: [915.25, 922.86] },
-            { sinhala: "දන්තුරේ", english: "Danthure", titles: ["යටත්විජිත යුගයේ ස්ථාන","ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"], coords: [964.49, 894.11] },
-            { sinhala: "පේරාදෙණිය /ගන්නෝරුව", english: "Peradeniya/Gannoruwa", titles: ["යටත්විජිත යුගයේ ස්ථාන","ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"], coords: [988.48, 936.10] },
-            { sinhala: "මුතුරාජවෙල", english: "Muthurajawela", titles: ["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"], coords: [858.94, 532.88] },
-            { sinhala: "ලුණුවිල", english: "Lunuwila", titles: ["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"], coords: [1051.87, 504.89] },
-            { sinhala: "මුන්නේශ්වරම", english: "Munneshwaram", titles: ["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"], coords: [1116.84, 515.88] },
-            { sinhala: "තෝනිගල", english: "Thonigala", titles: ["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"], coords: [1331.76, 580.87] },
-            { sinhala: "රිටිගල", english: "Ritigala", titles: ["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"], coords: [1421.73, 878.79] },
-            { sinhala: "මිහින්තලය", english: "Mihinthalaya", titles: ["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"], coords: [1497.70, 906.78] },
-            { sinhala: "තන්තිරිමලේ", english: "Thanthirimale", titles: ["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"], coords: [1626.66, 754.82] },
-            { sinhala: "තිරුකේෂ්වරම", english: "Thirukeshwaram", titles: ["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"], coords: [1819.05, 586.97] },
-            { sinhala: "නාගදීපය", english: "Nagadeepaya", titles: ["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"], coords: [2161.92, 475.99] },
-            { sinhala: "කඳුරුගොඩ/කන්තරෝඩය", english: "Kadurugoda/Kanttharodaya", titles: ["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"], coords: [2237.89, 620.96] },
-            { sinhala: "ගෝවින්දමලය", english: "Govindamalaya", titles: ["ශ්‍රී ලංකාවේ පැරණි රාජධානි සහ බලකොටු"], coords: [836.04, 1533.87] },
-            { sinhala: "යාපහුව/සුබපබ්බත", english: "Yapahuwa/Suba Pabbatha", titles: ["ශ්‍රී ලංකාවේ පැරණි රාජධානි සහ බලකොටු"], coords: [1202.06, 769.90] },
-            { sinhala: "මුලතිව්", english: "Mulathiv", titles: ["යටත්විජිත යුගයේ ස්ථාන","ලන්දේසි බලකොටු"], coords: [1986.77, 1050.83] },
-            { sinhala: "මාතලේ", english: "Mathale", titles: ["යටත්විජිත යුගයේ ස්ථාන"], coords: [1096.10, 923.86] },
-            { sinhala: "මුල්ලේරියාව", english: "Mulleriyawa", titles: ["යටත්විජිත යුගයේ ස්ථාන"], coords: [1115.09, 517.97] },
-            { sinhala: "මන්නාරම් දූපත", english: "Mannar Island", titles: ["යටත්විජිත යුගයේ ස්ථාන"], coords: [1889.78, 497.97] },
-            { sinhala: "කන්කසන්තුරේ", english: "Kankasanthurai", titles: ["ලන්දේසි බලකොටු"], coords: [2262.70, 599.77] },
-            { sinhala: "පේදුරුතුඩුව", english: "Peduruthuduwa", titles: ["ලන්දේසි බලකොටු"], coords: [2272.70, 727.48] },
-            { sinhala: "කොඩ්ඩියාර් බලකොටුව/ලන්දේසි බලකොටුව", english: "Koddiyar Fort/Dutch Fort", titles: ["ලන්දේසි බලකොටු"], coords: [1581.45, 1291.45] },
-            { sinhala: "තංගල්ල", english: "Thangalla", titles: ["ලන්දේසි බලකොටු"], coords: [336.37, 1059.82] },
-            { sinhala: "කටුවන", english: "Katuwana", titles: ["ලන්දේසි බලකොටු"], coords: [428.07, 991.94] },
-            { sinhala: "අකුරැස්ස", english: "Akuressa", titles: ["ලන්දේසි බලකොටු"], coords: [353.09, 863.97] },
-            { sinhala: "බෙන්තොට", english: "Benthota", titles: ["ලන්දේසි බලකොටු"], coords: [484.28, 616.10] },
-            { sinhala: "අඟුරුවාතොට", english: "Aguruwathota", titles: ["ලන්දේසි බලකොටු"], coords: [622.62, 662.52] },
-            { sinhala: "බිබිලේගම", english: "Bibilegama", titles: ["ලන්දේසි බලකොටු"], coords: [699.59, 860.47] },
-            { sinhala: "මල්වාන", english: "Malwana", titles: ["ලන්දේසි බලකොටු"], coords: [766.06, 591.04] },
-            { sinhala: "රුවන්වැල්ල", english: "Ruwanwella", titles: ["ලන්දේසි බලකොටු"], coords: [840.54, 762.50] },
-            { sinhala: "අන්දර", english: "Andara", titles: ["ලන්දේසි බලකොටු"], coords: [882.54, 767.43] },
-            { sinhala: "පුත්තලම", english: "Puththalama", titles: ["ලන්දේසි බලකොටු"], coords: [1377.36, 505.50] },
-            { sinhala: "අරිප්පු", english: "Arippu", titles: ["ලන්දේසි බලකොටු"], coords: [1736.73, 589.98] }
-        ];
-
-        /* Global Map State Variables */
-        var map;
-        var marker;
-        var imageBounds = [[0, 0], [2400, 1800]];
-        var fallbackCanvasUrl = '';
-
-        /* ADVERTISEMENT ENGINE CONFIGURATION */
-        var adList = [
-            'ad/1.jpg',
-            'ad/2.jpg'
-        ];
-        var currentAdIndex = 0;
-        var adTimerSeconds = 300; // 5 minute interval
-        var currentCountdown = 60;
-        var adCountdownInterval = null;
-        var isModalOpen = false;
-
-        window.onload = function() {
-            document.getElementById('total-places-count').innerText = places.length;
-
-            generateFallbackMapImage();
-
-            map = L.map('map', {
-                crs: L.CRS.Simple,
-                minZoom: -1.5,
-                maxZoom: 3,
-                zoomSnap: 0.25,
-                attributionControl: false
-            });
-
-            var imageUrl = 'your-map-image.webp';
-            var img = new Image();
-            img.src = imageUrl;
-
-            img.onload = function () {
-                var actualBounds = [[0, 0], [img.height, img.width]];
-                L.imageOverlay(imageUrl, actualBounds).addTo(map);
-                map.fitBounds(actualBounds);
-                map.setMaxBounds(actualBounds);
-                imageBounds = actualBounds;
-            };
-
-            img.onerror = function() {
-                L.imageOverlay(fallbackCanvasUrl, imageBounds).addTo(map);
-                map.fitBounds(imageBounds);
-                map.setMaxBounds(imageBounds);
-            };
-
-            renderThemesList();
-
-            setTimeout(function() {
-                showAdModal(true);
-            }, 1200);
-
-            startAdCountdownTimer();
-        };
-
-        /* AD ENGINE FUNCTIONS */
-        function startAdCountdownTimer() {
-            if (adCountdownInterval) clearInterval(adCountdownInterval);
-
-            currentCountdown = adTimerSeconds;
-            updateCountdownUI();
-
-            adCountdownInterval = setInterval(function() {
-                if (!isModalOpen) {
-                    currentCountdown--;
-                    updateCountdownUI();
-
-                    if (currentCountdown <= 0) {
-                        currentAdIndex = (currentAdIndex + 1) % adList.length;
-                        showAdModal(false);
-                        currentCountdown = adTimerSeconds;
-                    }
-                }
-            }, 1000);
-        }
-
-        function updateCountdownUI() {
-            var display = document.getElementById('ad-countdown-display');
-            if (display) {
-                display.innerText = currentCountdown + 's';
-            }
-        }
-
-        function showAdModal(isWelcome) {
-            isModalOpen = true;
-
-            var adImgElem = document.getElementById('ad-img-element');
-            var adBadgeElem = document.getElementById('ad-badge-type');
-            var adIndexElem = document.getElementById('ad-index-indicator');
-            var adProgressElem = document.getElementById('ad-modal-progress');
-            var overlay = document.getElementById('ad-modal-overlay');
-
-            if (isWelcome) {
-                currentAdIndex = 0;
-                adBadgeElem.innerText = "Welcome Special";
-                adBadgeElem.className = "px-2.5 py-0.5 bg-[#30AFFF] text-white text-[11px] font-extrabold uppercase rounded-full shadow-xs";
-            } else {
-                adBadgeElem.innerText = "Sponsored Ad";
-                adBadgeElem.className = "px-2.5 py-0.5 bg-emerald-500 text-white text-[11px] font-extrabold uppercase rounded-full shadow-xs";
-            }
-
-            adIndexElem.innerText = `Ad ${currentAdIndex + 1} / ${adList.length}`;
-            adImgElem.src = adList[currentAdIndex];
-            adProgressElem.style.width = '100%';
-            overlay.classList.remove('hidden');
-
-            showToast(isWelcome ? "Welcome to Sri Lanka History Map!" : `Advertisement ${currentAdIndex + 1} shown`);
-        }
-
-        function closeAdModal() {
-            var overlay = document.getElementById('ad-modal-overlay');
-            overlay.classList.add('hidden');
-            isModalOpen = false;
-
-            currentCountdown = adTimerSeconds;
-            updateCountdownUI();
-        }
-
-        function triggerNextAdManually() {
-            currentAdIndex = (currentAdIndex + 1) % adList.length;
-            showAdModal(false);
-        }
-
-        function handleAdImageError(img) {
-            var adNumber = currentAdIndex + 1;
-            var svgData = `
-            <svg xmlns="http://www.w3.org/2000/svg" width="500" height="300" viewBox="0 0 500 300">
-                <defs>
-                    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stop-color="#30AFFF" />
-                        <stop offset="50%" stop-color="#92EEFF" />
-                        <stop offset="100%" stop-color="#D8FFC5" />
-                    </linearGradient>
-                </defs>
-                <rect width="500" height="300" rx="16" fill="url(#bg)" />
-                <circle cx="250" cy="90" r="45" fill="#ffffff" opacity="0.9" />
-                <path d="M250 60 L260 80 L280 85 L265 100 L270 120 L250 110 L230 120 L235 100 L220 85 L240 80 Z" fill="#30AFFF" />
-                <text x="250" y="170" font-family="sans-serif" font-weight="900" font-size="22" fill="#0f2942" text-anchor="middle">SAMIRA SIR CLASSES #${adNumber}</text>
-                <text x="250" y="200" font-family="sans-serif" font-weight="700" font-size="14" fill="#0f2942" text-anchor="middle">Sri Lanka History &amp; Geography Masterclass</text>
-                <rect x="150" y="225" width="200" height="40" rx="20" fill="#0f2942" />
-                <text x="250" y="250" font-family="sans-serif" font-weight="bold" font-size="14" fill="#ffffff" text-anchor="middle">JOIN NOW • 2026</text>
-            </svg>`;
-            img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svgData);
-        }
-
-        function generateFallbackMapImage() {
-            var canvas = document.createElement('canvas');
-            canvas.width = 1800;
-            canvas.height = 2400;
-            var ctx = canvas.getContext('2d');
-
-            ctx.fillStyle = '#ffffff';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-            ctx.strokeStyle = '#92EEFF';
-            ctx.lineWidth = 1.5;
-            for (var x = 0; x < canvas.width; x += 75) {
-                ctx.beginPath();
-                ctx.moveTo(x, 0);
-                ctx.lineTo(x, canvas.height);
-                ctx.stroke();
-            }
-            for (var y = 0; y < canvas.height; y += 75) {
-                ctx.beginPath();
-                ctx.moveTo(0, y);
-                ctx.lineTo(canvas.width, y);
-                ctx.stroke();
-            }
-
-            ctx.fillStyle = '#D8FFC5';
-            ctx.strokeStyle = '#C4F7CA';
-            ctx.lineWidth = 10;
-            ctx.beginPath();
-            ctx.ellipse(980, 1200, 480, 820, 0, 0, 2 * Math.PI);
-            ctx.fill();
-            ctx.stroke();
-
-            ctx.strokeStyle = '#30AFFF';
-            ctx.lineWidth = 5;
-            ctx.beginPath();
-            ctx.moveTo(980, 1800);
-            ctx.quadraticCurveTo(780, 1200, 980, 700);
-            ctx.stroke();
-
-            ctx.fillStyle = '#30AFFF';
-            ctx.font = 'bold 36px Inter, sans-serif';
-            ctx.textAlign = 'center';
-            ctx.fillText('Sri Lanka Historical Map Base Grid', 980, 1200);
-
-            fallbackCanvasUrl = canvas.toDataURL();
-        }
-
-        function pointLocation(place) {
-            if (marker) { 
-                map.removeLayer(marker); 
-            }
-
-            // Using Red Dot Indicator instead of default marker
-            var customIcon = L.divIcon({
-                className: 'custom-div-icon',
-                html: `
-                    <div class="pulse-ring-red"></div>
-                    <div class="marker-red-dot"></div>
-                `,
-                iconSize: [20, 20],
-                iconAnchor: [10, 10],
-                popupAnchor: [0, -12]
-            });
-
-            marker = L.marker(place.coords, { icon: customIcon }).addTo(map);
-            
-            var popupContent = `
-                <div class="p-2.5 min-w-[210px]">
-                    <div class="text-[#0f2942] font-extrabold text-base mb-1">${place.sinhala}</div>
-                    <div class="text-xs font-bold text-[#30AFFF] mb-2 flex items-center gap-1">
-                        <i class="fa-solid fa-font text-[#30AFFF]"></i>
-                        <span>${place.english}</span>
-                    </div>
-                    <div class="flex flex-wrap gap-1 mt-2">
-                        ${place.titles.map(t => `<span class="px-2 py-0.5 text-[10px] font-bold bg-[#D8FFC5] text-[#0f2942] rounded-md border border-[#C4F7CA]">${t}</span>`).join('')}
-                    </div>
-                </div>
-            `;
-
-            marker.bindPopup(popupContent, { autoClose: false }).openPopup();
-
-            map.flyTo(place.coords, 0.5, {
-                duration: 1.2
-            });
-
-            // Close Theme Drawer immediately after place search
-            closeThemeDrawer();
-        }
-
-        function searchLocation() {
-            var input = document.getElementById('location-input').value.trim().toLowerCase();
-            if (!input) {
-                showToast("Please enter a location name to search");
-                return;
-            }
-
-            var place = places.find(p => p.english.toLowerCase() === input || p.sinhala.toLowerCase() === input);
-            
-            if (place) {
-                pointLocation(place);
-                document.getElementById('suggestions').classList.add('hidden');
-            } else {
-                var partialMatch = places.find(p => p.english.toLowerCase().includes(input) || p.sinhala.toLowerCase().includes(input));
-                if (partialMatch) {
-                    pointLocation(partialMatch);
-                    document.getElementById('location-input').value = partialMatch.english;
-                    document.getElementById('suggestions').classList.add('hidden');
-                    showToast(`Showing results for "${partialMatch.english}"`);
-                } else {
-                    showToast("Location not found in database!");
-                }
-            }
-        }
-
-        function showSuggestions() {
-            var input = document.getElementById('location-input').value.toLowerCase().trim();
-            var suggestionBox = document.getElementById('suggestions');
-            var clearBtn = document.getElementById('clear-btn');
-
-            if (input.length > 0) {
-                clearBtn.classList.remove('hidden');
-            } else {
-                clearBtn.classList.add('hidden');
-                suggestionBox.classList.add('hidden');
-                return;
-            }
-
-            var matches = places.filter(p => p.english.toLowerCase().includes(input) || p.sinhala.toLowerCase().includes(input));
-
-            if (matches.length === 0) {
-                suggestionBox.classList.add('hidden');
-                return;
-            }
-
-            suggestionBox.innerHTML = '';
-            matches.slice(0, 8).forEach(place => {
-                var div = document.createElement('div');
-                div.className = 'px-4 py-2.5 hover:bg-[#D8FFC5]/50 cursor-pointer flex items-center justify-between text-xs transition-colors font-medium';
-                div.innerHTML = `
-                    <div class="text-[#0f2942]">
-                        <span class="font-bold text-[#30AFFF] mr-1.5">${place.sinhala}</span>
-                        <span class="text-slate-500 font-normal">(${place.english})</span>
-                    </div>
-                    <i class="fa-solid fa-chevron-right text-[10px] text-[#30AFFF]"></i>
-                `;
-                div.onclick = function () {
-                    document.getElementById('location-input').value = place.english;
-                    suggestionBox.classList.add('hidden');
-                    pointLocation(place);
-                };
-                suggestionBox.appendChild(div);
-            });
-
-            suggestionBox.classList.remove('hidden');
-        }
-
-        function handleKeyUp(event) {
-            if (event.key === 'Enter') {
-                searchLocation();
-            }
-        }
-
-        function clearSearch() {
-            document.getElementById('location-input').value = '';
-            document.getElementById('clear-btn').classList.add('hidden');
-            document.getElementById('suggestions').classList.add('hidden');
-        }
-
-        function renderThemesList() {
-            var titlesBox = document.getElementById('titles-box');
-            titlesBox.innerHTML = '';
-
-            let titleCounts = {};
-            places.forEach(place => {
-                place.titles.forEach(t => {
-                    titleCounts[t] = (titleCounts[t] || 0) + 1;
-                });
-            });
-
-            var uniqueTitles = Object.keys(titleCounts);
-            document.getElementById('theme-badge').innerText = uniqueTitles.length;
-
-            uniqueTitles.forEach(title => {
-                var card = document.createElement('div');
-                card.className = 'p-3.5 bg-gradient-to-r from-white to-[#D8FFC5]/30 hover:to-[#C4F7CA]/60 border-2 border-[#92EEFF] rounded-2xl cursor-pointer flex items-center justify-between transition-all shadow-sm hover:shadow-md group';
-                card.innerHTML = `
-                    <div class="flex items-center space-x-3">
-                        <div class="w-9 h-9 rounded-xl bg-[#D8FFC5] group-hover:bg-[#30AFFF] text-[#30AFFF] group-hover:text-white flex items-center justify-center transition-colors border border-[#C4F7CA]">
-                            <i class="fa-solid fa-folder-open text-base"></i>
-                        </div>
-                        <span class="font-bold text-sm text-[#0f2942]">${title}</span>
-                    </div>
-                    <span class="px-2.5 py-1 bg-[#30AFFF] text-white rounded-full text-xs font-black shadow-xs">
-                        ${titleCounts[title]}
-                    </span>
-                `;
-                card.onclick = function () { 
-                    showPlacesByTitle(title); 
-                };
-                titlesBox.appendChild(card);
-            });
-        }
-
-        function showPlacesByTitle(title) {
-            var titlesBox = document.getElementById('titles-box');
-            var placesBox = document.getElementById('places-box');
-            var backBtn = document.getElementById('drawer-back-container');
-            var drawerTitle = document.getElementById('drawer-title');
-
-            titlesBox.classList.add('hidden');
-            placesBox.classList.remove('hidden');
-            backBtn.classList.remove('hidden');
-            drawerTitle.innerText = title;
-
-            placesBox.innerHTML = '';
-            var filteredPlaces = places.filter(place => place.titles.includes(title));
-
-            filteredPlaces.forEach(place => {
-                var card = document.createElement('div');
-                card.className = 'p-3 bg-white hover:bg-[#D8FFC5]/40 border-2 border-[#92EEFF]/60 hover:border-[#30AFFF] rounded-xl cursor-pointer flex items-center justify-between transition-all group shadow-xs';
-                card.innerHTML = `
-                    <div>
-                        <div class="font-bold text-xs md:text-sm text-[#0f2942] group-hover:text-[#30AFFF] transition-colors">${place.sinhala}</div>
-                        <div class="text-xs text-slate-400 group-hover:text-slate-600">${place.english}</div>
-                    </div>
-                    <div class="w-7 h-7 rounded-full bg-red-100 text-red-500 flex items-center justify-center group-hover:bg-red-500 group-hover:text-white transition-colors">
-                        <span class="w-2.5 h-2.5 rounded-full bg-current"></span>
-                    </div>
-                `;
-                card.onclick = function () { 
-                    pointLocation(place); 
-                };
-                placesBox.appendChild(card);
-            });
-        }
-
-        function showThemesList() {
-            document.getElementById('titles-box').classList.remove('hidden');
-            document.getElementById('places-box').classList.add('hidden');
-            document.getElementById('drawer-back-container').classList.add('hidden');
-            document.getElementById('drawer-title').innerText = "Select Map Theme";
-        }
-
-        function toggleThemeDrawer() {
-            var drawer = document.getElementById('theme-drawer');
-            var backdrop = document.getElementById('drawer-backdrop');
-
-            if (drawer.classList.contains('translate-x-full')) {
-                drawer.classList.remove('translate-x-full');
-                backdrop.classList.remove('hidden');
-            } else {
-                closeThemeDrawer();
-            }
-        }
-
-        function closeThemeDrawer() {
-            document.getElementById('theme-drawer').classList.add('translate-x-full');
-            document.getElementById('drawer-backdrop').classList.add('hidden');
-        }
-
-        function showToast(message) {
-            var toast = document.getElementById('toast-container');
-            var toastMsg = document.getElementById('toast-message');
-
-            toastMsg.innerText = message;
-            toast.classList.remove('translate-x-full', 'opacity-0');
-            toast.classList.add('translate-x-0', 'opacity-100');
-
-            setTimeout(() => {
-                toast.classList.remove('translate-x-0', 'opacity-100');
-                toast.classList.add('translate-x-full', 'opacity-0');
-            }, 3000);
-        }
-
-        function resetMapView() {
-            if (map && imageBounds) {
-                map.flyToBounds(imageBounds, { duration: 1 });
-                showToast("Map view reset to default bounds");
-            }
-        }
-
-        function toggleFullscreen() {
-            if (!document.fullscreenElement) {
-                document.documentElement.requestFullscreen().catch(err => {
-                    showToast("Error attempting full-screen mode");
-                });
-            } else {
-                if (document.exitFullscreen) {
-                    document.exitFullscreen();
-                }
-            }
-        }
+        
+(() => {
+  // Disable the right-click context menu
+  document.addEventListener("contextmenu", (event) => {
+    event.preventDefault();
+  });
+
+  // Block common source / Developer Tools shortcuts
+  document.addEventListener("keydown", (event) => {
+    const key = event.key.toLowerCase();
+
+    const blocked =
+      event.key === "F12" ||
+      (event.ctrlKey && event.shiftKey &&
+        ["i", "j", "c"].includes(key)) ||
+      (event.ctrlKey && ["u", "s"].includes(key)) ||
+      (event.metaKey && event.altKey &&
+        ["i", "j", "c"].includes(key));
+
+    if (blocked) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+  }, true);
+})();
+
+ var map,marker,places=[{sinhala:"කනගරායන් ආරු",english:"Kanagarayan Aru",titles:["ශ්‍රී ලංකාවේ ගංගා"],coords:[1914.12,876]},{sinhala:"මල්වතු ඔය",english:"Malwathu Oya",titles:["ශ්‍රී ලංකාවේ ගංගා"],coords:[1725.06,703]},{sinhala:"කලා ඔය",english:"Kala Oya",titles:["ශ්‍රී ලංකාවේ ගංගා"],coords:[1437.87,678]},{sinhala:"දැදුරු ඔය",english:"Daduru Oya",titles:["ශ්‍රී ලංකාවේ ගංගා"],coords:[1186.98,643]},{sinhala:"මහ ඔය/මා ඔය",english:"Maha Oya/Ma Oya",titles:["ශ්‍රී ලංකාවේ ගංගා"],coords:[972.07,673]},{sinhala:"කැලණි ගඟ",english:"Kelani River",titles:["ශ්‍රී ලංකාවේ ගංගා"],coords:[790.14,671]},{sinhala:"කළු ගඟ",english:"Kalu Gaga",titles:["ශ්‍රී ලංකාවේ ගංගා"],coords:[624.21,659]},{sinhala:"ගිං ගඟ",english:"Gin Gaga",titles:["ශ්‍රී ලංකාවේ ගංගා"],coords:[390.68,723]},{sinhala:"නිල්වලා ගඟ",english:"Nilwala Ganga",titles:["ශ්‍රී ලංකාවේ ගංගා"],coords:[299.22,912]},{sinhala:"වලවේ ගඟ",english:"Walawe Ganga",titles:["ශ්‍රී ලංකාවේ ගංගා"],coords:[579.5,1082]},{sinhala:"කිරිඳි ඔය",english:"Kiridi Oya",titles:["ශ්‍රී ලංකාවේ ගංගා"],coords:[568.5,1235]},{sinhala:"මැණික් ගඟ",english:"Menik Ganga",titles:["ශ්‍රී ලංකාවේ ගංගා"],coords:[633.47,1414.5]},{sinhala:"ගල්ඔය",english:"Gal Oya",titles:["ශ්‍රී ලංකාවේ ගංගා"],coords:[944.85,1522.5]},{sinhala:"මාදුරු ඔය",english:"Maduru Oya",titles:["ශ්‍රී ලංකාවේ ගංගා"],coords:[1304.7,1300]},{sinhala:"මහවැලි ගඟ",english:"Mahaweli River",titles:["ශ්‍රී ලංකාවේ ගංගා"],coords:[1344.18,1230]},{sinhala:"අඹන් ගඟ",english:"Aban Ganga",titles:["ශ්‍රී ලංකාවේ ගංගා"],coords:[1224.23,1084]},{sinhala:"යාන් ඔය",english:"Yan Oya",titles:["ශ්‍රී ලංකාවේ ගංගා"],coords:[1624.06,1082]},{sinhala:"මා ඔය",english:"Ma Oya",titles:["ශ්‍රී ලංකාවේ ගංගා"],coords:[1819.98,1032]},{sinhala:"යෝධ වැව",english:"Yoda Wewa",titles:["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"],coords:[1777.19,627.89]},{sinhala:"මහකනදරා වැව",english:"Mahakanadara Wewa",titles:["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"],coords:[1539.32,907.81]},{sinhala:"නුවර වැව",english:"Nuwara Wewa",titles:["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"],coords:[1508.72,847]},{sinhala:"තිසා වැව",english:"Thisa Wewa",titles:["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"],coords:[1496.71,810]},{sinhala:"නාච්චාදූව වැව",english:"Nachchaduwa Wewa",titles:["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"],coords:[1459.69,882]},{sinhala:"රාජාංගනය ජලාශය",english:"Rajanganaya Jalashaya",titles:["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"],coords:[1407.67,746]},{sinhala:"කලා වැව",english:"Kala Wewa",titles:["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"],coords:[1336.63,912]},{sinhala:"කන්ඩලම වැව",english:"Kandalama Wewa",titles:["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"],coords:[1273.6,993]},{sinhala:"පොල්ගොල්ල වේල්ල",english:"Polgolla Wella",titles:["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"],coords:[977.44,969]},{sinhala:"සමනල වැව",english:"Samanala Wewa",titles:["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"],coords:[638.19,1043]},{sinhala:"චන්ද්‍රිකා වැව",english:"Chandrika Wewa",titles:["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"],coords:[461.1,1082]},{sinhala:"මිණිපේ අමුණ",english:"Minipe Amuna",titles:["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"],coords:[927.91,1145]},{sinhala:"මිණිපේ ගන්දෙනිය",english:"Minipe Gandeniya",titles:["ශ්‍රී ලංකාවේ පැරණි රාජධානි සහ බලකොටු"],coords:[940.91,1142]},{sinhala:"සොරබොර වැව",english:"Sorabora Wewa",titles:["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"],coords:[976.36,1179]},{sinhala:"ඇළහැර අමුණ",english:"Elahera Amuna",titles:["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"],coords:[1210.51,1055]},{sinhala:"පරාක්‍රම සමුද්‍රය",english:"Parakrama Samudraya",titles:["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"],coords:[1297.53,1145]},{sinhala:"මින්නේරිය වැව",english:"Minneriya Wewa",titles:["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"],coords:[1361.56,1092]},{sinhala:"කවුඩුල්ල වැව",english:"Kawdulla Wewa",titles:["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"],coords:[1421.59,1114]},{sinhala:"හුරුළු වැව",english:"Hurulu Wewa",titles:["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"],coords:[1438.6,1012]},{sinhala:"කන්තලේ වැව",english:"Kanthale Wewa",titles:["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"],coords:[1538.65,1148]},{sinhala:"පදවිය වැව",english:"Padawiya Wewa",titles:["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"],coords:[1752.77,1027]},{sinhala:"ඉරණමඩු වැව",english:"Iranamadu Wewa",titles:["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"],coords:[2005.9,854]},{sinhala:"වික්ටෝරියා ජලාශය",english:"Victoria Reservoir",titles:["ශ්‍රී ලංකාවේ ජලාශ"],coords:[945.76,1033]},{sinhala:"කොත්මලේ ජලාශය",english:"Kothmale Reservoir",titles:["ශ්‍රී ලංකාවේ ජලාශ"],coords:[831.7,969]},{sinhala:"උඩවලව ජලාශය",english:"Udawalawa Reservoir",titles:["ශ්‍රී ලංකාවේ ජලාශ"],coords:[535.54,1080]},{sinhala:"රන්දෙනිගල ජලාශය",english:"Randenigala Reservoir",titles:["ශ්‍රී ලංකාවේ ජලාශ"],coords:[896.73,1103]},{sinhala:"රන්ටැබේ ජලාශය",english:"Rantebe Reservoir",titles:["ශ්‍රී ලංකාවේ ජලාශ"],coords:[920.74,1139]},{sinhala:"සේනානායක සමුද්‍රය/ගල්ඔය ජලාශය",english:"Senanayaka Samudraya/Galoya Jalashaya",titles:["ශ්‍රී ලංකාවේ ජලාශ"],coords:[906.74,1449]},{sinhala:"මාදුරු ඔය ජලාශය",english:"Maduruoya Reservoir",titles:["ශ්‍රී ලංකාවේ ජලාශ"],coords:[1118.85,1275]},{sinhala:"පුනරීන්",english:"Punarin",titles:["ප්‍රාග් ඓතිහාසික ස්ථාන"],coords:[2081.51,721.96]},{sinhala:"ඉරණමඩු",english:"Iranamadu",titles:["ප්‍රාග් ඓතිහාසික ස්ථාන"],coords:[2022.48,819.94]},{sinhala:"මන්නාරම",english:"Mannar",titles:["ප්‍රාග් ඓතිහාසික ස්ථාන"],coords:[1812.4,583]},{sinhala:"පොම්පරිප්පු",english:"Pomparippu",titles:["ප්‍රාග් ඓතිහාසික ස්ථාන","පූර්ව ඓතිහාසික ස්ථාන"],coords:[1527.28,535.01]},{sinhala:"ඉබ්බන්කටුව",english:"Ibbankatuwa",titles:["ප්‍රාග් ඓතිහාසික ස්ථාන","පූර්ව ඓතිහාසික ස්ථාන"],coords:[1236.16,956.9]},{sinhala:"අත්තනගොඩ අළුලෙන",english:"Aththanagoda Alu Lena",titles:["ප්‍රාග් ඓතිහාසික ස්ථාන"],coords:[894.03,818.94]},{sinhala:"කිතුල්ගල බෙලිලෙන",english:"Kithulgala Belilena",titles:["ප්‍රාග් ඓතිහාසික ස්ථාන"],coords:[807.99,873.92]},{sinhala:"මානියම්ගම",english:"Maniyangama",titles:["ප්‍රාග් ඓතිහාසික ස්ථාන"],coords:[761.97,754.95]},{sinhala:"කුරුවිට බටදොඹ ලෙන",english:"Kuruvita Batadombalena",titles:["ප්‍රාග් ඓතිහාසික ස්ථාන"],coords:[662.93,819.94]},{sinhala:"පාහියන්ගල",english:"Pahiyangala",titles:["ප්‍රාග් ඓතිහාසික ස්ථාන"],coords:[613.91,718.96]},{sinhala:"අළුගල්ගෙ",english:"Alugalge",titles:["ප්‍රාග් ඓතිහාසික ස්ථාන"],coords:[380.82,1200.84]},{sinhala:"උඩමළල",english:"Udamalala",titles:["ප්‍රාග් ඓතිහාසික ස්ථාන"],coords:[400.83,1247.82]},{sinhala:"බූන්දල/පතිරාජවල",english:"Bundala/Pathirajawela",titles:["ප්‍රාග් ඓතිහාසික ස්ථාන"],coords:[418.83,1309.81]},{sinhala:"මිනිහාගල්කන්ද",english:"Minihagal Kanda",titles:["ප්‍රාග් ඓතිහාසික ස්ථාන"],coords:[523.88,1479.76]},{sinhala:"හෝර්ටන්තැන්න",english:"Hortn Place",titles:["ප්‍රාග් ඓතිහාසික ස්ථාන"],coords:[716.95,1022.88]},{sinhala:"රාවණා ඇල්ල",english:"Rawana Falls",titles:["ප්‍රාග් ඓතිහාසික ස්ථාන"],coords:[735.96,1178.84]},{sinhala:"බණ්ඩාරවෙල",english:"Bandarawela",titles:["ප්‍රාග් ඓතිහාසික ස්ථාන"],coords:[767.98,1150.85]},{sinhala:"පොතාන/අලිගල/සීගිරිය අලකොළවැව/දෙහිගහඇළකන්ද",english:"Pothana/Aligala/Sigiriya Alakolawewa/Dehigahaelakanda",titles:["ශ්‍රී ලංකාවේ පැරණි රාජධානි සහ බලකොටු","ප්‍රාග් ඓතිහාසික ස්ථාන"],coords:[1362.43,1023.87]},{sinhala:"අලිමංකඩ",english:"Elephant Pass",titles:["යටත්විජිත යුගයේ ස්ථාන","ලන්දේසි බලකොටු","ප්‍රාග් ඓතිහාසික ස්ථාන"],coords:[2122.74,821.93]},{sinhala:"ගල්සොහොන්කනත්ත",english:"Galsohonkanaththa",titles:["පූර්ව ඓතිහාසික ස්ථාන"],coords:[1344.72,595.85]},{sinhala:"යටිගල්පොත්ත",english:"Yatigalpoththa",titles:["පූර්ව ඓතිහාසික ස්ථාන"],coords:[1242.68,935.76]},{sinhala:"හැවෙනිවෙළ",english:"Haveniwela",titles:["පූර්ව ඓතිහාසික ස්ථාන"],coords:[1152.64,917.76]},{sinhala:"දුම්මලසූරිය",english:"Dummalasuriya",titles:["පූර්ව ඓතිහාසික ස්ථාන"],coords:[1092.62,579.85]},{sinhala:"නිකවලමුල්ල",english:"Nikawalamulla",titles:["පූර්ව ඓතිහාසික ස්ථාන"],coords:[784.49,775.8]},{sinhala:"හල්දුම්මුල්ල",english:"Haldummulla",titles:["පූර්ව ඓතිහාසික ස්ථාන"],coords:[712.46,901.77]},{sinhala:"බණ්ඩත්තර",english:"Bandaththara",titles:["පූර්ව ඓතිහාසික ස්ථාන"],coords:[294.27,933.76]},{sinhala:"හබරත්තාව",english:"Habaraththawa",titles:["පූර්ව ඓතිහාසික ස්ථාන"],coords:[386.31,1215.68]},{sinhala:"උඩරංචාමඩම/රංචාමඩව",english:"Udaranchamadama/Ranchamadama",titles:["පූර්ව ඓතිහාසික ස්ථාන"],coords:[490.35,1011.74]},{sinhala:"බෙරගල",english:"Beragala",titles:["පූර්ව ඓතිහාසික ස්ථාන"],coords:[688.43,1117.71]},{sinhala:"දියවින්න",english:"Diyawinna",titles:["ප්‍රාග් ඓතිහාසික ස්ථාන"],coords:[632.41,1111.86]},{sinhala:"බෙල්ලන්බැදිපැලැස්ස",english:"Bellanbedipalassa",titles:["ප්‍රාග් ඓතිහාසික ස්ථාන"],coords:[660.4,924.91]},{sinhala:"මහාතිත්ත/මාතොට",english:"Mahathiththa/Mathota",titles:["ප්‍රාග් ඓතිහාසික ස්ථාන"],coords:[1832.96,603.99]},{sinhala:"පොළොන්නරුව",english:"Polonnaruwa",titles:["ශ්‍රී ලංකාවේ පැරණි රාජධානි සහ බලකොටු","ශ්‍රී ලංකාවේ අග නගර"],coords:[1553.07,1176.84]},{sinhala:"මහනුවර",english:"Mahanuwara",titles:["ශ්‍රී ලංකාවේ පැරණි රාජධානි සහ බලකොටු","ශ්‍රී ලංකාවේ අග නගර"],coords:[981.28,960.9]},{sinhala:"කතරගම/කාචරගම",english:"Katharagama/Kacharagama",titles:["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන","ශ්‍රී ලංකාවේ අග නගර"],coords:[538.44,1330.81]},{sinhala:"මාගම",english:"Magama",titles:["ශ්‍රී ලංකාවේ පැරණි රාජධානි සහ බලකොටු","ශ්‍රී ලංකාවේ අග නගර"],coords:[446.47,1338.81]},{sinhala:"දෙවි නුවර/දේව නගර",english:"Devi Nuwara/Deva Nagar",titles:["ශ්‍රී ලංකාවේ අග නගර"],coords:[279.53,938.91]},{sinhala:"මාතර",english:"Mathara",titles:["ලන්දේසි බලකොටු","ශ්‍රී ලංකාවේ අග නගර"],coords:[283.53,905.92]},{sinhala:"ගාල්ල",english:"Galle",titles:["ලන්දේසි බලකොටු","ශ්‍රී ලංකාවේ අග නගර"],coords:[310.51,790.96]},{sinhala:"රයිගම",english:"Raigama",titles:["ශ්‍රී ලංකාවේ පැරණි රාජධානි සහ බලකොටු","ශ්‍රී ලංකාවේ අග නගර"],coords:[640.4,608.99]},{sinhala:"කෝට්ටේ",english:"Kotte",titles:["ශ්‍රී ලංකාවේ පැරණි රාජධානි සහ බලකොටු","ශ්‍රී ලංකාවේ අග නගර"],coords:[765.35,548.01]},{sinhala:"ගම්පොළ",english:"Gampola",titles:["ශ්‍රී ලංකාවේ පැරණි රාජධානි සහ බලකොටු","ශ්‍රී ලංකාවේ අග නගර"],coords:[885.31,919.91]},{sinhala:"දඹදෙණිය",english:"Dabadeniya",titles:["ශ්‍රී ලංකාවේ පැරණි රාජධානි සහ බලකොටු","ශ්‍රී ලංකාවේ අග නගර"],coords:[982.28,685.97]},{sinhala:"සල්වතොට/හලාවත",english:"Chillaw/Salwathota",titles:["යටත්විජිත යුගයේ ස්ථාන","ලන්දේසි බලකොටු","ශ්‍රී ලංකාවේ වරායන්"],coords:[1107.23,497.02]},{sinhala:"කුරුණෑගල",english:"Kurunegala",titles:["ශ්‍රී ලංකාවේ පැරණි රාජධානි සහ බලකොටු","ශ්‍රී ලංකාවේ අග නගර"],coords:[1074.12,814.89]},{sinhala:"පරාක්‍රමපුර/පඬුවස්නුවර",english:"Parakramapura/Paduwasnuwara",titles:["ශ්‍රී ලංකාවේ පැරණි රාජධානි සහ බලකොටු","ශ්‍රී ලංකාවේ අග නගර"],coords:[1127.1,642.94]},{sinhala:"අනුරාධපුරය",english:"Anuradhapuraya",titles:["ශ්‍රී ලංකාවේ පැරණි රාජධානි සහ බලකොටු","ශ්‍රී ලංකාවේ අග නගර"],coords:[1520.96,822.89]},{sinhala:"යාපනය",english:"Jaffna",titles:["ශ්‍රී ලංකාවේ පැරණි රාජධානි සහ බලකොටු","ශ්‍රී ලංකාවේ අග නගර"],coords:[2191.71,625.94]},{sinhala:"කුඹුක්කන් ඔය",english:"Kubukkan Oya",titles:["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"],coords:[625.85,1451.72]},{sinhala:"මැණික් ගඟ",english:"Manik Ganga",titles:["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"],coords:[523.89,1393.74]},{sinhala:"කිරිඳිඔය",english:"Kiridi Oya",titles:["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"],coords:[573.87,1235.78]},{sinhala:"කනදරා ඔය",english:"Kanadara Oya",titles:["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"],coords:[1583.66,871.77]},{sinhala:"සීතාවක",english:"Sethawaka",titles:["ලන්දේසි බලකොටු","ශ්‍රී ලංකාවේ පැරණි රාජධානි සහ බලකොටු"],coords:[777.96,729.81]},{sinhala:"දඹකොළපටුන",english:"Dambakolapatuna",titles:["ශ්‍රී ලංකාවේ වරායන්"],coords:[2261.81,593]},{sinhala:"පල්ලවංකය",english:"Pallawankaya",titles:["ශ්‍රී ලංකාවේ වරායන්"],coords:[1778.99,1173.84]},{sinhala:"ත්‍රිකුණාමලය/ගෝකන්නතිත්ත",english:"Trincomalee/Gokannathiththta",titles:["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන","ශ්‍රී ලංකාවේ වරායන්"],coords:[1645.04,1258.82]},{sinhala:"ලංකා පටුන",english:"Lankapatuna",titles:["ශ්‍රී ලංකාවේ වරායන්"],coords:[1564.06,1343.8]},{sinhala:"කසාතොට",english:"Kasathota",titles:["ශ්‍රී ලංකාවේ වරායන්"],coords:[1298.01,1204.63]},{sinhala:"මඩකලපුව",english:"Batticaloa",titles:["යටත්විජිත යුගයේ ස්ථාන","ලන්දේසි බලකොටු","ශ්‍රී ලංකාවේ වරායන්"],coords:[1206.04,1535.9]},{sinhala:"තොටලුතොට/කිරිඳ වරාය",english:"Thotaluthota/Kirinda Habour",titles:["ශ්‍රී ලංකාවේ වරායන්"],coords:[450.21,1364.94]},{sinhala:"කළුතර/කාලාතිත්ත",english:"Kaluthara/Kalathiththa",titles:["ලන්දේසි බලකොටු","ශ්‍රී ලංකාවේ වරායන්"],coords:[590.16,586.14]},{sinhala:"මීගමුව",english:"Negambo",titles:["යටත්විජිත යුගයේ ස්ථාන","ලන්දේසි බලකොටු","ශ්‍රී ලංකාවේ වරායන්"],coords:[916.05,513.16]},{sinhala:"කල්පිටිය",english:"Kalpitya",titles:["යටත්විජිත යුගයේ ස්ථාන","ලන්දේසි බලකොටු","ශ්‍රී ලංකාවේ වරායන්"],coords:[1455.85,468.18]},{sinhala:"උරුවෙල",english:"Uruwela",titles:["ශ්‍රී ලංකාවේ වරායන්"],coords:[1468.84,501.17]},{sinhala:"මගන",english:"Magana",titles:["ශ්‍රී ලංකාවේ වරායන්"],coords:[1604.79,540.16]},{sinhala:"මන්නාරම",english:"Mannar",titles:["යටත්විජිත යුගයේ ස්ථාන","ලන්දේසි බලකොටු","ශ්‍රී ලංකාවේ වරායන්"],coords:[1840.7,547.15]},{sinhala:"සූකරතිත්ත/ඌරාතොට/හැමන්හිල්",english:"Sukarathiththa/Urathota/Hamanhill",titles:["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන","ශ්‍රී ලංකාවේ වරායන්"],coords:[2204.57,538.16]},{sinhala:"කයිට්ස්",english:"Kytes",titles:["ශ්‍රී ලංකාවේ වරායන්"],coords:[2185.58,549.15]},{sinhala:"ගිරිතලේ වැව",english:"Girithale Wewa",titles:["ශ්‍රී ලංකාවේ වැව් ඇල අමුණ"],coords:[1335.89,1117.01]},{sinhala:"වල්ලිපුරම්",english:"Wallipuram",titles:["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"],coords:[2257.35,723.03]},{sinhala:"නල්ලූර්",english:"Nallur",titles:["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"],coords:[2188.37,623.06]},{sinhala:"තිරියාය",english:"Thiriyaya",titles:["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"],coords:[1782.47,1145.78]},{sinhala:"තිරුකෝනේෂ්වරම්/ෆෙඩ්රික්කොටුව/ගෝකන්න විහාරය",english:"Thirukoneshwaram/Fedric Fort/Gokanna Viharaya",titles:["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන","යටත්විජිත යුගයේ ස්ථාන","ලන්දේසි බලකොටු"],coords:[1629.79,1276.97]},{sinhala:"සේරුවාවිල",english:"Seruwawila",titles:["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"],coords:[1605.03,1320.88]},{sinhala:"මැදිරිගිරිය",english:"Medirigiriya",titles:["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"],coords:[1396.1,1099.94]},{sinhala:"දඹුල්ල",english:"Dambulla",titles:["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"],coords:[1263.18,963.96]},{sinhala:"මාතලේ අලු විහාරය",english:"Mathale Alu WIharaya",titles:["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"],coords:[1117.23,927.97]},{sinhala:"මහියංගණය",english:"Mahiyanganaya",titles:["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"],coords:[963.29,1180.9]},{sinhala:"දීඝවාපිය",english:"digawapiya",titles:["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"],coords:[947.29,1589.89]},{sinhala:"බදුල්ල",english:"Badulla",titles:["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"],coords:[829.19,1169.93]},{sinhala:"රන්දෙනිවෙල",english:"Randeniwela",titles:["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"],coords:[825.19,1255.9]},{sinhala:"බුත්තල",english:"Buththala",titles:["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"],coords:[700.23,1287.9]},{sinhala:"සිතුල්පව්ව",english:"Sithulpawwa",titles:["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"],coords:[517.3,1323.89]},{sinhala:"මහානාගහුළ",english:"Mahanagahula",titles:["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"],coords:[418.34,1110.94]},{sinhala:"සමන්තකූටය",english:"Samanthakutaya",titles:["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"],coords:[731.22,999.97]},{sinhala:"තලවකැලේ",english:"Thalawakale",titles:["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"],coords:[755.03,966.86]},{sinhala:"අගලවත්ත",english:"Agalawaththa",titles:["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"],coords:[554.12,675.94]},{sinhala:"කැලණිය",english:"Kelaniya",titles:["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"],coords:[789.03,563.97]},{sinhala:"බලන",english:"Balana",titles:["යටත්විජිත යුගයේ ස්ථාන","ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"],coords:[915.25,922.86]},{sinhala:"දන්තුරේ",english:"Danthure",titles:["යටත්විජිත යුගයේ ස්ථාන","ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"],coords:[964.49,894.11]},{sinhala:"පේරාදෙණිය /ගන්නෝරුව",english:"Peradeniya/Gannoruwa",titles:["යටත්විජිත යුගයේ ස්ථාන","ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"],coords:[988.48,936.1]},{sinhala:"මුතුරාජවෙල",english:"Muthurajawela",titles:["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"],coords:[858.94,532.88]},{sinhala:"ලුණුවිල",english:"Lunuwila",titles:["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"],coords:[1051.87,504.89]},{sinhala:"මුන්නේශ්වරම",english:"Munneshwaram",titles:["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"],coords:[1116.84,515.88]},{sinhala:"තෝනිගල",english:"Thonigala",titles:["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"],coords:[1331.76,580.87]},{sinhala:"රිටිගල",english:"Ritigala",titles:["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"],coords:[1421.73,878.79]},{sinhala:"මිහින්තලය",english:"Mihinthalaya",titles:["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"],coords:[1497.7,906.78]},{sinhala:"තන්තිරිමලේ",english:"Thanthirimale",titles:["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"],coords:[1626.66,754.82]},{sinhala:"තිරුකේෂ්වරම",english:"Thirukeshwaram",titles:["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"],coords:[1819.05,586.97]},{sinhala:"නාගදීපය",english:"Nagadeepaya",titles:["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"],coords:[2161.92,475.99]},{sinhala:"කඳුරුගොඩ/කන්තරෝඩය",english:"Kadurugoda/Kanttharodaya",titles:["ශ්‍රී ලංකාවේ ඓතිහාසික සහ විශේෂ ස්ථාන"],coords:[2237.89,620.96]},{sinhala:"ගෝවින්දමලය",english:"Govindamalaya",titles:["ශ්‍රී ලංකාවේ පැරණි රාජධානි සහ බලකොටු"],coords:[836.04,1533.87]},{sinhala:"යාපහුව/සුබපබ්බත",english:"Yapahuwa/Suba Pabbatha",titles:["ශ්‍රී ලංකාවේ පැරණි රාජධානි සහ බලකොටු"],coords:[1202.06,790.9]},{sinhala:"මුලතිව්",english:"Mulathiv",titles:["යටත්විජිත යුගයේ ස්ථාන","ලන්දේසි බලකොටු"],coords:[1986.77,1050.83]},{sinhala:"මාතලේ",english:"Mathale",titles:["යටත්විජිත යුගයේ ස්ථාන"],coords:[1096.1,923.86]},{sinhala:"මුල්ලේරියාව",english:"Mulleriyawa",titles:["යටත්විජිත යුගයේ ස්ථාන"],coords:[762.35,556.01]},{sinhala:"මන්නාරම් දූපත",english:"Mannar Island",titles:["යටත්විජිත යුගයේ ස්ථාන"],coords:[1889.78,497.97]},{sinhala:"කන්කසන්තුරේ",english:"Kankasanthurai",titles:["ලන්දේසි බලකොටු"],coords:[2262.7,599.77]},{sinhala:"පේදුරුතුඩුව",english:"Peduruthuduwa",titles:["ලන්දේසි බලකොටු"],coords:[2272.7,727.48]},{sinhala:"කොඩ්ඩියාර් බලකොටුව/ලන්දේසි බලකොටුව",english:"Koddiyar Fort/Dutch Fort",titles:["ලන්දේසි බලකොටුව"],coords:[1581.45,1291.45]},{sinhala:"තංගල්ල",english:"Thangalla",titles:["ලන්දේසි බලකොටු"],coords:[336.37,1059.82]},{sinhala:"කටුවන",english:"Katuwana",titles:["ලන්දේසි බලකොටුව"],coords:[428.07,991.94]},{sinhala:"අකුරැස්ස",english:"Akuressa",titles:["ලන්දේසි බලකොටු"],coords:[353.09,863.97]},{sinhala:"බෙන්තොට",english:"Benthota",titles:["ලන්දේසි බලකොටු"],coords:[484.28,616.1]},{sinhala:"අඟුරුවාතොට",english:"Aguruwathota",titles:["ලන්දේසි බලකොටු"],coords:[622.62,662.52]},{sinhala:"බිබිලේගම",english:"Bibilegama",titles:["ලන්දේසි බලකොටු"],coords:[699.59,860.47]},{sinhala:"මල්වාන",english:"Malwana",titles:["ලන්දේසි බලකොටුව"],coords:[766.06,591.04]},{sinhala:"රුවන්වැල්ල",english:"Ruwanwella",titles:["ලන්දේසි බලකොටු"],coords:[840.54,762.5]},{sinhala:"අන්දර",english:"Andara",titles:["ලන්දේසි බලකොටු"],coords:[882.54,767.43]},{sinhala:"පුත්තලම",english:"Puththalama",titles:["ලන්දේසි බලකොටු"],coords:[1377.36,505.5]},{sinhala:"අරිප්පු",english:"Arippu",titles:["ලන්දේසි බලකොටු"],coords:[1736.73,589.98]}],imageBounds=[[0,0],[2400,1800]],fallbackCanvasUrl="",lastSearchedCoords=null,adList=["ad/1.jpg","ad/2.jpg","ad/3.png"],currentAdIndex=0,adTimerSeconds=120,currentCountdown=120,adCountdownInterval=null,isModalOpen=!1;function initializeFirebaseVisitorCounter(){var a="https://sri-lanka-history-map-default-rtdb.firebaseio.com/visitorCount.json";sessionStorage.getItem("visitor_counted")?fetch(a).then(a=>a.json()).then(a=>{updateVisitorDisplay("number"!=typeof a||isNaN(a)?parseInt(a)||0:a)}).catch(()=>{updateVisitorDisplay(0)}):fetch(a).then(a=>a.json()).then(e=>{var s=("number"!=typeof e||isNaN(e)?parseInt(e)||0:e)+1;return fetch(a,{method:"PUT",body:JSON.stringify(s)}).then(()=>{sessionStorage.setItem("visitor_counted","true"),updateVisitorDisplay(s)})}).catch(e=>{fetch(a).then(a=>a.json()).then(a=>{updateVisitorDisplay("number"!=typeof a||isNaN(a)?parseInt(a)||0:a)}).catch(()=>{updateVisitorDisplay(0)})})}function updateVisitorDisplay(a){var e=document.getElementById("visitor-count-display");if(e){var s="number"!=typeof a||isNaN(a)?parseInt(a)||0:a;e.innerText=s.toLocaleString()}}function startAdCountdownTimer(){adCountdownInterval&&clearInterval(adCountdownInterval),currentCountdown=adTimerSeconds,adCountdownInterval=setInterval(function(){isModalOpen||--currentCountdown<=0&&(showRandomAdModal(!1),currentCountdown=adTimerSeconds)},1e3)}function showRandomAdModal(a){isModalOpen=!0,currentAdIndex=Math.floor(Math.random()*adList.length);var e=document.getElementById("ad-img-element"),s=document.getElementById("ad-badge-type"),t=document.getElementById("ad-index-indicator"),n=document.getElementById("ad-modal-progress"),i=document.getElementById("ad-modal-overlay");a?(s.innerText="Welcome Special",s.className="px-2.5 py-0.5 bg-[#30AFFF] text-white text-[11px] font-extrabold uppercase rounded-full shadow-xs"):(s.innerText="Sponsored Ad (Random)",s.className="px-2.5 py-0.5 bg-emerald-500 text-white text-[11px] font-extrabold uppercase rounded-full shadow-xs"),t.innerText=`Ad ${currentAdIndex+1} / ${adList.length}`,e.src=adList[currentAdIndex],n.style.width="100%",i.classList.remove("hidden"),showToast(a?"Welcome to Sri Lanka History Map!":`Random Advertisement ${currentAdIndex+1} shown`)}function closeAdModal(){document.getElementById("ad-modal-overlay").classList.add("hidden"),isModalOpen=!1,currentCountdown=adTimerSeconds}function handleAdImageError(a){var e=`\n            <svg xmlns="http://www.w3.org/2000/svg" width="500" height="300" viewBox="0 0 500 300">\n                <defs>\n                    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">\n                        <stop offset="0%" stop-color="#30AFFF" />\n                        <stop offset="50%" stop-color="#92EEFF" />\n                        <stop offset="100%" stop-color="#D8FFC5" />\n                    </linearGradient>\n                </defs>\n                <rect width="500" height="300" rx="16" fill="url(#bg)" />\n                <circle cx="250" cy="90" r="45" fill="#ffffff" opacity="0.9" />\n                <path d="M250 60 L260 80 L280 85 L265 100 L270 120 L250 110 L230 120 L235 100 L220 85 L240 80 Z" fill="#30AFFF" />\n                <text x="250" y="170" font-family="sans-serif" font-weight="900" font-size="22" fill="#0f2942" text-anchor="middle">SAMIRA SIR CLASSES #${currentAdIndex+1}</text>\n                <text x="250" y="200" font-family="sans-serif" font-weight="700" font-size="14" fill="#0f2942" text-anchor="middle">Sri Lanka History &amp; Geography Masterclass</text>\n                <rect x="150" y="225" width="200" height="40" rx="20" fill="#0f2942" />\n                <text x="250" y="250" font-family="sans-serif" font-weight="bold" font-size="14" fill="#ffffff" text-anchor="middle">JOIN NOW • 2026</text>\n            </svg>`;a.src="data:image/svg+xml;charset=utf-8,"+encodeURIComponent(e)}function generateFallbackMapImage(){var a=document.createElement("canvas");a.width=1800,a.height=2400;var e=a.getContext("2d");e.fillStyle="#ffffff",e.fillRect(0,0,a.width,a.height),e.strokeStyle="#92EEFF",e.lineWidth=1.5;for(var s=0;s<a.width;s+=75)e.beginPath(),e.moveTo(s,0),e.lineTo(s,a.height),e.stroke();for(var t=0;t<a.height;t+=75)e.beginPath(),e.moveTo(0,t),e.lineTo(a.width,t),e.stroke();e.fillStyle="#D8FFC5",e.strokeStyle="#C4F7CA",e.lineWidth=10,e.beginPath(),e.ellipse(980,1200,480,820,0,0,2*Math.PI),e.fill(),e.stroke(),e.strokeStyle="#30AFFF",e.lineWidth=5,e.beginPath(),e.moveTo(980,1800),e.quadraticCurveTo(780,1200,980,700),e.stroke(),e.fillStyle="#30AFFF",e.font="bold 36px Inter, sans-serif",e.textAlign="center",e.fillText("Sri Lanka Historical Map Base Grid",980,1200),fallbackCanvasUrl=a.toDataURL()}function pointLocation(a){marker&&map.removeLayer(marker),lastSearchedCoords=a.coords;var e=L.divIcon({className:"custom-div-icon",html:'\n                    <div class="pulse-ring-red"></div>\n                    <div class="marker-red-dot"></div>\n                ',iconSize:[20,20],iconAnchor:[10,10],popupAnchor:[0,-12]});marker=L.marker(a.coords,{icon:e}).addTo(map);var s=`\n                <div class="p-2.5 min-w-[210px]">\n                    <div class="text-[#0f2942] font-extrabold text-base mb-1">${a.sinhala}</div>\n                    <div class="text-xs font-bold text-[#30AFFF] mb-2 flex items-center gap-1">\n                        <i class="fa-solid fa-font text-[#30AFFF]"></i>\n                        <span>${a.english}</span>\n                    </div>\n                    <div class="flex flex-wrap gap-1 mt-2">\n                        ${a.titles.map(a=>`<span class="px-2 py-0.5 text-[10px] font-bold bg-[#D8FFC5] text-[#0f2942] rounded-md border border-[#C4F7CA]">${a}</span>`).join("")}\n                    </div>\n                </div>\n            `;marker.bindPopup(s,{autoClose:!1}).openPopup(),map.flyTo(a.coords,-1.5,{duration:1.2}),document.getElementById("zoom-control-panel").classList.remove("hidden"),closeThemeDrawer()}function zoomInSpot(){lastSearchedCoords?map.flyTo(lastSearchedCoords,1,{duration:.8}):showToast("Please search a location first")}function zoomOutSpot(){if(lastSearchedCoords){var a=map.getZoom(),e=Math.max(map.getMinZoom(),a-2);map.flyTo(lastSearchedCoords,e,{duration:.8})}else showToast("Please search a location first")}function searchLocation(){var a=document.getElementById("location-input").value.trim().toLowerCase();if(a){var e=places.find(e=>e.english.toLowerCase()===a||e.sinhala.toLowerCase()===a);if(e)pointLocation(e),document.getElementById("suggestions").classList.add("hidden");else{var s=places.find(e=>e.english.toLowerCase().includes(a)||e.sinhala.toLowerCase().includes(a));s?(pointLocation(s),document.getElementById("location-input").value=s.english,document.getElementById("suggestions").classList.add("hidden"),showToast(`Showing results for "${s.english}"`)):showToast("Location not found in database!")}}else showToast("Please enter a location name to search")}function showSuggestions(){var a=document.getElementById("location-input").value.toLowerCase().trim(),e=document.getElementById("suggestions"),s=document.getElementById("clear-btn");if(!(a.length>0))return s.classList.add("hidden"),void e.classList.add("hidden");s.classList.remove("hidden");var t=places.filter(e=>e.english.toLowerCase().includes(a)||e.sinhala.toLowerCase().includes(a));0!==t.length?(e.innerHTML="",t.slice(0,8).forEach(a=>{var s=document.createElement("div");s.className="px-4 py-2.5 hover:bg-[#D8FFC5]/50 cursor-pointer flex items-center justify-between text-xs transition-colors font-medium",s.innerHTML=`\n                    <div class="text-[#0f2942]">\n                        <span class="font-bold text-[#30AFFF] mr-1.5">${a.sinhala}</span>\n                        <span class="text-slate-500 font-normal">(${a.english})</span>\n                    </div>\n                    <i class="fa-solid fa-chevron-right text-[10px] text-[#30AFFF]"></i>\n                `,s.onclick=function(){document.getElementById("location-input").value=a.english,e.classList.add("hidden"),pointLocation(a)},e.appendChild(s)}),e.classList.remove("hidden")):e.classList.add("hidden")}function handleKeyUp(a){"Enter"===a.key&&searchLocation()}function clearSearch(){document.getElementById("location-input").value="",document.getElementById("clear-btn").classList.add("hidden"),document.getElementById("suggestions").classList.add("hidden"),document.getElementById("zoom-control-panel").classList.add("hidden")}function renderThemesList(){var a=document.getElementById("titles-box");a.innerHTML="";let e={};places.forEach(a=>{a.titles.forEach(a=>{e[a]=(e[a]||0)+1})});var s=Object.keys(e);document.getElementById("theme-badge").innerText=s.length,document.getElementById("theme-badge-mobile").innerText=s.length,s.forEach(s=>{var t=document.createElement("div");t.className="p-3.5 bg-gradient-to-r from-white to-[#D8FFC5]/30 hover:to-[#C4F7CA]/60 border-2 border-[#92EEFF] rounded-2xl cursor-pointer flex items-center justify-between transition-all shadow-sm hover:shadow-md group",t.innerHTML=`\n                    <div class="flex items-center space-x-3">\n                        <div class="w-9 h-9 rounded-xl bg-[#D8FFC5] group-hover:bg-[#30AFFF] text-[#30AFFF] group-hover:text-white flex items-center justify-center transition-colors border border-[#C4F7CA]">\n                            <i class="fa-solid fa-folder-open text-base"></i>\n                        </div>\n                        <span class="font-bold text-sm text-[#0f2942]">${s}</span>\n                    </div>\n                    <span class="px-2.5 py-1 bg-[#30AFFF] text-white rounded-full text-xs font-black shadow-xs">\n                        ${e[s]}\n                    </span>\n                `,t.onclick=function(){showPlacesByTitle(s)},a.appendChild(t)})}function showPlacesByTitle(a){var e=document.getElementById("titles-box"),s=document.getElementById("places-box"),t=document.getElementById("drawer-back-container"),n=document.getElementById("drawer-title");e.classList.add("hidden"),s.classList.remove("hidden"),t.classList.remove("hidden"),n.innerText=a,s.innerHTML="",places.filter(e=>e.titles.includes(a)).forEach(a=>{var e=document.createElement("div");e.className="p-3 bg-white hover:bg-[#D8FFC5]/40 border-2 border-[#92EEFF]/60 hover:border-[#30AFFF] rounded-xl cursor-pointer flex items-center justify-between transition-all group shadow-xs",e.innerHTML=`\n                    <div>\n                        <div class="font-bold text-xs md:text-sm text-[#0f2942] group-hover:text-[#30AFFF] transition-colors">${a.sinhala}</div>\n                        <div class="text-xs text-slate-400 group-hover:text-slate-600">${a.english}</div>\n                    </div>\n                    <div class="w-7 h-7 rounded-full bg-red-100 text-red-500 flex items-center justify-center group-hover:bg-red-500 group-hover:text-white transition-colors">\n                        <span class="w-2.5 h-2.5 rounded-full bg-current"></span>\n                    </div>\n                `,e.onclick=function(){pointLocation(a)},s.appendChild(e)})}function showThemesList(){document.getElementById("titles-box").classList.remove("hidden"),document.getElementById("places-box").classList.add("hidden"),document.getElementById("drawer-back-container").classList.add("hidden"),document.getElementById("drawer-title").innerText="Select Map Theme"}function toggleThemeDrawer(){var a=document.getElementById("theme-drawer"),e=document.getElementById("drawer-backdrop");a.classList.contains("translate-x-full")?(a.classList.remove("translate-x-full"),e.classList.remove("hidden")):closeThemeDrawer()}function closeThemeDrawer(){document.getElementById("theme-drawer").classList.add("translate-x-full"),document.getElementById("drawer-backdrop").classList.add("hidden")}function showToast(a){var e=document.getElementById("toast-container");document.getElementById("toast-message").innerText=a,e.classList.remove("translate-x-full","opacity-0"),e.classList.add("translate-x-0","opacity-100"),setTimeout(()=>{e.classList.remove("translate-x-0","opacity-100"),e.classList.add("translate-x-full","opacity-0")},3e3)}function resetMapView(){map&&imageBounds&&(map.flyToBounds(imageBounds,{duration:1}),document.getElementById("zoom-control-panel").classList.add("hidden"),showToast("Map view reset to default bounds"))}function toggleFullscreen(){document.fullscreenElement?document.exitFullscreen&&document.exitFullscreen():document.documentElement.requestFullscreen().catch(a=>{showToast("Error attempting full-screen mode")})}window.onload=function(){document.getElementById("total-places-count").innerText=places.length,generateFallbackMapImage(),map=L.map("map",{crs:L.CRS.Simple,minZoom:-2,maxZoom:3,zoomSnap:.25,attributionControl:!1});var a="your-map-image.webp",e=new Image;e.src=a,e.onload=function(){var s=[[0,0],[e.height,e.width]];L.imageOverlay(a,s).addTo(map),map.fitBounds(s),map.setMaxBounds(s),imageBounds=s},e.onerror=function(){L.imageOverlay(fallbackCanvasUrl,imageBounds).addTo(map),map.fitBounds(imageBounds),map.setMaxBounds(imageBounds)},renderThemesList(),setTimeout(function(){showRandomAdModal(!0)},1200),startAdCountdownTimer(),initializeFirebaseVisitorCounter()};
     </script>
 </body>
 </html>
