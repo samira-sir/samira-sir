@@ -11716,6 +11716,33 @@ const videoLinks = [
         title: '2026-10-08 - Grade 8 Geography  Class Part 3' 
       },
 
+      { 
+        class: '10', 
+        subject: 'History', 
+        date: '2026-10-08', 
+        month: 'October', 
+        video: 'https://drive.google.com/file/d/1s433TE9yJ2MJZlDx8RxIEkAumdztztOJ/preview', 
+        title: '2026-10-08 - Grade 10 History  Class Part 1' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'History', 
+        date: '2026-10-08', 
+        month: 'October', 
+        video: 'https://drive.google.com/file/d/1C80npmFzK_A8-GChXPvV1RGMtqQe9LKQ/preview', 
+        title: '2026-10-08 - Grade 10 History  Class Part 2' 
+      },
+
+      { 
+        class: '10', 
+        subject: 'History', 
+        date: '2026-10-08', 
+        month: 'October', 
+        video: 'https://drive.google.com/file/d/1DV8P8VaZZQ1ZLC33XwAXpTDiWO95qNJ6/preview', 
+        title: '2026-10-08 - Grade 10 History  Class Part 3' 
+      },
+
      ];
   
 
