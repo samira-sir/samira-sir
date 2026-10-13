@@ -11869,6 +11869,33 @@ const videoLinks = [
         title: '2026-10-10 - Grade 6 Geography  Class Part 2' 
       },
 
+      { 
+        class: '7', 
+        subject: 'Geography', 
+        date: '2026-10-11', 
+        month: 'October', 
+        video: 'https://drive.google.com/file/d/1HPvNfixL6FUhNsqkeXPQUYEMhTZXzIFO/preview', 
+        title: '2026-10-11 - Grade 7 Geography  Class Part 1' 
+      },
+
+      { 
+        class: '7', 
+        subject: 'Geography', 
+        date: '2026-10-11', 
+        month: 'October', 
+        video: 'https://drive.google.com/file/d/1qwNO295MOzIdQGLjNUuhFVAXR2W_hpBa/preview', 
+        title: '2026-10-11 - Grade 7 Geography  Class Part 2' 
+      },
+
+      { 
+        class: '7', 
+        subject: 'Geography', 
+        date: '2026-10-11', 
+        month: 'October', 
+        video: 'https://drive.google.com/file/d/1LQcHtGpv_IDdbNJOgJwczp-7hipy01PM/preview', 
+        title: '2026-10-11 - Grade 7 Geography  Class Part 3' 
+      },
+
      ];
   
 
