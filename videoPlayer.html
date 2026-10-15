@@ -11,13 +11,13 @@
       padding: 0;
       width: 100%;
       height: 100%;
-      overflow: hidden; /* Prevent scrolling */
+      overflow: hidden;
       font-family: Arial, sans-serif;
-      background-color: #f0f0f0;
+      background-color: #000;
     }
 
     .video-container {
-      position: relative; /* Position relative for the title overlay */
+      position: relative;
       width: 100%;
       height: 100%;
       background-color: #000;
@@ -30,42 +30,80 @@
       width: 100%;
       height: 100%;
       border: none;
-      object-fit: cover; /* Ensures the video fills the entire iframe */
+      object-fit: cover;
     }
 
     .video-title {
       position: absolute;
-      top: 10px; /* Adjust the position as needed */
+      top: 10px;
       left: 0;
       width: 100%;
       text-align: center;
-      font-size: 24px; /* Font size for the title */
+      font-size: 24px;
       color: #fff;
-      background-color: rgba(0, 0, 0, 0.7); /* Dark background to make the text stand out */
+      background-color: rgba(0, 0, 0, 0.7);
       padding: 10px 0;
-      z-index: 1; /* Ensure the title appears above the video */
+      z-index: 2; /* Ensure title stays above watermark and video */
+    }
+
+    .watermark-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none; /* Allows clicking through to the video iframe */
+      z-index: 3; /* Placed above iframe and title */
+      overflow: hidden;
+    }
+
+    .moving-watermark {
+      position: absolute;
+      color: rgba(255, 255, 255, 0.35); /* Subtle translucent white */
+      font-size: 20px;
+      font-weight: bold;
+      font-family: monospace;
+      white-space: nowrap;
+      user-select: none;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+      pointer-events: none;
+      will-change: transform;
     }
 
     .error-message {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       text-align: center;
-      color: red;
-      font-size: 18px;
-      padding: 10px;
+      color: #ff4d4d;
+      font-size: 22px;
+      font-weight: bold;
+      background: rgba(0, 0, 0, 0.8);
+      padding: 20px 40px;
+      border-radius: 8px;
+      z-index: 10;
     }
 
-    /* Responsive Design for Smaller Screens */
     @media (max-width: 768px) {
       .video-title {
-        font-size: 20px; /* Adjust font size for tablets */
+        font-size: 20px;
+      }
+      .moving-watermark {
+        font-size: 16px;
       }
     }
 
     @media (max-width: 480px) {
       .video-title {
-        font-size: 18px; /* Adjust font size for mobile */
+        font-size: 18px;
       }
       .error-message {
-        font-size: 16px; /* Adjust error message size */
+        font-size: 16px;
+        padding: 15px 20px;
+      }
+      .moving-watermark {
+        font-size: 14px;
       }
     }
   </style>
@@ -73,57 +111,110 @@
 <body>
 
   <div class="video-container">
-    <iframe id="videoIframe" src="" allowfullscreen></iframe>
-    <div class="video-title" id="videoTitle"></div> <!-- Title positioned over the video -->
+    <iframe id="videoIframe" src=""></iframe>
+    <div class="video-title" id="videoTitle"></div>
+    <div class="watermark-overlay" id="watermarkOverlay">
+      <div class="moving-watermark" id="movingWatermark"></div>
+    </div>
   </div>
 
-  <div class="error-message" id="errorMessage"></div>
 
   <script>
-    // Function to validate the token (simple example using localStorage for demo purposes)
     function validateToken() {
       const urlParams = new URLSearchParams(window.location.search);
-      const token = urlParams.get('token'); // The token passed in the URL
+      const token = urlParams.get('token');
+      const storedToken = localStorage.getItem('authToken');
+      const tokenExpiry = localStorage.getItem('tokenExpiry');
+      const currentTime = new Date().getTime();
 
-      // Simulate token validation (In a real scenario, you would validate on the server)
-      const storedToken = localStorage.getItem('authToken'); // Assume token is stored in localStorage when the user logs in
-      const tokenExpiry = localStorage.getItem('tokenExpiry'); // Expiry timestamp
-
-      const currentTime = new Date().getTime(); // Current time in milliseconds
-
-      if (token === storedToken && currentTime < tokenExpiry) {
-        return true; // Token is valid
-      } else {
-        return false; // Token is invalid or expired
+      if (token && storedToken && token === storedToken && currentTime < tokenExpiry) {
+        return true;
       }
+      return false;
     }
 
     function decrypt(text) {
-      return atob(text); // Decodes Base64 string (you can replace with a stronger decryption method)
+      try {
+        return atob(text);
+      } catch (e) {
+        return '';
+      }
     }
 
-    // Extract the encrypted video parameters from the URL
-    const urlParams = new URLSearchParams(window.location.search);
-    const encryptedVideoSrc = urlParams.get('video'); // Encrypted video link
-    const videoTitle = urlParams.get('title'); // Video title
+    function initMovingWatermark(username) {
+      const watermarkEl = document.getElementById('movingWatermark');
+      if (!watermarkEl) return;
 
-    // Validate the token
+      // Format watermark text with username and current timestamp/ID security hint
+      const displayUsername = username || 'Guest User';
+      watermarkEl.textContent = `${displayUsername}`;
+
+      // Get container and element dimensions for random drifting boundaries
+      const container = document.querySelector('.video-container');
+      
+      let posX = Math.random() * (container.clientWidth - 200);
+      let posY = Math.random() * (container.clientHeight - 50);
+      let speedX = 0.8 + Math.random() * 0.6; // Random speed multipliers
+      let speedY = 0.6 + Math.random() * 0.6;
+
+      function updatePosition() {
+        const maxX = container.clientWidth - watermarkEl.clientWidth;
+        const maxY = container.clientHeight - watermarkEl.clientHeight;
+
+        posX += speedX;
+        posY += speedY;
+
+        // Bounce off screen borders smoothly
+        if (posX <= 0 || posX >= maxX) {
+          speedX *= -1;
+          posX = Math.max(0, Math.min(posX, maxX));
+        }
+        if (posY <= 0 || posY >= maxY) {
+          speedY *= -1;
+          posY = Math.max(0, Math.min(posY, maxY));
+        }
+
+        watermarkEl.style.transform = `translate(${posX}px, ${posY}px)`;
+        requestAnimationFrame(updatePosition);
+      }
+
+      requestAnimationFrame(updatePosition);
+    }
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const encryptedVideoSrc = urlParams.get('video');
+    const rawVideoTitle = urlParams.get('title');
+
+    // Retrieve username from local storage (supports keys 'username', 'userName', or 'user')
+    const currentUsername = localStorage.getItem('username') || 
+                            localStorage.getItem('userName') || 
+                            localStorage.getItem('user') || 
+                            'Authorized User';
+
     if (validateToken()) {
       if (encryptedVideoSrc) {
-        // Decrypt the video source and display it
         const decryptedVideoSrc = decrypt(encryptedVideoSrc);
-        document.getElementById('videoIframe').src = decryptedVideoSrc;
-        document.getElementById('videoTitle').textContent = videoTitle;
+        if (decryptedVideoSrc) {
+          document.getElementById('videoIframe').src = decryptedVideoSrc;
+          if (rawVideoTitle) {
+            document.getElementById('videoTitle').textContent = rawVideoTitle;
+          }
+          // Launch moving watermark with the retrieved username
+          initMovingWatermark(currentUsername);
+        } else {
+          document.getElementById('videoIframe').style.display = 'none';
+          document.getElementById('errorMessage').textContent = 'Invalid or corrupted video source link.';
+        }
       } else {
-        document.getElementById('errorMessage').textContent = 'Invalid video link.';
+        document.getElementById('videoIframe').style.display = 'none';
+        document.getElementById('errorMessage').textContent = 'Invalid video link parameter.';
       }
     } else {
-      // Display an error message if the token is invalid or expired
       document.getElementById('videoIframe').style.display = 'none';
       document.getElementById('errorMessage').textContent = 'Access Denied: Invalid or Expired Token';
     }
 
-    // Disable right-click to discourage link sharing
+    // Disable right-click context menu
     document.addEventListener('contextmenu', event => event.preventDefault());
   </script>
 
