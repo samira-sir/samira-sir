@@ -106,16 +106,31 @@
         font-size: 14px;
       }
     }
+    #fullscreenBtn {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  z-index: 20;
+  padding: 10px 16px;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 8px;
+  cursor: pointer;
+}
   </style>
 </head>
 <body>
 
   <div class="video-container">
-    <iframe id="videoIframe" src=""></iframe>
+    <iframe id="videoIframe" src="" allowfullscreen></iframe>
     <div class="video-title" id="videoTitle"></div>
     <div class="watermark-overlay" id="watermarkOverlay">
       <div class="moving-watermark" id="movingWatermark"></div>
     </div>
+    <button id="fullscreenBtn" onclick="toggleFullscreen()">
+  ⛶ Fullscreen
+</button>
   </div>
 
 
@@ -216,6 +231,19 @@
 
     // Disable right-click context menu
     document.addEventListener('contextmenu', event => event.preventDefault());
+async function toggleFullscreen() {
+  const player = document.querySelector('.video-container');
+
+  try {
+    if (!document.fullscreenElement) {
+      await player.requestFullscreen();
+    } else {
+      await document.exitFullscreen();
+    }
+  } catch (error) {
+    console.error("Fullscreen error:", error);
+  }
+}
   </script>
 
 </body>
