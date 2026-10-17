@@ -12193,6 +12193,24 @@ const videoLinks = [
         title: '2026-10-17 - Grade 10 History Paper  Class Part 3' 
       },
 
+      { 
+        class: '8', 
+        subject: 'History', 
+        date: '2026-10-17', 
+        month: 'October', 
+        video: 'https://drive.google.com/file/d/18D6u-NDkdSrfuoAhCs1ISEYOpDQmo9gX/preview', 
+        title: '2026-10-17 - Grade 8 History  Class Part 1' 
+      },
+
+      { 
+        class: '8', 
+        subject: 'History', 
+        date: '2026-10-17', 
+        month: 'October', 
+        video: 'https://drive.google.com/file/d/1BCWl5NLI1myqv0Qmq6bHq5835QWkcc4p/preview', 
+        title: '2026-10-17 - Grade 8 History  Class Part 2' 
+      },
+
      ];
   
 
