@@ -12544,6 +12544,33 @@ const videoLinks = [
         title: '2026-10-22 - Grade 8 Geography  Class Part 3' 
       },
 
+      { 
+        class: '6', 
+        subject: 'Geography', 
+        date: '2026-10-24', 
+        month: 'October', 
+        video: 'https://drive.google.com/file/d/1ynN8Hj06QHuJc6UH9u1n5lXr1q5OBgRo/preview', 
+        title: '2026-10-24 - Grade 6 Geography  Class Part 1' 
+      },
+
+      { 
+        class: '6', 
+        subject: 'Geography', 
+        date: '2026-10-24', 
+        month: 'October', 
+        video: 'https://drive.google.com/file/d/1Su8b-JU4nZaKmONxrVjD6Gv_lMRx7ImC/preview', 
+        title: '2026-10-24 - Grade 6 Geography  Class Part 2' 
+      },
+
+      { 
+        class: '6', 
+        subject: 'Geography', 
+        date: '2026-10-24', 
+        month: 'October', 
+        video: 'https://drive.google.com/file/d/1wOWeb7RdGGEyXWtu8k5NHzxJmuJbJaJ2/preview', 
+        title: '2026-10-24 - Grade 6 Geography  Class Part 3' 
+      },
+
      ];
   
 
