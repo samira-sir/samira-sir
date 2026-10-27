@@ -1000,5 +1000,11 @@ const userMonthData = [
    { username: "seneth", months: ["Oct"] },
   { username: "yunali", months: ["Oct"] },
    { username: "harishadi", months: ["Sep"] },
-  
+   { username: "silma", months: ["Oct"] },
+   { username: "roshell", months: ["Oct"] },
+  { username: "praveen", months: ["Oct"] },
+  { username: "imandi", months: ["Oct"] },
+  { username: "ahasna", months: ["Oct"] },
+   { username: "ashleigh", months: ["Oct"] },
+  { username: "pawan", months: ["Oct"] },
 ];
