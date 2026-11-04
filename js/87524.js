@@ -14377,7 +14377,7 @@ const videoLinks = [
       "https://drive.google.com/file/d/1n0sjvzzJaqXD348hcl_iSpBdq0WhYx0F/preview",
     title: "2026-11-01 - Grade 7 History  Class Part 3",
   },
-  [
+  
   {
     class: '9',
     subject: 'Geography',
@@ -14474,5 +14474,5 @@ const videoLinks = [
     video: 'https://drive.google.com/file/d/1w1tp_XeVB1p_UbSmYsrjnKkCSk-ZzrrP/preview',
     title: '2026-11-03 - Grade 6 History Class Part 2'
   }
-]
+
 ];
