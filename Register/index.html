@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register</title>
+  <link rel="icon" type="image/png" href="../pic/icon.png">
+
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@200;300;400;500;600;700&display=swap");
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Open Sans", sans-serif;
+    }
+
+    #space-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+      background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+    }
+
+    .alert {
+      padding: 20px;
+      background-color: #f44336;
+      color: white;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 10;
+      text-align: center;
+    }
+
+    .closebtn {
+      margin-left: 15px;
+      color: white;
+      font-weight: bold;
+      float: right;
+      font-size: 22px;
+      line-height: 20px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .closebtn:hover {
+      color: black;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      width: 100vw;
+      padding: 0;
+      margin: 0;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    .wrapper {
+      width: 90%;
+      max-width: 400px;
+      border-radius: 8px;
+      padding: 20px;
+      text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      background: rgba(15, 23, 42, 0.6);
+      position: relative;
+      z-index: 2;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+      margin-top: 60px;
+      margin-bottom: 30px;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      color: #fff;
+    }
+
+    label {
+      display: block;
+      margin: 15px 0 5px;
+      font-size: 16px;
+      color: #fff;
+      text-align: left;
+    }
+
+    .input-field {
+      position: relative;
+      border-bottom: 2px solid #ccc;
+      margin: 15px 0;
+    }
+
+    .input-field input {
+      width: 100%;
+      height: 40px;
+      background: transparent;
+      border: none;
+      outline: none;
+      font-size: 16px;
+      color: #fff;
+      padding: 0 10px;
+    }
+
+    .input-field input::placeholder {
+      color: #ccc;
+    }
+
+    .input-field input:focus::placeholder {
+      color: #fff;
+    }
+
+    button {
+      background: #fff;
+      color: #000;
+      font-weight: 600;
+      border: none;
+      padding: 12px 20px;
+      cursor: pointer;
+      border-radius: 3px;
+      font-size: 16px;
+      border: 2px solid transparent;
+      transition: 0.3s ease;
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      color: #fff;
+      border-color: #fff;
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    .login-link {
+      margin-top: 20px;
+      color: #fff;
+    }
+
+    .login-link a {
+      color: #60a5fa;
+      text-decoration: none;
+    }
+
+    .login-link a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+      .wrapper {
+        padding: 15px;
+        max-width: 90%;
+      }
+
+      h1 {
+        font-size: 1.2rem;
+      }
+
+      label {
+        font-size: 14px;
+      }
+
+      .input-field input {
+        font-size: 14px;
+      }
+
+      button {
+        font-size: 14px;
+        padding: 10px 15px;
+      }
+    }
+
+    .custom-alert {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #f44336;
+      color: white;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      display: none;
+      z-index: 1000;
+      text-align: center;
+    }
+
+    .custom-alert button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: white;
+      color: #f44336;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      width: auto;
+    }
+
+    .custom-alert button:hover {
+      background-color: #ddd;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="space-bg"></canvas>
+
+  <div class="alert">
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+    <strong>මෙය පංති සඳහා සහභාගී වන සිසුන් සඳහා පමණි. This is only for students attending classes</strong>
+  </div>
+
+  <div id="customAlert" class="custom-alert">
+    <p id="alertMessage"></p>
+    <button onclick="closeCustomAlert()">OK</button>
+  </div>
+
+  <div class="wrapper">
+    <h1>Register</h1>
+    <form method="POST" action="https://script.google.com/macros/s/AKfycbyIMewPYtfmcN5yxLjUMA6BheaqvXKS08BSkDI40QKqDFcQHamAbcxRmmsMsq9o1rdW/exec" onsubmit="return validateForm()">
+      <label for="name">Username:</label>
+      <div class="input-field">
+        <input name="Name" type="text" id="name" placeholder="ඔබගේ මුල් නම" required>
+      </div>
+
+      <label for="password">Password:</label>
+      <div class="input-field">
+        <input name="Password" type="password" id="password" placeholder="ඔබ කැමති ඕනෑම මුරපදයක් (password)" required>
+      </div>
+
+      <label for="confirm_password">Confirm Password:</label>
+      <div class="input-field">
+        <input name="ConfirmPassword" type="password" id="confirm_password" placeholder="මුරපදය (password) තහවුරු කරන්න" required>
+      </div>
+      
+      <label for="class">Class:</label>
+      <div class="input-field">
+        <input name="Class" type="text" id="class" placeholder="ඔබ සිටින පන්තිය" required>
+      </div>
+
+      <label for="subjects">Subjects:</label>
+      <div class="input-field">
+        <input name="Subjects" type="text" id="subjects" placeholder="ඔබ සම්බන්ධ වී ඇති විෂයයන් " required>
+      </div>
+
+      <label for="security_key">Security Key:</label>
+      <div class="input-field">
+        <input type="text" id="security_key" placeholder="Security Key" required>
+      </div>
+      
+      <button type="submit">Register</button>
+    </form>
+    <div class="login-link">
+      <p>Already have an account? <a href="../Login/">Login here</a></p>
+    </div>
+  </div>
+
+  <script>
+    // Twinkling stars background animation setup
+    const canvas = document.getElementById("space-bg");
+    const ctx = canvas.getContext("2d");
+
+    let width, height;
+    let stars = [];
+    const numStars = 150;
+
+    function resizeCanvas() {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    }
+
+    window.addEventListener("resize", resizeCanvas);
+    resizeCanvas();
+
+    for (let i = 0; i < numStars; i++) {
+      stars.push({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        radius: Math.random() * 1.5 + 0.5,
+        alpha: Math.random(),
+        deltaAlpha: (Math.random() * 0.02 + 0.005) * (Math.random() < 0.5 ? 1 : -1)
+      });
+    }
+
+    function animateStars() {
+      ctx.clearRect(0, 0, width, height);
+      ctx.fillStyle = "#ffffff";
+
+      stars.forEach(star => {
+        star.alpha += star.deltaAlpha;
+        if (star.alpha <= 0.1 || star.alpha >= 1) {
+          star.deltaAlpha *= -1;
+        }
+
+        ctx.globalAlpha = star.alpha;
+        ctx.beginPath();
+        ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+        ctx.fill();
+      });
+
+      requestAnimationFrame(animateStars);
+    }
+
+    animateStars();
+
+    // Form validation functions
+    function validateForm() {
+      var password = document.getElementById("password").value;
+      var confirmPassword = document.getElementById("confirm_password").value;
+      var securityKey = document.getElementById("security_key").value;
+      var validKeys = ['1520', '4521', '7845', '9632', '5621', '7521'];
+
+      if (password != confirmPassword) {
+        showAlert("Passwords do not match");
+        return false;
+      }
+
+      if (!validKeys.includes(securityKey)) {
+        showAlert("Wrong Security Code");
+        return false;
+      }
+
+      redirectToIndex();
+      return true;
+    }
+
+    function redirectToIndex() {
+      showAlert("Registration Success");
+      setTimeout(function() {
+        window.location.href = '../index.html';
+      }, 2000);
+    }
+
+    function showAlert(message) {
+      var alertBox = document.getElementById("customAlert");
+      var alertMessage = document.getElementById("alertMessage");
+      alertMessage.textContent = message;
+      alertBox.style.display = "block";
+    }
+
+    function closeCustomAlert() {
+      document.getElementById("customAlert").style.display = "none";
+    }
+  </script>
+</body>
+</html>

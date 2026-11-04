@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video Player</title>
+  <link rel="icon" type="image/x-icon" href="../pic/icon.png">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+      background-color: #000;
+    }
+
+    .video-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      background-color: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .video-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      object-fit: cover;
+    }
+
+    .video-title {
+      position: absolute;
+      top: 10px;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      font-size: 24px;
+      color: #fff;
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 10px 0;
+      z-index: 2; /* Ensure title stays above watermark and video */
+    }
+
+    .watermark-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none; /* Allows clicking through to the video iframe */
+      z-index: 3; /* Placed above iframe and title */
+      overflow: hidden;
+    }
+
+    .moving-watermark {
+      position: absolute;
+      color: rgba(255, 255, 255, 0.35); /* Subtle translucent white */
+      font-size: 20px;
+      font-weight: bold;
+      font-family: monospace;
+      white-space: nowrap;
+      user-select: none;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+      pointer-events: none;
+      will-change: transform;
+    }
+
+    .error-message {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: #ff4d4d;
+      font-size: 22px;
+      font-weight: bold;
+      background: rgba(0, 0, 0, 0.8);
+      padding: 20px 40px;
+      border-radius: 8px;
+      z-index: 10;
+    }
+
+    @media (max-width: 768px) {
+      .video-title {
+        font-size: 20px;
+      }
+      .moving-watermark {
+        font-size: 16px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .video-title {
+        font-size: 18px;
+      }
+      .error-message {
+        font-size: 16px;
+        padding: 15px 20px;
+      }
+      .moving-watermark {
+        font-size: 14px;
+      }
+    }
+    #fullscreenBtn {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  z-index: 20;
+  padding: 10px 16px;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 8px;
+  cursor: pointer;
+}
+  </style>
+</head>
+<body>
+
+  <div class="video-container">
+    <iframe id="videoIframe" src="" allowfullscreen></iframe>
+    <div class="video-title" id="videoTitle"></div>
+    <div class="watermark-overlay" id="watermarkOverlay">
+      <div class="moving-watermark" id="movingWatermark"></div>
+    </div>
+    <button id="fullscreenBtn" onclick="toggleFullscreen()">
+  ⛶ Fullscreen
+</button>
+  </div>
+
+
+  <script>
+    function validateToken() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const token = urlParams.get('token');
+      const storedToken = localStorage.getItem('authToken');
+      const tokenExpiry = localStorage.getItem('tokenExpiry');
+      const currentTime = new Date().getTime();
+
+      if (token && storedToken && token === storedToken && currentTime < tokenExpiry) {
+        return true;
+      }
+      return false;
+    }
+
+    function decrypt(text) {
+      try {
+        return atob(text);
+      } catch (e) {
+        return '';
+      }
+    }
+
+    function initMovingWatermark(username) {
+      const watermarkEl = document.getElementById('movingWatermark');
+      if (!watermarkEl) return;
+
+      // Format watermark text with username and current timestamp/ID security hint
+      const displayUsername = username || 'Guest User';
+      watermarkEl.textContent = `${displayUsername}`;
+
+      // Get container and element dimensions for random drifting boundaries
+      const container = document.querySelector('.video-container');
+      
+      let posX = Math.random() * (container.clientWidth - 200);
+      let posY = Math.random() * (container.clientHeight - 50);
+      let speedX = 0.8 + Math.random() * 0.6; // Random speed multipliers
+      let speedY = 0.6 + Math.random() * 0.6;
+
+      function updatePosition() {
+        const maxX = container.clientWidth - watermarkEl.clientWidth;
+        const maxY = container.clientHeight - watermarkEl.clientHeight;
+
+        posX += speedX;
+        posY += speedY;
+
+        // Bounce off screen borders smoothly
+        if (posX <= 0 || posX >= maxX) {
+          speedX *= -1;
+          posX = Math.max(0, Math.min(posX, maxX));
+        }
+        if (posY <= 0 || posY >= maxY) {
+          speedY *= -1;
+          posY = Math.max(0, Math.min(posY, maxY));
+        }
+
+        watermarkEl.style.transform = `translate(${posX}px, ${posY}px)`;
+        requestAnimationFrame(updatePosition);
+      }
+
+      requestAnimationFrame(updatePosition);
+    }
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const encryptedVideoSrc = urlParams.get('video');
+    const rawVideoTitle = urlParams.get('title');
+
+    // Retrieve username from local storage (supports keys 'username', 'userName', or 'user')
+    const currentUsername = localStorage.getItem('username') || 
+                            localStorage.getItem('userName') || 
+                            localStorage.getItem('user') || 
+                            'Authorized User';
+
+    if (validateToken()) {
+      if (encryptedVideoSrc) {
+        const decryptedVideoSrc = decrypt(encryptedVideoSrc);
+        if (decryptedVideoSrc) {
+          document.getElementById('videoIframe').src = decryptedVideoSrc;
+          if (rawVideoTitle) {
+            document.getElementById('videoTitle').textContent = rawVideoTitle;
+          }
+          // Launch moving watermark with the retrieved username
+          initMovingWatermark(currentUsername);
+        } else {
+          document.getElementById('videoIframe').style.display = 'none';
+          document.getElementById('errorMessage').textContent = 'Invalid or corrupted video source link.';
+        }
+      } else {
+        document.getElementById('videoIframe').style.display = 'none';
+        document.getElementById('errorMessage').textContent = 'Invalid video link parameter.';
+      }
+    } else {
+      document.getElementById('videoIframe').style.display = 'none';
+      document.getElementById('errorMessage').textContent = 'Access Denied: Invalid or Expired Token';
+    }
+
+    // Disable right-click context menu
+    document.addEventListener('contextmenu', event => event.preventDefault());
+async function toggleFullscreen() {
+  const player = document.querySelector('.video-container');
+
+  try {
+    if (!document.fullscreenElement) {
+      await player.requestFullscreen();
+    } else {
+      await document.exitFullscreen();
+    }
+  } catch (error) {
+    console.error("Fullscreen error:", error);
+  }
+}
+  </script>
+
+</body>
+</html>

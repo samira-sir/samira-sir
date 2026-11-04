@@ -1,0 +1,738 @@
+const credentials = {
+  sanuka: {
+    password: "SNaz12##",
+    role: "admin",
+    subjects: [
+      { name: "History Paper", grade: 11 },
+      { name: "history", grade: 6 },
+      { name: "geography", grade: 6 },
+      { name: "civic", grade: 6 },
+      { name: "geography", grade: 7 },
+      { name: "civic", grade: 7 },
+      { name: "history", grade: 7 },
+      { name: "history", grade: 8 },
+      { name: "geography", grade: 8 },
+      { name: "civic", grade: 8 },
+      { name: "geography", grade: 9 },
+      { name: "civic", grade: 9 },
+      { name: "history", grade: 9 },
+      { name: "history", grade: 10 },
+      { name: "geography", grade: 10 },
+      { name: "civic", grade: 10 },
+      { name: "geography", grade: 11 },
+      { name: "ind-Thisumi-History", grade: 9 },
+      { name: "ind-Disura-History", grade: 9 },
+      { name: "history", grade: 11 },
+    ],
+  },
+  paper: {
+    password: "paper",
+    subjects: [
+      { name: "History Paper", grade: 11 },
+      { name: "History Paper", grade: 10 },
+    ],
+  },
+  samira: {
+    password: "samira1977",
+    subjects: [
+      { name: "History Paper", grade: 11 },
+      { name: "history", grade: 6 },
+      { name: "geography", grade: 6 },
+      { name: "civic", grade: 6 },
+      { name: "geography", grade: 7 },
+      { name: "civic", grade: 7 },
+      { name: "history", grade: 7 },
+      { name: "history", grade: 8 },
+      { name: "geography", grade: 8 },
+      { name: "civic", grade: 8 },
+      { name: "geography", grade: 9 },
+      { name: "civic", grade: 9 },
+      { name: "history", grade: 9 },
+      { name: "history", grade: 10 },
+      { name: "geography", grade: 10 },
+      { name: "civic", grade: 10 },
+      { name: "geography", grade: 11 },
+      { name: "civic", grade: 11 },
+      { name: "ind-Thisumi-History", grade: 9 },
+      { name: "ind-Disura-History", grade: 9 },
+      { name: "history", grade: 11 },
+    ],
+  },
+  vinulya: {
+    password: "2015",
+    subjects: [
+      { name: "geography", grade: 6 },
+      { name: "history", grade: 6 },
+    ],
+  },
+  andrea: {
+    password: "2016",
+    subjects: [
+      { name: "geography", grade: 6 },
+      { name: "history", grade: 6 },
+    ],
+  },
+  pawan: {
+    password: "868551712",
+    subjects: [
+      { name: "geography", grade: 6 },
+      { name: "history", grade: 6 },
+    ],
+  },
+  sasen: { password: "12345", subjects: [{ name: "history", grade: 6 }] },
+  thisandi: {
+    password: "2015",
+    subjects: [
+      { name: "geography", grade: 6 },
+      { name: "history", grade: 6 },
+    ],
+  },
+  dinsara: { password: "123456", subjects: [{ name: "history", grade: 6 }] },
+  omashi: { password: "omashi135", subjects: [{ name: "history", grade: 6 }] },
+  manaram: {
+    password: "Nalaka2014M",
+    subjects: [{ name: "history", grade: 6 }],
+  },
+  minudi6: { password: "24824", subjects: [{ name: "history", grade: 6 }] },
+  ositha: {
+    password: "2015",
+    subjects: [
+      { name: "geography", grade: 6 },
+      { name: "history", grade: 6 },
+    ],
+  },
+  suragi: {
+    password: "suragiithaya",
+    subjects: [
+      { name: "geography", grade: 6 },
+      { name: "history", grade: 6 },
+    ],
+  },
+  charuni: {
+    password: "Aug@12345",
+    subjects: [
+      { name: "geography", grade: 6 },
+      { name: "history", grade: 6 },
+    ],
+  },
+  abhilash: { password: "abhi", subjects: [{ name: "history", grade: 6 }] },
+  mahiru: {
+    password: "mahiru2016",
+    subjects: [
+      { name: "geography", grade: 6 },
+      { name: "history", grade: 6 },
+    ],
+  },
+  manuthi: { password: "2016", subjects: [{ name: "history", grade: 6 }] },
+  thiven: { password: "thiven123", subjects: [{ name: "history", grade: 6 }] },
+  amiru: { password: "amiru123", subjects: [{ name: "history", grade: 6 }] },
+  senuji: {
+    password: "shiran",
+    subjects: [
+      { name: "geography", grade: 7 },
+      { name: "history", grade: 7 },
+    ],
+  },
+  amra: {
+    password: "2014",
+    subjects: [
+      { name: "geography", grade: 7 },
+      { name: "history", grade: 7 },
+    ],
+  },
+  nithuki: {
+    password: "2014",
+    subjects: [
+      { name: "geography", grade: 7 },
+      { name: "history", grade: 7 },
+    ],
+  },
+  shenya: {
+    password: "2014",
+    subjects: [
+      { name: "geography", grade: 7 },
+      { name: "history", grade: 7 },
+    ],
+  },
+  ihansa: {
+    password: "2014",
+    subjects: [
+      { name: "geography", grade: 7 },
+      { name: "history", grade: 7 },
+    ],
+  },
+  sayuni: {
+    password: "senesha",
+    subjects: [
+      { name: "geography", grade: 7 },
+      { name: "history", grade: 7 },
+    ],
+  },
+  linuka: { password: "123", subjects: [{ name: "history", grade: 7 }] },
+  dilakshana: { password: "1111", subjects: [{ name: "history", grade: 7 }] },
+  ashleigh: {
+    password: "12345",
+    subjects: [
+      { name: "geography", grade: 7 },
+      { name: "history", grade: 7 },
+    ],
+  },
+  udamna: { password: "Udamna", subjects: [{ name: "history", grade: 7 }] },
+  menara: {
+    password: "19762014",
+    subjects: [
+      { name: "geography", grade: 7 },
+      { name: "history", grade: 7 },
+    ],
+  },
+  nethsara: {
+    password: "20140709N",
+    subjects: [{ name: "history", grade: 7 }],
+  },
+  ranudi: { password: "ranu123", subjects: [{ name: "history", grade: 7 }] },
+  yashen: { password: "BGYS@12", subjects: [{ name: "history", grade: 7 }] },
+  ovindu: {
+    password: "ovindu12345",
+    subjects: [{ name: "history", grade: 7 }],
+  },
+  savain: { password: "2014", subjects: [{ name: "history", grade: 7 }] },
+  nivein: { password: "man@2014", subjects: [{ name: "history", grade: 7 }] },
+  danuka: { password: "2014", subjects: [{ name: "history", grade: 7 }] },
+  pramudi: {
+    password: "1989",
+    subjects: [
+      { name: "geography", grade: 7 },
+      { name: "history", grade: 7 },
+    ],
+  },
+  yethum: {
+    password: "1234",
+    subjects: [
+      { name: "geography", grade: 7 },
+      { name: "history", grade: 7 },
+    ],
+  },
+  isandu: {
+    password: "isandu123",
+    subjects: [{ name: "geography", grade: 7 }],
+  },
+  anusara: { password: "2014", subjects: [{ name: "history", grade: 7 }] },
+  kasun: {
+    password: "0774830553abc",
+    subjects: [{ name: "history", grade: 7 }],
+  },
+  kemitha: {
+    password: "Inoka@123",
+    subjects: [
+      { name: "geography", grade: 7 },
+      { name: "history", grade: 7 },
+    ],
+  },
+  kavitha: {
+    password: "kavitha123",
+    subjects: [
+      { name: "geography", grade: 8 },
+      { name: "history", grade: 8 },
+    ],
+  },
+  imandi: {
+    password: "Gw7@Eh5%",
+    subjects: [
+      { name: "history", grade: 8 },
+      { name: "geography", grade: 8 },
+    ],
+  },
+  sample: { password: "sanuka", subjects: [{ name: "history", grade: 8 }] },
+  dehan: { password: "2019", subjects: [{ name: "history", grade: 8 }] },
+  dulansa: {
+    password: "Dz5@Fs2%",
+    subjects: [
+      { name: "history", grade: 8 },
+      { name: "geography", grade: 8 },
+    ],
+  },
+  adrianna: {
+    password: "Adrianna@2013",
+    subjects: [
+      { name: "history", grade: 8 },
+      { name: "geography", grade: 8 },
+    ],
+  },
+  ranul: { password: "2013", subjects: [{ name: "history", grade: 8 }] },
+  seneth: { password: "a1b2cd", subjects: [{ name: "history", grade: 8 }] },
+  inudi: { password: "INUDI9090", subjects: [{ name: "history", grade: 8 }] },
+  ashvini: { password: "12345", subjects: [{ name: "history", grade: 8 }] },
+  indunith: {
+    password: "shashi@123",
+    subjects: [{ name: "history", grade: 8 }],
+  },
+  kenuli: { password: "Bn2", subjects: [{ name: "history", grade: 8 }] },
+  minduni: { password: "2013", subjects: [{ name: "history", grade: 8 }] },
+  sithuki: { password: "12345", subjects: [{ name: "history", grade: 8 }] },
+  niven: { password: "niven123", subjects: [{ name: "history", grade: 8 }] },
+  shevin: { password: "Shevin2013", subjects: [{ name: "history", grade: 8 }] },
+  hemsara: { password: "2013", subjects: [{ name: "history", grade: 8 }] },
+  dilki: { password: "gopal", subjects: [{ name: "history", grade: 8 }] },
+  gihansa: {
+    password: "2004",
+    subjects: [
+      { name: "history", grade: 8 },
+      { name: "geography", grade: 8 },
+    ],
+  },
+  pansilu: { password: "123", subjects: [{ name: "history", grade: 8 }] },
+  mandrika: { password: "man1123", subjects: [{ name: "history", grade: 8 }] },
+  arunodi: {
+    password: "dilruperera0921",
+    subjects: [{ name: "history", grade: 8 }],
+  },
+  kaveen: { password: "2013", subjects: [{ name: "history", grade: 8 }] },
+  selini: { password: "forever7", subjects: [{ name: "history", grade: 8 }] },
+  dinura: {
+    password: "Bd7@Lr2%",
+    subjects: [
+      { name: "history", grade: 9 },
+      { name: "geography", grade: 9 },
+    ],
+  },
+  pranami: {
+    password: "Pranami123",
+    subjects: [{ name: "geography", grade: 9 }],
+  },
+  dulnitha: { password: "7777", subjects: [{ name: "history", grade: 9 }] },
+  januni: { password: "Hj2&Yx7%", subjects: [{ name: "history", grade: 9 }] },
+  radheesha: { password: "rmr712", subjects: [{ name: "history", grade: 9 }] },
+  sadew: {
+    password: "sa@#dew",
+    subjects: [
+      { name: "history", grade: 9 },
+      { name: "geography", grade: 9 },
+    ],
+  },
+  kulsum: {
+    password: "MKM2812",
+    subjects: [
+      { name: "geography", grade: 9 },
+      { name: "history", grade: 9 },
+    ],
+  },
+  chenul: { password: "Me7%Pq3@", subjects: [{ name: "history", grade: 9 }] },
+  nawodya: { password: "1234", subjects: [{ name: "history", grade: 9 }] },
+  senuli: { password: "senu", subjects: [{ name: "geography", grade: 9 }] },
+  thaveesha: {
+    password: "Indunil@123",
+    subjects: [{ name: "geography", grade: 9 }],
+  },
+  ushana: {
+    password: "Ushana123",
+    subjects: [{ name: "geography", grade: 9 }],
+  },
+  kethsara: {
+    password: "ssc",
+    subjects: [
+      { name: "history", grade: 9 },
+      { name: "geography", grade: 9 },
+    ],
+  },
+  zuha: { password: "F@zahafirzan", subjects: [{ name: "history", grade: 9 }] },
+  osadee: { password: "2012", subjects: [{ name: "history", grade: 9 }] },
+  shanudi: { password: "ABCDE", subjects: [{ name: "history", grade: 9 }] },
+  devja: { password: "1234", subjects: [{ name: "history", grade: 9 }] },
+  adeesha: { password: "8585", subjects: [{ name: "history", grade: 9 }] },
+  thambara: {
+    password: "2012udithma",
+    subjects: [{ name: "history", grade: 9 }],
+  },
+  roshell: { password: "6300214", subjects: [{ name: "history", grade: 9 }] },
+  tisara: {
+    password: "2007",
+    subjects: [
+      { name: "history", grade: 9 },
+      { name: "geography", grade: 9 },
+    ],
+  },
+  januth: { password: "2013", subjects: [{ name: "history", grade: 9 }] },
+  naveesha: { password: "20121010", subjects: [{ name: "history", grade: 9 }] },
+  kalani: { password: "777", subjects: [{ name: "history", grade: 9 }] },
+  senuka: {
+    password: "123123",
+    subjects: [
+      { name: "history", grade: 10 },
+      { name: "geography", grade: 10 },
+      { name: "history Paper", grade: 10 },
+    ],
+  },
+  sadil: {
+    password: "123456",
+    subjects: [
+      { name: "history", grade: 10 },
+      { name: "geography", grade: 10 },
+      { name: "history Paper", grade: 10 },
+    ],
+  },
+  damindu: {
+    password: "Damindu",
+    subjects: [
+      { name: "history", grade: 10 },
+      { name: "history Paper", grade: 10 },
+    ],
+  },
+  kethmin: {
+    password: "kethmin@16202",
+    subjects: [
+      { name: "history", grade: 10 },
+      { name: "history Paper", grade: 10 },
+    ],
+  },
+  ruzni: {
+    password: "Ht6&Ms1%",
+    subjects: [
+      { name: "history", grade: 10 },
+      { name: "history Paper", grade: 10 },
+    ],
+  },
+  nishini: {
+    password: "Gq3%Jw8@",
+    subjects: [
+      { name: "history", grade: 10 },
+      { name: "history Paper", grade: 10 },
+    ],
+  },
+  harishadi: {
+    password: "yahansa123",
+    subjects: [
+      { name: "history", grade: 10 },
+      { name: "history Paper", grade: 10 },
+    ],
+  },
+  kavithma: {
+    password: "9900",
+    subjects: [
+      { name: "history", grade: 10 },
+      { name: "history Paper", grade: 10 },
+    ],
+  },
+  thinuki: {
+    password: "thinuki123",
+    subjects: [
+      { name: "history", grade: 10 },
+      { name: "geography", grade: 10 },
+      { name: "history Paper", grade: 10 },
+    ],
+  },
+  ahasna: {
+    password: "Gt3&Pe8%",
+    subjects: [
+      { name: "history", grade: 10 },
+      { name: "history Paper", grade: 10 },
+    ],
+  },
+  manuka: {
+    password: "2011",
+    subjects: [
+      { name: "history", grade: 10 },
+      { name: "geography", grade: 10 },
+      { name: "history Paper", grade: 10 },
+    ],
+  },
+  senulya: {
+    password: "123456",
+    subjects: [
+      { name: "history", grade: 10 },
+      { name: "history Paper", grade: 10 },
+    ],
+  },
+  sethumli: { password: "12125", subjects: [{ name: "geography", grade: 10 }] },
+  yenumi: { password: "201195", subjects: [{ name: "geography", grade: 10 }] },
+  isara: {
+    password: "2011",
+    subjects: [
+      { name: "history", grade: 10 },
+      { name: "history Paper", grade: 10 },
+    ],
+  },
+  nadun: {
+    password: "1234",
+    subjects: [
+      { name: "history", grade: 10 },
+      { name: "history Paper", grade: 10 },
+    ],
+  },
+  niduka: { password: "nidu1212", subjects: [{ name: "history", grade: 10 }] },
+  kenuli: { password: "1520", subjects: [{ name: "geography", grade: 10 }] },
+  arham: { password: "arham2011", subjects: [{ name: "history", grade: 10 }] },
+  senumitha: {
+    password: "senumitha123",
+    subjects: [
+      { name: "history", grade: 10 },
+      { name: "geography", grade: 10 },
+      { name: "history Paper", grade: 10 },
+    ],
+  },
+  kavishka: {
+    password: "Kavishka@2011",
+    subjects: [
+      { name: "history", grade: 10 },
+      { name: "history Paper", grade: 10 },
+    ],
+  },
+  reema: {
+    password: "1360",
+    subjects: [
+      { name: "history", grade: 10 },
+      { name: "geography", grade: 10 },
+      { name: "history Paper", grade: 10 },
+    ],
+  },
+  shavidya: {
+    password: "shavidya27",
+    subjects: [{ name: "geography", grade: 10 }],
+  },
+  chaluni: {
+    password: "Chaluni123",
+    subjects: [
+      { name: "history", grade: 10 },
+      { name: "history Paper", grade: 10 },
+    ],
+  },
+  sasuli: {
+    password: "Nevergiveup",
+    subjects: [{ name: "history", grade: 10 }],
+  },
+  thinurika: {
+    password: "@thinu23",
+    subjects: [{ name: "history Paper", grade: 10 }],
+  },
+  minketh: {
+    password: "abcd123@#",
+    subjects: [{ name: "geography", grade: 10 }],
+  },
+  sanuli: {
+    password: "sanuli26",
+    subjects: [
+      { name: "history", grade: 10 },
+      { name: "history Paper", grade: 10 },
+    ],
+  },
+  ishan: {
+    password: "2010",
+    subjects: [
+      { name: "history", grade: 11 },
+      { name: "history Paper", grade: 11 },
+    ],
+  },
+  praveen: {
+    password: "Nw8%Fu3@",
+    subjects: [
+      { name: "history", grade: 11 },
+      { name: "geography", grade: 11 },
+      { name: "history Paper", grade: 11 },
+    ],
+  },
+  silma: {
+    password: "Pd4#Qv9&",
+    subjects: [
+      { name: "history", grade: 11 },
+      { name: "geography", grade: 11 },
+      { name: "history Paper", grade: 11 },
+    ],
+  },
+  hashini: {
+    password: "2010",
+    subjects: [
+      { name: "history", grade: 11 },
+      { name: "history Paper", grade: 11 },
+    ],
+  },
+  disura: {
+    password: "disura123",
+    subjects: [
+      { name: "ind-Disura-History", grade: 11 },
+      { name: "history", grade: 11 },
+      { name: "history Paper", grade: 11 },
+    ],
+  },
+  senula: { password: "12345678", subjects: [{ name: "history", grade: 11 }] },
+  chiranya: {
+    password: "chiranya",
+    subjects: [
+      { name: "history", grade: 11 },
+      { name: "geography", grade: 11 },
+      { name: "history Paper", grade: 11 },
+    ],
+  },
+  thisumi: {
+    password: "20101223",
+    subjects: [
+      { name: "history", grade: 11 },
+      { name: "geography", grade: 11 },
+      { name: "history Paper", grade: 11 },
+    ],
+  },
+  nishad: {
+    password: "Gt4&Pe9%",
+    subjects: [
+      { name: "history", grade: 11 },
+      { name: "history Paper", grade: 11 },
+    ],
+  },
+  ruhara: {
+    password: "minila",
+    subjects: [
+      { name: "history", grade: 11 },
+      { name: "history Paper", grade: 11 },
+    ],
+  },
+  anudi: {
+    password: "2010",
+    subjects: [
+      { name: "history", grade: 11 },
+      { name: "geography", grade: 11 },
+      { name: "history Paper", grade: 11 },
+    ],
+  },
+  akein: {
+    password: "2009810",
+    subjects: [
+      { name: "history", grade: 11 },
+      { name: "geography", grade: 11 },
+      { name: "history Paper", grade: 11 },
+    ],
+  },
+  dulneth: {
+    password: "anuruddha",
+    subjects: [
+      { name: "history", grade: 11 },
+      { name: "history Paper", grade: 11 },
+    ],
+  },
+  yenuli: {
+    password: "2010@YENULIB",
+    subjects: [
+      { name: "history", grade: 11 },
+      { name: "history Paper", grade: 11 },
+    ],
+  },
+  thushmini: {
+    password: "thushi",
+    subjects: [
+      { name: "history", grade: 11 },
+      { name: "geography", grade: 11 },
+    ],
+  },
+  poojana: {
+    password: "101019",
+    subjects: [
+      { name: "history", grade: 11 },
+      { name: "history Paper", grade: 11 },
+    ],
+  },
+  binuga: {
+    password: "2010",
+    subjects: [
+      { name: "geography", grade: 11 },
+      { name: "geography", grade: 10 },
+    ],
+  },
+  pamudu: {
+    password: "pamu@gtrx",
+    subjects: [
+      { name: "history", grade: 11 },
+      { name: "history Paper", grade: 11 },
+    ],
+  },
+  thinara: {
+    password: "2010",
+    subjects: [
+      { name: "history", grade: 11 },
+      { name: "history Paper", grade: 11 },
+    ],
+  },
+  poojani: {
+    password: "123456",
+    subjects: [
+      { name: "history", grade: 11 },
+      { name: "History Paper", grade: 11 },
+    ],
+  },
+  bovindi: {
+    password: "31102",
+    subjects: [{ name: "history Paper", grade: 11 }],
+  },
+  thesanya: {
+    password: "Thesanya1002",
+    subjects: [{ name: "geography", grade: 11 }],
+  },
+  dishani: {
+    password: "1980",
+    subjects: [
+      { name: "history", grade: 11 },
+      { name: "History Paper", grade: 11 },
+    ],
+  },
+  nimuthu: {
+    password: "200935",
+    subjects: [{ name: "history Paper", grade: 11 }],
+  },
+  hasaru: { password: "Has&1018", subjects: [{ name: "history", grade: 11 }] },
+  danidu: { password: "8514", subjects: [{ name: "history", grade: 11 }] },
+  yunali: {
+    password: "123456789",
+    subjects: [
+      { name: "history", grade: 11 },
+      { name: "geography", grade: 11 },
+      { name: "geography", grade: 10 },
+      { name: "history Paper", grade: 11 },
+    ],
+  },
+  shenon: {
+    password: "1234",
+    subjects: [{ name: "history Paper", grade: 11 }],
+  },
+  disanma: { password: "1985", subjects: [{ name: "history", grade: 11 }] },
+  amasha: {
+    password: "amasha123",
+    subjects: [
+      { name: "geography", grade: 11 },
+      { name: "history Paper", grade: 11 },
+      { name: "history", grade: 11 },
+    ],
+  },
+  vinudi: { password: "12345", subjects: [{ name: "geography", grade: 11 }] },
+  gayan: {
+    password: "gay@1234",
+    subjects: [
+      { name: "history", grade: 11 },
+      { name: "history Paper", grade: 11 },
+    ],
+  },
+  udani: {
+    password: "udani@2011",
+    subjects: [
+      { name: "history", grade: 11 },
+      { name: "history Paper", grade: 11 },
+    ],
+  },
+  amila: {
+    password: "ass123",
+    subjects: [
+      { name: "history", grade: 11 },
+      { name: "history Paper", grade: 11 },
+    ],
+  },
+  dilakshi: {
+    password: "4321",
+    subjects: [
+      { name: "geography", grade: 11 },
+      { name: "history Paper", grade: 11 },
+      { name: "history", grade: 11 },
+    ],
+  },
+  minudi11: {
+    password: "2010",
+    subjects: [
+      { name: "history", grade: 11 },
+      { name: "history Paper", grade: 11 },
+    ],
+  },
+};

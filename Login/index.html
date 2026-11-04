@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="../pic/icon.png">
+  <title>Learn History, Geography & Civic with Samira Sir - Login</title>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@200;300;400;500;600;700&display=swap");
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Open Sans", sans-serif;
+    }
+
+    #space-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+      background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      width: 100vw;
+      padding: 0;
+      margin: 0;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    .alert {
+      padding: 20px;
+      background-color: #f44336;
+      color: white;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 10;
+      text-align: center;
+    }
+
+    .closebtn {
+      margin-left: 15px;
+      color: white;
+      font-weight: bold;
+      float: right;
+      font-size: 22px;
+      line-height: 20px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .closebtn:hover {
+      color: black;
+    }
+
+    .wrapper {
+      width: 90%;
+      max-width: 400px;
+      border-radius: 8px;
+      padding: 25px;
+      text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      background: rgba(15, 23, 42, 0.6);
+      position: relative;
+      z-index: 2;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+      margin-top: 50px;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+      margin-bottom: 5px;
+      color: #fff;
+    }
+
+    h3 {
+      font-size: 1rem;
+      margin-bottom: 20px;
+      color: #cbd5e1;
+    }
+
+    .txt_field {
+      position: relative;
+      border-bottom: 2px solid #ccc;
+      margin: 20px 0;
+      text-align: left;
+    }
+
+    .txt_field input {
+      width: 100%;
+      height: 40px;
+      background: transparent;
+      border: none;
+      outline: none;
+      font-size: 16px;
+      color: #fff;
+      padding: 0 10px;
+    }
+
+    .txt_field label {
+      position: absolute;
+      top: 50%;
+      left: 10px;
+      transform: translateY(-50%);
+      font-size: 16px;
+      color: #ccc;
+      pointer-events: none;
+      transition: 0.3s ease;
+    }
+
+    .txt_field input:focus ~ label,
+    .txt_field input:valid ~ label {
+      top: -5px;
+      font-size: 12px;
+      color: #60a5fa;
+    }
+
+    input[type="submit"] {
+      background: #fff;
+      color: #000;
+      font-weight: 600;
+      border: none;
+      padding: 12px 20px;
+      cursor: pointer;
+      border-radius: 3px;
+      font-size: 16px;
+      width: 100%;
+      margin-top: 10px;
+      transition: 0.3s ease;
+    }
+
+    input[type="submit"]:hover {
+      color: #fff;
+      border-color: #fff;
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    .signup_link {
+      margin-top: 20px;
+      color: #fff;
+    }
+
+    .signup_link a {
+      color: #60a5fa;
+      text-decoration: none;
+    }
+
+    .signup_link a:hover {
+      text-decoration: underline;
+    }
+
+    .custom-alert {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #f44336;
+      color: white;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      display: none;
+      z-index: 1000;
+      text-align: center;
+    }
+
+    .custom-alert button {
+      margin-top: 10px;
+      padding: 8px 16px;
+      background-color: white;
+      color: #f44336;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .custom-alert button:hover {
+      background-color: #ddd;
+    }
+
+    #loading-circle {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: rgba(15, 23, 42, 0.9);
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    }
+
+    .spinner {
+      border: 6px solid rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      border-top: 6px solid #60a5fa;
+      width: 50px;
+      height: 50px;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+  <script src="../js/afghx.js"></script>
+  <script src="js/blacklist.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const usernameField = document.querySelector('input[name="text"]');
+      const passwordField = document.querySelector('input[name="password"]');
+
+      const savedUsername = localStorage.getItem('username');
+      const savedPassword = localStorage.getItem('password');
+
+      if (savedUsername && savedPassword) {
+        usernameField.value = savedUsername;
+        passwordField.value = savedPassword;
+      }
+    });
+
+    function validateForm(event) {
+      event.preventDefault();
+
+      const username = document.querySelector('input[name="text"]').value.trim().toLowerCase();
+      const password = document.querySelector('input[name="password"]').value.trim();
+
+      if (typeof blacklist !== 'undefined' && blacklist.includes(username)) {
+        showAlert('Your account has been blocked.');
+        localStorage.clear();
+        return;
+      }
+
+      if (typeof credentials !== 'undefined' && credentials[username] && credentials[username].password === password) {
+        localStorage.setItem('loggedIn', 'true');
+        localStorage.setItem('username', username);
+        localStorage.setItem('password', password);
+        localStorage.setItem('subjects', JSON.stringify(credentials[username].subjects));
+
+        const loadingDiv = document.createElement('div');
+        loadingDiv.id = 'loading-circle';
+        loadingDiv.innerHTML = '<div class="spinner"></div><div style="color:white; margin-top:10px; font-size:14px;">Logging in...</div>';
+        document.body.appendChild(loadingDiv);
+
+        setTimeout(() => {
+          window.location.href = '../dashboard/';
+        }, 1000);
+      } else {
+        showAlert('Invalid username or password.');
+      }
+    }
+
+    function showAlert(message) {
+      var alertBox = document.getElementById("customAlert");
+      var alertMessage = document.getElementById("alertMessage");
+      alertMessage.textContent = message;
+      alertBox.style.display = "block";
+    }
+
+    function closeCustomAlert() {
+      document.getElementById("customAlert").style.display = "none";
+    }
+  </script>
+</head>
+<body>
+  <canvas id="space-bg"></canvas>
+
+  <div class="alert">
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+    <strong>මෙය පංති සඳහා සහභාගී වන සිසුන් සඳහා පමණි. This is only for students attending classes</strong>
+  </div>
+
+  <div id="customAlert" class="custom-alert">
+    <p id="alertMessage"></p>
+    <button onclick="closeCustomAlert()">OK</button>
+  </div>
+
+  <div class="wrapper">
+    <h1>Login</h1>
+    <h3>Online Class Portal</h3>
+    <form onsubmit="validateForm(event)">
+      <div class="txt_field">
+        <input type="text" name="text" required>
+        <label>Username</label>
+      </div>
+      <div class="txt_field">
+        <input type="password" name="password" required>
+        <label>Password</label>
+      </div>
+      <input type="submit" value="Login">
+      <div class="signup_link">
+        <p style="color:white;">Do not have an account? <a href="../Register/">Register here</a></p>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    const canvas = document.getElementById("space-bg");
+    const ctx = canvas.getContext("2d");
+
+    let width, height;
+    let stars = [];
+    const numStars = 150;
+
+    function resizeCanvas() {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    }
+
+    window.addEventListener("resize", resizeCanvas);
+    resizeCanvas();
+
+    for (let i = 0; i < numStars; i++) {
+      stars.push({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        radius: Math.random() * 1.5 + 0.5,
+        alpha: Math.random(),
+        deltaAlpha: (Math.random() * 0.02 + 0.005) * (Math.random() < 0.5 ? 1 : -1)
+      });
+    }
+
+    function animateStars() {
+      ctx.clearRect(0, 0, width, height);
+      ctx.fillStyle = "#ffffff";
+
+      stars.forEach(star => {
+        star.alpha += star.deltaAlpha;
+        if (star.alpha <= 0.1 || star.alpha >= 1) {
+          star.deltaAlpha *= -1;
+        }
+
+        ctx.globalAlpha = star.alpha;
+        ctx.beginPath();
+        ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+        ctx.fill();
+      });
+
+      requestAnimationFrame(animateStars);
+    }
+
+    animateStars();
+  </script>
+</body>
+</html>

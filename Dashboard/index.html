@@ -1,0 +1,1554 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Samira Sir | LMS Portal</title>
+  <link rel="icon" type="image/png" href="../pic/icon.png">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <!-- FontAwesome & BoxIcons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            heading: ['Outfit', 'sans-serif'],
+          },
+          colors: {
+            space: {
+              900: '#060814',
+              800: '#0c1024',
+              700: '#141b38',
+              card: 'rgba(15, 23, 42, 0.65)',
+            },
+            cyanGlow: '#00f2fe',
+            purpleGlow: '#7f5af0',
+            pinkGlow: '#ff007f',
+            emeraldGlow: '#00f5a0'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #050711;
+      color: #f1f5f9;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* Ambient Nebula Background Glows */
+    .nebula-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -2;
+      background: 
+        radial-gradient(circle at 15% 20%, rgba(127, 90, 240, 0.18) 0%, transparent 45%),
+        radial-gradient(circle at 85% 60%, rgba(0, 242, 254, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 50% 90%, rgba(255, 0, 127, 0.12) 0%, transparent 55%),
+        radial-gradient(circle at 50% 10%, rgba(6, 8, 20, 1) 0%, rgba(5, 7, 17, 1) 100%);
+    }
+
+    /* Glassmorphism Styles */
+    .glass-panel {
+      background: rgba(12, 17, 38, 0.65);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.45);
+    }
+
+    .glass-panel-interactive {
+      background: rgba(15, 22, 48, 0.6);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .glass-panel-interactive:hover {
+      transform: translateY(-4px) scale(1.01);
+      border-color: rgba(0, 242, 254, 0.4);
+      box-shadow: 0 20px 40px -15px rgba(0, 242, 254, 0.25);
+    }
+
+    /* Text Gradients */
+    .text-gradient-cyan {
+      background: linear-gradient(135deg, #ffffff 10%, #00f2fe 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .text-gradient-purple {
+      background: linear-gradient(135deg, #a78bfa 0%, #00f2fe 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .text-gradient-gold {
+      background: linear-gradient(135deg, #fde047 0%, #f59e0b 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Star Animation */
+    .stars-container {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .star {
+      position: absolute;
+      background: white;
+      border-radius: 50%;
+      animation: twinkle linear infinite;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.2; transform: scale(0.8); }
+      50% { opacity: 1; transform: scale(1.2); }
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: rgba(6, 8, 20, 0.8);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(0, 242, 254, 0.5);
+    }
+
+    /* Floating Keyframe */
+    @keyframes floatSlow {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-10px) rotate(1deg); }
+    }
+    .animate-float {
+      animation: floatSlow 6s ease-in-out infinite;
+    }
+
+    /* Toast Notification Animation */
+    @keyframes slideInUp {
+      from { transform: translateY(100%) scale(0.9); opacity: 0; }
+      to { transform: translateY(0) scale(1); opacity: 1; }
+    }
+    .toast-anim {
+      animation: slideInUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+/* Style for dropdown options to match the dark theme */
+#dashSubjectSelect option {
+  background-color: #0c1024; /* matches space-800 background */
+  color: #f1f5f9;
+  padding: 10px;
+}
+
+#dashSubjectSelect option:hover {
+  background-color: #141b38;
+  color: #00f2fe;
+}
+    html { scroll-behavior: smooth; }
+    #month-content-display, #tutes-container, #online-tests-container, #class-buttons { scroll-margin-top: 7rem; }
+  </style>
+</head>
+<body class="selection:bg-cyanGlow selection:text-black">
+
+  <div class="nebula-bg"></div>
+  <div class="stars-container" id="starsContainer"></div>
+
+  <!-- Custom Toast Notification Container -->
+  <div id="toastContainer" class="fixed bottom-6 right-6 z-50 flex flex-col gap-3 max-w-sm pointer-events-none"></div>
+
+  <header class="sticky top-0 z-40 w-full glass-panel border-b border-white/10 backdrop-blur-xl bg-space-900/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="#" class="flex items-center gap-3.5 group">
+        <div class="relative flex items-center justify-center w-12 h-12 rounded-2xl bg-gradient-to-tr from-cyanGlow/20 to-purpleGlow/30 border border-cyanGlow/40 group-hover:scale-105 transition-transform">
+          <i class="fa-solid font-bold fa-graduation-cap text-2xl text-cyanGlow"></i>
+          <div class="absolute inset-0 rounded-2xl bg-cyanGlow/20 blur-md opacity-0 group-hover:opacity-100 transition-opacity"></div>
+        </div>
+        <div>
+          <span class="font-heading font-extrabold text-xl tracking-wide text-white block leading-tight">
+            Samira Sir <span class="text-cyanGlow font-normal text-sm">LMS</span>
+          </span>
+          <span class="text-xs text-slate-400 font-medium">History • Geography</span>
+        </div>
+      </a>
+
+      <!-- Right Action Controls -->
+      <div class="flex items-center gap-3">
+        <!-- User Badge -->
+        <div class="hidden sm:flex items-center gap-3 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10">
+          <div class="w-7 h-7 rounded-full bg-gradient-to-r from-purpleGlow to-cyanGlow flex items-center justify-center text-xs font-bold text-black" id="userAvatar">
+            S
+          </div>
+          <span id="greeting" class="text-sm font-semibold text-slate-200">Student Portal</span>
+        </div>
+
+        <!-- Account Button -->
+        <button onclick="toggleUserInfo()" class="px-4 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-sm font-semibold text-slate-200 hover:text-white transition flex items-center gap-2">
+          <i class="fa-regular fa-user text-purpleGlow"></i>
+          <span class="hidden md:inline">Account</span>
+        </button>
+
+      </div>
+
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-10">
+
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden rounded-3xl border border-white/10 glass-panel">
+      <div class="absolute -right-24 -top-24 w-96 h-96 bg-cyanGlow/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute -left-24 -bottom-24 w-96 h-96 bg-purpleGlow/15 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="relative z-10 p-6 sm:p-10 lg:p-12">
+
+        <!-- Intro -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+
+          <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-slate-300 text-xs font-semibold tracking-wide">
+              <span class="w-2 h-2 rounded-full bg-emeraldGlow"></span>
+              History • Geography &nbsp;|&nbsp; Grade 6 – 11
+            </div>
+
+            <h1 class="font-heading text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight">
+              Learn History & Geography<br class="hidden sm:block"/>
+              <span class="text-gradient-cyan">with Samira Sir</span>
+            </h1>
+
+            <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+Online අධ්‍යාපනයේ Digital නව්‍යකරණය             </p>
+
+            <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3">
+              <a href="#month-content-display" class="px-5 py-3 rounded-xl bg-gradient-to-r from-cyanGlow to-blue-500 text-space-900 font-bold text-sm hover:shadow-[0_0_20px_rgba(0,242,254,0.45)] transition-all flex items-center gap-2">
+                <i class="fa-solid fa-video"></i> Classes & Recordings
+              </a>
+              <a href="#online-tests-container" class="px-5 py-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/15 text-white font-semibold text-sm transition flex items-center gap-2">
+                <i class="fa-solid fa-file-pen text-purpleGlow"></i> Online Tests
+              </a>
+            </div>
+          </div>
+
+          <div class="lg:col-span-5 flex justify-center">
+            <div class="relative w-full max-w-xs sm:max-w-sm">
+              <div class="absolute inset-0 bg-gradient-to-tr from-cyanGlow to-purpleGlow rounded-3xl blur-2xl opacity-20"></div>
+              <div class="relative rounded-3xl border border-white/10 bg-white/[0.03] p-4 flex items-center justify-center min-h-[200px]">
+                <img src="../pic/logo.gif" alt="Samira Ariyadasa" class="w-full max-h-72 object-contain rounded-2xl"
+                     onerror="this.replaceWith(Object.assign(document.createElement('i'),{className:'fa-solid fa-graduation-cap text-7xl text-cyanGlow/70'}))">
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+<!-- Student Performance Dashboard -->
+        <div class="mt-10 pt-8 border-t border-white/10 space-y-5">
+          <div class="flex flex-wrap items-center justify-between gap-3">
+            <div>
+              <h3 class="font-heading text-lg font-bold text-white flex items-center gap-2">
+                <i class="fa-solid fa-chart-simple text-cyanGlow"></i> My Performance
+              </h3>
+              <p id="dashStudentName" class="text-xs text-slate-400 mt-0.5">Monthly test results & rankings</p>
+            </div>
+            <div class="flex items-center gap-2 flex-wrap">
+              <!-- Class / Subject Filter -->
+              <div class="flex items-center gap-2 bg-white/5 border border-white/10 rounded-xl px-3 py-1.5">
+                <label for="dashSubjectSelect" class="text-[11px] font-semibold text-slate-400 uppercase tracking-wider">Select Class:</label>
+<select id="dashSubjectSelect" class="bg-space-900 text-cyanGlow text-xs font-semibold px-3 py-1.5 rounded-xl border border-white/15 focus:outline-none focus:border-cyanGlow cursor-pointer">
+  <option value="" class="bg-space-900 text-slate-400">-- Select Class --</option>
+</select>
+              </div>
+              <button type="button" onclick="initDashboard()" title="Refresh results"
+                class="px-3.5 py-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-xs font-semibold text-slate-300 hover:text-white transition flex items-center gap-2">
+                <i class="fa-solid fa-rotate"></i> Refresh
+              </button>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+
+            <div class="rounded-2xl bg-white/[0.04] border border-white/10 p-4 sm:p-5 flex flex-col gap-3 hover:border-yellow-400/30 transition">
+              <div class="flex items-center justify-between gap-2">
+                <span class="text-[11px] font-semibold uppercase tracking-wider text-slate-400">අවසාන පරීක්ෂණ ශ්‍රේණිය</span>
+                <span class="w-8 h-8 shrink-0 rounded-lg bg-yellow-500/15 text-yellow-400 flex items-center justify-center text-sm"><i class="fa-solid fa-ranking-star"></i></span>
+              </div>
+              <div id="dashRankLastTest" class="font-heading text-3xl font-extrabold text-white">—</div>
+              <div id="dashRankSubjectTag" class="text-xs text-slate-400 truncate">විෂයය ශ්‍රේණිගත කිරීම</div>
+            </div>
+
+            <div class="rounded-2xl bg-white/[0.04] border border-white/10 p-4 sm:p-5 flex flex-col gap-3 hover:border-purpleGlow/40 transition">
+              <div class="flex items-center justify-between gap-2">
+                <span class="text-[11px] font-semibold uppercase tracking-wider text-slate-400">විෂයයේ සාමාන්‍යය</span>
+                <span class="w-8 h-8 shrink-0 rounded-lg bg-purpleGlow/15 text-purpleGlow flex items-center justify-center text-sm"><i class="fa-solid fa-book-open"></i></span>
+              </div>
+              <div id="dashRankSubjectAvg" class="font-heading text-3xl font-extrabold text-white">—</div>
+              <div class="text-xs text-slate-400 truncate">මෙම පන්තිය සඳහා</div>
+            </div>
+
+            <div class="rounded-2xl bg-white/[0.04] border border-white/10 p-4 sm:p-5 flex flex-col gap-3 hover:border-cyanGlow/40 transition">
+              <div class="flex items-center justify-between gap-2">
+                <span class="text-[11px] font-semibold uppercase tracking-wider text-slate-400">මුළු සාමාන්‍යය</span>
+                <span class="w-8 h-8 shrink-0 rounded-lg bg-cyanGlow/15 text-cyanGlow flex items-center justify-center text-sm"><i class="fa-solid fa-trophy"></i></span>
+              </div>
+              <div id="dashRankOverallAvg" class="font-heading text-3xl font-extrabold text-white">—</div>
+              <div class="text-xs text-slate-400 truncate">සියලුම විෂයයන්</div>
+            </div>
+
+            <div class="rounded-2xl bg-white/[0.04] border border-white/10 p-4 sm:p-5 flex flex-col gap-3 hover:border-emeraldGlow/40 transition">
+              <div class="flex items-center justify-between gap-2">
+                <span class="text-[11px] font-semibold uppercase tracking-wider text-slate-400">සාමාන්‍ය ලකුණ</span>
+                <span class="w-8 h-8 shrink-0 rounded-lg bg-emeraldGlow/15 text-emeraldGlow flex items-center justify-center text-sm"><i class="fa-solid fa-chart-line"></i></span>
+              </div>
+              <div id="dashMyAvgScore" class="font-heading text-3xl font-extrabold text-white">0 / 100</div>
+              <div id="dashTotalTestsCount" class="text-xs text-slate-400 truncate">පරීක්ෂණ 0 අවසන්</div>
+            </div>
+
+          </div>
+
+          <!-- Test History Table -->
+    
+        </div>
+
+      </div>
+    </section>
+
+    <section class="space-y-4">
+      <div class="flex items-center justify-between">
+        <h3 class="font-heading text-lg font-bold text-slate-200 tracking-wide uppercase flex items-center gap-2">
+          <i class="fa-solid fa-filter text-cyanGlow"></i> Filter Enrolled Content
+        </h3>
+        <span class="text-xs text-slate-400">Select subject to filter all learning materials below</span>
+      </div>
+
+      <!-- Filter Pills -->
+      <div class="flex flex-wrap gap-2.5" id="subjectPills">
+        <button class="subject-pill px-5 py-2.5 rounded-xl bg-cyanGlow text-space-900 font-bold text-sm shadow-[0_0_15px_rgba(0,242,254,0.4)] transition-all flex items-center gap-2" onclick="filterBySubject('all', this)">
+          <i class="fa-solid fa-rocket"></i> All Enrolled Subjects
+        </button>
+        <!-- Dynamic Subject Pills Injected Here -->
+      </div>
+    </section>
+
+    <section class="space-y-6">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/10 pb-4">
+        <div>
+          <h2 class="font-heading text-2xl font-extrabold text-white flex items-center gap-3">
+            <span class="p-2 rounded-xl bg-red-500/20 text-red-400 text-lg border border-red-500/30">
+              <i class="fa-solid fa-video"></i>
+            </span>
+            Zoom Live Classes & Monthly Recordings
+          </h2>
+          <p class="text-sm text-slate-400 mt-1">Select a month tab to view sessional recordings and live links</p>
+        </div>
+      </div>
+
+      <!-- Month Navigation Bar -->
+      <div class="month-navbar flex overflow-x-auto gap-2 py-2 no-scrollbar">
+        <!-- Month Links generated dynamically/in-place -->
+        <a href="#Jan" id="Jan-link" onclick="showMonth('Jan'); return false;" class="month-tab px-4 py-2 rounded-xl text-sm font-semibold bg-white/5 border border-white/10 text-slate-300 hover:text-white hover:bg-white/10 whitespace-nowrap transition">Jan</a>
+        <a href="#Feb" id="Feb-link" onclick="showMonth('Feb'); return false;" class="month-tab px-4 py-2 rounded-xl text-sm font-semibold bg-white/5 border border-white/10 text-slate-300 hover:text-white hover:bg-white/10 whitespace-nowrap transition">Feb</a>
+        <a href="#Mar" id="Mar-link" onclick="showMonth('Mar'); return false;" class="month-tab px-4 py-2 rounded-xl text-sm font-semibold bg-white/5 border border-white/10 text-slate-300 hover:text-white hover:bg-white/10 whitespace-nowrap transition">Mar</a>
+        <a href="#Apr" id="Apr-link" onclick="showMonth('Apr'); return false;" class="month-tab px-4 py-2 rounded-xl text-sm font-semibold bg-white/5 border border-white/10 text-slate-300 hover:text-white hover:bg-white/10 whitespace-nowrap transition">Apr</a>
+        <a href="#May" id="May-link" onclick="showMonth('May'); return false;" class="month-tab px-4 py-2 rounded-xl text-sm font-semibold bg-white/5 border border-white/10 text-slate-300 hover:text-white hover:bg-white/10 whitespace-nowrap transition">May</a>
+        <a href="#Jun" id="Jun-link" onclick="showMonth('Jun'); return false;" class="month-tab px-4 py-2 rounded-xl text-sm font-semibold bg-white/5 border border-white/10 text-slate-300 hover:text-white hover:bg-white/10 whitespace-nowrap transition">Jun</a>
+        <a href="#Jul" id="Jul-link" onclick="showMonth('Jul'); return false;" class="month-tab px-4 py-2 rounded-xl text-sm font-semibold bg-white/5 border border-white/10 text-slate-300 hover:text-white hover:bg-white/10 whitespace-nowrap transition">Jul</a>
+        <a href="#Aug" id="Aug-link" onclick="showMonth('Aug'); return false;" class="month-tab px-4 py-2 rounded-xl text-sm font-semibold bg-white/5 border border-white/10 text-slate-300 hover:text-white hover:bg-white/10 whitespace-nowrap transition">Aug</a>
+        <a href="#Sep" id="Sep-link" onclick="showMonth('Sep'); return false;" class="month-tab px-4 py-2 rounded-xl text-sm font-semibold bg-white/5 border border-white/10 text-slate-300 hover:text-white hover:bg-white/10 whitespace-nowrap transition">Sep</a>
+        <a href="#Oct" id="Oct-link" onclick="showMonth('Oct'); return false;" class="month-tab px-4 py-2 rounded-xl text-sm font-semibold bg-white/5 border border-white/10 text-slate-300 hover:text-white hover:bg-white/10 whitespace-nowrap transition">Oct</a>
+        <a href="#Nov" id="Nov-link" onclick="showMonth('Nov'); return false;" class="month-tab px-4 py-2 rounded-xl text-sm font-semibold bg-white/5 border border-white/10 text-slate-300 hover:text-white hover:bg-white/10 whitespace-nowrap transition">Nov</a>
+        <a href="#Dec" id="Dec-link" onclick="showMonth('Dec'); return false;" class="month-tab px-4 py-2 rounded-xl text-sm font-semibold bg-white/5 border border-white/10 text-slate-300 hover:text-white hover:bg-white/10 whitespace-nowrap transition">Dec</a>
+      </div>
+
+      <!-- Month Content Grid -->
+      <div id="month-content-display" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"></div>
+    </section>
+
+    <!-- Tutes Section -->
+    <section class="space-y-6">
+      <div class="border-b border-white/10 pb-4">
+        <h2 class="font-heading text-2xl font-extrabold text-white flex items-center gap-3">
+          <span class="p-2 rounded-xl bg-amber-500/20 text-amber-400 text-lg border border-amber-500/30">
+            <i class="fa-solid fa-folder-open"></i>
+          </span>
+          Tutes & Lesson Notes
+        </h2>
+        <p class="text-sm text-slate-400 mt-1">Lesson-wise tute folders (Google Drive) for your selected class &amp; subject</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" id="tutes-container"></div>
+    </section>
+
+    <section class="space-y-6">
+      <div class="border-b border-white/10 pb-4">
+        <h2 class="font-heading text-2xl font-extrabold text-white flex items-center gap-3">
+          <span class="p-2 rounded-xl bg-purpleGlow/20 text-purpleGlow text-lg border border-purpleGlow/30">
+            <i class="fa-solid fa-file-pen"></i>
+          </span>
+          Online Tests & Interactive Quizzes
+        </h2>
+        <p class="text-sm text-slate-400 mt-1">Filtered by your selected subject grade</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" id="online-tests-container"></div>
+    </section>
+
+    <section class="space-y-6">
+      <div class="border-b border-white/10 pb-4">
+        <h2 class="font-heading text-2xl font-extrabold text-white flex items-center gap-3">
+          <span class="p-2 rounded-xl bg-emeraldGlow/20 text-emeraldGlow text-lg border border-emeraldGlow/30">
+            <i class="fa-solid fa-gamepad"></i>
+          </span>
+          Interactive Wordwall Learning Games
+        </h2>
+        <p class="text-sm text-slate-400 mt-1">Engaging revision games matched with your subjects</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" id="class-buttons"></div>
+    </section>
+
+  </main>
+
+
+  <!-- User Account Drawer / Modal -->
+  <div id="userInfoContainer" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-md hidden flex items-center justify-center p-4">
+    <div class="glass-panel w-full max-w-md rounded-3xl p-6 border border-white/20 space-y-6 relative shadow-2xl">
+      <button onclick="toggleUserInfo()" class="absolute top-5 right-5 text-slate-400 hover:text-white text-xl">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="flex items-center gap-3">
+        <div class="w-12 h-12 rounded-2xl bg-purpleGlow/20 border border-purpleGlow/40 flex items-center justify-center text-purpleGlow text-xl">
+          <i class="fa-solid fa-id-card"></i>
+        </div>
+        <div>
+          <h3 class="font-heading text-xl font-bold text-white">Student Profile</h3>
+          <p class="text-xs text-slate-400">Account Credentials & Enrolments</p>
+        </div>
+      </div>
+
+      <div id="userInfoContent" class="space-y-4 text-sm bg-white/5 p-4 rounded-2xl border border-white/10">
+        <!-- Content dynamically injected -->
+      </div>
+
+      <button onclick="toggleUserInfo()" class="w-full py-3 rounded-xl bg-white/10 hover:bg-white/20 text-white font-semibold transition">
+        Close Window
+      </button>
+    </div>
+  </div>
+
+  <footer class="border-t border-white/10 bg-space-900/90 mt-20 backdrop-blur-xl py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+      
+      <div class="space-y-4">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-cyanGlow/20 border border-cyanGlow/40 flex items-center justify-center text-cyanGlow font-bold">
+            <i class="fa-solid fa-graduation-cap"></i>
+          </div>
+          <span class="font-heading font-extrabold text-lg text-white">Samira Sir Learning Portal</span>
+        </div>
+        <p class="text-xs text-slate-400 leading-relaxed">
+        </p>
+      </div>
+
+      <div class="space-y-3">
+        <h4 class="font-heading text-sm font-bold text-cyanGlow uppercase tracking-wider">Quick Navigation</h4>
+        <ul class="space-y-2 text-xs text-slate-400">
+          <li><a href="#" class="hover:text-cyanGlow transition">Home Dashboard</a></li>
+          <li><a href="#month-content-display" class="hover:text-cyanGlow transition">Live Class Recordings</a></li>
+          <li><a href="#tutes-container" class="hover:text-cyanGlow transition">Tutes &amp; Lesson Notes</a></li>
+          <li><a href="#online-tests-container" class="hover:text-cyanGlow transition">Online Evaluation Tests</a></li>
+          <li><a href="#class-buttons" class="hover:text-cyanGlow transition">Wordwall Gamified Learning</a></li>
+        </ul>
+      </div>
+
+      <div class="space-y-3">
+        <h4 class="font-heading text-sm font-bold text-cyanGlow uppercase tracking-wider">Contact & Support</h4>
+        <div class="space-y-2 text-xs text-slate-400">
+          <p><i class="fa-solid fa-location-dot text-cyanGlow mr-2"></i> Bandarawela, Sri Lanka</p>
+          <p><i class="fa-solid fa-phone text-cyanGlow mr-2"></i> +94 78 87 666 97</p>
+        </div>
+        <div class="flex items-center gap-3 pt-2">
+          <a href="https://api.whatsapp.com/send?phone=94788766697" target="_blank" class="w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center border border-emerald-500/30 hover:scale-110 transition">
+            <i class="fa-brands fa-whatsapp"></i>
+          </a>
+          <a href="https://web.facebook.com/people/History-Geography-Civic-With-Samira-Ariyadasa/100083035703991/" target="_blank" class="w-8 h-8 rounded-lg bg-blue-500/20 text-blue-400 flex items-center justify-center border border-blue-500/30 hover:scale-110 transition">
+            <i class="fa-brands fa-facebook-f"></i>
+          </a>
+          <a href="https://youtube.com/@samira_sir?si=v2cP_6gsU-G2B_Yo" target="_blank" class="w-8 h-8 rounded-lg bg-red-500/20 text-red-400 flex items-center justify-center border border-red-500/30 hover:scale-110 transition">
+            <i class="fa-brands fa-youtube"></i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+  <script src="../js/16542.js"></script>
+  <script src="../js/87524.js"></script>
+  <script src="../js/dklaind.js"></script>
+  <script src="../js/fgxht.js"></script>
+  <script src="../js/htyaoi.js"></script>
+
+  <script>
+    /*
+      ==================================================================
+      TUTES DATA (edit here)
+      Key = "<grade>-<Subject>", value = list of lessons.
+      Each lesson has a lesson name and its Google Drive folder link.
+      ==================================================================
+    */
+    const tuteFolders = {
+       "7-History": [
+        { lesson: "අපගේ පැරණි ජන ජීවිතය", link: "https://drive.google.com/drive/folders/1tx4j6MFoO-F0OvLXHFAlEaXoQ8UikKx2?usp=sharing" },
+        { lesson: "අපේ කීර්තිමත් රජවරු", link: "https://drive.google.com/drive/folders/1uh9jmdWdSLkldJ1G0eJJTpGC17lZZFsE?usp=sharing" },
+        { lesson: "අපේ සංස්කෘතික උරුමය ", link: "https://drive.google.com/drive/folders/1gUtdzlcmYUtC_albuXr2Osi1x9qKm2ui?usp=sharing" },
+        { lesson: "පසු කාලීන පාලන මධ්‍යස්ථාන ", link: "https://drive.google.com/drive/folders/1WYz3Fe5u0td0ym-njb_3OsVdWhiEauOo?usp=sharing" },
+        { lesson: "යුරෝපයේ පැරණි ශිෂ්ටාචාර", link: "https://drive.google.com/drive/folders/1rxwX3zE1yo2RkaHzPvYdREjffozU7umv?usp=sharing" },
+      ],
+      "8-history": [
+        { lesson: "ශ්‍රී ලංකාවේ සම්ප්‍රදායික තාක්ෂණය හා කලාව ", link: "https://drive.google.com/drive/folders/1i3BgwVgGOsXiXo_C-lgfdTNXTChbr_QY?usp=sharing" },
+        { lesson: "මහනුවර රාජධානිය ", link: "https://drive.google.com/drive/folders/1gNFRd51UsEpH99GHGU_XThE_3byWzoTj?usp=sharing" },
+        { lesson: "යුරෝපයේ පුනරුදය ", link: "https://drive.google.com/drive/folders/1vIeIRcP1hn9yngzRBzM1_OIKz0rfFzXk?usp=sharing" },
+        { lesson: "දේශ ගවේෂණය හා යුරෝපා ජාතීන් පෙරදිගට පැමිණීම ", link: "https://drive.google.com/drive/folders/1fPAXmyrNjWAMXtEeTb1ARuGRwCSxlPUX?usp=sharing" },
+        { lesson: "ලංකාවේ මුහුදුබඩ ප්‍රදේශ පෘතුගීසීන් යටතට පත්වීම", link: "https://drive.google.com/drive/folders/1I63HOiDppnXwg1E0rcsf08SewpqAF5JW?usp=sharing" },
+
+      ],     
+      "9-History": [
+        { lesson: "ලංකාවේ මුහුදුබඩ ප්‍රදේශ ලන්දේසීන් යටතට පත්වීම  ", link: "https://drive.google.com/drive/folders/1vCAChTkdysWLC7IAl_3VneAYrt5u1p-c?usp=sharing" },
+        { lesson: "ශ්‍රී ලංකාවේ බ්‍රිතාන්‍ය බලය", link: "https://drive.google.com/drive/folders/1jn7V9RchK-oay3rUmf9yUptIOsRQqdFZ?usp=sharing" },
+        { lesson: " ශ්‍රී ලංකාවේ ආගමික හා ජාතික පුනර්ජීවනය  ", link: "https://drive.google.com/drive/folders/1FIK-4Jfm5rQKDlV1SUDm4se0zT_MwuPz?usp=sharing" },
+        { lesson: "ඉන්දියානු නිදහස් සටන් ව්‍යාපාරය", link: "https://drive.google.com/drive/folders/15Ci8KypxNxikkqqoPGcvM87MnyXbc4Z3?usp=sharing" },
+        { lesson: "ශ්‍රී ලංකාවේ ආණ්ඩුක්‍රම ප්‍රතිසංස්කරණය හා ජාතික නිදහස් ව්‍යාපාරය ", link: "https://drive.google.com/drive/folders/1pFo6gxSLsckz01SynP_KvxZbugVw9w6_?usp=sharing" },
+        { lesson: "නිදහසෙන් පසු ශ්‍රී ලංකාව ", link: "https://drive.google.com/drive/folders/1Bi-HoJctWj89e8NCk2vTuw7u6ExlLirR?usp=sharing" },
+
+      ],
+      "10-history": [
+        { lesson: "ඉතිහාසය හැදෑරීමේ මූලාශ්‍රය ", link: "https://drive.google.com/drive/folders/1NSeehvSTFOI7UsqTCsn3B9WGD1K17hsh?usp=sharing" },
+        { lesson: "ශ්‍රී ලංකාව ජනාවාස වීම", link: "https://drive.google.com/drive/folders/1iT_1QfE7kD3QWdLHC_lS4Gy-6OtxbA2a?usp=sharing" },
+        { lesson: "ලංකාවේ දේශපාලන බලය විකාශනය වීම ", link: "https://drive.google.com/drive/folders/1_7EDygI-D6IxBXOZ-0GRDbvUlCJCI7jA?usp=sharing" },
+        { lesson: "ශ්‍රී ලංකාවේ පැරණි සමාජය", link: "https://drive.google.com/drive/folders/1Q5rHTy8F-rKcfbDnovg7Os8MmcMFETjl?usp=sharing" },
+        { lesson: "ලංකාවේ පැරණි විද්‍යාව හා තාක්ෂණය ", link: "https://drive.google.com/drive/folders/1wX9rJrNrrsVj8-s8pXeuYLQJ4yf1hySB?usp=sharing" },
+        { lesson: "ඓතිහාසික දැනුම සහ එහි ප්‍රායෝගික ආදේශනය", link: "https://drive.google.com/drive/folders/11wKyFrlt0CPzL7EcvRFI5uqK_bGiKuX0?usp=sharing" },
+        { lesson: "වියළි කලාපයේ පැරණි නගර පිරිහීම හා නව රාජධානි බිහිවීම ", link: "https://drive.google.com/drive/folders/1ue32Pa2Zz5kOGs_gj5oXhmFXk9sjKlnc?usp=sharing" },
+        { lesson: "මහනුවර රාජධානිය", link: "https://drive.google.com/drive/folders/1hhOwXSDr41YGqI1TH-zF8WxjLZRBfsCG?usp=sharing" },
+        { lesson: " පුනරුදය ", link: "https://drive.google.com/drive/folders/1TDGzdLDH-wQ_-UWTj2igwa8iEINHVve7?usp=sharing" },
+        { lesson: "ශ්‍රී ලංකාව හා බටහිර ලෝකය", link: "https://drive.google.com/drive/folders/15GMSGD67FfyS9KOLZsCUd2BmrI8x7gzK?usp=sharing" },
+
+      ],
+      "11-History": [
+        { lesson: "කාර්මික විප්ලවය ", link: "https://drive.google.com/drive/folders/1Jg5okgQdXZpgUJA17YXTm2qB-KErcgvP?usp=sharing" },
+        { lesson: " ලංකාවේ බ්‍රිතාන්‍ය බලය පිහිටුවීම", link: "https://drive.google.com/drive/folders/1n_wany4yQ9aOa_lzcGY6omVIqhQYh3ng?usp=sharing" },
+        { lesson: " ශ්‍රී ලංකාවේ ජාතික පුනරුදය", link: "https://drive.google.com/drive/folders/10ERDd2RsUwWo28vkMw3CtcHqBR3epQq3?usp=sharing" },
+        { lesson: "බ්‍රිතාන්‍යයන් යටතේ ශ්‍රී ලංකාවේ දේශපාලන වෙනස් වීම් ", link: "https://drive.google.com/drive/folders/1fZNflNAyp-4Zuhe5_WzT1caezhGniT2P?usp=sharing" },
+        { lesson: "බ්‍රිතාන්‍යයන් යටතේ ශ්‍රී ලංකාවේ සමාජ පරිවර්තනය", link: "https://drive.google.com/drive/folders/1V2moIbWozlsE4RXjfFco4FBnkl__wRuF?usp=sharing" },
+        { lesson: "ශ්‍රී ලංකාවට නිදහස ලැබීම ", link: "https://drive.google.com/drive/folders/1KdFfLTe_0VivdMP9kkUNpXQWqzltwkdk?usp=sharing" },
+        { lesson: "ලෝකයේ කැපී පෙනෙන විප්ලව ", link: "https://drive.google.com/drive/folders/1WDeg5rFrr3y394o3eSqTYAFY0i_WML4S?usp=sharing" },
+        { lesson: "ලෝක මහා සංග්‍රාම හා සම්මුතින්  ", link: "https://drive.google.com/drive/folders/1yEH_DgB1_P0S1O4oBT5CtFJ_IjRIOWEx?usp=sharing" },
+
+      ],
+      "7-Geography": [
+        { lesson: "අප ජීවත් වන පෘථිවි ගෝලය ", link: "https://drive.google.com/drive/folders/1-_gPdkQiYrX8zJsHVy7TyAcKXqY2bqMI?usp=sharing" },
+        { lesson: "ශ්‍රී ලංකාවේ අනන්‍යතාව", link: "https://drive.google.com/drive/folders/1CuOBoLt0e2UQEHzT1W52sKVnzPyysOKJ?usp=sharing" },
+        { lesson: " ශ්‍රී ලංකාවේ භූදර්ශනය ", link: "https://drive.google.com/drive/folders/10lpEtAqMlewK8Nm9JWAx1gFEO35hNZuK?usp=sharing" },
+        { lesson: "ස්වාභාවික උපද්‍රව සහ ආපදා ", link: "https://drive.google.com/drive/folders/1vFxbJkCzaS7qLcuH9vUpUzsyYX9NeN7f?usp=sharing" },
+        { lesson: "සිතියම් පරිහරණය", link: "https://drive.google.com/drive/folders/1oxInZPMlRfSdqJilEKBwMF1UxosHHoxV?usp=sharing" },
+ 
+      ],
+       "8-Geography": [
+        { lesson: "සෞරග්‍රහ මණ්ඩලය ", link: "https://drive.google.com/drive/folders/1kmFIDZWLccO026I4sK4T4EurYnustV__?usp=sharing" },
+        { lesson: "ජීවීන්ගේ වාස භූමියක් ලෙස පෘථිවියේ සුවිශේෂත්වය ", link: "https://drive.google.com/drive/folders/1K6Ub0cUIieaQvVR8gJwAmI6tXaDq0ySd?usp=sharing" },
+        { lesson: "දකුණු ආසියාව ", link: "https://drive.google.com/drive/folders/1zq5a5A9agkRKc5w40Vu6ldLUmKbCXbgM?usp=sharing" },
+        { lesson: "ශ්‍රී ලංකාවේ 1 50000  භූලක්ෂණ සිතියම් වල මූලික ලක්ෂණ", link: "https://drive.google.com/drive/folders/1G2cHyADw7ptqh9mQpIOEEFdsztZxx4EN?usp=sharing" },
+
+      ],
+      "9-Geography": [
+        { lesson: "ආසියානු ප්‍රදේශය", link: "https://drive.google.com/drive/folders/15-xBlNQtONVNYGMCM-WDWTRAiPad9ONz?usp=sharing" },
+        { lesson: " ශ්‍රී ලංකාවේ භූදර්ශනය", link: "https://drive.google.com/drive/folders/1xbSjuPm8Eu1I__5P3RvQoNSnEyj6NXMF?usp=sharing" },
+        { lesson: "ශ්‍රී ලංකාවේ සංවර්ධනයේ අවකාශීය වෙනස්කම් ", link: "https://drive.google.com/drive/folders/10FjZoLKzu5VGUCjLGnW5MxKQg4JBbQya?usp=sharing" },
+        { lesson: "පාරිසරික තුලිතතාව ", link: "https://drive.google.com/drive/folders/14fbmVsVusUvP26zwvwEgZkTZ8mqE8Plp?usp=sharing" },
+        { lesson: "ශ්‍රී ලංකා 1 50000 භූලක්ෂණ සිතියම් කියවීම", link: "https://drive.google.com/drive/folders/15aiH9cTgkftDaERKAuZQGxY9gz9gBohu?usp=sharing" },
+
+      ],
+        "10-Geography": [
+        { lesson: "පෘථිවියේ සංයුතිය ", link: "https://drive.google.com/drive/folders/1yrIEKXREMegGUzHYwyRIldyBx1KCt1sF?usp=sharing" },
+        { lesson: "පෘථිවියේ ප්‍රධාන භෞතික ලක්ෂණ ", link: "https://drive.google.com/drive/folders/1nwJpkMXT510XkKTH-vn_2hncvWorPWWJ?usp=sharing" },
+        { lesson: "ලෝකයේ ප්‍රධාන කෘෂිකාර්මික භූමි පරිභෝග වර්ග", link: "https://drive.google.com/drive/folders/1nC5TMozVc45NovQsCpus4avYY2XV8N4I?usp=sharing" },
+        { lesson: " ශ්‍රී ලංකාවේ කෘෂිකර්මාන්තය ", link: "https://drive.google.com/drive/folders/1S6nwbP3cpLhcD-ONrZyfJz2yiMQWrLHV?usp=sharing" },
+        { lesson: "නිෂ්පාදන කර්මාන්ත", link: "https://drive.google.com/drive/folders/1niqLOsDlaoXMwnLE8cLhh_7zm5z-d9ST?usp=sharing" },
+        { lesson: " ශ්‍රී ලංකාවේ කර්මාන්ත කිහිපයක ව්‍යාප්තිය ගැටලු හා ප්‍රවණතා ", link: "https://drive.google.com/drive/folders/1ciOAHNajXQkkfq0JUD3qYyc0adSFWjhn?usp=sharing" },
+        { lesson: "සිතියම් හැඳින්වීම", link: "https://drive.google.com/drive/folders/1GCL8b13gSYOZ-ZHRdFid11YwXXkRGIk6?usp=sharing" },
+
+      ],
+      "11-Geography": [
+        { lesson: "පෘථිවියේ ස්වාභාවික සම්පත් ", link: "https://drive.google.com/drive/folders/1k7U3lWFxjBkgjiM4yY14nuQE7DHoEXbS?usp=sharing" },
+        { lesson: "ලංකාවේ ස්වාභාවික සම්පත් ", link: "https://drive.google.com/drive/folders/1aATAC4VcxYcvBSc7irJTABDYRkYMC7eR?usp=sharing" },
+        { lesson: "ලෝක ජන සංඛ්‍යාව ", link: "https://drive.google.com/drive/folders/1FwwWXu5Fts5BZjTfzT1TSt4vLm_52ZcG?usp=sharing" },
+        { lesson: "ශ්‍රී ලංකාවේ ජන සංඛ්‍යාව ", link: "https://drive.google.com/drive/folders/1gBz0j2CwGJ-xPYgPmbYVP3VxF9rgzDbH?usp=sharing" },
+        { lesson: "සංවර්ධනය ", link: "https://drive.google.com/drive/folders/1m1NX2Zfgmfx8YcfTUUIZDot3ygdxfK1U?usp=sharing" },
+        { lesson: "ලෝකයේ ස්වාභාවික උපද්‍රව ", link: "https://drive.google.com/drive/folders/1Ajp9unz_MmU-H8RdRgh2d_xep4QzFSTI?usp=sharing" },
+        { lesson: "ශ්‍රී ලංකාවේ ස්වාභාවික ආපදා", link: "https://drive.google.com/drive/folders/1ze17P53xeyE7oz3VCyzfavz2AXTwO1lk?usp=sharing" },
+        { lesson: "දේශගුණික වෙනස් වීම් ", link: "https://drive.google.com/drive/folders/1lNcbiPHHV74Lu1UKWfiMEOdEBZv43bCM?usp=sharing" },
+        { lesson: "ශ්‍රී ලංකා 1 50000 භූලක්ෂණ සිතියම් ", link: "https://drive.google.com/drive/folders/1jePxTs1_6UYH4iQbPi0fGvH-RD1CdFfV?usp=sharing" },
+        { lesson: "දත්ත නිරූපණය සඳහා ප්‍රස්තාර භාවිතය", link: "https://drive.google.com/drive/folders/12u2q9LFvtvCfvHSZHK3tH8nugHzd76i7?usp=sharing" },
+
+      ],         
+    };
+  </script>
+
+  <script>
+    /*
+      ==================================================================
+      DATA FILE FORMATS (js/form.js & js/wordwall.js)
+      ==================================================================
+
+      ONLINE TESTS (js/form.js) - unchanged:
+      const urls = {
+        "8-History": [
+          { title: "Unit 1: Ancient Sri Lanka - Online Evaluation", url: "https://forms.gle/sample1" }
+        ]
+      };
+
+      WORDWALL (js/wordwall.js) - NEW FORMAT: lesson name first, and inside it
+      the wordwall names with their links:
+      const wallFormsUrls = {
+        "8-History": [
+          {
+            lesson: "Unit 1: Ancient Sri Lanka",
+            wordwalls: [
+              { name: "Matching Challenge", link: "https://wordwall.net/resource/111" },
+              { name: "Speed Quiz",         link: "https://wordwall.net/resource/222" }
+            ]
+          },
+          {
+            lesson: "Unit 2: Kingdoms of Rajarata",
+            wordwalls: [
+              { name: "Maze Chase", link: "https://wordwall.net/resource/333" }
+            ]
+          }
+        ]
+      };
+      (The old flat format { title, url } still works too.)
+      ==================================================================
+    */
+
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    let currentSelectedSubjectFilter = 'all';
+    let activeMonth = months[new Date().getMonth()];
+
+    // Custom Toast Alert System
+    function showToast(message, type = 'info') {
+      const container = document.getElementById('toastContainer');
+      const toast = document.createElement('div');
+      toast.className = `toast-anim pointer-events-auto p-4 rounded-2xl glass-panel border border-white/20 shadow-2xl flex items-center gap-3 text-sm font-semibold ${
+        type === 'error' ? 'text-red-400 border-red-500/40' : 'text-cyanGlow border-cyanGlow/40'
+      }`;
+      
+      const icon = type === 'error' ? 'fa-circle-exclamation' : 'fa-circle-info';
+      toast.innerHTML = `<i class="fa-solid ${icon} text-lg"></i> <span>${message}</span>`;
+      
+      container.appendChild(toast);
+      setTimeout(() => {
+        toast.style.opacity = '0';
+        toast.style.transition = 'opacity 0.3s ease';
+        setTimeout(() => toast.remove(), 300);
+      }, 3500);
+    }
+
+    // Initialize Animated Stars Background
+    function initStars() {
+      const container = document.getElementById('starsContainer');
+      const starCount = 65;
+      for (let i = 0; i < starCount; i++) {
+        const star = document.createElement('div');
+        const size = Math.random() * 3 + 1;
+        star.className = 'star';
+        star.style.width = `${size}px`;
+        star.style.height = `${size}px`;
+        star.style.top = `${Math.random() * 100}%`;
+        star.style.left = `${Math.random() * 100}%`;
+        star.style.animationDuration = `${Math.random() * 3 + 2}s`;
+        star.style.animationDelay = `${Math.random() * 2}s`;
+        container.appendChild(star);
+      }
+    }
+
+    function getStoredUsername() {
+      return localStorage.getItem('username') || '';
+    }
+
+    /* ---------- Helpers ---------- */
+    const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    // Normalise text so "History", "history", "8 - History", "8_History" all match
+    const normText = s => String(s == null ? '' : s).toLowerCase().replace(/[\s_-]+/g, '-').replace(/^-+|-+$/g, '');
+    const gradeNum = g => { const m = String(g).match(/\d+/); return m ? parseInt(m[0], 10) : NaN; };
+    const subjectKey = (grade, name) => `${gradeNum(grade)}-${normText(name)}`;
+    const canonMonth = m => months.find(x => x.toLowerCase() === String(m).trim().slice(0, 3).toLowerCase());
+
+    function getStoredSubjects() {
+      let list = null;
+      try {
+        const data = localStorage.getItem('subjects');
+        if (data) list = JSON.parse(data);
+      } catch (e) {
+        console.error("Error parsing subjects", e);
+      }
+      if (!Array.isArray(list) || list.length === 0) {
+        // Fallback demo subjects if nothing is stored
+        list = [
+          { grade: 8, name: "History" },
+          { grade: 8, name: "Geography" },
+          { grade: 8, name: "Civics" }
+        ];
+      }
+      return list
+        .filter(s => s && s.name)
+        .map(s => ({ grade: gradeNum(s.grade), name: String(s.name).trim() }));
+    }
+
+    // Find the value in a data object (urls / wallFormsUrls / redirects) for a subject, ignoring key case/spacing
+    function findByKey(dataObj, sub) {
+      if (!dataObj || typeof dataObj !== 'object') return undefined;
+      const wanted = subjectKey(sub.grade, sub.name);
+      const k = Object.keys(dataObj).find(key => normText(key) === wanted);
+      return k === undefined ? undefined : dataObj[k];
+    }
+
+    function getListFor(dataObj, sub) {
+      const val = findByKey(dataObj, sub);
+      if (!val) return [];
+      return Array.isArray(val) ? val : [val];
+    }
+
+    function normalizeItem(item, fallbackTitle) {
+      if (typeof item === 'string') return { title: fallbackTitle, url: item };
+      if (item && typeof item === 'object') {
+        return { title: item.title || item.name || item.lesson || fallbackTitle, url: item.url || item.link || item.href || item.folder || '' };
+      }
+      return null;
+    }
+
+    function createResourceCard(cfg) {
+      const card = document.createElement('div');
+      card.className = 'glass-panel-interactive rounded-2xl p-5 border border-white/10 flex flex-col justify-between space-y-4';
+      card.innerHTML = `
+        <div class="space-y-2">
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border text-xs font-semibold ${cfg.badgeClass}">
+            <i class="${cfg.badgeIcon}"></i> ${esc(cfg.badgeText)}
+          </div>
+          <h4 class="font-heading font-bold text-white text-base">${esc(cfg.title)}</h4>
+          ${cfg.subtitle ? `<p class="text-xs text-slate-400">${esc(cfg.subtitle)}</p>` : ''}
+        </div>
+        <button type="button" class="w-full py-2.5 rounded-xl border font-bold text-xs transition-all flex items-center justify-center gap-2 ${cfg.btnClass}">
+          <i class="${cfg.btnIcon}"></i> ${esc(cfg.btnText)}
+        </button>
+      `;
+      card.querySelector('button').addEventListener('click', cfg.onClick);
+      return card;
+    }
+
+    function emptyMessage(text, icon) {
+      return `
+        <div class="col-span-full text-center py-10 glass-panel rounded-2xl border border-white/10">
+          ${icon ? `<i class="${icon} text-4xl text-slate-600 mb-3"></i>` : ''}
+          <p class="text-sm text-slate-400">${text}</p>
+        </div>`;
+    }
+
+    /* ---------- Subject filter ---------- */
+    const PILL_INACTIVE = 'subject-pill px-4 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-slate-300 font-medium text-sm transition-all flex items-center gap-2';
+    const PILL_ACTIVE = 'subject-pill px-5 py-2.5 rounded-xl bg-cyanGlow text-space-900 font-bold text-sm shadow-[0_0_15px_rgba(0,242,254,0.4)] transition-all flex items-center gap-2';
+
+    function setupSubjectPills() {
+      const container = document.getElementById('subjectPills');
+      container.querySelectorAll('[data-dynamic-pill]').forEach(p => p.remove());
+
+      getStoredSubjects().forEach(sub => {
+        const pill = document.createElement('button');
+        pill.setAttribute('data-dynamic-pill', '1');
+        pill.className = PILL_INACTIVE;
+        pill.innerHTML = `<i class="fa-solid fa-book-bookmark text-purpleGlow"></i> Grade ${esc(sub.grade)} - ${esc(sub.name)}`;
+        pill.addEventListener('click', () => filterBySubject(subjectKey(sub.grade, sub.name), pill));
+        container.appendChild(pill);
+      });
+    }
+
+    function filterBySubject(subjectKey_, pillElement) {
+      currentSelectedSubjectFilter = subjectKey_;
+
+      document.querySelectorAll('.subject-pill').forEach(p => { p.className = PILL_INACTIVE; });
+      if (pillElement) pillElement.className = PILL_ACTIVE;
+
+      // Re-render directly (NOT through showMonth, which refuses locked months and used to stop the filter)
+      renderMonth();
+      displayTutes();
+      displayOnlineTests();
+      displayWordwalls();
+      renderDashboard();
+    }
+
+    function subjectMatchesFilter(sub) {
+      return currentSelectedSubjectFilter === 'all' || currentSelectedSubjectFilter === subjectKey(sub.grade, sub.name);
+    }
+
+    function getRelevantVideos(userSubjects) {
+      const allVideos = (typeof videoLinks !== 'undefined' && Array.isArray(videoLinks)) ? videoLinks : [];
+      return allVideos.filter(video => {
+        const vKey = subjectKey(video.class, video.subject);
+        const matchesUser = userSubjects.some(s => subjectKey(s.grade, s.name) === vKey);
+        if (!matchesUser) return false;
+        return currentSelectedSubjectFilter === 'all' || currentSelectedSubjectFilter === vKey;
+      });
+    }
+
+    /* ---------- Month access (locked / unlocked) ---------- */
+    function getPaidMonths(username) {
+      let list = [];
+      if (typeof getMonthsForUser === 'function') {
+        try {
+          const r = getMonthsForUser(username);
+          if (Array.isArray(r)) list = r;
+        } catch (e) { /* fall through */ }
+      }
+      if (list.length === 0 && typeof userMonthData !== 'undefined' && Array.isArray(userMonthData)) {
+        list = userMonthData.filter(e => e.username === username).reduce((acc, e) => acc.concat(e.months || []), []);
+      }
+      return list.map(canonMonth).filter(Boolean);
+    }
+
+    // The month right after the LAST paid month: viewable, but still shown with a lock icon
+    function getBonusMonth(username) {
+      const paid = getPaidMonths(username);
+      if (!paid.length) return null;
+      const lastIdx = Math.max(...paid.map(m => months.indexOf(m)));
+      const next = months[lastIdx + 1];
+      return next && !paid.includes(next) ? next : null;
+    }
+
+    function getAvailableMonthsForUser(username) {
+      const accessible = [...getPaidMonths(username)];
+      const bonus = getBonusMonth(username);
+      if (bonus) accessible.push(bonus);
+      return accessible;
+    }
+
+    // 'open' (no login) | 'paid' | 'bonus' (last paid month + 1) | 'locked'
+    function getMonthStatus(month) {
+      const username = getStoredUsername();
+      if (!username) return 'open';
+      if (getPaidMonths(username).includes(month)) return 'paid';
+      if (getBonusMonth(username) === month) return 'bonus';
+      return 'locked';
+    }
+
+    function refreshMonthTabs() {
+      const base = 'month-tab shrink-0 px-4 py-2 rounded-xl text-sm font-semibold border whitespace-nowrap transition inline-flex items-center gap-1.5 ';
+      months.forEach(m => {
+        const link = document.getElementById(`${m}-link`);
+        if (!link) return;
+        const status = getMonthStatus(m);
+        const active = (m === activeMonth) && status !== 'locked';
+        let cls, icon = '', tip = '';
+
+        if (status === 'locked') {
+          cls = base + 'bg-white/[0.02] border-white/5 text-slate-500 opacity-70 cursor-not-allowed hover:bg-white/5';
+          icon = '<i class="fa-solid fa-lock text-xs text-rose-400"></i>';
+          tip = 'Locked';
+        } else if (active) {
+          cls = base + 'bg-cyanGlow text-space-900 border-cyanGlow shadow-[0_0_15px_rgba(0,242,254,0.35)]';
+          if (status === 'paid') icon = '<i class="fa-solid fa-lock-open text-xs"></i>';
+          else if (status === 'bonus') icon = '<i class="fa-solid fa-lock text-xs"></i>';
+        } else {
+          cls = base + 'bg-white/5 border-white/10 text-slate-300 hover:text-white hover:bg-white/10';
+          if (status === 'paid') {
+            icon = '<i class="fa-solid fa-lock-open text-xs text-emeraldGlow"></i>';
+          } else if (status === 'bonus') {
+            icon = '<i class="fa-solid fa-lock text-xs text-rose-400"></i>';
+          }
+        }
+
+        link.className = cls;
+        link.title = tip;
+        link.innerHTML = `${m} ${icon}`;
+      });
+    }
+
+    // Kept under the old name in case payment.js calls it
+    function updateMonthMenuStatus() {
+      refreshMonthTabs();
+    }
+
+    function pickDefaultMonth() {
+      if (getMonthStatus(activeMonth) !== 'locked') return;
+      const first = months.find(m => getMonthStatus(m) !== 'locked');
+      if (first) activeMonth = first;
+    }
+
+    function showMonth(month) {
+      if (getMonthStatus(month) === 'locked') {
+        showToast(`${month} is locked. Please contact your teacher for access.`, 'error');
+        return;
+      }
+      activeMonth = month;
+      renderMonth();
+    }
+
+    function renderMonth() {
+      const month = activeMonth;
+      refreshMonthTabs();
+
+      const container = document.getElementById('month-content-display');
+      container.innerHTML = '';
+
+      // Active month is locked (e.g. brand new student with no paid months)
+      if (getMonthStatus(month) === 'locked') {
+        container.innerHTML = `
+          <div class="col-span-full text-center py-12 glass-panel rounded-2xl border border-white/10 space-y-3">
+            <i class="fa-solid fa-lock text-4xl text-rose-400"></i>
+            <p class="text-sm text-slate-300"><strong>${esc(month)}</strong> is locked for your account.</p>
+          </div>`;
+        return;
+      }
+
+      const userSubjects = getStoredSubjects();
+
+      // 1. Live Zoom links
+      if (typeof redirects !== 'undefined') {
+        userSubjects.forEach(subject => {
+          if (!subjectMatchesFilter(subject)) return;
+          const link = findByKey(redirects, subject);
+          if (!link) return;
+          container.appendChild(createResourceCard({
+            badgeClass: 'bg-red-500/20 text-red-400 border-red-500/30',
+            badgeIcon: 'fa-solid fa-video',
+            badgeText: 'Live Zoom Session',
+            title: `Grade ${subject.grade} - ${subject.name}`,
+            subtitle: 'Join the live interactive online classroom',
+            btnClass: 'bg-gradient-to-r from-red-500 to-rose-600 text-white border-transparent hover:shadow-[0_0_15px_rgba(244,63,94,0.5)]',
+            btnIcon: 'fa-solid fa-video',
+            btnText: 'Join Live Zoom Class',
+            onClick: () => window.open(link, '_blank', 'noopener')
+          }));
+        });
+      }
+
+      // 2. Monthly recordings
+      const monthVideos = getRelevantVideos(userSubjects)
+        .filter(v => String(v.month || '').toLowerCase().startsWith(month.toLowerCase()));
+
+      monthVideos.forEach(video => {
+        container.appendChild(createResourceCard({
+          badgeClass: 'bg-cyanGlow/10 text-cyanGlow border-cyanGlow/30',
+          badgeIcon: 'fa-solid fa-circle-play',
+          badgeText: video.date || month,
+          title: video.title,
+          subtitle: `Grade ${video.class} • ${video.subject}`,
+          btnClass: 'bg-cyanGlow/10 border-cyanGlow/40 text-cyanGlow hover:bg-cyanGlow hover:text-space-900',
+          btnIcon: 'fa-solid fa-play',
+          btnText: 'Watch Recording',
+          onClick: () => playRecording(video.video, encodeURIComponent(video.title))
+        }));
+      });
+
+      if (container.children.length === 0) {
+        container.innerHTML = emptyMessage(`No live links or recordings currently published for <strong>${esc(month)}</strong>.`, 'fa-solid fa-folder-open');
+      }
+    }
+
+    function playRecording(videoUrl, videoTitle) {
+      const token = Math.random().toString(36).substr(2);
+      const expiry = new Date().getTime() + 30 * 60 * 1000;
+      localStorage.setItem('authToken', token);
+      localStorage.setItem('tokenExpiry', expiry);
+
+      const encryptedUrl = btoa(videoUrl);
+      window.open(`videoPlayer.html?video=${encryptedUrl}&title=${videoTitle}&token=${token}`, '_blank');
+    }
+
+    /* ---------- Online tests & Wordwalls ---------- */
+    function displayOnlineTests() {
+      const container = document.getElementById('online-tests-container');
+      container.innerHTML = '';
+      const data = (typeof urls !== 'undefined') ? urls : null;
+
+      getStoredSubjects().forEach(subject => {
+        if (!subjectMatchesFilter(subject)) return;
+
+        getListFor(data, subject).forEach((raw, idx) => {
+          const item = normalizeItem(raw, `Grade ${subject.grade} ${subject.name} - Online Quiz ${idx + 1}`);
+          if (!item || !item.url) return;
+          container.appendChild(createResourceCard({
+            badgeClass: 'bg-purpleGlow/20 text-purpleGlow border-purpleGlow/30',
+            badgeIcon: 'fa-solid fa-pen-to-square',
+            badgeText: `Grade ${subject.grade} ${subject.name}`,
+            title: item.title,
+            btnClass: 'bg-purpleGlow/20 border-purpleGlow/40 text-purpleGlow hover:bg-purpleGlow hover:text-white',
+            btnIcon: 'fa-solid fa-arrow-up-right-from-square',
+            btnText: 'Start Online Evaluation',
+            onClick: () => window.open(item.url, '_blank', 'noopener')
+          }));
+        });
+      });
+
+      if (container.children.length === 0) {
+        container.innerHTML = emptyMessage('No online evaluation tests found for the selected subject filter.');
+        if (data) console.info('[LMS] Keys available in urls:', Object.keys(data), '| Looking for:', getStoredSubjects().map(s => subjectKey(s.grade, s.name)));
+      }
+    }
+
+    // One lesson card that holds several wordwall buttons (name + link each)
+    function createWordwallLessonCard(subject, lessonName, games) {
+      const card = document.createElement('div');
+      card.className = 'glass-panel-interactive rounded-2xl p-5 border border-white/10 flex flex-col space-y-4';
+      card.innerHTML = `
+        <div class="space-y-2">
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border text-xs font-semibold bg-emeraldGlow/20 text-emeraldGlow border-emeraldGlow/30">
+            <i class="fa-solid fa-gamepad"></i> Grade ${esc(subject.grade)} ${esc(subject.name)}
+          </div>
+          <h4 class="font-heading font-bold text-white text-base">${esc(lessonName)}</h4>
+          <p class="text-xs text-slate-400">${games.length} wordwall game${games.length === 1 ? '' : 's'}</p>
+        </div>
+        <div class="flex flex-col gap-2 wordwall-list"></div>
+      `;
+      const list = card.querySelector('.wordwall-list');
+      games.forEach(g => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'w-full py-2.5 px-3 rounded-xl border font-bold text-xs transition-all flex items-center justify-center gap-2 bg-emeraldGlow/20 border-emeraldGlow/40 text-emeraldGlow hover:bg-emeraldGlow hover:text-space-900';
+        btn.innerHTML = `<i class="fa-solid fa-circle-play"></i> ${esc(g.title)}`;
+        btn.addEventListener('click', () => window.open(g.url, '_blank', 'noopener'));
+        list.appendChild(btn);
+      });
+      return card;
+    }
+
+    // Turns one entry of wallFormsUrls into { lesson, games:[{title,url}] }
+    // New format: { lesson, wordwalls:[{name, link}] }   Old format: { title, url } or "url"
+    function normalizeWordwallEntry(raw, idx, subject) {
+      if (raw && typeof raw === 'object') {
+        const list = raw.wordwalls || raw.games || raw.items;
+        if (Array.isArray(list)) {
+          const lesson = raw.lesson || raw.lessonName || raw.title || raw.name || `Lesson ${idx + 1}`;
+          const games = list
+            .map((g, i) => normalizeItem(g, `Wordwall ${i + 1}`))
+            .filter(g => g && g.url);
+          return games.length ? { lesson, games } : null;
+        }
+      }
+      const item = normalizeItem(raw, `${subject.name} (Grade ${subject.grade}) - Activity ${idx + 1}`);
+      if (!item || !item.url) return null;
+      return { lesson: item.title, games: [{ title: 'Play Interactive Wordwall', url: item.url }] };
+    }
+
+    function displayWordwalls() {
+      const container = document.getElementById('class-buttons');
+      container.innerHTML = '';
+      const data = (typeof wallFormsUrls !== 'undefined') ? wallFormsUrls : null;
+
+      getStoredSubjects().forEach(subject => {
+        if (!subjectMatchesFilter(subject)) return;
+
+        getListFor(data, subject).forEach((raw, idx) => {
+          const entry = normalizeWordwallEntry(raw, idx, subject);
+          if (!entry) return;
+          container.appendChild(createWordwallLessonCard(subject, entry.lesson, entry.games));
+        });
+      });
+
+      if (container.children.length === 0) {
+        container.innerHTML = emptyMessage('No interactive games found for the selected subject filter.');
+        if (data) console.info('[LMS] Keys available in wallFormsUrls:', Object.keys(data), '| Looking for:', getStoredSubjects().map(s => subjectKey(s.grade, s.name)));
+      }
+    }
+
+    /* ---------- Tutes (lesson name + Google Drive folder) ---------- */
+    function displayTutes() {
+      const container = document.getElementById('tutes-container');
+      if (!container) return;
+      container.innerHTML = '';
+      const data = (typeof tuteFolders !== 'undefined') ? tuteFolders : null;
+
+      getStoredSubjects().forEach(subject => {
+        if (!subjectMatchesFilter(subject)) return;
+
+        getListFor(data, subject).forEach((raw, idx) => {
+          const item = normalizeItem(raw, `Lesson ${idx + 1}`);
+          if (!item || !item.url) return;
+          container.appendChild(createResourceCard({
+            badgeClass: 'bg-amber-500/20 text-amber-400 border-amber-500/30',
+            badgeIcon: 'fa-solid fa-book',
+            badgeText: `Grade ${subject.grade} ${subject.name}`,
+            title: item.title,
+            subtitle: 'Google Drive tute folder',
+            btnClass: 'bg-amber-500/20 border-amber-500/40 text-amber-400 hover:bg-amber-500 hover:text-space-900',
+            btnIcon: 'fa-brands fa-google-drive',
+            btnText: 'Open Tute Folder',
+            onClick: () => window.open(item.url, '_blank', 'noopener')
+          }));
+        });
+      });
+
+      if (container.children.length === 0) {
+        container.innerHTML = emptyMessage('No tutes found for the selected subject filter.', 'fa-solid fa-folder-open');
+        if (data) console.info('[LMS] Keys available in tuteFolders:', Object.keys(data), '| Looking for:', getStoredSubjects().map(s => subjectKey(s.grade, s.name)));
+      }
+    }
+
+    function toggleUserInfo() {
+      const container = document.getElementById('userInfoContainer');
+      container.classList.toggle('hidden');
+      
+      if (!container.classList.contains('hidden')) {
+        const username = getStoredUsername();
+        const password = localStorage.getItem('password') || '••••••••';
+        const subjects = getStoredSubjects();
+        
+        const html = `
+          <div class="flex items-center justify-between border-b border-white/10 pb-2">
+            <span class="text-slate-400">Username:</span>
+            <span class="font-bold text-cyanGlow">${username || 'Guest Student'}</span>
+          </div>
+          <div class="flex items-center justify-between border-b border-white/10 pb-2">
+            <span class="text-slate-400">Security PIN:</span>
+            <span class="font-mono text-slate-200">${password}</span>
+          </div>
+          <div class="space-y-1">
+            <span class="text-slate-400 block mb-1">Enrolled Class Modules:</span>
+            <ul class="space-y-1">
+              ${subjects.map(s => `<li class="flex items-center gap-2 text-xs text-slate-200"><i class="fa-solid fa-check text-cyanGlow"></i> Grade ${s.grade} - ${s.name}</li>`).join('')}
+            </ul>
+          </div>
+        `;
+        document.getElementById('userInfoContent').innerHTML = html;
+      }
+    }
+
+    /* ---------- Student performance dashboard (Firebase Firestore) ---------- */
+    const firebaseConfig = {
+      apiKey: "AIzaSyBQKMwz35ENTODrbqgFkuHj2p7mtLAB6jw",
+      authDomain: "mothly-tests.firebaseapp.com",
+      projectId: "mothly-tests",
+      storageBucket: "mothly-tests.firebasestorage.app",
+      messagingSenderId: "481065382276",
+      appId: "1:481065382276:web:df25dc4eb04016ca9eadd1",
+      measurementId: "G-R2QQ0KJSN7"
+    };
+
+    // >>> If your results are stored under different names, change them here <<<
+    const DASH_CONFIG = {
+      collections: ['results', 'scores', 'marks', 'monthlyTests', 'tests'], // first one that has documents is used
+      fields: {                                                             // first matching field name is used
+        username: ['username', 'user', 'studentUsername', 'studentId', 'student'],
+        subject:  ['subject', 'subjectName'],
+        grade:    ['grade', 'class'],
+        score:    ['score', 'marks', 'percentage', 'mark', 'total'],
+        date:     ['timestamp', 'date', 'createdAt', 'submittedAt', 'time'],
+        test:     ['testName', 'testId', 'test', 'title', 'examName', 'month']
+      },
+      scoreSuffix: '%'
+    };
+
+    let dashState = { loading: false, error: null, rows: null };
+
+    const dashPick = (d, keys) => {
+      for (const k of keys) if (d[k] !== undefined && d[k] !== null && d[k] !== '') return d[k];
+      return undefined;
+    };
+    const dashMillis = v => {
+      if (!v) return 0;
+      if (typeof v.toMillis === 'function') return v.toMillis();
+      if (typeof v.seconds === 'number') return v.seconds * 1000;
+      const t = new Date(v).getTime();
+      return isNaN(t) ? 0 : t;
+    };
+    const dashRound = n => Math.round(n * 100) / 100;
+
+    function dashNormalizeRow(d) {
+      const f = DASH_CONFIG.fields;
+      const user = dashPick(d, f.username);
+      const score = parseFloat(dashPick(d, f.score));
+      if (user === undefined || isNaN(score)) return null;
+      return {
+        user: String(user).trim().toLowerCase(),
+        subject: String(dashPick(d, f.subject) || ''),
+        grade: gradeNum(dashPick(d, f.grade)),
+        score,
+        date: dashMillis(dashPick(d, f.date)),
+        test: String(dashPick(d, f.test) || '')
+      };
+    }
+
+    async function dashLoadRows() {
+      if (typeof firebase === 'undefined') throw new Error('Firebase SDK failed to load');
+      if (!firebase.apps.length) firebase.initializeApp(firebaseConfig);
+      const db = firebase.firestore();
+      let lastError = null;
+
+      for (const name of DASH_CONFIG.collections) {
+        try {
+          const snap = await db.collection(name).get();
+          if (!snap.empty) {
+            const rows = snap.docs.map(doc => dashNormalizeRow(doc.data())).filter(Boolean);
+            console.info(`[Dashboard] collection "${name}": ${snap.size} docs, ${rows.length} usable rows`);
+            if (rows.length) return rows;
+          }
+        } catch (e) {
+          lastError = e;
+          console.warn(`[Dashboard] could not read "${name}":`, e.message);
+        }
+      }
+      if (lastError) throw lastError;
+      return [];
+    }
+
+    function dashBestByUser(rows) {
+      const map = new Map();
+      rows.forEach(r => map.set(r.user, Math.max(map.has(r.user) ? map.get(r.user) : -Infinity, r.score)));
+      return map;
+    }
+    function dashAvgByUser(rows) {
+      const acc = new Map();
+      rows.forEach(r => {
+        const a = acc.get(r.user) || { s: 0, n: 0 };
+        a.s += r.score; a.n++;
+        acc.set(r.user, a);
+      });
+      const out = new Map();
+      acc.forEach((a, u) => out.set(u, dashRound(a.s / a.n)));
+      return out;
+    }
+    function dashRankOf(map, me) {
+      if (!map.has(me)) return null;
+      const mine = map.get(me);
+      let better = 0;
+      map.forEach(v => { if (v > mine) better++; });
+      return { rank: better + 1, total: map.size, value: mine };
+    }
+
+    function dashCompute(rows, username, filterKey) {
+      const me = username.trim().toLowerCase();
+      const mine = rows.filter(r => r.user === me);
+      if (!mine.length) return null;
+
+      const testKey = r => r.test || (r.date ? new Date(r.date).toDateString() : '');
+      const last = mine.reduce((a, b) => (b.date > a.date ? b : a));
+
+      // 1. Rank in my most recent test
+      const sameTest = rows.filter(r => testKey(r) === testKey(last) && normText(r.subject) === normText(last.subject));
+      const lastRank = dashRankOf(dashBestByUser(sameTest), me);
+
+      // 2. Rank by subject average (selected subject filter, otherwise subject of my last test)
+      let subjNorm = normText(last.subject), subjGrade = last.grade, subjLabel = last.subject;
+      if (filterKey !== 'all') {
+        const s = getStoredSubjects().find(x => subjectKey(x.grade, x.name) === filterKey);
+        if (s) { subjNorm = normText(s.name); subjGrade = s.grade; subjLabel = s.name; }
+      }
+      const subjRows = rows.filter(r => normText(r.subject) === subjNorm && (isNaN(subjGrade) || isNaN(r.grade) || r.grade === subjGrade));
+      const subjRank = dashRankOf(dashAvgByUser(subjRows), me);
+
+      // 3. Rank by overall average + my own average
+      const overallRank = dashRankOf(dashAvgByUser(rows), me);
+      const myAvg = dashRound(mine.reduce((a, r) => a + r.score, 0) / mine.length);
+
+      return { last, lastRank, subjLabel, subjRank, overallRank, myAvg, testsTaken: mine.length };
+    }
+
+    function dashSet(id, value, sub, rank) {
+      const v = document.getElementById(id);
+      const s = document.getElementById(id + 'Sub');
+      if (!v || !s) return;
+      v.classList.remove('animate-pulse', 'opacity-40', 'text-gradient-gold');
+      v.textContent = value;
+      if (rank && rank <= 3) v.classList.add('text-gradient-gold');
+      s.textContent = sub || '\u00A0';
+    }
+
+    function dashSetAll(value, sub, loading) {
+      ['dashRankLastTest', 'dashRankSubjectAvg', 'dashRankOverallAvg', 'dashMyAvgScore'].forEach(id => {
+        dashSet(id, value, sub);
+        if (loading) document.getElementById(id).classList.add('animate-pulse', 'opacity-40');
+      });
+    }
+
+    function renderDashboard() {
+      const username = getStoredUsername();
+      const nameEl = document.getElementById('dashStudentName');
+      if (nameEl) nameEl.textContent = username ? `Results for ${username}` : 'Monthly test results & rankings';
+
+      if (!username) return dashSetAll('—', 'Log in to see results');
+      if (dashState.loading) return dashSetAll('…', 'Loading…', true);
+      if (dashState.error) return dashSetAll('—', 'Unavailable right now');
+
+      const res = dashCompute(dashState.rows || [], username, currentSelectedSubjectFilter);
+      if (!res) return dashSetAll('—', 'No test results yet');
+
+      const sfx = DASH_CONFIG.scoreSuffix;
+      const L = res.lastRank, S = res.subjRank, O = res.overallRank;
+
+      L ? dashSet('dashRankLastTest', `#${L.rank}`, `of ${L.total} • ${res.last.test || res.last.subject || 'latest test'}`, L.rank)
+        : dashSet('dashRankLastTest', '—', 'No rank available');
+      S ? dashSet('dashRankSubjectAvg', `#${S.rank}`, `of ${S.total} • ${res.subjLabel || 'Subject'} avg ${S.value}${sfx}`, S.rank)
+        : dashSet('dashRankSubjectAvg', '—', `No ${res.subjLabel || 'subject'} results`);
+      O ? dashSet('dashRankOverallAvg', `#${O.rank}`, `of ${O.total} students`, O.rank)
+        : dashSet('dashRankOverallAvg', '—', 'No rank available');
+      dashSet('dashMyAvgScore', `${res.myAvg}${sfx}`, `${res.testsTaken} test${res.testsTaken === 1 ? '' : 's'} taken`);
+    }
+
+    async function initDashboard() {
+      if (!getStoredUsername()) { renderDashboard(); return; }
+      dashState = { loading: true, error: null, rows: null };
+      renderDashboard();
+      try {
+        dashState.rows = await dashLoadRows();
+      } catch (e) {
+        console.error('[Dashboard] load failed:', e);
+        dashState.error = e;
+      }
+      dashState.loading = false;
+      renderDashboard();
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      initStars();
+
+      const username = getStoredUsername();
+      if (username) {
+        document.getElementById('greeting').textContent = username;
+        document.getElementById('userAvatar').textContent = username.charAt(0).toUpperCase();
+      }
+
+
+      setupSubjectPills();
+      pickDefaultMonth();      // if the current month is locked, start on the first unlocked one
+      renderMonth();           // also draws the lock / unlock icons on every month tab
+      displayTutes();
+      displayOnlineTests();
+      displayWordwalls();
+      initDashboard();
+    });
+
+    // Content protection locks
+    document.addEventListener('contextmenu', e => e.preventDefault());
+    document.addEventListener('keydown', e => {
+      if (e.ctrlKey && ['u', 'U', 'i', 'I', 'j', 'J'].includes(e.key)) e.preventDefault();
+      if (e.key === 'F12') e.preventDefault();
+    });
+
+    /* ---------- Student performance dashboard & History logic ---------- */
+    let allResults = [];
+    let myResults = [];
+
+    const num = v => { const n = Number(v); return Number.isFinite(n) ? n : 0; };
+    const normalizeResult = r => ({
+      ...r, username: String(r.username || '').toLowerCase(),
+      finalScore: num(r.finalScore), rawScore: num(r.rawScore),
+      timeTakenSec: num(r.timeTakenSec)
+    });
+
+    const parseKey = key => {
+      const m = /^(\d+)-(.+)-(\d+)$/.exec(String(key || ''));
+      return m ? { grade: m[1], subject: normText(m[2]), no: Number(m[3]) } : null;
+    };
+
+    const classLabel = (grade, subject) => `${grade} ශ්‍රේණිය ${subject}`;
+
+    function buildAveragedLeaderboard(list) {
+      const agg = {};
+      list.forEach(r => {
+        if (!agg[r.username]) agg[r.username] = { username: r.username, total: 0, count: 0 };
+        agg[r.username].total += r.finalScore;
+        agg[r.username].count += 1;
+      });
+      return Object.values(agg)
+        .map(u => ({ username: u.username, avg: Math.round(u.total / u.count) }))
+        .sort((a, b) => b.avg - a.avg);
+    }
+
+    function buildSubjectDropdown() {
+      const sel = document.getElementById('dashSubjectSelect');
+      if (!sel) return;
+      const previous = sel.value;
+      const userSubjects = getStoredSubjects();
+
+      sel.innerHTML = '';
+      if (userSubjects.length === 0) {
+        sel.innerHTML = '<option value="">-- විෂයයන් නොමැත --</option>';
+        return;
+      }
+      userSubjects.forEach(sub => {
+        const o = document.createElement('option');
+        o.value = `${sub.grade}|${normText(sub.name)}`;
+        o.textContent = classLabel(sub.grade, sub.name);
+        sel.appendChild(o);
+      });
+
+      const values = [...sel.options].map(o => o.value);
+      if (previous && values.includes(previous)) {
+        sel.value = previous;
+      } else if (values.length) {
+        sel.value = values[0];
+      }
+    }
+
+    document.getElementById('dashSubjectSelect')?.addEventListener('change', renderDashboard);
+
+    function renderDashboard() {
+      const username = getStoredUsername().trim().toLowerCase();
+      const nameEl = document.getElementById('dashStudentName');
+      if (nameEl) nameEl.textContent = username ? `Results for ${username}` : 'Monthly test results & rankings';
+
+      if (!username) {
+        ['dashRankLastTest', 'dashRankSubjectAvg', 'dashRankOverallAvg'].forEach(id => {
+          const el = document.getElementById(id);
+          if (el) el.textContent = '—';
+        });
+        document.getElementById('dashMyAvgScore').textContent = '0 / 100';
+        document.getElementById('dashTotalTestsCount').textContent = 'පරීක්ෂණ 0 අවසන්';
+        return;
+      }
+
+      const allowedKeys = new Set(getStoredSubjects().map(s => subjectKey(s.grade, s.name)));
+      myResults = allResults.filter(r => {
+        if (r.username !== username) return false;
+        const p = parseKey(r.examKey);
+        return p && allowedKeys.has(`${p.grade}-${p.subject}`);
+      });
+
+      // Card 4: my average score
+      if (myResults.length) {
+        const avg = Math.round(myResults.reduce((s, r) => s + r.finalScore, 0) / myResults.length);
+        document.getElementById('dashMyAvgScore').textContent = `${avg} / 100`;
+        document.getElementById('dashTotalTestsCount').textContent = `පරීක්ෂණ ${myResults.length} අවසන්`;
+      } else {
+        document.getElementById('dashMyAvgScore').textContent = '0 / 100';
+        document.getElementById('dashTotalTestsCount').textContent = 'පරීක්ෂණ 0 අවසන්';
+      }
+
+      // Card 3: overall average rank
+      const overall = buildAveragedLeaderboard(allResults);
+      const oi = overall.findIndex(u => u.username === username);
+      document.getElementById('dashRankOverallAvg').textContent = oi >= 0 ? `#${oi + 1}` : '—';
+
+      const selectVal = document.getElementById('dashSubjectSelect')?.value || '';
+      const [grade, subject] = selectVal.split('|');
+
+      if (!grade || !subject) {
+        document.getElementById('dashRankLastTest').textContent = '—';
+        document.getElementById('dashRankSubjectAvg').textContent = '—';
+        document.getElementById('dashRankSubjectTag').textContent = 'විෂයය ශ්‍රේණිගත කිරීම';
+      } else {
+        const classResults = allResults.filter(r => {
+          const p = parseKey(r.examKey);
+          return p && p.grade === grade && p.subject === subject;
+        });
+
+        // Card 2: subject average rank
+        const subjList = buildAveragedLeaderboard(classResults);
+        const si = subjList.findIndex(u => u.username === username);
+        document.getElementById('dashRankSubjectAvg').textContent = si >= 0 ? `#${si + 1}` : '—';
+
+        // Card 1: rank in the LATEST test of this class + subject
+        let latestKey = null, latestNo = -1;
+        classResults.forEach(r => {
+          const p = parseKey(r.examKey);
+          if (p && p.no > latestNo) { latestNo = p.no; latestKey = r.examKey; }
+        });
+
+        if (latestKey) {
+          const sitting = classResults
+            .filter(r => r.examKey === latestKey)
+            .sort((a, b) => b.finalScore - a.finalScore || b.rawScore - a.rawScore || a.timeTakenSec - b.timeTakenSec);
+          const li = sitting.findIndex(r => r.username === username);
+          document.getElementById('dashRankLastTest').textContent = li >= 0 ? `#${li + 1}` : '—';
+          document.getElementById('dashRankSubjectTag').textContent = `${classLabel(grade, subject)} • පරීක්ෂණය #${latestNo}`;
+        } else {
+          document.getElementById('dashRankLastTest').textContent = '—';
+          document.getElementById('dashRankSubjectTag').textContent = 'විෂයය ශ්‍රේණිගත කිරීම';
+        }
+      }
+
+      // History Table
+      const historyBody = document.getElementById('historyBody');
+      if (historyBody) {
+        historyBody.innerHTML = '';
+        if (!myResults.length) {
+          historyBody.innerHTML = '<tr><td colspan="4" class="p-6 text-center text-slate-500 italic">තවමත් ප්‍රතිඵල සටහන් වී නොමැත.</td></tr>';
+        } else {
+          [...myResults]
+            .sort((a, b) => String(b.timestamp).localeCompare(String(a.timestamp)))
+            .forEach(r => {
+              const tr = document.createElement('tr');
+              const total = r.totalQuestions || 10;
+              const cells = [
+                r.examSubjectName || r.examKey,
+                `${r.rawScore} / ${total}`,
+                `${r.timeTakenSec} තත්.`,
+                `${r.finalScore} / 100`
+              ];
+              cells.forEach((txt, i) => {
+                const td = document.createElement('td');
+                td.className = i === 0 ? 'p-3' : 'p-3 text-right font-mono';
+                td.textContent = txt;
+                tr.appendChild(td);
+              });
+              historyBody.appendChild(tr);
+            });
+        }
+      }
+    }
+
+    async function initDashboard() {
+      buildSubjectDropdown();
+      const username = getStoredUsername();
+      if (!username) { renderDashboard(); return; }
+
+      if (typeof firebase === 'undefined') {
+        console.error('Firebase SDK not loaded');
+        return;
+      }
+      if (!firebase.apps.length) {
+        firebase.initializeApp(firebaseConfig);
+      }
+      const db = firebase.firestore();
+
+      try {
+        const snap = await db.collection('exam_results').get();
+        allResults = [];
+        snap.forEach(doc => allResults.push(normalizeResult({ id: doc.id, ...doc.data() })));
+        buildSubjectDropdown();
+        renderDashboard();
+      } catch (e) {
+        console.error('[Dashboard] load failed:', e);
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recording Adder & WhatsApp Generator</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-slate-100 min-h-screen text-slate-800 flex flex-col justify-between">
+
+  <!-- Header -->
+  <header class="bg-blue-600 text-white py-6 shadow-md">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h1 class="text-2xl md:text-3xl font-bold tracking-tight">Recording Adder for Samira Sir</h1>
+      <p class="text-blue-100 text-sm mt-1">Manage class recordings, generate code items & share via WhatsApp</p>
+    </div>
+  </header>
+
+  <!-- Main Content Container -->
+  <main class="max-w-3xl mx-auto w-full px-4 py-8 flex-grow">
+
+    <!-- STEP 1: CLASS SELECTION -->
+    <div id="classSelectionStep" class="bg-white p-6 md:p-8 rounded-xl shadow-sm border border-slate-200">
+      <h2 class="text-xl font-semibold text-slate-700 mb-4 text-center">Select Grade & Subject</h2>
+      <div id="classButtons" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+        <!-- Buttons injected dynamically -->
+      </div>
+    </div>
+
+    <!-- STEP 2: INPUT FIELDS -->
+    <div id="inputFieldsStep" class="hidden bg-white p-6 md:p-8 rounded-xl shadow-sm border border-slate-200">
+      <div class="flex items-center justify-between border-b pb-4 mb-6">
+        <div>
+          <span class="text-xs font-semibold uppercase tracking-wider text-blue-600">Selected Class</span>
+          <h2 id="selectedClassHeading" class="text-2xl font-bold text-slate-800"></h2>
+        </div>
+        <button onclick="resetToClassSelection()" class="text-sm text-slate-500 hover:text-slate-700 underline">Change Class</button>
+      </div>
+
+      <form id="recordingForm" onsubmit="handleFormSubmit(event)" class="space-y-4">
+        <div>
+          <label for="date" class="block text-sm font-medium text-slate-700 mb-1">Recording Date *</label>
+          <input type="date" id="date" required class="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition">
+        </div>
+
+        <div class="space-y-3 pt-2">
+          <label class="block text-sm font-medium text-slate-700">Video Links (Up to 4)</label>
+          <div>
+            <input type="text" id="link1" placeholder="Link 1 (Required)" required class="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition">
+          </div>
+          <div>
+            <input type="text" id="link2" placeholder="Link 2 (Optional)" class="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition">
+          </div>
+          <div>
+            <input type="text" id="link3" placeholder="Link 3 (Optional)" class="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition">
+          </div>
+          <div>
+            <input type="text" id="link4" placeholder="Link 4 (Optional)" class="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition">
+          </div>
+        </div>
+
+        <button type="submit" class="w-full mt-6 py-3.5 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-lg shadow transition duration-200">
+          Submit & Share via WhatsApp
+        </button>
+      </form>
+    </div>
+
+    <!-- STEP 3: SUBMISSION PROMPT MODAL / OVERLAY -->
+    <div id="confirmationStep" class="hidden bg-white p-6 md:p-8 rounded-xl shadow-sm border border-slate-200 text-center space-y-6">
+      <div class="inline-flex items-center justify-center w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full mb-2">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+      </div>
+      <div>
+        <h3 class="text-2xl font-bold text-slate-800">Submission Recorded!</h3>
+        <p class="text-slate-600 mt-2">WhatsApp message has been triggered. Would you like to add another recording or finish?</p>
+      </div>
+
+      <div class="p-4 bg-slate-50 border border-slate-200 rounded-lg text-left text-xs font-mono text-slate-700 max-h-40 overflow-y-auto">
+        <div class="font-bold text-slate-500 mb-1">Accumulated Array Code Snippets (<span id="arrayCount">0</span> items):</div>
+        <pre id="codePreview" class="whitespace-pre-wrap"></pre>
+      </div>
+
+      <div class="flex flex-col sm:flex-row gap-3 justify-center pt-2">
+        <button onclick="addAnotherSubmission()" class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg shadow transition">
+          + Add Another Submission
+        </button>
+        <button onclick="finishAllSubmissions()" class="px-6 py-3 bg-slate-800 hover:bg-slate-900 text-white font-medium rounded-lg shadow transition">
+          Finish & Copy All Code
+        </button>
+      </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="hidden fixed bottom-5 right-5 bg-slate-800 text-white px-5 py-3 rounded-lg shadow-lg flex items-center gap-2 text-sm z-50">
+      <span id="toastMsg">Code copied to clipboard!</span>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="py-4 text-center text-xs text-slate-500 border-t border-slate-200 bg-white">
+    Samira Sir Recording Manager Application
+  </footer>
+
+  <script>
+    const classList = [
+      '6 Geo', '6 Civic', '6 History',
+      '7 Geo', '7 Civic', '7 History',
+      '8 Geo', '8 Civic', '8 History',
+      '9 Geo', '9 Civic', '9 History',
+      '10 Geo', '10 Civic', '10 History', '10 Paper',
+      '11 Geo', '11 Civic', '11 History', '11 Paper'
+    ];
+
+    let selectedClass = '';
+    let accumulatedArrayEntries = []; // Holds code strings for all entries added in this session
+
+    window.onload = function() {
+      const container = document.getElementById('classButtons');
+      container.innerHTML = classList.map(item => `
+        <button onclick="selectClass('${item}')" class="p-3 text-sm font-medium text-blue-700 bg-blue-50 border border-blue-200 rounded-lg hover:bg-blue-600 hover:text-white hover:border-blue-600 transition duration-150">
+          ${item === '10 Paper' ? '10 History Paper' : item === '11 Paper' ? '11 History Paper' : item}
+        </button>
+      `).join('');
+
+      // Default date picker to today
+      const today = new Date().toISOString().split('T')[0];
+      document.getElementById('date').value = today;
+    };
+
+    function selectClass(className) {
+      selectedClass = className;
+      document.getElementById('selectedClassHeading').innerText = className;
+      document.getElementById('classSelectionStep').classList.add('hidden');
+      document.getElementById('inputFieldsStep').classList.remove('hidden');
+    }
+
+    function resetToClassSelection() {
+      document.getElementById('inputFieldsStep').classList.add('hidden');
+      document.getElementById('classSelectionStep').classList.remove('hidden');
+    }
+
+    function getMonthName(monthNumber) {
+      const months = [
+        "January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
+      ];
+      return months[monthNumber - 1];
+    }
+
+    function mapSubjectName(subjectShort) {
+      const subjectMapping = {
+        "Geo": "Geography",
+        "Paper": "History Paper",
+        "History": "History",
+        "Civic": "Civics"
+      };
+      return subjectMapping[subjectShort] || subjectShort;
+    }
+
+    /**
+     * Converts standard file/video sharing links into embed links.
+     */
+    function convertToEmbedLink(url) {
+      if (!url) return '';
+      let cleanUrl = url.trim();
+
+      // 1. Google Drive Links: https://drive.google.com/file/d/FILE_ID/view?usp=sharing -> https://drive.google.com/file/d/FILE_ID/preview
+      const driveMatch = cleanUrl.match(/drive\.google\.com\/file\/d\/([a-zA-Z0-9_-]+)/);
+      if (driveMatch && driveMatch[1]) {
+        return `https://drive.google.com/file/d/${driveMatch[1]}/preview`;
+      }
+
+      // 2. YouTube Links (watch?v= or short links to /embed/)
+      const ytWatchMatch = cleanUrl.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]+)/);
+      if (ytWatchMatch && ytWatchMatch[1]) {
+        return `https://www.youtube.com/embed/${ytWatchMatch[1]}`;
+      }
+
+      // 3. Vimeo Links
+      const vimeoMatch = cleanUrl.match(/vimeo\.com\/([0-9]+)/);
+      if (vimeoMatch && vimeoMatch[1]) {
+        return `https://player.vimeo.com/video/${vimeoMatch[1]}`;
+      }
+
+      // 4. Dropbox Links (?dl=0 -> ?raw=1 or embed format)
+      if (cleanUrl.includes('dropbox.com')) {
+        return cleanUrl.replace('?dl=0', '?raw=1').replace('www.dropbox.com', 'dl.dropboxusercontent.com');
+      }
+
+      // Return unchanged if no pattern matches
+      return cleanUrl;
+    }
+
+    function handleFormSubmit(e) {
+      e.preventDefault();
+
+      const rawLinks = [
+        document.getElementById('link1').value.trim(),
+        document.getElementById('link2').value.trim(),
+        document.getElementById('link3').value.trim(),
+        document.getElementById('link4').value.trim()
+      ].filter(link => link !== '');
+
+      // Transform all raw sharing links to embed links
+      const embedLinks = rawLinks.map(convertToEmbedLink);
+
+      const customDate = document.getElementById('date').value;
+      const dateObj = new Date(customDate);
+      const formattedDate = dateObj.toISOString().split('T')[0];
+      const monthName = getMonthName(dateObj.getMonth() + 1);
+
+      const parts = selectedClass.split(' ');
+      const classNumber = parts[0];
+      const subjectShort = parts.slice(1).join(' ');
+      const subjectFull = mapSubjectName(subjectShort);
+
+      // Add generated code object to array using the embed links
+      embedLinks.forEach((embedUrl, index) => {
+        const entryCode = `  {\n    class: '${classNumber}',\n    subject: '${subjectFull}',\n    date: '${formattedDate}',\n    month: '${monthName}',\n    video: '${embedUrl}',\n    title: '${formattedDate} - Grade ${classNumber} ${subjectFull} Class Part ${index + 1}'\n  }`;
+        accumulatedArrayEntries.push(entryCode);
+      });
+
+      // Construct WhatsApp message
+      const recordingMessage = `🏫 *${formattedDate} Grade ${classNumber} ${subjectFull} class recording uploaded.*\n\n🌐 *You can watch it through* https://samira-sir.github.io/samira-sir/ .`;
+
+      // Open WhatsApp without GitHub redirect
+      const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(recordingMessage)}`;
+      window.open(whatsappUrl, '_blank');
+
+      // Update Preview & Modal UI
+      document.getElementById('arrayCount').innerText = accumulatedArrayEntries.length;
+      document.getElementById('codePreview').innerText = `[\n${accumulatedArrayEntries.join(',\n')}\n]`;
+
+      document.getElementById('inputFieldsStep').classList.add('hidden');
+      document.getElementById('confirmationStep').classList.remove('hidden');
+    }
+
+    function addAnotherSubmission() {
+      // Reset inputs
+      document.getElementById('link1').value = '';
+      document.getElementById('link2').value = '';
+      document.getElementById('link3').value = '';
+      document.getElementById('link4').value = '';
+
+      document.getElementById('confirmationStep').classList.add('hidden');
+      document.getElementById('classSelectionStep').classList.remove('hidden');
+    }
+
+    function finishAllSubmissions() {
+      const fullCode = `[\n${accumulatedArrayEntries.join(',\n')}\n]`;
+
+      // Copy using fallback execCommand for compatibility
+      const tempTextArea = document.createElement('textarea');
+      tempTextArea.value = fullCode;
+      document.body.appendChild(tempTextArea);
+      tempTextArea.select();
+      
+      try {
+        document.execCommand('copy');
+        showToast('All generated embed code copied to clipboard!');
+                window.location.href = 'https://github.com/samira-sir/samira-sir/blob/main/js/87524.js';
+
+      } catch (err) {
+        showToast('Failed to copy text automatically.');
+      } finally {
+        document.body.removeChild(tempTextArea);
+      }
+
+      // Reset application state after copying
+      setTimeout(() => {
+        accumulatedArrayEntries = [];
+        document.getElementById('confirmationStep').classList.add('hidden');
+        document.getElementById('classSelectionStep').classList.remove('hidden');
+      }, 1500);
+    }
+
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      document.getElementById('toastMsg').innerText = message;
+      toast.classList.remove('hidden');
+      setTimeout(() => {
+        toast.classList.add('hidden');
+      
+      }, 3000);
+    }
+  </script>
+</body>
+</html> 

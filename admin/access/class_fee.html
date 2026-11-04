@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full bg-slate-50">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Fee Management System - Samira Sir</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            900: '#1e3a8a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+        .toast-enter {
+            animation: slideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        @keyframes slideIn {
+            from { transform: translateY(100%) scale(0.9); opacity: 0; }
+            to { transform: translateY(0) scale(1); opacity: 1; }
+        }
+    </style>
+</head>
+<body class="font-sans text-slate-800 antialiased min-h-full flex flex-col justify-between">
+
+    <header class="bg-slate-900 text-white border-b border-slate-800 sticky top-0 z-40 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="bg-blue-600 p-2 rounded-xl text-white shadow-lg shadow-blue-500/30">
+                    <i data-lucide="graduation-cap" class="w-6 h-6"></i>
+                </div>
+                <div>
+                    <h1 class="font-bold text-lg leading-tight">Learn History & Geography with samira sir</h1>
+                    <p class="text-xs text-slate-400">Tuition Fee Management & Reminder System</p>
+                </div>
+            </div>
+            <div class="flex items-center space-x-2">
+                <span class="inline-flex items-center gap-x-1.5 px-2.5 py-1 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                    Live JS Sync Active
+                </span>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1 w-full space-y-8">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            <!-- Left Section: Fee Calculation Form -->
+            <section class="lg:col-span-7 space-y-6">
+                <div class="glass-card rounded-2xl p-6 sm:p-8 shadow-xl shadow-slate-200/50">
+                    <div class="flex items-center justify-between mb-6 pb-4 border-b border-slate-100">
+                        <div>
+                            <h2 class="text-xl font-bold text-slate-900">Fee Calculation & Payment</h2>
+                            <p class="text-sm text-slate-500">Calculate tuition fees and process WhatsApp payment receipt.</p>
+                        </div>
+                        <div class="bg-blue-50 text-blue-700 p-2 rounded-lg">
+                            <i data-lucide="calculator" class="w-5 h-5"></i>
+                        </div>
+                    </div>
+
+                    <form id="feeForm" onsubmit="event.preventDefault();" class="space-y-5">
+                        <!-- Grade Selection -->
+                        <div>
+                            <label for="grade" class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">
+                                Select Grade
+                            </label>
+                            <div class="relative">
+                                <select id="grade" onchange="populateStudents()" class="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl font-semibold text-slate-800 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all">
+                                    <option value="" disabled selected>Select a Grade</option>
+                                </select>
+                                <i data-lucide="layers" class="w-5 h-5 absolute left-3 top-3.5 text-slate-400"></i>
+                            </div>
+                        </div>
+
+                        <!-- Student Selection -->
+                        <div>
+                            <label for="student" class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">
+                                Select Student
+                            </label>
+                            <div class="relative">
+                                <select id="student" onchange="calculateFee()" disabled class="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl font-semibold text-slate-800 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all disabled:opacity-50 disabled:cursor-not-allowed">
+                                    <option value="" disabled selected>Select Grade First</option>
+                                </select>
+                                <i data-lucide="user" class="w-5 h-5 absolute left-3 top-3.5 text-slate-400"></i>
+                            </div>
+                        </div>
+
+                        <!-- Month Selection -->
+                        <div>
+                            <label for="month" class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">
+                                Billing Month
+                            </label>
+                            <div class="relative">
+                                <select id="month" class="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-200 rounded-xl font-semibold text-slate-800 focus:bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all">
+                                    <option value="" disabled>Select Month</option>
+                                    <option>January</option>
+                                    <option>February</option>
+                                    <option>March</option>
+                                    <option>April</option>
+                                    <option>May</option>
+                                    <option>June</option>
+                                    <option>July</option>
+                                    <option>August</option>
+                                    <option>September</option>
+                                    <option>October</option>
+                                    <option>November</option>
+                                    <option>December</option>
+                                </select>
+                                <i data-lucide="calendar" class="w-5 h-5 absolute left-3 top-3.5 text-slate-400"></i>
+                            </div>
+                        </div>
+
+                        <div class="mt-6 bg-slate-900 rounded-2xl p-6 text-white shadow-xl relative overflow-hidden">
+                            <div class="absolute -right-8 -bottom-8 w-32 h-32 bg-blue-600/20 rounded-full blur-2xl pointer-events-none"></div>
+
+                            <div class="flex items-center justify-between border-b border-slate-800 pb-4 mb-4">
+                                <span class="text-xs uppercase font-bold tracking-wider text-slate-400">Total Calculated Fee</span>
+                                <span id="feeRuleBadge" class="text-xs px-2.5 py-1 rounded-md font-semibold bg-slate-800 text-slate-300 border border-slate-700">
+                                    Standby
+                                </span>
+                            </div>
+
+                            <div class="flex items-baseline space-x-2">
+                                <span class="text-slate-400 font-semibold text-lg">LKR</span>
+                                <span id="calculatedFee" class="text-4xl font-extrabold tracking-tight text-white">0</span>
+                            </div>
+
+                            <!-- Breakdown Pills Container -->
+                            <div class="mt-4 pt-4 border-t border-slate-800/80">
+                                <span class="text-xs text-slate-400 block mb-2 font-medium">Enrolled Subjects Breakdown:</span>
+                                <div id="feeBreakdown" class="flex flex-wrap gap-2 text-xs">
+                                    <span class="text-slate-500 italic">No student selected</span>
+                                </div>
+                            </div>
+
+                            <!-- Custom Fee Input -->
+                            <div class="mt-5 pt-4 border-t border-slate-800/80 space-y-3">
+                                <label class="block text-xs font-semibold text-slate-300">Custom Fee Adjustment (Optional)</label>
+                                <div class="flex gap-2">
+                                    <input type="number" id="customFee" placeholder="Enter custom amount (LKR)" class="flex-1 px-4 py-2.5 bg-slate-800 border border-slate-700 rounded-xl text-white placeholder-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                    <button type="button" onclick="applyCustomFee()" class="px-4 py-2.5 bg-emerald-600 hover:bg-emerald-500 font-semibold text-xs rounded-xl transition-all shadow-md shadow-emerald-900/40">
+                                        Apply Custom
+                                    </button>
+                                </div>
+                                <div id="feeStatus" class="hidden text-xs text-emerald-400 font-medium flex items-center gap-1.5 mt-1">
+                                    <i data-lucide="check-circle-2" class="w-4 h-4"></i> Custom total fee overrides calculated fee!
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Action Button -->
+                        <button type="button" onclick="generateBill()" class="w-full py-4 bg-blue-600 hover:bg-blue-500 active:bg-blue-700 text-white font-bold rounded-xl shadow-lg shadow-blue-500/25 transition-all flex items-center justify-center gap-2 text-base">
+                            <i data-lucide="send" class="w-5 h-5"></i>
+                            <span>Add Fee & Send WhatsApp Receipt</span>
+                        </button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Right Section: GitHub Export & Pricing Rules -->
+            <section class="lg:col-span-5 space-y-6">
+                
+                <!-- Live Array Tracker & GitHub Sync Box -->
+                <div class="glass-card rounded-2xl p-6 shadow-xl border-2 border-blue-500/30">
+                    <div class="flex items-center justify-between mb-3">
+                        <div class="flex items-center gap-2">
+                            <i data-lucide="code" class="w-5 h-5 text-blue-600"></i>
+                            <h3 class="font-bold text-slate-900 text-base">User Month Data Items Log</h3>
+                        </div>
+                        <span class="text-[10px] px-2 py-0.5 rounded bg-blue-100 text-blue-700 font-bold uppercase tracking-wider">16542.js Sync</span>
+                    </div>
+                    <p class="text-xs text-slate-500 mb-3">
+                        Shows only the entries created or updated in this session (empty on page load). Each entry holds the student's full month list. Press the button to copy it and open GitHub.
+                    </p>
+
+                    <textarea id="arrayOutputText" rows="6" readonly placeholder="No new entries yet. Add a fee to create one." class="w-full p-3 font-mono text-xs bg-slate-900 text-emerald-400 placeholder-slate-600 border border-slate-800 rounded-xl focus:outline-none resize-none shadow-inner leading-relaxed"></textarea>
+
+                    <div class="mt-3 flex gap-2">
+                        <button onclick="finishAndUpdateGitHub()" class="w-full py-3 bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs rounded-xl shadow-md transition-all flex items-center justify-center gap-2 border border-slate-700">
+                            <i data-lucide="github" class="w-4 h-4 text-white"></i>
+                            <span>Copy Elements & Open GitHub (16542.js)</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Fee Logic Information Box -->
+                <div class="bg-gradient-to-br from-blue-950 to-slate-900 rounded-2xl p-6 text-white border border-blue-900/50 shadow-xl">
+                    <h3 class="font-bold text-sm text-blue-300 uppercase tracking-wider mb-3 flex items-center gap-2">
+                        <i data-lucide="info" class="w-4 h-4"></i> Pricing Rules & Guidelines
+                    </h3>
+                    <ul class="text-xs space-y-2 text-slate-300">
+                        <li class="flex items-start gap-2">
+                            <i data-lucide="check" class="w-4 h-4 text-blue-400 shrink-0 mt-0.5"></i>
+                            <span><strong>Grades 6–9:</strong> LKR 700 per subject.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i data-lucide="check" class="w-4 h-4 text-blue-400 shrink-0 mt-0.5"></i>
+                            <span><strong>Grades 10–11 Regular Subject:</strong> LKR 800 per subject.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i data-lucide="sparkles" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
+                            <span><strong>Grades 10–11 Paper Class Only:</strong> LKR 800 (if attending <em>only</em> paper class).</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i data-lucide="sparkles" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
+                            <span><strong>Paper Class Bundle:</strong> LKR 400 when combined with 1+ other subject(s).</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Recent Invoice History Drawer -->
+                <div class="glass-card rounded-2xl p-6 shadow-xl shadow-slate-200/50">
+                    <div class="flex items-center justify-between mb-4 pb-3 border-b border-slate-100">
+                        <h3 class="font-bold text-slate-900 flex items-center gap-2">
+                            <i data-lucide="history" class="w-4 h-4 text-blue-600"></i> Recent Saved Bills
+                        </h3>
+                        <button onclick="clearHistory()" class="text-xs text-rose-500 hover:text-rose-700 font-semibold transition-colors">
+                            Clear Log
+                        </button>
+                    </div>
+                    <div id="historyList" class="space-y-3 max-h-60 overflow-y-auto pr-1">
+                        <p class="text-xs text-slate-400 italic text-center py-6">No recent receipts generated yet.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Non-Class Fee Paid Students Section -->
+        <section class="glass-card rounded-2xl p-6 sm:p-8 shadow-xl shadow-slate-200/50 border border-amber-200">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 pb-4 border-b border-slate-100">
+                <div>
+                    <div class="flex items-center gap-2">
+                        <span class="w-3 h-3 rounded-full bg-amber-500 animate-pulse"></span>
+                        <h2 class="text-xl font-bold text-slate-900">Unpaid / Pending Students (Previous Month)</h2>
+                    </div>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span id="dueStudentsCount" class="px-3 py-1 bg-amber-100 text-amber-800 rounded-full font-bold text-xs">
+                        0 Due Students
+                    </span>
+                    <button onclick="calculateUnpaidStudents()" class="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl font-semibold text-xs transition-all flex items-center gap-1">
+                        <i data-lucide="refresh-cw" class="w-3.5 h-3.5"></i> Refresh
+                    </button>
+                </div>
+            </div>
+
+            <!-- Unpaid Students List Grid -->
+            <div id="unpaidStudentsContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <!-- Dynamic cards populated via JavaScript -->
+            </div>
+        </section>
+
+    </main>
+
+    <div id="toastContainer" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+    <script src="../../js/afghx.js"></script>
+    <script src="../../js/16542.js"></script>
+
+    <script>
+        // Fallback default credentials if external js file fails to load
+        const defaultCredentials = {
+            sanuka: {
+                password: "SNaz12##",
+                role: "admin",
+                subjects: [
+                    { name: "History Paper", grade: 11 },
+                    { name: "history", grade: 6 }
+                ]
+            },
+            samira: {
+                password: "123",
+                subjects: [
+                    { name: "Geography", grade: 11 }
+                ]
+            }
+        };
+
+        // Month lists and short mappings
+const shortMonthMap = {
+            "January": "Jan", "February": "Feb", "March": "Mar", "April": "Apr",
+            "May": "May", "June": "Jun", "July": "Jul", "August": "Aug",
+            "September": "Sep", "October": "Oct", "November": "Nov", "December": "Dec"
+        };
+
+        const monthNamesList = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        const shortMonthNamesList = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+        // Fee structure definitions
+        const feeRates = { 
+            '6-9': 700, 
+            '10-11-normal': 800,
+            '10-11-paper-solo': 800,
+            '10-11-paper-bundle': 400
+        };
+
+        let currentTotalFee = 0;
+        let isCustomFeeActive = false;
+        let activeSubjects = [];
+        let userCredentials = {};
+        // Points to the `userMonthData` array that comes from 16542.js
+        let paidData = [];
+        // Usernames (lowercase) added/updated during THIS session -> shown in the log textarea
+        let updatedUsernames = [];
+
+        function populateStudents() {
+            const selectedGrade = parseInt(document.getElementById("grade").value);
+            const studentSelect = document.getElementById("student");
+            
+            studentSelect.innerHTML = '<option value="" disabled selected>Select a student</option>';
+            studentSelect.disabled = false;
+
+            Object.keys(userCredentials).forEach(studentKey => {
+                const student = userCredentials[studentKey];
+                const hasGradeSubject = student.subjects && student.subjects.some(sub => Number(sub.grade) === selectedGrade);
+                
+                if (hasGradeSubject) {
+                    const option = document.createElement("option");
+                    option.value = studentKey;
+                    option.textContent = studentKey.charAt(0).toUpperCase() + studentKey.slice(1);
+                    studentSelect.appendChild(option);
+                }
+            });
+
+            resetFeeDisplay();
+        }
+
+        function calculateFee() {
+            const selectedStudentKey = document.getElementById("student").value;
+            const selectedGrade = parseInt(document.getElementById("grade").value);
+
+            if (!selectedStudentKey || isNaN(selectedGrade)) return;
+
+            const studentObj = userCredentials[selectedStudentKey];
+            if (!studentObj) return;
+
+            const gradeSubjects = studentObj.subjects.filter(sub => Number(sub.grade) === selectedGrade);
+            activeSubjects = gradeSubjects;
+            
+            let total = 0;
+            let breakdownList = [];
+            const totalSubjectCount = gradeSubjects.length;
+
+            gradeSubjects.forEach(sub => {
+                let cost = 0;
+                const subNameLower = sub.name.toLowerCase();
+                const isPaperClass = subNameLower.includes('paper');
+
+                if (selectedGrade >= 6 && selectedGrade <= 9) {
+                    cost = feeRates['6-9'];
+                    breakdownList.push({ name: sub.name, cost: cost, note: 'Normal Rate' });
+                } else if (selectedGrade >= 10 && selectedGrade <= 11) {
+                    if (isPaperClass) {
+                        if (totalSubjectCount > 1) {
+                            cost = feeRates['10-11-paper-bundle'];
+                            breakdownList.push({ name: sub.name, cost: cost, note: 'Paper Class (Bundled)' });
+                        } else {
+                            cost = feeRates['10-11-paper-solo'];
+                            breakdownList.push({ name: sub.name, cost: cost, note: 'Paper Class Only' });
+                        }
+                    } else {
+                        cost = feeRates['10-11-normal'];
+                        breakdownList.push({ name: sub.name, cost: cost, note: 'Standard Subject' });
+                    }
+                } else {
+                    cost = 800;
+                    breakdownList.push({ name: sub.name, cost: cost, note: 'Standard Rate' });
+                }
+
+                total += cost;
+            });
+
+            currentTotalFee = total;
+            isCustomFeeActive = false;
+
+            document.getElementById("calculatedFee").textContent = currentTotalFee.toLocaleString();
+            document.getElementById("customFee").value = '';
+            document.getElementById("feeStatus").classList.add("hidden");
+
+            const breakdownContainer = document.getElementById("feeBreakdown");
+            breakdownContainer.innerHTML = '';
+
+            breakdownList.forEach(item => {
+                const badge = document.createElement("span");
+                badge.className = "px-2.5 py-1.5 rounded-lg bg-slate-800 text-slate-200 border border-slate-700 flex items-center gap-1.5 font-medium";
+                badge.innerHTML = `<span class="text-blue-400 font-bold">${item.name}:</span> LKR ${item.cost} <span class="text-[10px] opacity-60">(${item.note})</span>`;
+                breakdownContainer.appendChild(badge);
+            });
+
+            const ruleBadge = document.getElementById("feeRuleBadge");
+            if (selectedGrade >= 10 && selectedGrade <= 11) {
+                if (totalSubjectCount > 1) {
+                    ruleBadge.textContent = "Multi-Subject Discount Applied";
+                    ruleBadge.className = "text-xs px-2.5 py-1 rounded-md font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30";
+                } else {
+                    ruleBadge.textContent = "Single Subject Standard Rate";
+                    ruleBadge.className = "text-xs px-2.5 py-1 rounded-md font-semibold bg-blue-500/20 text-blue-300 border border-blue-500/30";
+                }
+            } else {
+                ruleBadge.textContent = "Grade 6-9 Standard Rate";
+                ruleBadge.className = "text-xs px-2.5 py-1 rounded-md font-semibold bg-slate-800 text-slate-300 border border-slate-700";
+            }
+        }
+
+        function applyCustomFee() {
+            const customInput = document.getElementById("customFee").value;
+            const customFeeVal = parseInt(customInput, 10);
+
+            if (isNaN(customFeeVal) || customFeeVal < 0) {
+                showToast("Please enter a valid custom fee amount.", "warning");
+                return;
+            }
+
+            currentTotalFee = customFeeVal;
+            isCustomFeeActive = true;
+            document.getElementById("calculatedFee").textContent = `${currentTotalFee.toLocaleString()} (Custom)`;
+            document.getElementById("feeStatus").classList.remove("hidden");
+            
+            const ruleBadge = document.getElementById("feeRuleBadge");
+            ruleBadge.textContent = "Custom Overridden Fee";
+            ruleBadge.className = "text-xs px-2.5 py-1 rounded-md font-semibold bg-amber-500/20 text-amber-300 border border-amber-500/30";
+
+            showToast(`Applied custom fee of LKR ${currentTotalFee}`, "success");
+        }
+
+        function resetFeeDisplay() {
+            currentTotalFee = 0;
+            isCustomFeeActive = false;
+            document.getElementById("calculatedFee").textContent = "0";
+            document.getElementById("feeBreakdown").innerHTML = '<span class="text-slate-500 italic">Select a student</span>';
+            document.getElementById("customFee").value = '';
+            document.getElementById("feeStatus").classList.add("hidden");
+            const ruleBadge = document.getElementById("feeRuleBadge");
+            ruleBadge.textContent = "Standby";
+            ruleBadge.className = "text-xs px-2.5 py-1 rounded-md font-semibold bg-slate-800 text-slate-300 border border-slate-700";
+        }
+
+        function generateBill() {
+            const studentKey = document.getElementById("student").value;
+            const selectedGrade = document.getElementById("grade").value;
+            const selectedMonth = document.getElementById("month").value;
+
+            if (!studentKey || !selectedGrade || !selectedMonth) {
+                showToast("Please select Grade, Student, and Month before generating bill.", "error");
+                return;
+            }
+
+            const shortMonth = shortMonthMap[selectedMonth] || selectedMonth.substring(0, 3);
+
+            // Add / update the student's entry in the userMonthData array
+// Add / update the student's entry in the userMonthData array[cite: 1]
+            let studentRecord = paidData.find(
+                item => item && item.username && item.username.toLowerCase() === studentKey.toLowerCase()
+            );
+
+            let changed = true;
+            if (studentRecord) {
+                studentRecord.months = [shortMonth];
+            } else {
+                paidData.push({
+                    username: studentKey,
+                    months: [shortMonth]
+                },);
+            }
+
+            // Remember this student so the log only shows recently created/updated entries
+            if (changed) {
+                const k = studentKey.toLowerCase();
+                if (!updatedUsernames.includes(k)) updatedUsernames.push(k);
+            }
+
+            // Update userMonthData array UI text field
+            updateArrayOutputText();
+
+            // Refresh non-paid due students status list dynamically
+            calculateUnpaidStudents();
+
+            const formattedStudentName = studentKey.charAt(0).toUpperCase() + studentKey.slice(1);
+            const referenceNumber = `REF${Math.floor(100000 + Math.random() * 900000)}`;
+            const dateTime = new Date();
+            const formattedDateTime = dateTime.toLocaleString('en-US', {
+                dateStyle: 'medium',
+                timeStyle: 'short'
+            });
+
+            const subjectsListText = activeSubjects.map(s => s.name).join(", ");
+
+            // Formatted receipt text message for WhatsApp
+            const billText = 
+`*Learn History & Geography with samira sir*
+
+*___Payment Invoice___*
+
+Confirmed Date & Time: ${formattedDateTime}
+Name: ${formattedStudentName}
+Grade: ${selectedGrade}
+Subjects: ${subjectsListText}
+Month: ${selectedMonth}
+Paid Fee: LKR ${currentTotalFee}${isCustomFeeActive ? ' (Custom)' : ''}
+*Reference Number: ${referenceNumber}*
+
+*Noted With Thanks*`;
+
+            const billObject = {
+                name: formattedStudentName,
+                grade: selectedGrade,
+                subjects: activeSubjects.map(s => s.name),
+                month: selectedMonth,
+                totalFee: currentTotalFee,
+                referenceNumber: referenceNumber,
+                timestamp: dateTime.getTime(),
+                formattedDateTime: formattedDateTime
+            };
+
+            saveBillToLocalStorage(billObject);
+            openWhatsApp(billText);
+        }
+
+        // Shows ONLY the entries created/updated in this session (empty on page load)
+function updateArrayOutputText() {
+            const out = document.getElementById("arrayOutputText");
+            if (!out) return;
+
+            const items = [];
+            updatedUsernames.forEach(key => {
+                const rec = paidData.find(i => i && i.username && i.username.toLowerCase() === key);
+                if (rec) {
+                    items.push(`{ username: "${rec.username}", months: [${(rec.months || []).map(m => `"${m}"`).join(", ")}] }`);
+                }
+            });
+
+            out.value = items.map(item => `${item},`).join("\n");
+        }
+
+        const GITHUB_FILE_URL = "https://github.com/samira-sir/samira-sir/blob/main/js/16542.js";
+
+        // Holds the list currently rendered in the "Unpaid / Pending" section
+        let currentUnpaidList = [];
+
+        function monthKey(m) {
+            return String(m || "").trim().toLowerCase().substring(0, 3);
+        }
+
+        // Monthly fee for a student (same pricing rules as the fee calculator)
+        function getMonthlyDue(subjects) {
+            const grade = subjects.length > 0 ? subjects[0].grade : 10;
+            const numGrade = parseInt(grade);
+            const totalSubjects = subjects.length;
+            let due = 0;
+
+            subjects.forEach(sub => {
+                const isPaper = String(sub.name).toLowerCase().includes("paper");
+                if (numGrade >= 6 && numGrade <= 9) {
+                    due += feeRates['6-9'];
+                } else if (numGrade >= 10 && numGrade <= 11) {
+                    if (isPaper) {
+                        due += (totalSubjects > 1) ? feeRates['10-11-paper-bundle'] : feeRates['10-11-paper-solo'];
+                    } else {
+                        due += feeRates['10-11-normal'];
+                    }
+                } else {
+                    due += 800;
+                }
+            });
+            return due;
+        }
+
+        // Walk backwards from (current month - 1) until the student's LAST PAID month is found.
+        // Every month passed on the way is an unpaid month.
+        //   last paid == current month - 1  -> [] (no problem)
+        //   last paid is older              -> every month after it up to current month - 1
+        //   never paid anything             -> only current month - 1
+        function getPendingMonthIndexes(paidMonths, currentIdx) {
+            const paidSet = new Set(paidMonths.map(monthKey));
+            const isPaidIdx = i => paidSet.has(shortMonthNamesList[i].toLowerCase());
+
+            // Already paid in advance for the current month -> nothing pending
+            if (isPaidIdx(currentIdx)) return [];
+
+            const pending = [];
+            for (let step = 1; step <= 11; step++) {
+                const idx = (currentIdx - step + 12) % 12;
+                if (isPaidIdx(idx)) return pending.reverse(); // oldest unpaid month first
+                pending.push(idx);
+            }
+            // No payment record at all: only flag the previous month
+            return [(currentIdx + 11) % 12];
+        }
+
+        function calculateUnpaidStudents() {
+            const unpaidContainer = document.getElementById("unpaidStudentsContainer");
+            if (!unpaidContainer) return;
+
+            const currentIdx = new Date().getMonth();
+            const prevMonthIdx = (currentIdx + 11) % 12;
+            const prevMonthName = monthNamesList[prevMonthIdx];
+
+            const prevMonthLabel = document.getElementById("previousMonthName");
+            if (prevMonthLabel) prevMonthLabel.textContent = prevMonthName;
+
+            const unpaidList = [];
+
+            Object.keys(userCredentials).forEach(studentKey => {
+                const student = userCredentials[studentKey];
+                const cleanStudentKey = studentKey.trim().toLowerCase();
+                const studentNameFormatted = studentKey.charAt(0).toUpperCase() + studentKey.slice(1);
+
+                const paidMonths = paidData
+                    .filter(item => item && item.username && item.username.trim().toLowerCase() === cleanStudentKey)
+                    .flatMap(item => item.months || []);
+
+                const pendingIdx = getPendingMonthIndexes(paidMonths, currentIdx);
+                if (pendingIdx.length === 0) return;
+
+                const subjects = student.subjects || [];
+                const grade = subjects.length > 0 ? subjects[0].grade : "10";
+                const monthlyDue = getMonthlyDue(subjects);
+
+                unpaidList.push({
+                    username: studentKey,
+                    displayName: studentNameFormatted,
+                    grade: grade,
+                    subjects: subjects.map(s => s.name),
+                    pendingMonths: pendingIdx.map(i => monthNamesList[i]),
+                    monthlyDue: monthlyDue,
+                    dueAmount: monthlyDue * pendingIdx.length,
+                    paidMonths: paidMonths
+                });
+            });
+
+            currentUnpaidList = unpaidList;
+
+            document.getElementById("dueStudentsCount").textContent =
+                `${unpaidList.length} Pending Student${unpaidList.length === 1 ? '' : 's'}`;
+
+            if (unpaidList.length === 0) {
+                unpaidContainer.innerHTML = `
+                    <div class="col-span-full py-8 text-center bg-emerald-50 rounded-xl border border-emerald-200">
+                        <i data-lucide="check-circle" class="w-8 h-8 text-emerald-600 mx-auto mb-2"></i>
+                        <p class="font-bold text-emerald-900 text-sm">All Students Are Paid Up to ${prevMonthName}!</p>
+                        <p class="text-xs text-emerald-700">No pending fee payments detected.</p>
+                    </div>
+                `;
+            } else {
+                unpaidContainer.innerHTML = unpaidList.map((s, i) => `
+                    <div class="bg-white border border-slate-200 rounded-xl p-4 shadow-sm hover:shadow-md transition-all flex flex-col justify-between space-y-3">
+                        <div>
+                            <div class="flex items-center justify-between">
+                                <h4 class="font-bold text-slate-900 text-sm">${s.displayName}</h4>
+                                <span class="text-[10px] px-2 py-0.5 rounded-md font-bold bg-amber-100 text-amber-800">
+                                    Grade ${s.grade}
+                                </span>
+                            </div>
+                            <div class="mt-2 text-xs text-slate-600 space-y-2">
+                                <div><span class="font-semibold text-slate-700">Enrolled Classes:</span> ${s.subjects.join(", ") || "N/A"}</div>
+                                <div>
+                                    <span class="font-semibold text-slate-700 block mb-1">Pending Month${s.pendingMonths.length === 1 ? '' : 's'} (${s.pendingMonths.length}):</span>
+                                    <div class="flex flex-wrap gap-1.5">
+                                        ${s.pendingMonths.map(m => `
+                                            <span class="px-2 py-1 rounded-md bg-amber-50 text-amber-800 border border-amber-200 text-[11px] font-bold">${m}</span>
+                                        `).join('')}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pt-3 border-t border-slate-100 flex items-center justify-between">
+                            <div>
+                                <span class="text-[10px] text-slate-400 block font-semibold uppercase">Total Due Amount</span>
+                                <span class="font-extrabold text-rose-600 text-base">LKR ${s.dueAmount.toLocaleString()}</span>
+                                <span class="text-[10px] text-slate-400 block">${s.pendingMonths.length} × LKR ${s.monthlyDue.toLocaleString()}</span>
+                            </div>
+                            <button onclick="sendWhatsAppReminder(${i})" class="px-3 py-2 bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs rounded-lg shadow-sm transition-all flex items-center gap-1.5">
+                                <i data-lucide="message-square" class="w-3.5 h-3.5"></i>
+                                <span>Remind WA</span>
+                            </button>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            if (window.lucide) lucide.createIcons();
+        }
+
+        function sendWhatsAppReminder(index) {
+            const s = currentUnpaidList[index];
+            if (!s) return;
+
+            const monthsText = s.pendingMonths.join(", ");
+            const classes = `Grade ${s.grade} (${s.subjects.join(", ")})`;
+
+            const reminderText = 
+`*Learn History & Geography with samira sir*
+
+*___Class Fee Payment Reminder___*
+
+Dear ${s.displayName},
+
+This is a gentle reminder regarding your class fee for *${monthsText}*.
+
+*Details:*
+• Student: ${s.displayName}
+• Enrolled Class: ${classes}
+• Pending Month${s.pendingMonths.length === 1 ? '' : 's'}: ${monthsText}
+• Monthly Fee: LKR ${s.monthlyDue}
+• Total Due Amount: LKR ${s.dueAmount}
+
+Please settle the class fee payment at your earliest convenience.
+
+Thank you!`;
+
+            openWhatsApp(reminderText);
+        }
+
+        // Copy the log text, then go to the GitHub file
+        function finishAndUpdateGitHub() {
+            const out = document.getElementById("arrayOutputText");
+            const text = out.value.trim();
+
+            if (!text) {
+                showToast("Nothing to copy yet. Add a fee first.", "warning");
+                return;
+            }
+
+            let copied = false;
+            try {
+                out.focus();
+                out.select();
+                out.setSelectionRange(0, out.value.length);
+                copied = document.execCommand("copy");
+            } catch (e) { /* fall through to clipboard API */ }
+
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(text).then(() => {}).catch(() => {});
+                copied = true;
+            }
+
+            window.open(GITHUB_FILE_URL, "_blank");
+            showToast(copied ? "Elements copied! Opening GitHub 16542.js..." : "Opening GitHub (copy failed, please copy manually)", copied ? "success" : "warning");
+        }
+
+        function openWhatsApp(text) {
+            const encodedText = encodeURIComponent(text);
+            const whatsappUrl = `https://api.whatsapp.com/send?text=${encodedText}`;
+            window.open(whatsappUrl, '_blank');
+            showToast("WhatsApp opened with prepared message!", "success");
+        }
+
+        function saveBillToLocalStorage(billObj) {
+            try {
+                const history = JSON.parse(localStorage.getItem('paymentHistory') || '[]');
+                history.unshift(billObj);
+                if (history.length > 20) history.pop();
+                localStorage.setItem('paymentHistory', JSON.stringify(history));
+                renderHistory();
+            } catch (e) {
+                console.error("LocalStorage Save Error:", e);
+            }
+        }
+
+        function renderHistory() {
+            const historyContainer = document.getElementById("historyList");
+            try {
+                const history = JSON.parse(localStorage.getItem('paymentHistory') || '[]');
+                if (history.length === 0) {
+                    historyContainer.innerHTML = `<p class="text-xs text-slate-400 italic text-center py-6">No recent receipts generated yet.</p>`;
+                    return;
+                }
+
+                historyContainer.innerHTML = history.map(item => `
+                    <div class="p-3 bg-slate-50 border border-slate-200 rounded-xl text-xs flex justify-between items-center hover:bg-white hover:border-slate-300 transition-all">
+                        <div>
+                            <div class="font-bold text-slate-800">${item.name} (Grade ${item.grade})</div>
+                            <div class="text-slate-500 font-medium">${item.month} • ${item.subjects.join(", ")}</div>
+                            <div class="text-[10px] text-slate-400 mt-0.5">${item.formattedDateTime}</div>
+                        </div>
+                        <div class="text-right">
+                            <div class="font-extrabold text-blue-600">LKR ${item.totalFee}</div>
+                            <div class="text-[10px] text-slate-400 font-mono">${item.referenceNumber}</div>
+                        </div>
+                    </div>
+                `).join('');
+            } catch (e) {
+                historyContainer.innerHTML = `<p class="text-xs text-rose-400">Error loading history.</p>`;
+            }
+        }
+
+        function clearHistory() {
+            localStorage.removeItem('paymentHistory');
+            renderHistory();
+            showToast("Payment history cleared", "info");
+        }
+
+        function showToast(message, type = "info") {
+            const container = document.getElementById("toastContainer");
+            const toast = document.createElement("div");
+            
+            let bgClass = "bg-slate-900 text-white";
+            let icon = "info";
+            
+            if (type === "success") {
+                bgClass = "bg-emerald-600 text-white shadow-emerald-600/30";
+                icon = "check-circle";
+            } else if (type === "warning") {
+                bgClass = "bg-amber-600 text-white shadow-amber-600/30";
+                icon = "alert-triangle";
+            } else if (type === "error") {
+                bgClass = "bg-rose-600 text-white shadow-rose-600/30";
+                icon = "x-circle";
+            }
+
+            toast.className = `toast-enter pointer-events-auto px-4 py-3 rounded-xl shadow-lg flex items-center gap-2.5 text-xs font-semibold ${bgClass}`;
+            toast.innerHTML = `<i data-lucide="${icon}" class="w-4 h-4"></i> <span>${message}</span>`;
+            
+            container.appendChild(toast);
+            if (window.lucide) lucide.createIcons();
+
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                toast.style.transform = 'translateY(10px)';
+                toast.style.transition = 'all 0.3s ease';
+                setTimeout(() => toast.remove(), 300);
+            }, 3500);
+        }
+
+        window.onload = () => {
+            // Priority check for credentials from window/credentials or fallback
+            userCredentials = (typeof credentials !== 'undefined') ? credentials : 
+                              (typeof window.credentials !== 'undefined') ? window.credentials : defaultCredentials;
+            
+            // Use the userMonthData array from 16542.js (a top-level `const` is NOT on `window`)
+            paidData = (typeof userMonthData !== 'undefined' && Array.isArray(userMonthData)) ? userMonthData : [];
+
+            // Render Lucide Icons
+            if (window.lucide) lucide.createIcons();
+
+            // Populate Grade options dynamically
+            const gradeSelect = document.getElementById("grade");
+            const grades = [...new Set(
+                Object.values(userCredentials).flatMap(student => 
+                    (student.subjects || []).map(subject => subject.grade)
+                )
+            )].sort((a,b) => a - b);
+
+            gradeSelect.innerHTML = '<option value="" disabled selected>Select Grade</option>';
+            grades.forEach(grade => {
+                const option = document.createElement("option");
+                option.value = grade;
+                option.textContent = `Grade ${grade}`;
+                gradeSelect.appendChild(option);
+            });
+
+            // Default month selection
+            document.getElementById("month").value = monthNamesList[new Date().getMonth()];
+
+            // Refresh UI components
+            updateArrayOutputText();
+            renderHistory();
+            calculateUnpaidStudents();
+        };
+    </script>
+</body>
+</html>
