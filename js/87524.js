@@ -14563,8 +14563,8 @@ const videoLinks = [
     month: 'November',
     video: 'https://drive.google.com/file/d/1fStZJKpL78O4s_Hs_r2paQkvreD2OBgX/preview',
     title: '2026-11-07 - Grade 11 History Class Part 3'
-  }
-[
+  },
+
   {
     class: '11',
     subject: 'History Paper',
@@ -14620,7 +14620,7 @@ const videoLinks = [
     month: 'November',
     video: 'https://drive.google.com/file/d/1MHiP1Jj-_OGzV0Vy09Jm2lh1DbVFVFmd/preview',
     title: '2026-11-08 - Grade 7 History Class Part 1'
-  }
-]
+  },
+
 
 ];
