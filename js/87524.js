@@ -14622,5 +14622,94 @@ const videoLinks = [
     title: '2026-11-08 - Grade 7 History Class Part 1'
   },
 
+  {
+    class: '9',
+    subject: 'Geography',
+    date: '2026-11-09',
+    month: 'November',
+    video: 'https://drive.google.com/file/d/1ad79-fRsaV85JjtDdF_ZF9NG0fWn862b/preview',
+    title: '2026-11-09 - Grade 9 Geography Class Part 1'
+  },
+  {
+    class: '9',
+    subject: 'Geography',
+    date: '2026-11-09',
+    month: 'November',
+    video: 'https://drive.google.com/file/d/1c6q0IpbDVeVkV7wHY22M88maj_Ekc6cU/preview',
+    title: '2026-11-09 - Grade 9 Geography Class Part 2'
+  },
+  {
+    class: '9',
+    subject: 'Geography',
+    date: '2026-11-09',
+    month: 'November',
+    video: 'https://drive.google.com/file/d/1TyU3SCc1YHLP2FNiKVU0kl0rzWZzRZEz/preview',
+    title: '2026-11-09 - Grade 9 Geography Class Part 3'
+  },
+  {
+    class: '10',
+    subject: 'Geography',
+    date: '2026-11-09',
+    month: 'November',
+    video: 'https://drive.google.com/file/d/1ImF0GqkwvThuK2Nj9kmbpEsS3JQlOwfe/preview',
+    title: '2026-11-09 - Grade 10 Geography Class Part 1'
+  },
+  {
+    class: '10',
+    subject: 'Geography',
+    date: '2026-11-09',
+    month: 'November',
+    video: 'https://drive.google.com/file/d/192AyeYucQekaz0kktEZYgMrgKJk1855Q/preview',
+    title: '2026-11-09 - Grade 10 Geography Class Part 2'
+  },
+  {
+    class: '10',
+    subject: 'Geography',
+    date: '2026-11-09',
+    month: 'November',
+    video: 'https://drive.google.com/file/d/1P7NI7tR8G1XulOS6BrfSUu6VoAUHIFj4/preview',
+    title: '2026-11-09 - Grade 10 Geography Class Part 3'
+  },
+  {
+    class: '11',
+    subject: 'Geography',
+    date: '2026-11-09',
+    month: 'November',
+    video: 'https://drive.google.com/file/d/1OscaTsRqvPxPLQhvO9qNRCQ05alSL-R7/preview',
+    title: '2026-11-09 - Grade 11 Geography Class Part 1'
+  },
+  {
+    class: '11',
+    subject: 'Geography',
+    date: '2026-11-09',
+    month: 'November',
+    video: 'https://drive.google.com/file/d/11R4RGiu6KieWOmJbzlossKNABWRbqRut/preview',
+    title: '2026-11-09 - Grade 11 Geography Class Part 2'
+  },
+  {
+    class: '11',
+    subject: 'Geography',
+    date: '2026-11-09',
+    month: 'November',
+    video: 'https://drive.google.com/file/d/1rkb09ZDUMucrQM_5TANhKDYG1yZW8CKI/preview',
+    title: '2026-11-09 - Grade 11 Geography Class Part 3'
+  },
+  {
+    class: '6',
+    subject: 'History',
+    date: '2026-11-10',
+    month: 'November',
+    video: 'https://drive.google.com/file/d/1Ld5d116vw6SmZBPsIoE7fIXzg4Dk7ogt/preview',
+    title: '2026-11-10 - Grade 6 History Class Part 1'
+  },
+  {
+    class: '9',
+    subject: 'History',
+    date: '2026-11-09',
+    month: 'November',
+    video: 'https://drive.google.com/file/d/1MId7Ddun8ORfkionfH-uVDQRy3KI2Qrp/preview',
+    title: '2026-11-09 - Grade 9 History Class Part 1'
+  },
+
 
 ];
