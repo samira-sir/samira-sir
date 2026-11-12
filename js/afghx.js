@@ -212,10 +212,6 @@ const credentials = {
       { name: "history", grade: 7 },
     ],
   },
-  isandu: {
-    password: "isandu123",
-    subjects: [{ name: "geography", grade: 7 }],
-  },
   anusara: { password: "2014", subjects: [{ name: "history", grade: 7 }] },
   kasun: {
     password: "0774830553abc",
