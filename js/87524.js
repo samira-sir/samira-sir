@@ -14711,5 +14711,124 @@ const videoLinks = [
     title: '2026-11-09 - Grade 9 History Class Part 1'
   },
 
-
+  {
+    class: '10',
+    subject: 'History',
+    date: '2026-11-12',
+    month: 'November',
+    video: 'https://drive.google.com/file/d/17is5jEyKf9rEO5JoHjd5oSfVdxe5RzNI/preview',
+    title: '2026-11-12 - Grade 10 History Class Part 1'
+  },
+  {
+    class: '10',
+    subject: 'History',
+    date: '2026-11-12',
+    month: 'November',
+    video: 'https://drive.google.com/file/d/1SD7HE3w4AHVpZAsp6LZDanUwMkjZw_Cj/preview',
+    title: '2026-11-12 - Grade 10 History Class Part 2'
+  },
+  {
+    class: '10',
+    subject: 'History',
+    date: '2026-11-12',
+    month: 'November',
+    video: 'https://drive.google.com/file/d/18eKAoKfocNDu3pYrmYeChbt4rSww2jCm/preview',
+    title: '2026-11-12 - Grade 10 History Class Part 3'
+  },
+  {
+    class: '8',
+    subject: 'Geography',
+    date: '2026-11-12',
+    month: 'November',
+    video: 'https://drive.google.com/file/d/1SbxyGDDawUUHjIRatnXbOV5gpgBZlt7r/preview',
+    title: '2026-11-12 - Grade 8 Geography Class Part 1'
+  },
+  {
+    class: '8',
+    subject: 'Geography',
+    date: '2026-11-12',
+    month: 'November',
+    video: 'https://drive.google.com/file/d/1kZvr9nYkYHXvmMqKUTjDGe6WPO5YRCDW/preview',
+    title: '2026-11-12 - Grade 8 Geography Class Part 2'
+  },
+  {
+    class: '8',
+    subject: 'Geography',
+    date: '2026-11-12',
+    month: 'November',
+    video: 'https://drive.google.com/file/d/1Af0A89OsYeh9EQmmoLqQpPC80olcA3Va/preview',
+    title: '2026-11-12 - Grade 8 Geography Class Part 3'
+  },
+  {
+    class: '10',
+    subject: 'History Paper',
+    date: '2026-11-13',
+    month: 'November',
+    video: 'https://drive.google.com/file/d/1_UGR4_VPX1xCY8AoxSPdGSeWrHIWZxqe/preview',
+    title: '2026-11-13 - Grade 10 History Paper Class Part 1'
+  },
+  {
+    class: '10',
+    subject: 'History Paper',
+    date: '2026-11-13',
+    month: 'November',
+    video: 'https://drive.google.com/file/d/1GAM91RI8WcggJT0fdkFEhPhXnqOCywnr/preview',
+    title: '2026-11-13 - Grade 10 History Paper Class Part 2'
+  },
+  {
+    class: '10',
+    subject: 'History Paper',
+    date: '2026-11-13',
+    month: 'November',
+    video: 'https://drive.google.com/file/d/19Hdvyy0mfLURaL5AF_IZI_DN6C8v2H-t/preview',
+    title: '2026-11-13 - Grade 10 History Paper Class Part 3'
+  },
+  {
+    class: '11',
+    subject: 'History Paper',
+    date: '2026-11-13',
+    month: 'November',
+    video: 'https://drive.google.com/file/d/1_WZOqy48SboLoI6CETA7-jcqhSSzgQS3/preview',
+    title: '2026-11-13 - Grade 11 History Paper Class Part 1'
+  },
+  {
+    class: '11',
+    subject: 'History Paper',
+    date: '2026-11-13',
+    month: 'November',
+    video: 'https://drive.google.com/file/d/1T2hj6uHeFgCYtN9NZl25cUfWzcAmayxm/preview',
+    title: '2026-11-13 - Grade 11 History Paper Class Part 2'
+  },
+  {
+    class: '11',
+    subject: 'History Paper',
+    date: '2026-11-13',
+    month: 'November',
+    video: 'https://drive.google.com/file/d/1N4la-MAhnaYH7QFXaDQW8vwJXuC3qqtV/preview',
+    title: '2026-11-13 - Grade 11 History Paper Class Part 3'
+  },
+  {
+    class: '11',
+    subject: 'History',
+    date: '2026-11-14',
+    month: 'November',
+    video: 'https://drive.google.com/file/d/1Jk2e7oThN9GhuhXQOPfZmGkSBjy-STxw/preview',
+    title: '2026-11-14 - Grade 11 History Class Part 1'
+  },
+  {
+    class: '11',
+    subject: 'History',
+    date: '2026-11-14',
+    month: 'November',
+    video: 'https://drive.google.com/file/d/1fyyMZz57K2p_yoGi6ZwIqql2-3mxuILy/preview',
+    title: '2026-11-14 - Grade 11 History Class Part 2'
+  },
+  {
+    class: '11',
+    subject: 'History',
+    date: '2026-11-14',
+    month: 'November',
+    video: 'https://drive.google.com/file/d/1VnV4qQ-py9DZiZ_Fgh1MFF-Ojb9Mch8G/preview',
+    title: '2026-11-14 - Grade 11 History Class Part 3'
+  },
 ];
