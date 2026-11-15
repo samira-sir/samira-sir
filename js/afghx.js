@@ -126,6 +126,7 @@ const credentials = {
   manuthi: { password: "2016", subjects: [{ name: "history", grade: 6 }] },
   thiven: { password: "thiven123", subjects: [{ name: "history", grade: 6 }] },
   amiru: { password: "amiru123", subjects: [{ name: "history", grade: 6 }] },
+yeshvinth: { password: 'smyeshvinth', subjects: [{"name":"history","grade":"6"}] },
   senuji: {
     password: "shiran",
     subjects: [
