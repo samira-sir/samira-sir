@@ -14934,5 +14934,39 @@ const videoLinks = [
     month: 'November',
     video: 'https://drive.google.com/file/d/145j66tSXq-prPUarR4UFjPBm6RMrIMX1/preview',
     title: '2026-11-15 - Grade 10 Geography Class Part 3'
-  }
+  },
+
+  {
+    class: '9',
+    subject: 'History',
+    date: '2026-11-17',
+    month: 'November',
+    video: 'https://drive.google.com/file/d/1jUMx2fTeQ1IEEwrY3Tso6KVi-MrAfAtK/preview',
+    title: '2026-11-17 - Grade 9 History Class Part 1'
+  },
+  {
+    class: '6',
+    subject: 'History',
+    date: '2026-11-17',
+    month: 'November',
+    video: 'https://drive.google.com/file/d/1RmqQ5yl-yIsd-RZ5DcOcNQ6xtr0bKztI/preview',
+    title: '2026-11-17 - Grade 6 History Class Part 1'
+  },
+  {
+    class: '6',
+    subject: 'History',
+    date: '2026-11-17',
+    month: 'November',
+    video: 'https://drive.google.com/file/d/1bYUqqI2rA6G0g2uiAgvdg3sMCZI0AxXY/preview',
+    title: '2026-11-17 - Grade 6 History Class Part 2'
+  },
+  {
+    class: '6',
+    subject: 'History',
+    date: '2026-11-17',
+    month: 'November',
+    video: 'https://drive.google.com/file/d/1gZeHJ_RDv6QS1d30knRIgbYl6DEHrZw-/preview',
+    title: '2026-11-17 - Grade 6 History Class Part 3'
+  },
+
 ];
