@@ -14993,4 +14993,76 @@ const videoLinks = [
     title: '2026-11-19 - Grade 10 History Class Part 2'
   }
 
+  {
+    class: '10',
+    subject: 'History Paper',
+    date: '2026-11-20',
+    month: 'November',
+    video: 'https://drive.google.com/file/d/1YYSzOD_Z3D-hDiyEw2jFlLpUjekjZ7pA/preview',
+    title: '2026-11-20 - Grade 10 History Paper Class Part 1'
+  },
+  {
+    class: '10',
+    subject: 'History Paper',
+    date: '2026-11-20',
+    month: 'November',
+    video: 'https://drive.google.com/file/d/1vd6gQdZp9ci4SBpRJrUcj7XxhtJW7Cqb/preview',
+    title: '2026-11-20 - Grade 10 History Paper Class Part 2'
+  },
+  {
+    class: '10',
+    subject: 'History Paper',
+    date: '2026-11-20',
+    month: 'November',
+    video: 'https://drive.google.com/file/d/1S1jEALPZrXPz0FGykJvOxO_I_IdSllrh/preview',
+    title: '2026-11-20 - Grade 10 History Paper Class Part 3'
+  },
+  {
+    class: '11',
+    subject: 'History Paper',
+    date: '2026-11-20',
+    month: 'November',
+    video: 'https://drive.google.com/file/d/1H9A8504jTf2WipLc_IBQ13_uG_iqm2hD/preview',
+    title: '2026-11-20 - Grade 11 History Paper Class Part 1'
+  },
+  {
+    class: '11',
+    subject: 'History Paper',
+    date: '2026-11-20',
+    month: 'November',
+    video: 'https://drive.google.com/file/d/15JLYPKn-EUTbVlsXEVkU9lKoxtsbM79v/preview',
+    title: '2026-11-20 - Grade 11 History Paper Class Part 2'
+  },
+  {
+    class: '11',
+    subject: 'History Paper',
+    date: '2026-11-20',
+    month: 'November',
+    video: 'https://drive.google.com/file/d/1qvJszDQxlIJJV8O141pWj6nI4xozOW4y/preview',
+    title: '2026-11-20 - Grade 11 History Paper Class Part 3'
+  },
+  {
+    class: '11',
+    subject: 'History',
+    date: '2026-11-21',
+    month: 'November',
+    video: 'https://drive.google.com/file/d/1qJVZQyP97fGM-9s5FvM2PVZAgjO8lh2C/preview',
+    title: '2026-11-21 - Grade 11 History Class Part 1'
+  },
+  {
+    class: '11',
+    subject: 'History',
+    date: '2026-11-21',
+    month: 'November',
+    video: 'https://drive.google.com/file/d/1JDwpq7qCXizPOES3V0__LbZtCuLOF632/preview',
+    title: '2026-11-21 - Grade 11 History Class Part 2'
+  },
+  {
+    class: '11',
+    subject: 'History',
+    date: '2026-11-21',
+    month: 'November',
+    video: 'https://drive.google.com/file/d/1nsbQqpC8Bsn_VoUDG3bAjZ6cAGFGX0Cn/preview',
+    title: '2026-11-21 - Grade 11 History Class Part 3'
+  },
 ];
