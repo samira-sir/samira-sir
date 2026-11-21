@@ -14991,7 +14991,7 @@ const videoLinks = [
     month: 'November',
     video: 'https://drive.google.com/file/d/1ZWHAqB_3XbbrDiHfYaQKAXG0dBSaX106/preview',
     title: '2026-11-19 - Grade 10 History Class Part 2'
-  }
+  },
 
   {
     class: '10',
