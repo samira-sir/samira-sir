@@ -234,9 +234,9 @@
       const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(recordingMessage)}`;
       window.open(whatsappUrl, '_blank');
 
-      // Update Preview & Modal UI
+      // Update Preview & Modal UI (no outer brackets, trailing comma after every item)
       document.getElementById('arrayCount').innerText = accumulatedArrayEntries.length;
-      document.getElementById('codePreview').innerText = `[\n${accumulatedArrayEntries.join(',\n')}\n]`;
+      document.getElementById('codePreview').innerText = `${accumulatedArrayEntries.join(',\n')},`;
 
       document.getElementById('inputFieldsStep').classList.add('hidden');
       document.getElementById('confirmationStep').classList.remove('hidden');
@@ -254,7 +254,8 @@
     }
 
     function finishAllSubmissions() {
-      const fullCode = `[\n${accumulatedArrayEntries.join(',\n')}\n]`;
+      // Output without outer brackets, with a trailing comma at the end of every object
+      const fullCode = `${accumulatedArrayEntries.join(',\n')},`;
 
       // Copy using fallback execCommand for compatibility
       const tempTextArea = document.createElement('textarea');
@@ -265,8 +266,7 @@
       try {
         document.execCommand('copy');
         showToast('All generated embed code copied to clipboard!');
-                window.location.href = 'https://github.com/samira-sir/samira-sir/blob/main/js/87524.js';
-
+        window.location.href = 'https://github.com/samira-sir/samira-sir/blob/main/js/87524.js';
       } catch (err) {
         showToast('Failed to copy text automatically.');
       } finally {
@@ -287,9 +287,9 @@
       toast.classList.remove('hidden');
       setTimeout(() => {
         toast.classList.add('hidden');
-      
       }, 3000);
     }
   </script>
 </body>
-</html> 
+</html>
+
