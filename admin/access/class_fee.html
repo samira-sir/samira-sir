@@ -307,7 +307,7 @@
         };
 
         // Month lists and short mappings
-const shortMonthMap = {
+        const shortMonthMap = {
             "January": "Jan", "February": "Feb", "March": "Mar", "April": "Apr",
             "May": "May", "June": "Jun", "July": "Jul", "August": "Aug",
             "September": "Sep", "October": "Oct", "November": "Nov", "December": "Dec"
@@ -333,6 +333,10 @@ const shortMonthMap = {
         // Usernames (lowercase) added/updated during THIS session -> shown in the log textarea
         let updatedUsernames = [];
 
+        /**
+         * Populates the student dropdown for the selected grade,
+         * sorted alphabetically (case-insensitive) by student name.
+         */
         function populateStudents() {
             const selectedGrade = parseInt(document.getElementById("grade").value);
             const studentSelect = document.getElementById("student");
@@ -340,16 +344,19 @@ const shortMonthMap = {
             studentSelect.innerHTML = '<option value="" disabled selected>Select a student</option>';
             studentSelect.disabled = false;
 
-            Object.keys(userCredentials).forEach(studentKey => {
-                const student = userCredentials[studentKey];
-                const hasGradeSubject = student.subjects && student.subjects.some(sub => Number(sub.grade) === selectedGrade);
-                
-                if (hasGradeSubject) {
-                    const option = document.createElement("option");
-                    option.value = studentKey;
-                    option.textContent = studentKey.charAt(0).toUpperCase() + studentKey.slice(1);
-                    studentSelect.appendChild(option);
-                }
+            // Filter students enrolled in the selected grade and sort them alphabetically
+            const matchingStudents = Object.keys(userCredentials)
+                .filter(studentKey => {
+                    const student = userCredentials[studentKey];
+                    return student.subjects && student.subjects.some(sub => Number(sub.grade) === selectedGrade);
+                })
+                .sort((a, b) => a.localeCompare(b, undefined, { sensitivity: 'base' }));
+
+            matchingStudents.forEach(studentKey => {
+                const option = document.createElement("option");
+                option.value = studentKey;
+                option.textContent = studentKey.charAt(0).toUpperCase() + studentKey.slice(1);
+                studentSelect.appendChild(option);
             });
 
             resetFeeDisplay();
@@ -478,7 +485,6 @@ const shortMonthMap = {
             const shortMonth = shortMonthMap[selectedMonth] || selectedMonth.substring(0, 3);
 
             // Add / update the student's entry in the userMonthData array
-// Add / update the student's entry in the userMonthData array[cite: 1]
             let studentRecord = paidData.find(
                 item => item && item.username && item.username.toLowerCase() === studentKey.toLowerCase()
             );
@@ -490,7 +496,7 @@ const shortMonthMap = {
                 paidData.push({
                     username: studentKey,
                     months: [shortMonth]
-                },);
+                });
             }
 
             // Remember this student so the log only shows recently created/updated entries
@@ -547,7 +553,7 @@ Paid Fee: LKR ${currentTotalFee}${isCustomFeeActive ? ' (Custom)' : ''}
         }
 
         // Shows ONLY the entries created/updated in this session (empty on page load)
-function updateArrayOutputText() {
+        function updateArrayOutputText() {
             const out = document.getElementById("arrayOutputText");
             if (!out) return;
 
@@ -596,10 +602,6 @@ function updateArrayOutputText() {
         }
 
         // Walk backwards from (current month - 1) until the student's LAST PAID month is found.
-        // Every month passed on the way is an unpaid month.
-        //   last paid == current month - 1  -> [] (no problem)
-        //   last paid is older              -> every month after it up to current month - 1
-        //   never paid anything             -> only current month - 1
         function getPendingMonthIndexes(paidMonths, currentIdx) {
             const paidSet = new Set(paidMonths.map(monthKey));
             const isPaidIdx = i => paidSet.has(shortMonthNamesList[i].toLowerCase());
@@ -657,6 +659,9 @@ function updateArrayOutputText() {
                     paidMonths: paidMonths
                 });
             });
+
+            // Also sort unpaid list alphabetically for easier scanning
+            unpaidList.sort((a, b) => a.displayName.localeCompare(b.displayName, undefined, { sensitivity: 'base' }));
 
             currentUnpaidList = unpaidList;
 
