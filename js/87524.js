@@ -15105,4 +15105,36 @@ const videoLinks = [
     video: 'https://drive.google.com/file/d/1aSpa2Nrnaj_vSowUW-IebmE-nrO8uDy5/preview',
     title: '2026-11-21 - Grade 8 History Class Part 3'
   },
+    {
+    class: '7',
+    subject: 'Geography',
+    date: '2026-11-22',
+    month: 'November',
+    video: 'https://drive.google.com/file/d/1M7WpJ1I7rH8Uc7VrBMJZejMA4CcSdOHZ/preview',
+    title: '2026-11-22 - Grade 7 Geography Class Part 1'
+  },
+  {
+    class: '7',
+    subject: 'Geography',
+    date: '2026-11-22',
+    month: 'November',
+    video: 'https://drive.google.com/file/d/1PkEV0umTzpDdEZVid00J1pIl28McxSpQ/preview',
+    title: '2026-11-22 - Grade 7 Geography Class Part 2'
+  },
+  {
+    class: '7',
+    subject: 'History',
+    date: '2026-11-22',
+    month: 'November',
+    video: 'https://drive.google.com/file/d/1YAd2wB9tZOXVJ1SolaKSzZMYCONAEGu_/preview',
+    title: '2026-11-22 - Grade 7 History Class Part 1'
+  },
+  {
+    class: '7',
+    subject: 'History',
+    date: '2026-11-22',
+    month: 'November',
+    video: 'https://drive.google.com/file/d/1Ddq-ROnLFARJmgsSefXozZAdq_-C74uw/preview',
+    title: '2026-11-22 - Grade 7 History Class Part 2'
+  },
 ];
