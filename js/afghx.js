@@ -631,13 +631,6 @@ yeshvinth: { password: 'smyeshvinth', subjects: [{"name":"history","grade":"6"}]
       { name: "geography", grade: 10 },
     ],
   },
-  pamudu: {
-    password: "pamu@gtrx",
-    subjects: [
-      { name: "history", grade: 11 },
-      { name: "history Paper", grade: 11 },
-    ],
-  },
   thinara: {
     password: "2010",
     subjects: [
@@ -681,10 +674,6 @@ yeshvinth: { password: 'smyeshvinth', subjects: [{"name":"history","grade":"6"}]
       { name: "geography", grade: 10 },
       { name: "history Paper", grade: 11 },
     ],
-  },
-  shenon: {
-    password: "1234",
-    subjects: [{ name: "history Paper", grade: 11 }],
   },
   disanma: { password: "1985", subjects: [{ name: "history", grade: 11 }] },
   amasha: {
