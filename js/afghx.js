@@ -707,6 +707,13 @@ yeshvinth: { password: 'smyeshvinth', subjects: [{"name":"history","grade":"6"}]
       { name: "history", grade: 11 },
     ],
   },
+    pamudu: {
+    password: "pamu@gtrx",
+    subjects: [
+      { name: "history", grade: 11 },
+      { name: "history Paper", grade: 11 },
+    ],
+  },
   minudi11: {
     password: "2010",
     subjects: [
